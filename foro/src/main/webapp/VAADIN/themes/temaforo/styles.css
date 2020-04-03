@@ -1627,196 +1627,6 @@ div.v-layout.v-horizontal.v-widget {
 	vertical-align: top;
 }
 
-.temaforo .app-shell .custom-menubar .v-menubar-menuitem {
-	position: relative;
-}
-
-.temaforo .app-shell .custom-menubar .v-menubar-menuitem ::before {
-	content: "";
-	display: block;
-	position: absolute;
-	width: 100%;
-	height: 1px;
-	background: #197de1;
-	bottom: -20px;
-	left: 0;
-}
-
-.temaforo .app-shell .navigation-bar {
-	background: #197de1;
-	z-index: 10000;
-}
-
-.temaforo .app-shell .logo {
-	color: #cde3f9;
-	text-align: center;
-	padding: 18.5px 9.25px;
-	font-size: 17.6px;
-}
-
-.temaforo .app-shell .view-title {
-	font-size: 17.6px;
-	color: #5f5f5f;
-	padding: 18.5px 12.33333px;
-}
-
-.temaforo .app-shell .padding {
-	padding: 12.33333px;
-}
-
-.temaforo .app-shell .padding-top {
-	padding-top: 12.33333px;
-}
-
-.temaforo .app-shell .padding-right {
-	padding-right: 12.33333px;
-}
-
-.temaforo .app-shell .padding-bottom {
-	padding-bottom: 12.33333px;
-}
-
-.temaforo .app-shell .padding-left {
-	padding-left: 12.33333px;
-}
-
-.temaforo .app-shell .content-section {
-	background: white;
-	border: 1px solid #efefef;
-	font-size: 14.4px;
-	overflow-y: auto;
-	overflow-x: hidden;
-}
-
-.temaforo .app-shell .menu {
-	float: right;
-	padding: 0 10px;
-	line-height: 37px;
-	color: #cde3f9;
-	display: none;
-}
-
-.temaforo .app-shell .menu .v-icon {
-	line-height: 1;
-	color: white;
-	font-size: 16px;
-}
-
-.temaforo .app-shell .navigation {
-	border-top: 1px solid #358fe9;
-	border-bottom: 1px solid #358fe9;
-	background: #1773cf;
-}
-
-.temaforo .app-shell .navigation .v-icon {
-	color: #88bdf2;
-}
-
-.temaforo .app-shell .navigation .v-button {
-	text-align: left;
-	font-size: 14.4px;
-	text-overflow: ellipsis;
-	color: #cde3f9;
-}
-
-.temaforo .app-shell .navigation .v-button.active, .temaforo .app-shell .navigation .v-button:focus {
-	color: white;
-}
-
-.temaforo .app-shell .navigation .v-button.active .v-icon, .temaforo .app-shell .navigation .v-button:focus .v-icon {
-	color: #e3f0fc;
-}
-
-.temaforo .app-shell .navigation .v-button:focus::after {
-	content: none;
-}
-
-.temaforo .app-shell .navigation .v-button::after {
-	pointer-events: none;
-}
-
-.temaforo .app-shell .navigation .v-button.borderless:hover {
-	background: #156bc1;
-}
-
-.temaforo .app-shell[width-range~="601px-1000px"] .navigation-bar-container {
-	width: 80px !important;
-}
-
-.temaforo .app-shell[width-range~="601px-1000px"] .navigation-bar-container .logo {
-	font-size: 12px;
-}
-
-.temaforo .app-shell[width-range~="601px-1000px"] .navigation-bar-container .navigation .v-button {
-	font-size: 26px;
-	height: 60px;
-	padding: 10px 6px;
-	box-sizing: border-box;
-	line-height: 1;
-}
-
-.temaforo .app-shell[width-range~="601px-1000px"] .navigation-bar-container .navigation .v-button::before {
-	content: none;
-}
-
-.temaforo .app-shell[width-range~="601px-1000px"] .navigation-bar-container .navigation .v-button .v-button-wrap {
-	width: 100%;
-}
-
-.temaforo .app-shell[width-range~="601px-1000px"] .navigation-bar-container .navigation .v-button .v-button-caption {
-	font-size: 9.6px;
-	margin: 0;
-	width: 100%;
-	float: left;
-	margin-top: 3px;
-	text-align: center;
-}
-
-.temaforo .app-shell[width-range~="601px-1000px"] .navigation-bar-container .navigation .v-button .v-icon {
-	width: 100%;
-	float: left;
-	text-align: center;
-}
-
-.temaforo .app-shell[width-range~="-600px"] .navigation-bar-container {
-	width: 0px !important;
-}
-
-.temaforo .app-shell[width-range~="-600px"] .menu {
-	display: block;
-}
-
-.temaforo .app-shell[width-range~="-600px"] .navigation {
-	visibility: hidden;
-	transition: visibility 0.1s;
-}
-
-.temaforo .app-shell[width-range~="-600px"] .menu:focus {
-	pointer-events: none;
-}
-
-.temaforo .app-shell[width-range~="-600px"] .menu:focus + .navigation {
-	visibility: visible;
-}
-
-.temaforo .app-shell[width-range~="-600px"] .navigation-bar {
-	position: fixed;
-	width: 100%;
-	height: 37px !important;
-}
-
-.temaforo .app-shell[width-range~="-600px"] .logo {
-	line-height: 37px;
-	width: auto !important;
-	float: left;
-	padding: 0 14.8px;
-	font-size: 16px;
-}
-
-.temaforo .app-shell[width-range~="-600px"] .content-container {
-	padding-top: 37px;
-}
-
 .temaforo.v-app, .temaforo.v-app-loading {
 	font: 300 16px/1.55 "Open Sans", sans-serif;
 	color: #464646;
@@ -15609,32 +15419,127 @@ div.v-layout.v-horizontal.v-widget {
 	overflow: hidden;
 }
 
-.temaforo .v-hl {
+.temaforo .v-absolutelayout-fondogris {
 	background-color: #eee;
 }
 
-.temaforo .round {
-	border-radius: 45%;
+.temaforo #fondogris {
+	background-color: #eee;
 }
 
-.temaforo .red {
-	color: red;
-}
-
-.temaforo .green {
-	color: green;
-}
-
-.temaforo .azulBoton {
-	color: #1976d2;
+.temaforo .cajaMensaje {
+	border-radius: 15px 15px 15px 15px;
+	margin: 1px;
 	background-color: #fff;
+	font-size: 20px;
+	padding: 5px;
+	border: 1px solid #eee;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
 }
 
-.temaforo .temaforo .v-button-morado {
-	height: 37px;
-	padding: 0 16px;
+.temaforo .fotoPerfil {
+	border-radius: 100px 100px 100px 100px;
+	background-color: #fff;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.temaforo .nombreUsuarios {
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.temaforo .v-button {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.temaforo #recuperarLink {
+	font-weight: bold;
+	font-size: 19px;
+}
+
+.temaforo #cambiarcontrasena {
+	color: #1976d2;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.temaforo .seccion {
+	color: #1976d2;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.temaforo #negrita {
+	font-weight: bold;
+}
+
+.temaforo .negrita {
+	font-weight: bold;
+}
+
+.temaforo #confirmar {
+	font-size: 17px;
+}
+
+.temaforo .banear {
+	font-size: 15px;
+}
+
+.temaforo .temaforo .v-botton-eliminar {
+	color: #f9f0ef;
+	font-weight: 400;
+	text-align: center;
+	font-weight: bold;
+	border-radius: 4px;
+	border: 1px solid #bb382e;
+	border-top-color: #bc3c31;
+	border-bottom-color: #b13028;
+	background-color: #ed473b;
+	background-image: -webkit-linear-gradient(top, #ee4c3f 2%, #e13e33 98%);
+	background-image: linear, to bottom, #ee4c3f 2%, #e13e33 98%;
+	-webkit-box-shadow: inset 0 1px 0 #ef786f, inset 0 -1px 0 #da3c31, 0 2px 3px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 0 #ef786f, inset 0 -1px 0 #da3c31, 0 2px 3px rgba(0, 0, 0, 0.05);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.temaforo .temaforo .v-botton-eliminar:after {
+	border: inherit;
+	top: -1px;
+	right: -1px;
+	bottom: -1px;
+	left: -1px;
+}
+
+.temaforo .temaforo .v-botton-eliminar:hover:after {
+	background-color: rgba(243, 137, 129, 0.1);
+}
+
+.temaforo .temaforo .v-botton-eliminar:focus:after {
+	border: inherit;
+	-webkit-box-shadow: 0 0 0 2px rgba(25, 125, 225, 0.5);
+	box-shadow: 0 0 0 2px rgba(25, 125, 225, 0.5);
+}
+
+.temaforo .temaforo .v-botton-eliminar:active:after {
+	background-color: rgba(146, 12, 2, 0.2);
+}
+
+.temaforo .temaforo .v-botton.v-disabled {
+	opacity: 0.5;
+	filter: alpha(opacity=50) ;
+}
+
+.temaforo .temaforo .v-botton.v-disabled:after {
+	display: none;
+}
+
+.temaforo .temaforo .v-botton-morado {
 	color: #eaf4e9;
 	font-weight: 400;
+	text-align: center;
+	font-weight: bold;
+	font-size: 13px;
 	border-radius: 4px;
 	border: 1px solid #9c27b0;
 	border-top-color: #9c27b0;
@@ -15647,7 +15552,7 @@ div.v-layout.v-horizontal.v-widget {
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
-.temaforo .temaforo .v-button-morado:after {
+.temaforo .temaforo .v-botton-morado:after {
 	border: inherit;
 	top: -1px;
 	right: -1px;
@@ -15655,72 +15560,35 @@ div.v-layout.v-horizontal.v-widget {
 	left: -1px;
 }
 
-.temaforo .temaforo .v-button-morado:hover:after {
+.temaforo .temaforo .v-botton-morado:hover:after {
 	background-color: rgba(171, 71, 188, 0.1);
 }
 
-.temaforo .temaforo .v-button-morado:focus:after {
+.temaforo .temaforo .v-botton-morado:focus:after {
 	border: inherit;
 	-webkit-box-shadow: 0 0 0 2px rgba(25, 125, 225, 0.5);
 	box-shadow: 0 0 0 2px rgba(25, 125, 225, 0.5);
 }
 
-.temaforo .temaforo .v-button-morado:active:after {
+.temaforo .temaforo .v-botton-morado:active:after {
 	background-color: rgba(74, 20, 140, 0.2);
 }
 
-.temaforo #nickUsuario {
-	font-weight: bold;
-	font-size: 25px;
-	margin: 10px;
-	background-color: #eee;
-}
-
-.temaforo .descripcionUsuario {
-	background-color: #eee;
-}
-
-.temaforo .nombreCompletoUsuario {
-	background-color: #eee;
-}
-
-.temaforo #tituloMensajesdeUsuario {
-	font-weight: bold;
-	font-size: 35px;
-	margin: 10px;
-	color: #1976d2;
-	text-align: center;
-}
-
-.temaforo .tituloAzulGrande {
-	font-weight: bold;
-	font-size: 45px;
-	margin: 10px;
-	color: #1976d2;
-	text-align: left;
-}
-
-.temaforo .tituloAzulSinNegrita {
-	font-size: 35px;
-	margin: 10px;
-	color: #1976d2;
-	text-align: left;
-}
-
-.temaforo .tituloAzul {
-	font-weight: bold;
-	font-size: 35px;
-	margin: 10px;
-	color: #1976d2;
-	text-align: center;
-}
-
-.temaforo .cajaMensaje {
-	border-radius: 15px 15px 15px 15px;
-	margin: 1px;
-	background-color: #fff;
-	font-size: 20px;
-	padding: 5px;
-	border: 1px solid #eee;
+.temaforo #cajacambiar {
+	background-color: #ffffff;
 	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.temaforo #cargarImagen {
+	width: 100px;
+	height: 100px;
+	margin: 5px;
+	padding: 10px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+	font-size: 11px;
+	line-height: 32px;
+	text-transform: uppercase;
+	float: left;
 }
