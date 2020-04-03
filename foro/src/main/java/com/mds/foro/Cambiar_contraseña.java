@@ -1,15 +1,15 @@
 package com.mds.foro;
 
-public class Cambiar_contraseña {
-	private JLabel _tituloL;
-	private JTextField _ingreseContraseñaTF;
-	private JTextField _repetirContraseñaTF;
+public class Cambiar_contraseï¿½a {
+	private Label _tituloL;
+	private TextField _ingreseContraseï¿½aTF;
+	private JTextField _repetirContraseï¿½aTF;
 	private JLabel _cancelarL;
 	private JButton _cancelarB;
 	private JLabel _confirmarL;
 	private JButton _confirmarB;
 	public Visualizar_mi_perfil _unnamed_Visualizar_mi_perfil_;
-	public Validar_contraseña _validar_contraseña;
+	public Validar_contraseï¿½a _validar_contraseï¿½a;
 
 	public void confirmar_cambio_password() {
 		throw new UnsupportedOperationException();
