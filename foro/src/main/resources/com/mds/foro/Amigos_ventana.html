@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;temaforo&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-absolute-layout icon="primary" style-name="pantallaAmigo" responsive>
+   <vaadin-vertical-layout primary-style-name="v-hl" width="30%" height-full _id="datosPerfil">
+    <vaadin-image source="https://avatars2.githubusercontent.com/u/8536167?s=460&amp;u=8af2caf797d0665323732770a4df0c689c1e6885&amp;v=4" style-name="round" responsive width="80%" _id="imagenPerfil" :center></vaadin-image>
+    <vaadin-label caption-as-html responsive id="nickUsuario" plain-text _id="nickUsuario" :bottom :center>
+      @nickUsuario 
+    </vaadin-label>
+    <vaadin-label responsive size-full plain-text _id="descripcionUsuario" :center>
+      Descripcion de usuario, aqui habra un texto de prueba, en este caso sera remplazado por la descripcion aportada por el usuario que tendra un maximo de 500 caracteres. Descripcion de usuario, aqui habra un texto de prueba, en este caso sera remplazado por la descripcion aportada por el usuario que tendra un maximo de 500caracteres. Descripcion de usuario, aqui habra un texto de prueba, en este caso sera remplazado por la descripcion aportada por el usuario que tendra un maximo de 500 caracteres. 
+    </vaadin-label>
+    <vaadin-button icon="fonticon://Vaadin-Icons/e622" style-name="danger" width-full height="24%" tabindex="10" plain-text _id="volverAtras" :bottom :center>
+      VOLVER ATRAS 
+    </vaadin-button>
+   </vaadin-vertical-layout>
+   <vaadin-label id="tituloMensajesdeUsuario" size-full ;="" plain-text _id="tituloMensajesdeUsuario" :top="20%" :right="10%" :bottom="75%" :left="45%">
+     LISTA DE AMIGOS 
+   </vaadin-label>
+   <vaadin-grid visible="false" column-resize-mode="simple" responsive size-full selection-mode="none" _id="listaMensajes" :top="30%" :right="5%" :bottom="30%" :left="35%">
+    <table>
+     <colgroup>
+      <col column-id="project" sortable="false">
+     </colgroup>
+     <thead>
+      <tr default>
+       <th plain-text column-ids="project">LISTA DE AMIGOS</th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr item="project1">
+       <td>Amigo 1</td>
+      </tr>
+      <tr item="project2">
+       <td>Amigo 2</td>
+      </tr>
+      <tr item="project3">
+       <td>Amigo 3</td>
+      </tr>
+      <tr item="project4">
+       <td>Amigo 4</td>
+      </tr>
+      <tr item="project5">
+       <td>Amigo 5</td>
+      </tr>
+      <tr item="project6">
+       <td>Amigo 6</td>
+      </tr>
+      <tr item="project7">
+       <td>Amigo 7</td>
+      </tr>
+      <tr item="project8">
+       <td>Amigo 8</td>
+      </tr>
+      <tr item="project9">
+       <td>Amigo 9</td>
+      </tr>
+     </tbody>
+    </table>
+   </vaadin-grid>
+   <vaadin7-vertical-layout :top="30%" :right="15%" :bottom="30%" :left="45%">
+    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaAmigos">
+     <vaadin-image source="https://avatars2.githubusercontent.com/u/8536167?s=460&amp;u=8af2caf797d0665323732770a4df0c689c1e6885&amp;v=4" style-name="round" width="50px" _id="imagenUsuario" :middle></vaadin-image>
+     <vaadin-label width="105%" plain-text _id="nombreUsuario" :middle>
+       Nombre Usuario 
+     </vaadin-label>
+     <vaadin-link caption="ELIMINAR" style-name="red" :middle :right></vaadin-link>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaAmigos1">
+     <vaadin-image source="https://avatars1.githubusercontent.com/u/61786916?s=460&amp;v=4" style-name="round" width="50px" height="50px" _id="imagenUsuario1" :middle></vaadin-image>
+     <vaadin-label width="105%" plain-text _id="nombreUsuario1" :middle>
+       Nombre Usuario 
+     </vaadin-label>
+     <vaadin-link caption="ELIMINAR" style-name="red" :middle :right></vaadin-link>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaAmigos2">
+     <vaadin-image source="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTbmCGWVGB5uGkSIPVVb0A-haELwXPBDdHKqUFqxviVYeuPjzfi" style-name="round" width="50px" height="50px" _id="imagenUsuario2" :middle></vaadin-image>
+     <vaadin-label width="105%" plain-text _id="nombreUsuario2" :middle>
+       Nombre Usuario 
+     </vaadin-label>
+     <vaadin-link caption="ELIMINAR" style-name="red" :middle :right></vaadin-link>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaAmigos3">
+     <vaadin-image source="https://www.soyfutbol.com/__export/1557611939289/sites/debate/img/2019/05/11/leonel_messi.jpg_943222218.jpg" style-name="round" width="50px" height="50px" _id="imagenUsuario3" :middle></vaadin-image>
+     <vaadin-label width="105%" plain-text _id="nombreUsuario3" :middle>
+       Nombre Usuario 
+     </vaadin-label>
+     <vaadin-link caption="ELIMINAR" style-name="red" :middle :right></vaadin-link>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaAmigos4">
+     <vaadin-image source="https://pbs.twimg.com/profile_images/1228253700814188545/Soed2NJr.jpg" style-name="round" width="50px" height="50px" _id="imagenUsuario4" :middle></vaadin-image>
+     <vaadin-label width="105%" plain-text _id="nombreUsuario4" :middle>
+       Nombre Usuario 
+     </vaadin-label>
+     <vaadin-link caption="ELIMINAR" style-name="red" :middle :right></vaadin-link>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaAmigos5">
+     <vaadin-image source="https://www.elnacional.cat/enblau/uploads/s1/98/29/13/4/auronplay-youtube_1_630x630.jpeg" style-name="round" width="50px" height="50px" _id="imagenUsuario5" :middle></vaadin-image>
+     <vaadin-label width="105%" plain-text _id="nombreUsuario5" :middle>
+       Nombre Usuario 
+     </vaadin-label>
+     <vaadin-link caption="ELIMINAR" style-name="red" :middle :right></vaadin-link>
+    </vaadin-horizontal-layout>
+   </vaadin7-vertical-layout>
+  </vaadin-absolute-layout>
+ </body>
+</html>

@@ -1,0 +1,7 @@
+package com.mds.foro;
+
+public class Mensajes__Usuario_identificado_ {
+	public Visualizar_tema_y_mensajes__Usuario_identificado_ _unnamed_Visualizar_tema_y_mensajes__Usuario_identificado__;
+	public Mensaje_propietario _unnamed_Mensaje_propietario_;
+	public Mensaje_no_propietario _unnamed_Mensaje_no_propietario_;
+}

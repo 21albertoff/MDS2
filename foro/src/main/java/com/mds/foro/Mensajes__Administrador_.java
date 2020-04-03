@@ -1,0 +1,5 @@
+package com.mds.foro;
+
+public class Mensajes__Administrador_ {
+	public Visualizar_tema_y_mensajes__Administrador_ _unnamed_Visualizar_tema_y_mensajes__Administrador__;
+}

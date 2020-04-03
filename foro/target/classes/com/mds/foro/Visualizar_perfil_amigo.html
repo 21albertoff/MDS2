@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:true,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;temaforo&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+  <meta name="package-mapping" content="com_vaadin:com.vaadin">
+  <meta name="package-mapping" content="com_mds_foro:com.mds.foro">
+ </head>
+ <body>
+  <vaadin-absolute-layout icon="primary" style-name="pantallaAmigo" responsive>
+   <vaadin-vertical-layout primary-style-name="v-hl" width="30%" height-full _id="datosPerfil">
+    <vaadin-image source="https://avatars2.githubusercontent.com/u/8536167?s=460&amp;u=8af2caf797d0665323732770a4df0c689c1e6885&amp;v=4" style-name="round" responsive width="80%" _id="imagenPerfil" :center></vaadin-image>
+    <vaadin-label caption-as-html responsive id="nickUsuario" plain-text _id="nickUsuario" :bottom :center>
+      @nickUsuario 
+    </vaadin-label>
+    <vaadin-label responsive size-full plain-text _id="descripcionUsuario" :center>
+      Descripcion de usuario, aqui habra un texto de prueba, en este caso sera remplazado por la descripcion aportada por el usuario que tendra un maximo de 500 caracteres. Descripcion de usuario, aqui habra un texto de prueba, en este caso sera remplazado por la descripcion aportada por el usuario que tendra un maximo de 500caracteres. Descripcion de usuario, aqui habra un texto de prueba, en este caso sera remplazado por la descripcion aportada por el usuario que tendra un maximo de 500 caracteres. 
+    </vaadin-label>
+    <vaadin-button icon="fonticon://Vaadin-Icons/e6d0" style-name="friendly" width-full height="24%" tabindex="10" plain-text _id="añadirAmigo" :bottom :center>
+      ENVIAR SOLICITUD 
+    </vaadin-button>
+    <vaadin-button visible="false" icon="fonticon://Vaadin-Icons/e80b" enabled="false" style-name="danger" width-full height="24%" tabindex="10" plain-text _id="eliminarAmigo" :bottom :center>
+      ELIMINAR AMIGO 
+    </vaadin-button>
+   </vaadin-vertical-layout>
+   <vaadin-label id="tituloMensajesdeUsuario" size-full ;="" plain-text _id="tituloMensajesdeUsuario" :top="20%" :right="10%" :bottom="75%" :left="45%">
+     ÚLTIMOS MENSAJES DEL USUARIO 
+   </vaadin-label>
+   <vaadin-grid visible="false" column-resize-mode="simple" column-reordering-allowed responsive header-visible="false" size-full selection-mode="none" _id="listaMensajes" :top="30%" :right="5%" :bottom="30%" :left="35%">
+    <table>
+     <colgroup>
+      <col column-id="project" sortable="false">
+      <col column-id="status" sortable="false">
+     </colgroup>
+     <thead>
+      <tr default>
+       <th plain-text column-ids="project">Mensajes del usuario</th>
+       <th plain-text column-ids="status">Fecha</th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr item="project1">
+       <td>Mensaje 1</td>
+       <td>14/03/2020</td>
+      </tr>
+      <tr item="project2">
+       <td>Mensaje 2</td>
+       <td>14/03/2020</td>
+      </tr>
+      <tr item="project3">
+       <td>Mensaje 3</td>
+       <td>14/03/2020</td>
+      </tr>
+      <tr item="project4">
+       <td>Mensaje 4</td>
+       <td>14/03/2020</td>
+      </tr>
+      <tr item="project5">
+       <td>Mensaje 5</td>
+       <td>14/03/2020</td>
+      </tr>
+      <tr item="project6">
+       <td>Mensaje 6</td>
+       <td>14/03/2020</td>
+      </tr>
+      <tr item="project7">
+       <td>Mensaje 7</td>
+       <td>14/03/2020</td>
+      </tr>
+      <tr item="project8">
+       <td>Mensaje 8</td>
+       <td>14/03/2020</td>
+      </tr>
+      <tr item="project9">
+       <td>Mensaje 9</td>
+       <td>14/03/2020</td>
+      </tr>
+     </tbody>
+    </table>
+   </vaadin-grid>
+   <vaadin7-vertical-layout :top="30%" :right="5%" :bottom="30%" :left="35%">
+    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje">
+     <vaadin-image source="https://cdn.pixabay.com/photo/2014/03/24/17/15/bike-295235_960_720.png" width="50px" height="50px" _id="imagenTema" :center></vaadin-image>
+     <vaadin-label plain-text _id="mensaje" :middle>
+       Mensaje 
+     </vaadin-label>
+     <vaadin-label plain-text _id="temaMensaje" :middle>
+       Tema 
+     </vaadin-label>
+     <vaadin-label plain-text _id="fechaMensajeUsuario" :middle>
+       14/03/2020 
+     </vaadin-label>
+     <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarMensaje6" :middle :center></vaadin-link>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje1">
+     <vaadin-image source="https://images-na.ssl-images-amazon.com/images/I/51a4c1eOl2L.png" width="50px" height="50px" _id="imagenTema1" :center></vaadin-image>
+     <vaadin-label plain-text _id="mensaje1" :middle>
+       Mensaje 
+     </vaadin-label>
+     <vaadin-label plain-text _id="temaMensaje1" :middle>
+       Tema 
+     </vaadin-label>
+     <vaadin-label plain-text _id="fechaMensajeUsuario1" :middle>
+       14/03/2020 
+     </vaadin-label>
+     <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarMensaje5" :middle :center></vaadin-link>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje11">
+     <vaadin-image source="https://image.flaticon.com/icons/png/512/53/53283.png" width="40px" height="40px" _id="imagenTema11" :center></vaadin-image>
+     <vaadin-label plain-text _id="mensaje11" :middle>
+       Mensaje 
+     </vaadin-label>
+     <vaadin-label plain-text _id="temaMensaje11" :middle>
+       Tema 
+     </vaadin-label>
+     <vaadin-label plain-text _id="fechaMensajeUsuario11" :middle>
+       14/03/2020 
+     </vaadin-label>
+     <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarMensaje4" :middle :center></vaadin-link>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje12">
+     <vaadin-image source="https://pngimage.net/wp-content/uploads/2018/06/icono-juegos-png-3.png" width="50px" height="50px" _id="imagenTema12" :center></vaadin-image>
+     <vaadin-label plain-text _id="mensaje12" :middle>
+       Mensaje 
+     </vaadin-label>
+     <vaadin-label plain-text _id="temaMensaje12" :middle>
+       Tema 
+     </vaadin-label>
+     <vaadin-label plain-text _id="fechaMensajeUsuario12" :middle>
+       14/03/2020 
+     </vaadin-label>
+     <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarMensaje3" :middle :center></vaadin-link>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje13">
+     <vaadin-image source="https://image.flaticon.com/icons/png/512/45/45705.png" width="50px" height="50px" _id="imagenTema13" :center></vaadin-image>
+     <vaadin-label plain-text _id="mensaje13" :middle>
+       Mensaje 
+     </vaadin-label>
+     <vaadin-label plain-text _id="temaMensaje13" :middle>
+       Tema 
+     </vaadin-label>
+     <vaadin-label plain-text _id="fechaMensajeUsuario13" :middle>
+       14/03/2020 
+     </vaadin-label>
+     <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarMensaje2" :middle :center></vaadin-link>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje14">
+     <vaadin-image source="https://image.flaticon.com/icons/png/512/69/69112.png" width="50px" height="50px" _id="imagenTema14" :center></vaadin-image>
+     <vaadin-label plain-text _id="mensaje14" :middle>
+       Mensaje 
+     </vaadin-label>
+     <vaadin-label plain-text _id="temaMensaje14" :middle>
+       Tema 
+     </vaadin-label>
+     <vaadin-label plain-text _id="fechaMensajeUsuario14" :middle>
+       14/03/2020 
+     </vaadin-label>
+     <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarMensaje1" :middle :center></vaadin-link>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje15">
+     <vaadin-image source="https://image.flaticon.com/icons/png/512/5/5067.png" width="50px" height="50px" _id="imagenTema15" :center></vaadin-image>
+     <vaadin-label plain-text _id="mensaje15" :middle>
+       Mensaje 
+     </vaadin-label>
+     <vaadin-label plain-text _id="temaMensaje15" :middle>
+       Tema 
+     </vaadin-label>
+     <vaadin-label plain-text _id="fechaMensajeUsuario15" :middle>
+       14/03/2020 
+     </vaadin-label>
+     <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarMensaje" :middle :center></vaadin-link>
+    </vaadin-horizontal-layout>
+   </vaadin7-vertical-layout>
+   <vaadin-button visible="false" style-name="morado" size-full tabindex="10" plain-text _id="añadirAmigo1" :top="85%" :right="20%" :bottom="10%" :left="50%">
+     NOTIFICIAR USUARIO 
+   </vaadin-button>
+   <vaadin-check-box caption="MODERADOR" :top="86%" :right="20%" :bottom="10%" :left="55%"></vaadin-check-box>
+   <vaadin-combo-box caption="CANTIDAD DE MENSAJES" data-item-type="java.lang.String" _id="cantidadMensajes" :top="85%" :right="20%" :bottom="10%" :left="35%">
+    <option item="Option1">3 Mensajes</option>
+    <option item="Option2">4 Mensajes</option>
+    <option item="Option3">5 Mensajes</option>
+    <option item="Option4">6 Mensajes</option>
+   </vaadin-combo-box>
+   <vaadin-button style-name="danger" size-full tabindex="10" plain-text _id="banearUsuario" :top="85%" :right="10%" :bottom="10%" :left="70%">
+     BANEAR USUARIO 
+   </vaadin-button>
+  </vaadin-absolute-layout>
+ </body>
+</html>

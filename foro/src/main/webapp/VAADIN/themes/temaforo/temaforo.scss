@@ -1,0 +1,156 @@
+// If you edit this file you need to compile the theme. See README.md for details.
+
+// Global variable overrides. Must be declared before importing Valo.
+
+// Defines the plaintext font size, weight and family. Font size affects general component sizing.
+//$v-font-size: 16px;
+//$v-font-weight: 300;
+//$v-font-family: "Open Sans", sans-serif;
+
+// Defines the border used by all components.
+//$v-border: 1px solid (v-shade 0.7);
+//$v-border-radius: 4px;
+
+// Affects the color of some component elements, e.g Button, Panel title, etc
+//$v-background-color: hsl(210, 0%, 98%);
+// Affects the color of content areas, e.g  Panel and Window content, TextField input etc
+//$v-app-background-color: $v-background-color;
+
+// Affects the visual appearance of all components
+//$v-gradient: v-linear 8%;
+//$v-bevel-depth: 30%;
+//$v-shadow-opacity: 5%;
+
+// Defines colors for indicating status (focus, success, failure)
+//$v-focus-color: valo-focus-color(); // Calculates a suitable color automatically
+//$v-friendly-color: #2c9720;
+//$v-error-indicator-color: #ed473b;
+
+// For more information, see: https://vaadin.com/book/-/page/themes.valo.html
+// Example variants can be copy/pasted from https://vaadin.com/docs/v8/framework/articles/ValoExamples.html
+
+@import "../valo/valo.scss";
+
+@mixin temaforo {
+  @include valo;
+
+.v-hl{
+	background-color: #eee;
+	}
+	
+.round{
+	border-radius: 45%;
+	}
+
+.red{
+	color: red;
+	}
+	
+.green{
+	color: green;
+	}
+	
+.azulBoton{
+	color: #1976d2;
+	background-color: #fff;
+	}
+
+.temaforo .v-button-morado {
+	height: 37px;
+	padding: 0 16px;
+	color: #eaf4e9;
+	font-weight: 400;
+	
+	
+	border-radius: 4px;
+	border: 1px solid #9c27b0;
+	border-top-color: #9c27b0;
+	border-bottom-color: #9c27b0;
+	background-color: #8e24aa;
+	background-image: -webkit-linear-gradient(top, #8e24aa 2%, #7b1fa2 98%);
+	background-image: linear-gradient(to bottom,#8e24aa 2%, #7b1fa2 98%);
+	-webkit-box-shadow: inset 0 1px 0 #9c27b0, inset 0 -1px 0 #6a1b9a, 0 2px 3px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 0 #9c27b0, inset 0 -1px 0 #6a1b9a, 0 2px 3px rgba(0, 0, 0, 0.05);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.temaforo .v-button-morado:after {
+	border: inherit;
+	top: -1px;
+	right: -1px;
+	bottom: -1px;
+	left: -1px;
+}
+
+.temaforo .v-button-morado:hover:after {
+	background-color: rgba(171, 71, 188, 0.1);
+}
+
+.temaforo .v-button-morado:focus:after {
+	border: inherit;
+	-webkit-box-shadow: 0 0 0 2px rgba(25, 125, 225, 0.5);
+	box-shadow: 0 0 0 2px rgba(25, 125, 225, 0.5);
+}
+
+.temaforo .v-button-morado:active:after {
+	background-color: rgba(74, 20, 140, 0.2);
+}
+	
+#nickUsuario{
+	font-weight: bold;
+	font-size: 25px;
+	margin: 10px;
+	background-color: #eee;
+}
+
+.descripcionUsuario{
+	background-color: #eee;
+}
+
+.nombreCompletoUsuario{
+	background-color: #eee;
+}
+
+#tituloMensajesdeUsuario{
+	font-weight: bold;
+	font-size: 35px;
+	margin: 10px;
+	color: #1976d2;
+	text-align:center;
+}
+
+.tituloAzulGrande{
+	font-weight: bold;
+	font-size: 45px;
+	margin: 10px;
+	color: #1976d2;
+	text-align:left;
+}
+
+.tituloAzulSinNegrita{
+	font-size: 35px;
+	margin: 10px;
+	color: #1976d2;
+	text-align:left;
+}
+
+.tituloAzul{
+	font-weight: bold;
+	font-size: 35px;
+	margin: 10px;
+	color: #1976d2;
+	text-align:center;
+}
+
+.cajaMensaje{
+	border-radius: 15px 15px 15px 15px;
+	margin: 1px;
+	background-color: #fff;
+	font-size: 20px;
+	padding: 5px;
+	border: 1px solid #eee;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+}
