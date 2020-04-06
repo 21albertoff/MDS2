@@ -7,6 +7,15 @@
  </head>
  <body>
   <vaadin-absolute-layout style-name="fondogris">
+   <vaadin-absolute-layout icon="menuSuperior" style-name="menuSuperior" height="9%">
+    <vaadin7-label style-name="nombreForo" size-full plain-text _id="nombreForo" :top="30%" :left="5%">
+      foroMDS2 
+    </vaadin7-label>
+    <vaadin-absolute-layout _id="menuUsuarioNoIdentifado">
+     <vaadin-link caption="Registrarse" primary-style-name="enlacesMenu" size-full _id="menuRegistrarse" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e80d" caption="Iniciar Sesion" primary-style-name="enlacesMenu" size-full _id="menuIniciarSesion" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
+    </vaadin-absolute-layout>
+   </vaadin-absolute-layout>
    <vaadin-absolute-layout responsive id="cajacambiar" _id="cajacambiar" :top="30%" :right="30%" :bottom="25%" :left="30%">
     <vaadin-password-field icon="fonticon://Vaadin-Icons/e7f2" caption="CONTRASEÑA" width="423px" height="40px" :top="55%" :left="13%"></vaadin-password-field>
     <vaadin-label id="cambiarcontrasena" plain-text _id="cambiarcontrasena" :top="13%" :left="33%">

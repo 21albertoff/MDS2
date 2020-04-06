@@ -15419,6 +15419,24 @@ div.v-layout.v-horizontal.v-widget {
 	overflow: hidden;
 }
 
+.temaforo .nombreForo {
+	font-size: 20px;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.temaforo .menuSuperior {
+	background-color: #1976d2;
+	color: #fff;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.temaforo .enlacesMenu {
+	font-size: 20px;
+	color: #fff;
+	text-decoration: none;
+}
+
 .temaforo .v-absolutelayout-fondogris {
 	background-color: #eee;
 }
@@ -15657,7 +15675,7 @@ div.v-layout.v-horizontal.v-widget {
 	font-weight: bold;
 	font-size: 25px;
 	margin: 10px;
-	background-color: #eee;
+	text-align: center;
 }
 
 .temaforo .descripcionUsuario {

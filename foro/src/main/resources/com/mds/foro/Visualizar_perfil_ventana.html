@@ -7,18 +7,47 @@
  </head>
  <body>
   <vaadin-absolute-layout icon="primary" style-name="pantallaAmigo" responsive>
-   <vaadin-vertical-layout primary-style-name="v-hl" size-full _id="datosPerfil">
-    <vaadin-image source="https://avatars2.githubusercontent.com/u/8536167?s=460&amp;u=8af2caf797d0665323732770a4df0c689c1e6885&amp;v=4" style-name="round" responsive width="20%" _id="imagenPerfil" :center></vaadin-image>
-    <vaadin-label caption-as-html responsive id="nickUsuario" plain-text _id="nickUsuario" :bottom :center>
+   <vaadin-absolute-layout icon="menuSuperior" style-name="menuSuperior" height="9%" _id="menuSuperior">
+    <vaadin7-label style-name="nombreForo" size-full plain-text _id="nombreForo" :top="30%" :left="5%">
+      foroMDS2 
+    </vaadin7-label>
+    <vaadin-absolute-layout visible="false" _id="menuUsuarioNoIdentifado">
+     <vaadin-link caption="Registrarse" primary-style-name="enlacesMenu" size-full _id="menuRegistrarse" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e80d" caption="Iniciar Sesion" primary-style-name="enlacesMenu" size-full _id="menuIniciarSesion" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
+    </vaadin-absolute-layout>
+    <vaadin-absolute-layout _id="menuUsuarioIdentificado">
+     <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilUsuario" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionUsuario" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e7b4" caption="Notificaciones" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesUsuario" :top="30%" :right="28%" :bottom="30%" :left="50%"></vaadin-link>
+     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="menuimagenPerfilUsuario" :top="27%" :right="31%" :bottom="30%" :left="66%"></vaadin-image>
+    </vaadin-absolute-layout>
+    <vaadin-absolute-layout visible="false" _id="menuUsuarioModerador">
+     <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilModerador" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionModerador" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e7b4" caption="Notificaciones" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesModerador" :top="30%" :right="28%" :bottom="30%" :left="50%"></vaadin-link>
+     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="menuimagenPerfilModerador" :top="27%" :right="31%" :bottom="30%" :left="66%"></vaadin-image>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e700" caption="Panel de control" primary-style-name="enlacesMenu" size-full _id="menuPanelControlModerador" :top="30%" :right="28%" :bottom="30%" :left="32%"></vaadin-link>
+    </vaadin-absolute-layout>
+    <vaadin-absolute-layout visible="false" _id="menuUsuarioAdministrador">
+     <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilAdministrador" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionAdministrador" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e7b4" caption="Notificaciones" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesAdministrador" :top="30%" :right="28%" :bottom="30%" :left="50%"></vaadin-link>
+     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="menuimagenPerfilAdministador" :top="27%" :right="31%" :bottom="30%" :left="66%"></vaadin-image>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e700" caption="Panel de control" primary-style-name="enlacesMenu" size-full _id="menuPanelControlAdministrador" :top="30%" :right="28%" :bottom="30%" :left="32%"></vaadin-link>
+    </vaadin-absolute-layout>
+   </vaadin-absolute-layout>
+   <vaadin-absolute-layout>
+    <vaadin-image source="https://avatars2.githubusercontent.com/u/8536167?s=460&amp;u=8af2caf797d0665323732770a4df0c689c1e6885&amp;v=4" style-name="round" responsive size-full _id="imagenPerfil" :top="15%" :right="40%" :bottom="53%" :left="40%"></vaadin-image>
+    <vaadin-label caption-as-html responsive id="nickUsuario" size-full plain-text _id="nickUsuario" :top="47%" :right="40%" :bottom="53%" :left="40%">
       @nickUsuario 
     </vaadin-label>
-    <vaadin-label responsive width="80%" height-full plain-text _id="descripcionUsuario" :center>
+    <vaadin-label responsive size-full plain-text _id="descripcionUsuario" :top="53%" :right="20%" :bottom="53%" :left="20%">
       Descripcion de usuario, aqui habra un texto de prueba, en este caso sera remplazado por la descripcion aportada por el usuario que tendra un maximo de 500 caracteres. Descripcion de usuario, aqui habra un texto de prueba, en este caso sera remplazado por la descripcion aportada por el usuario que tendra un maximo de 500caracteres. Descripcion de usuario, aqui habra un texto de prueba, en este caso sera remplazado por la descripcion aportada por el usuario que tendra un maximo de 500 caracteres. 
     </vaadin-label>
-    <vaadin-button icon="fonticon://Vaadin-Icons/e6d0" style-name="friendly" width="50%" height="24%" tabindex="10" plain-text _id="addAmigo" :center>
+    <vaadin-button icon="fonticon://Vaadin-Icons/e6d0" style-name="friendly" size-full tabindex="10" plain-text _id="addAmigo" :top="75%" :right="30%" :bottom="18%" :left="30%">
       ENVIAR SOLICITUD DE AMISTAD 
     </vaadin-button>
-   </vaadin-vertical-layout>
+   </vaadin-absolute-layout>
   </vaadin-absolute-layout>
  </body>
 </html>

@@ -14780,6 +14780,24 @@ div.v-layout.v-horizontal.v-widget {
 	overflow: hidden;
 }
 
+.temaforo .nombreForo {
+	font-size: 20px;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.temaforo .menuSuperior {
+	background-color: #1976d2;
+	color: #fff;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.temaforo .enlacesMenu {
+	font-size: 20px;
+	color: #fff;
+	text-decoration: none;
+}
+
 .temaforo .v-absolutelayout-fondogris {
 	background-color: #eee;
 }
@@ -14952,4 +14970,120 @@ div.v-layout.v-horizontal.v-widget {
 	line-height: 32px;
 	text-transform: uppercase;
 	float: left;
+}
+
+.temaforo .v-hl {
+	background-color: #eee;
+}
+
+.temaforo .round {
+	border-radius: 45%;
+}
+
+.temaforo .red {
+	color: red;
+}
+
+.temaforo .green {
+	color: green;
+}
+
+.temaforo .azulBoton {
+	color: #1976d2;
+	background-color: #fff;
+}
+
+.temaforo .temaforo .v-button-morado {
+	height: 37px;
+	padding: 0 16px;
+	color: #eaf4e9;
+	font-weight: 400;
+	border-radius: 4px;
+	border: 1px solid #9c27b0;
+	border-top-color: #9c27b0;
+	border-bottom-color: #9c27b0;
+	background-color: #8e24aa;
+	background-image: -webkit-linear-gradient(top, #8e24aa 2%, #7b1fa2 98%);
+	background-image: linear, to bottom, #8e24aa 2%, #7b1fa2 98%;
+	-webkit-box-shadow: inset 0 1px 0 #9c27b0, inset 0 -1px 0 #6a1b9a, 0 2px 3px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 0 #9c27b0, inset 0 -1px 0 #6a1b9a, 0 2px 3px rgba(0, 0, 0, 0.05);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.temaforo .temaforo .v-button-morado:after {
+	border: inherit;
+	top: -1px;
+	right: -1px;
+	bottom: -1px;
+	left: -1px;
+}
+
+.temaforo .temaforo .v-button-morado:hover:after {
+	background-color: rgba(171, 71, 188, 0.1);
+}
+
+.temaforo .temaforo .v-button-morado:focus:after {
+	border: inherit;
+	-webkit-box-shadow: 0 0 0 2px rgba(25, 125, 225, 0.5);
+	box-shadow: 0 0 0 2px rgba(25, 125, 225, 0.5);
+}
+
+.temaforo .temaforo .v-button-morado:active:after {
+	background-color: rgba(74, 20, 140, 0.2);
+}
+
+.temaforo #nickUsuario {
+	font-weight: bold;
+	font-size: 25px;
+	margin: 10px;
+	text-align: center;
+}
+
+.temaforo .descripcionUsuario {
+	background-color: #eee;
+}
+
+.temaforo .nombreCompletoUsuario {
+	background-color: #eee;
+}
+
+.temaforo #tituloMensajesdeUsuario {
+	font-weight: bold;
+	font-size: 35px;
+	margin: 10px;
+	color: #1976d2;
+	text-align: center;
+}
+
+.temaforo .tituloAzulGrande {
+	font-weight: bold;
+	font-size: 45px;
+	margin: 10px;
+	color: #1976d2;
+	text-align: left;
+}
+
+.temaforo .tituloAzulSinNegrita {
+	font-size: 35px;
+	margin: 10px;
+	color: #1976d2;
+	text-align: left;
+}
+
+.temaforo .tituloAzul {
+	font-weight: bold;
+	font-size: 35px;
+	margin: 10px;
+	color: #1976d2;
+	text-align: center;
+}
+
+.temaforo .cajaMensaje {
+	border-radius: 15px 15px 15px 15px;
+	margin: 1px;
+	background-color: #fff;
+	font-size: 20px;
+	padding: 5px;
+	border: 1px solid #eee;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
 }

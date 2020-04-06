@@ -7,6 +7,36 @@
  </head>
  <body>
   <vaadin-absolute-layout style-name="fondogris">
+   <vaadin-absolute-layout icon="menuSuperior" style-name="menuSuperior" height="9%" _id="menuSuperior">
+    <vaadin7-label style-name="nombreForo" size-full plain-text _id="nombreForo" :top="30%" :left="5%">
+      foroMDS2 
+    </vaadin7-label>
+    <vaadin-absolute-layout visible="false" _id="menuUsuarioNoIdentifado">
+     <vaadin-link caption="Registrarse" primary-style-name="enlacesMenu" size-full _id="menuRegistrarse" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e80d" caption="Iniciar Sesion" primary-style-name="enlacesMenu" size-full _id="menuIniciarSesion" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
+    </vaadin-absolute-layout>
+    <vaadin-absolute-layout _id="menuUsuarioIdentificado">
+     <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilUsuario" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionUsuario" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e7b4" caption="Notificaciones" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesUsuario" :top="30%" :right="28%" :bottom="30%" :left="50%"></vaadin-link>
+     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="menuimagenPerfilUsuario" :top="27%" :right="31%" :bottom="30%" :left="66%"></vaadin-image>
+    </vaadin-absolute-layout>
+    <vaadin-absolute-layout visible="false" _id="menuUsuarioModerador">
+     <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilModerador" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionModerador" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e7b4" caption="Notificaciones" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesModerador" :top="30%" :right="28%" :bottom="30%" :left="50%"></vaadin-link>
+     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="menuimagenPerfilModerador" :top="27%" :right="31%" :bottom="30%" :left="66%"></vaadin-image>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e700" caption="Panel de control" primary-style-name="enlacesMenu" size-full _id="menuPanelControlModerador" :top="30%" :right="28%" :bottom="30%" :left="32%"></vaadin-link>
+    </vaadin-absolute-layout>
+    <vaadin-absolute-layout visible="false" _id="menuUsuarioAdministrador">
+     <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilAdministrador" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionAdministrador" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e7b4" caption="Notificaciones" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesAdministrador" :top="30%" :right="28%" :bottom="30%" :left="50%"></vaadin-link>
+     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="menuimagenPerfilAdministador" :top="27%" :right="31%" :bottom="30%" :left="66%"></vaadin-image>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e700" caption="Panel de control" primary-style-name="enlacesMenu" size-full _id="menuPanelControlAdministrador" :top="30%" :right="28%" :bottom="30%" :left="32%"></vaadin-link>
+    </vaadin-absolute-layout>
+   </vaadin-absolute-layout>
+   <vaadin-absolute-layout>
    <vaadin-panel style-name="borderless" size-full :top="10%" :left="0%">
     <vaadin-absolute-layout style-name="fondogris">
      <vaadin-label style-name="seccion" plain-text :top="0%" :right="25%" :left="32%">

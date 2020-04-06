@@ -36,6 +36,25 @@
 
   // Insert your own theme rules here
   
+  .nombreForo{
+  	font-size: 20px;
+  	text-decoration: none;
+  	font-weight: bold;
+  }
+  
+  .menuSuperior{
+  	background-color:  #1976d2;
+  	color: #fff;
+  	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .enlacesMenu{
+  	font-size: 20px;
+  	color: #fff;
+   	text-decoration: none;
+ 	}
+  
+  
   .v-absolutelayout-fondogris{
   	background-color:#eee;
   }
@@ -279,7 +298,7 @@
 	font-weight: bold;
 	font-size: 25px;
 	margin: 10px;
-	background-color: #eee;
+	text-align:center;
 }
 
 .descripcionUsuario{
