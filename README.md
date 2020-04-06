@@ -6,8 +6,9 @@ _Proyecto del foro de la asignatura de Modelado y Diseño del Sotfware II_
 
 _En este repositorio te encontraras con el proyecto de creación de un foro que ha sido modelado previamente mediante diagramas y prototipados, cuyo resultado sera la implementación en codigo Java con la ayuda de la herramienta Vaadin_
 
-El foro todavia no esta adaptado de forma responsiva, **SE RECOMIENDA** visualizar las interfaces del proyecto en modo **Desktop(1440x900).**
-
+```
+El foro todavia no esta adaptado de forma responsiva, **SE RECOMIENDA** visualizar las interfaces del proyecto en modo **Desktop(1440x900).
+```
 
 ### Pre-requisitos 📋
 
@@ -21,7 +22,7 @@ _Estamos trabajando en documentar esta sección_
 
 _Herramientas utilizadas para la creación del proyecto_
 
-* [Vaading](https://vaadin.com/start/v14) - Herramienta de aplicación web.
+* [Vaadin](https://vaadin.com/start/v14) - Herramienta de aplicación web.
 * [Eclipse](https://www.eclipse.org/downloads/packages/release/mars/r/eclipse-ide-java-developers) - Herramientas de programación.
 
 ## Contribuyendo 🖇️
@@ -37,8 +38,8 @@ Para todas las versiones disponibles, mira los [tags en este repositorio](https:
 
 _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
-* **Alberto Fuentes** - [21albertoff] (https://github.com/21albertoff)
-* **Daniel Ortega** - [dor494] (https://github.com/dor494)
+* **Alberto Fuentes** - [21albertoff](https://github.com/21albertoff)
+* **Daniel Ortega** - [dor494](https://github.com/dor494)
 
 También puedes mirar la lista de todos los [contribuyentes](https://github.com/21albertoff/MDS2/contributors) quíenes han participado en este proyecto. 
 
