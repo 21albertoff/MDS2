@@ -1,9 +1,12 @@
 package com.mds.foro;
 
-public class Crear_tema {
+import com.vaadin.ui.Button;
+import com.vaadin.ui.TextField;
+
+public class Crear_tema extends Crear_tema_Ventana{
 	private TextField _tituloTemaTF;
 	private TextField _subtituloTemaTF;
-	private event _guardarTema;
+	private Button _guardarTema;
 	public Visualizar_seccion__Usuario_identificado_ _unnamed_Visualizar_seccion__Usuario_identificado__;
 	public Validar_tema _validar_tema;
 

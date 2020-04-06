@@ -1,15 +1,19 @@
 package com.mds.foro;
 
-public class Cambiar_contrasena {
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.TextField;
+
+public class Cambiar_password extends Cambiar_password_Ventana {
 	private Label _tituloL;
-	private TextField _ingreseContrasenaTF;
-	private TextField _repetirContrasenaTF;
+	private TextField _ingresePasswordTF;
+	private TextField _repetirPasswordTF;
 	private Label _cancelarL;
 	private Button _cancelarB;
 	private Label _confirmarL;
 	private Button _confirmarB;
 	public Visualizar_mi_perfil _unnamed_Visualizar_mi_perfil_;
-	public Validar_contrasena _validar_contrasena;
+	public Validar_password _validar_password;
 
 	public void confirmar_cambio_password() {
 		throw new UnsupportedOperationException();

@@ -6,43 +6,7 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-absolute-layout style-name="fondogris">
-   <vaadin-absolute-layout icon="menuSuperior" style-name="menuSuperior" height="9%" _id="menuSuperior">
-    <vaadin-label style-name="nombreForo" size-full plain-text _id="nombreForo" :top="30%" :left="5%">
-      foroMDS2 
-    </vaadin-label>
-    <vaadin-absolute-layout visible="false" _id="menuUsuarioNoIdentifado">
-     <vaadin-link caption="Registrarse" primary-style-name="enlacesMenu" size-full _id="menuRegistrarse" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e80d" caption="Iniciar Sesion" primary-style-name="enlacesMenu" size-full _id="menuIniciarSesion" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
-    </vaadin-absolute-layout>
-    <vaadin-absolute-layout _id="menuUsuarioIdentificado">
-     <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilUsuario" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionUsuario" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e7b4" caption="Notificaciones" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesUsuario" :top="30%" :right="28%" :bottom="30%" :left="50%"></vaadin-link>
-     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="menuimagenPerfilUsuario" :top="27%" :right="31%" :bottom="30%" :left="66%"></vaadin-image>
-    </vaadin-absolute-layout>
-    <vaadin-absolute-layout visible="false" _id="menuUsuarioModerador">
-     <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilModerador" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionModerador" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e7b4" caption="Notificaciones" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesModerador" :top="30%" :right="28%" :bottom="30%" :left="50%"></vaadin-link>
-     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="menuimagenPerfilModerador" :top="27%" :right="31%" :bottom="30%" :left="66%"></vaadin-image>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e700" caption="Panel de control" primary-style-name="enlacesMenu" size-full _id="menuPanelControlModerador" :top="30%" :right="28%" :bottom="30%" :left="32%"></vaadin-link>
-    </vaadin-absolute-layout>
-    <vaadin-absolute-layout visible="false" _id="menuUsuarioAdministrador">
-     <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilAdministrador" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionAdministrador" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e7b4" caption="Notificaciones" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesAdministrador" :top="30%" :right="28%" :bottom="30%" :left="50%"></vaadin-link>
-     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="menuimagenPerfilAdministador" :top="27%" :right="31%" :bottom="30%" :left="66%"></vaadin-image>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e700" caption="Panel de control" primary-style-name="enlacesMenu" size-full _id="menuPanelControlAdministrador" :top="30%" :right="28%" :bottom="30%" :left="32%"></vaadin-link>
-    </vaadin-absolute-layout>
-   </vaadin-absolute-layout>
-   <vaadin-absolute-layout>
-    <vaadin-panel style-name="borderless" size-full :top="10%" :left="0%">
-     <vaadin-absolute-layout style-name="fondogris">
-      <vaadin-label style-name="seccion" plain-text :top="0%" :right="25%" :left="32%">
-        TITULO DE LA SECCIÓN 
-      </vaadin-label>
-      <vaadin-panel style-name="borderless" size-full :top="10%" :right="23.7%" :left="25%">
+  <vaadin-panel style-name="borderless" size-full :top="10%" :right="23.7%" :left="25%">
        <vaadin-vertical-layout>
         <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje2">
          <vaadin-image source="https://images.vexels.com/media/users/3/152688/isolated/preview/fff00bbd013c42d160e37579cd2e1df5-lavadora-trazo-icono-plomer--a-by-vexels.png" width="50px" height="50px" _id="imagenTema2" :center></vaadin-image>
@@ -306,70 +270,5 @@
         </vaadin-horizontal-layout>
        </vaadin-vertical-layout>
       </vaadin-panel>
-      <vaadin-vertical-layout size-full :top="45%" :right="2%" :bottom="5%" :left="78%">
-       <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje3">
-        <vaadin-image source="https://cdn.pixabay.com/photo/2014/03/24/17/15/bike-295235_960_720.png" width="50px" height="50px" _id="imagenTema3" :center></vaadin-image>
-        <vaadin-label style-name="negrita" plain-text _id="mensaje3" :middle>
-          Seccion destacada 
-        </vaadin-label>
-        <vaadin-label plain-text></vaadin-label>
-       </vaadin-horizontal-layout>
-       <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje13">
-        <vaadin-image source="https://images-na.ssl-images-amazon.com/images/I/51a4c1eOl2L.png" width="50px" height="50px" _id="imagenTema13" :center></vaadin-image>
-        <vaadin-label style-name="negrita" plain-text _id="mensaje13" :middle>
-          Seccion destacada 
-        </vaadin-label>
-        <vaadin-label plain-text></vaadin-label>
-       </vaadin-horizontal-layout>
-       <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje112">
-        <vaadin-image source="https://image.flaticon.com/icons/png/512/53/53283.png" width="50px" height="50px" _id="imagenTema112" :center></vaadin-image>
-        <vaadin-label style-name="negrita" plain-text _id="mensaje112" :middle>
-          Seccion destacada 
-        </vaadin-label>
-        <vaadin-label plain-text></vaadin-label>
-       </vaadin-horizontal-layout>
-       <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje131">
-        <vaadin-image source="https://images-na.ssl-images-amazon.com/images/I/51a4c1eOl2L.png" width="50px" height="50px" _id="imagenTema131" :center></vaadin-image>
-        <vaadin-label style-name="negrita" plain-text _id="mensaje131" :middle>
-          Seccion destacada 
-        </vaadin-label>
-        <vaadin-label plain-text></vaadin-label>
-       </vaadin-horizontal-layout>
-       <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje132">
-        <vaadin-image source="https://images-na.ssl-images-amazon.com/images/I/51a4c1eOl2L.png" width="50px" height="50px" _id="imagenTema132" :center></vaadin-image>
-        <vaadin-label style-name="negrita" plain-text _id="mensaje132" :middle>
-          Seccion destacada 
-        </vaadin-label>
-        <vaadin-label plain-text></vaadin-label>
-       </vaadin-horizontal-layout>
-       <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje133">
-        <vaadin-image source="https://images-na.ssl-images-amazon.com/images/I/51a4c1eOl2L.png" width="50px" height="50px" _id="imagenTema133" :center></vaadin-image>
-        <vaadin-label style-name="negrita" plain-text _id="mensaje133" :middle>
-          Seccion destacada 
-        </vaadin-label>
-        <vaadin-label plain-text></vaadin-label>
-       </vaadin-horizontal-layout>
-      </vaadin-vertical-layout>
-      <vaadin-label style-name="seccion" plain-text :top="41%" :right="3%" :bottom="6%" :left="79%">
-        SECCIONES DESTACADAS 
-      </vaadin-label>
-      <vaadin-image size-full alt="Publicidad" :top="10%" :right="78%" :bottom="10%" :left="2%"></vaadin-image>
-      <vaadin-image size-full alt="Publicidad" :top="5%" :right="2%" :bottom="60%" :left="78%"></vaadin-image>
-      <vaadin-button style-name="primary" size-full plain-text :top="0%" :right="25%" :bottom="96%" :left="63%">
-        Crear Tema 
-      </vaadin-button>
-      <vaadin-image source="https://images.vexels.com/media/users/3/152688/isolated/preview/fff00bbd013c42d160e37579cd2e1df5-lavadora-trazo-icono-plomer--a-by-vexels.png" width="60px" height="60px" :top="0%" :right="25%" :left="26%"></vaadin-image>
-      <vaadin-label style-name="negrita" plain-text _id="mensaje25" :top="3%" :right="25%" :left="32%">
-        SUBTITULO DE LA SECCION 
-      </vaadin-label>
-      <vaadin-combo-box empty-selection-caption="Ordenar por:" size-full data-item-type="java.lang.String" :top="5%" :right="25%" :bottom="91%" :left="63%">
-       <option item="Fecha">Fecha</option>
-       <option item="Megusta">Me gusta</option>
-       <option item="Mensajes">Mensajes</option>
-      </vaadin-combo-box>
-     </vaadin-absolute-layout>
-    </vaadin-panel>
-   </vaadin-absolute-layout>
-  </vaadin-absolute-layout>
  </body>
 </html>
