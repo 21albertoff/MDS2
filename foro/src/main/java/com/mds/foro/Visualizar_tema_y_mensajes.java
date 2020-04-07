@@ -1,14 +1,18 @@
 package com.mds.foro;
 
-public class Visualizar_tema_y_mensajes {
-	private JLabel _tituloTemaL;
-	private JLabel _subtituloTemaL;
-	private JLabel _nombreUsuarioL;
-	private JImagen _imagenUsuario;
-	private JLabel _fechaTemaL;
-	private JLabel _comentariosL;
-	private JButton _eliminarTemaPropioB;
-	private JImage _iconoEliminar;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Image;
+import com.vaadin.ui.Label;
+
+public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Ventana{
+	private Label _tituloTemaL;
+	private Label _subtituloTemaL;
+	private Label _nombreUsuarioL;
+	private Image _imagenUsuario;
+	private Label _fechaTemaL;
+	private Label _comentariosL;
+	private Button _eliminarTemaPropioB;
+	private Image _iconoEliminar;
 	public Tema _unnamed_Tema_;
 	public Mensajes _verMensajes;
 }

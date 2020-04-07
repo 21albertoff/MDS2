@@ -1,8 +1,11 @@
 package com.mds.foro;
 
-public class Mensaje {
-	private JImage _imagenUsuario;
-	private JLabel _nombreUsuarioL;
-	private JLabel _mensajeL;
+import com.vaadin.ui.Image;
+import com.vaadin.ui.Label;
+
+public class Mensaje extends Mensaje_Ventana{
+	private Image _imagenUsuario;
+	private Label _nombreUsuarioL;
+	private Label _mensajeL;
 	public Mensajes _unnamed_Mensajes_;
 }

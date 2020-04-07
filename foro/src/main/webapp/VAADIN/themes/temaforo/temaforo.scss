@@ -63,6 +63,9 @@
    #fondogris{
   	background-color:#eee;
   }
+  .fondogris{
+  	background-color:#eee;
+  }
   
   .cajaMensaje{
 	border-radius: 15px 15px 15px 15px;
@@ -356,6 +359,16 @@
 	border-radius: 15px 15px 15px 15px;
 	margin: 1px;
 	background-color: #fff;
+	font-size: 20px;
+	padding: 5px;
+	border: 1px solid #eee;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.cajaMensajeCitado{
+	border-radius: 15px 15px 15px 15px;
+	margin: 1px;
+	background-color: #eee;
 	font-size: 20px;
 	padding: 5px;
 	border: 1px solid #eee;

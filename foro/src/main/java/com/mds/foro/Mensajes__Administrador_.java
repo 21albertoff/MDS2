@@ -1,5 +1,5 @@
 package com.mds.foro;
 
-public class Mensajes__Administrador_ {
+public class Mensajes__Administrador_ extends Mensajes_Administrador_Ventana{
 	public Visualizar_tema_y_mensajes__Administrador_ _unnamed_Visualizar_tema_y_mensajes__Administrador__;
 }

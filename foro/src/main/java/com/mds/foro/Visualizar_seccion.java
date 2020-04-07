@@ -1,9 +1,13 @@
 package com.mds.foro;
 
-public class Visualizar_seccion {
-	private JImage _icono;
-	private JLabel _tituloL;
-	private JLabel _subtituloL;
-	private JComboBox _ordenarPor;
+import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.Image;
+import com.vaadin.ui.Label;
+
+public class Visualizar_seccion extends Visualizar_seccion_Ventana{
+	private Image _icono;
+	private Label _tituloL;
+	private Label _subtituloL;
+	private ComboBox _ordenarPor;
 	public Temas _verTemas;
 }
