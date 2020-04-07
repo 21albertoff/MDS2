@@ -1,7 +1,10 @@
 package com.mds.foro;
 
-public class Panel_de_control_del_moderador {
-	private JLabel _tituloL;
-	public Moderador _unnamed_Moderador_;
+import com.vaadin.ui.Label;
+
+public class Panel_de_control_del_moderador extends Panel_de_control_del_moderador_Ventana {
+	
+	//Declaracion de variables
+	private Label _tituloL;
 	public Usuarios_reportados _verReportes;
 }

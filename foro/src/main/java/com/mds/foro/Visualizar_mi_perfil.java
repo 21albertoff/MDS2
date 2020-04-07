@@ -1,19 +1,26 @@
 package com.mds.foro;
 
-public class Visualizar_mi_perfil {
-	private event _modificar_foto;
-	private event _modificar_descripcion;
-	private event _activar_Desactivar_notificaciones;
-	private event _activar_Desactivar_notificaciones_por_correo;
-	private JLabel _listaAmigosL;
-	private JButton _listaAmigosB;
-	private JLabel _cambiarPasswordL;
-	private JButton _cambiarPasswordB;
-	private event _perfil_oculto;
-	public Usuario_identificado _unnamed_Usuario_identificado_;
-	public Amigos _misAmigos;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.CheckBox;
+import com.vaadin.ui.Image;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Link;
+import com.vaadin.ui.TextArea;
+
+public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
+	
+	//Declaracion de variables
+	private Image _fotoPerfil;
+	private Button _modificarFoto;
+	private TextArea _modificarDescripcion;
+	private Button _guardarCambios;
+	private Button _listaAmigosB;
+	private Label _ultimosMensajes;
 	public Mis_mensajes _misMensajes;
-	public Cambiar_contraseña _cambiaContraseña;
+	private Label _datosPersonales;
+	private CheckBox _activarNotificaciones;
+	private CheckBox _perfilOculto;
+	private Link _cambiarPasswordL;
 
 	public void modificar_foto() {
 		throw new UnsupportedOperationException();

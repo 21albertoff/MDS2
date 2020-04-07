@@ -68,7 +68,7 @@ public class Visualizar_perfil_amigo_ventana extends AbsoluteLayout {
 	protected Label fechaMensajeUsuario15;
 	protected Button añadirAmigo1;
 
-	public Amigo_ventana() {
+	public Visualizar_perfil_amigo_ventana() {
 		Design.read(this);
 	}
 }

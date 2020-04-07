@@ -8,9 +8,9 @@
  <body>
   <vaadin-absolute-layout icon="primary" style-name="pantallaAmigo" responsive>
    <vaadin-absolute-layout icon="menuSuperior" style-name="menuSuperior" height="9%" _id="menuSuperior">
-    <vaadin7-label style-name="nombreForo" size-full plain-text _id="nombreForo" :top="30%" :left="5%">
+    <vaadin-label style-name="nombreForo" size-full plain-text _id="nombreForo" :top="30%" :left="5%">
       foroMDS2 
-    </vaadin7-label>
+    </vaadin-label>
     <vaadin-absolute-layout _id="menuUsuarioAdministrador">
      <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilAdministrador" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
      <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionAdministrador" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
@@ -22,7 +22,7 @@
    <vaadin-label style-name="tituloAzulGrande" size-full ;="" plain-text _id="tituloMensajesdeUsuario" :top="10%" :right="32%" :bottom="75%" :left="35%">
      PANEL DE CONTROL 
    </vaadin-label>
-   <vaadin7-vertical-layout visible="false" _id="controlMensajes" :top="25%" :right="5%" :bottom="30%" :left="35%">
+   <vaadin-vertical-layout visible="false" _id="controlMensajes" :top="25%" :right="5%" :bottom="30%" :left="35%">
     <vaadin-horizontal-layout visible="false" style-name="cajaMensaje" width-full _id="cajaMensaje">
      <vaadin-image source="https://cdn.pixabay.com/photo/2014/03/24/17/15/bike-295235_960_720.png" width="50px" height="50px" _id="imagenTema" :center></vaadin-image>
      <vaadin-label plain-text _id="mensaje" :middle>
@@ -101,11 +101,11 @@
      </vaadin-label>
      <vaadin-link caption="MOSTRAR" style-name="green" _id="eliminarMensaje" :middle :center></vaadin-link>
     </vaadin-horizontal-layout>
-   </vaadin7-vertical-layout>
+   </vaadin-vertical-layout>
    <vaadin-label visible="false" style-name="tituloAzulSinNegrita azul" size-full ;="" plain-text _id="tituloModeradores" :top="15%" :right="40%" :bottom="75%" :left="35%">
      MODERADORES 
    </vaadin-label>
-   <vaadin7-vertical-layout spacing size-full _id="paneldeControl" :top="15%" :right="70%" :bottom="15%" :left="5%">
+   <vaadin-vertical-layout spacing size-full _id="paneldeControl" :top="15%" :right="70%" :bottom="15%" :left="5%">
     <vaadin-button style-name="bold huge azulBoton" size-full plain-text _id="moderadores">
       MODERADORES 
     </vaadin-button>
@@ -124,7 +124,7 @@
     <vaadin-button enabled="false" style-name="bold huge azulBoton" size-full plain-text _id="gestionPublicidad">
       GESTIONAR PUBLICIDAD 
     </vaadin-button>
-   </vaadin7-vertical-layout>
+   </vaadin-vertical-layout>
    <vaadin-label visible="false" style-name="tituloAzulSinNegrita" size-full ;="" plain-text _id="tituloTemas" :top="15%" :right="40%" :bottom="75%" :left="35%">
      TEMAS OCULTOS 
    </vaadin-label>
@@ -134,7 +134,7 @@
    <vaadin-label visible="false" style-name="tituloAzulSinNegrita" size-full ;="" plain-text _id="tituloUsuariosNotificados" :top="15%" :right="35%" :bottom="75%" :left="35%">
      USUARIOS NOTIFICADOS 
    </vaadin-label>
-   <vaadin7-vertical-layout visible="false" _id="controlModeradores" :top="25%" :right="5%" :bottom="30%" :left="35%">
+   <vaadin-vertical-layout visible="false" _id="controlModeradores" :top="25%" :right="5%" :bottom="30%" :left="35%">
     <vaadin-horizontal-layout style-name="cajaMensaje" width="60%" height-full _id="cajaModerador" :center>
      <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" width="50px" height="50px" _id="imagenTema2" :middle :center></vaadin-image>
      <vaadin-label plain-text _id="nombreUsuario" :middle>
@@ -149,8 +149,8 @@
      </vaadin-label>
      <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarMensaje1411" :middle :center></vaadin-link>
     </vaadin-horizontal-layout>
-   </vaadin7-vertical-layout>
-   <vaadin7-vertical-layout visible="false" _id="controlTemasOcultos" :top="25%" :right="5%" :bottom="30%" :left="35%">
+   </vaadin-vertical-layout>
+   <vaadin-vertical-layout visible="false" _id="controlTemasOcultos" :top="25%" :right="5%" :bottom="30%" :left="35%">
     <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje3">
      <vaadin-image source="https://cdn.pixabay.com/photo/2014/03/24/17/15/bike-295235_960_720.png" width="50px" height="50px" _id="imagenTema3" :center></vaadin-image>
      <vaadin-label plain-text _id="temaMensaje3" :middle>
@@ -211,8 +211,8 @@
      </vaadin-label>
      <vaadin-link caption="MOSTRAR" style-name="green" _id="eliminarMensaje3" :middle :center></vaadin-link>
     </vaadin-horizontal-layout>
-   </vaadin7-vertical-layout>
-   <vaadin7-vertical-layout _id="controlNotificados" :top="25%" :right="5%" :bottom="30%" :left="35%">
+   </vaadin-vertical-layout>
+   <vaadin-vertical-layout _id="controlNotificados" :top="25%" :right="5%" :bottom="30%" :left="35%">
     <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaNotificado">
      <vaadin-image source="https://avatars1.githubusercontent.com/u/61786916?s=460&amp;v=4" style-name="round" width="50px" height="50px" _id="imagenUsuario" :center></vaadin-image>
      <vaadin-label plain-text _id="nombreUsuario2" :middle>
@@ -243,7 +243,7 @@
      </vaadin-label>
      <vaadin-link caption="BANEAR" style-name="red" _id="banearUsuario2" :middle :right></vaadin-link>
     </vaadin-horizontal-layout>
-   </vaadin7-vertical-layout>
+   </vaadin-vertical-layout>
   </vaadin-absolute-layout>
  </body>
 </html>

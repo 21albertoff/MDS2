@@ -1,13 +1,18 @@
 package com.mds.foro;
 
-public class Visualizar_mi_perfil__Usuario_registrado_ {
-	private event _modificar_nombre;
-	private JLabel _eliminarCuentaL;
-	private JButton _eliminarCuentaB;
-	public Usuario_registrado _unnamed_Usuario_registrado_;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.TextArea;
+
+public class Visualizar_mi_perfil__Usuario_registrado_ extends Visualizar_mi_perfil_ventana {
+	
+	//Declaracion de variables
+	private TextArea _modificarNombre;
+	private Label _eliminarCuentaL;
+	private Button _eliminarCuentaB;
 	public Darse_de_baja _darseBaja;
 
-	public void modificar_nombre() {
+	public void modificarNombre() {
 		throw new UnsupportedOperationException();
 	}
 }

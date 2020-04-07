@@ -1,18 +1,24 @@
 package com.mds.foro;
 
-public class Usuario_reportado {
-	private event _notificar_directamente;
-	private event _eliminar_reporte;
-	private JImage _fotoPerfil;
-	private JLabel _nombreUsuarioL;
-	private JLabel _mensajeUsuarioL;
+import com.vaadin.ui.Image;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Link;
+
+public class Usuario_reportado extends Usuario_reportado_Ventana {
+	
+	//Declaracion de variables
+	private Link _notificarDirectamente;
+	private Link _eliminarReporte;
+	private Image _fotoPerfil;
+	private Label _nombreUsuarioL;
+	private Label _mensajeUsuarioL;
 	public Usuarios_reportados _unnamed_Usuarios_reportados_;
 
-	public void notificar_directamente() {
+	public void notificaDirectamente() {
 		throw new UnsupportedOperationException();
 	}
 
-	public void eliminar_reporte() {
+	public void eliminarReporte() {
 		throw new UnsupportedOperationException();
 	}
 }

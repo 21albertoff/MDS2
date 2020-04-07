@@ -1,10 +1,16 @@
 package com.mds.foro;
 
-public class Visualizar_perfil__Administrador_ {
-	private event _asignar_Desasignar_moderador;
-	private event _cambiar_numero_de_mensajes;
-	private JLabel _banearUsuarioL;
-	private JButton _banearUsuarioB;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.CheckBox;
+import com.vaadin.ui.Label;
+
+public class Visualizar_perfil__Administrador_ extends Visualizar_perfil_amigo_ventana {
+	
+	//declaraciond de variables
+	private CheckBox _asignar_Desasignar_moderador;
+	private CheckBox _cambiar_numero_de_mensajes;
+	private Label _banearUsuarioL;
+	private Button _banearUsuarioB;
 	public Mensaje__Administrador_ _unnamed_Mensaje__Administrador__;
 	public Mensajes_usuario _verMensajes;
 	public Banear_usuario _baneaUsuario;

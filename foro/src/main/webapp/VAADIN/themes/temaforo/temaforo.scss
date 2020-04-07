@@ -36,6 +36,7 @@
 
   // Insert your own theme rules here
   
+  
   .nombreForo{
   	font-size: 20px;
   	text-decoration: none;
@@ -232,12 +233,23 @@
   }
 	
 
-.v-hl{
-	background-color: #eee;
+	.v-hl{
+		background-color: #eee;
 	}
+	
+	.datosPerfil{
+		background-color: #eee;
+	}
+
 	
 .round{
 	border-radius: 45%;
+	}
+	
+.round-Imagen{
+	border-radius: 45%;
+	opacity: 0.5;
+	font-size: 60px;
 	}
 
 .red{
