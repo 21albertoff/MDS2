@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;temaforo&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-absolute-layout>
+   <vaadin-absolute-layout style-name="ventanaEmergente" _id="fondoNegro"></vaadin-absolute-layout>
+   <vaadin-absolute-layout style-name="cajaMensaje" _id="cajaBanearUsuario" :top="30%" :right="35%" :bottom="45%" :left="35%">
+    <vaadin-label size-full plain-text _id="tituloMensajeBanear" :top="5%" :right="5%" :bottom="80%" :left="5%">
+      ¿Seguro que quieres banear al usuario? 
+    </vaadin-label>
+    <vaadin-combo-box caption="Seleccionar tiempo de baneo" empty-selection-caption="Elegir tiempo" size-full data-item-type="java.lang.String" :top="40%" :right="25%" :bottom="40%" :left="25%">
+     <option item="Dia">1 Día</option>
+     <option item="Semana">1 Semana</option>
+     <option item="Mes">1 Mes</option>
+     <option item="Siempre">Para siempre</option>
+    </vaadin-combo-box>
+    <vaadin-button style-name="primary" size-full plain-text _id="cancelarBaneo" :top="75%" :right="55%" :bottom="5%" :left="5%">
+      Cancelar 
+    </vaadin-button>
+    <vaadin-button style-name="danger" size-full plain-text _id="confirmarBaneo" :top="75%" :right="5%" :bottom="5%" :left="55%">
+      Banear 
+    </vaadin-button>
+   </vaadin-absolute-layout>
+  </vaadin-absolute-layout>
+ </body>
+</html>

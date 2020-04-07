@@ -1,10 +1,16 @@
 package com.mds.foro;
 
-public class Banear_usuario {
-	private JLabel _preguntaConfirmacionL;
-	private JComboBox _opcionesTiempoDeBaneoCB;
-	private event _cancel;
-	private event _banear;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.Label;
+
+public class Banear_usuario extends Banear_usuario_Ventana {
+	
+	//Declaracion de variables
+	private Label _preguntaConfirmacionL;
+	private ComboBox _opcionesTiempoDeBaneoCB;
+	private Button _cancel;
+	private Button _banear;
 	public Visualizar_perfil__Administrador_ _unnamed_Visualizar_perfil__Administrador__;
 	public Visualizar_tema_y_mensajes__Administrador_ _unnamed_Visualizar_tema_y_mensajes__Administrador__;
 	public Usuario_notificado _unnamed_Usuario_notificado_;

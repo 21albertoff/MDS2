@@ -13,7 +13,6 @@ public class Recuperar_password extends Recuperar_password_Ventana{
 	private Label _enviarL;
 	private Button _enviarB;
 	public Iniciar_sesion _unnamed_Iniciar_sesion_;
-	public Correo_de_verificacion _unnamed_Correo_de_verificacion_;
 
 	public void recuperar_pasword(String aCorreoElectronico) {
 		throw new UnsupportedOperationException();

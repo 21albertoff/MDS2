@@ -1,10 +1,16 @@
 package com.mds.foro;
 
-public class Notificacion {
-	private event _eliminar_notificacion;
-	private event _aceptar_solicitud_de_amistad;
-	private JLabel _titulonotificacionL;
-	private JImage _icono;
+import com.vaadin.ui.Image;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Link;
+
+public class Notificacion extends Notificacion_Ventana {
+	
+	//Declaracion de variables
+	private Link _eliminar_notificacion;
+	private Link _aceptar_solicitud_de_amistad;
+	private Label _titulonotificacionL;
+	private Image _icono;
 	public Notificaciones _unnamed_Notificaciones_;
 
 	public void eliminar_notificacion() {

@@ -1,10 +1,14 @@
 package com.mds.foro;
 
-public class Cerrar_sesion {
-	private JLabel _mensaje;
-	private JLabel _cerrarL;
-	private JButton _cerrarB;
-	private JLabel _cancelarL;
-	private JButton _cancelarB;
-	public Usuario_identificado _unnamed_Usuario_identificado_;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Label;
+
+public class Cerrar_sesion extends Cerrar_sesion_Ventana {
+	
+	//Declaracion de ventanas
+	private Label _mensaje;
+	private Label _cerrarL;
+	private Button _cerrarB;
+	private Label _cancelarL;
+	private Button _cancelarB;
 }

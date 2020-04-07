@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;temaforo&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-absolute-layout style-name="panelControl">
+   <vaadin-absolute-layout style-name="ventanaEmergente" _id="fondoOscuro"></vaadin-absolute-layout>
+   <vaadin-absolute-layout style-name="cajaMensaje" _id="cajaEscribirMensaje" :top="3%" :right="20%" :bottom="40%" :left="20%">
+    <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="imagenPerfil" :top="2%" :right="46%" :bottom="84%" :left="46%"></vaadin-image>
+    <vaadin-label style-name="nombreUsuarioEscribirMensaje" size-full plain-text _id="nombreUsuario" :top="15%" :right="35%" :bottom="80%" :left="35%">
+      @NombreUsuario 
+    </vaadin-label>
+    <vaadin-rich-text-area size-full _id="texto" :top="22%" :right="1%" :bottom="15%" :left="1%"></vaadin-rich-text-area>
+    <vaadin-button style-name="primary" size-full plain-text _id="botonEscribirMensaje" :top="90%" :right="35%" :bottom="2%" :left="35%">
+      Escribir mensaje 
+    </vaadin-button>
+   </vaadin-absolute-layout>
+  </vaadin-absolute-layout>
+ </body>
+</html>

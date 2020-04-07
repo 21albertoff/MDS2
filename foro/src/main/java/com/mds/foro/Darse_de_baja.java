@@ -1,10 +1,16 @@
 package com.mds.foro;
 
-public class Darse_de_baja {
-	private JLabel _preguntaConfirmacionL;
-	private event _eliminarPerfil;
-	private JLabel _cancelarL;
-	private JButton _cancelarB;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Link;
+
+public class Darse_de_baja extends Darse_de_baja_Ventana{
+	
+	//Declaracion de variables
+	private Label _preguntaConfirmacionL;
+	private Link _eliminarPerfil;
+	private Label _cancelarL;
+	private Button _cancelarB;
 	public Visualizar_mi_perfil__Usuario_registrado_ _unnamed_Visualizar_mi_perfil__Usuario_registrado__;
 
 	public void eliminar_perfil() {
