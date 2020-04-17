@@ -2,6 +2,14 @@
 
 _Proyecto del foro de la asignatura de Modelado y Diseño del Sotfware II_
 
+
+## Autores ✒️
+
+_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
+
+* **Alberto Fuentes** - [21albertoff](https://github.com/21albertoff)
+* **Daniel Ortega** - [dor494](https://github.com/dor494)
+
 ## Comenzando 🚀
 
 _En este repositorio te encontraras con el proyecto de creación de un foro que ha sido modelado previamente mediante diagramas y prototipados, cuyo resultado sera la implementación en codigo Java con la ayuda de la herramienta Vaadin_
@@ -33,13 +41,6 @@ Actualmente el proyecto esta desplegado de forma educativa para [UAL.es](https:/
 ## Versionado 📌
 
 Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/21albertoff/MDS2/tags).
-
-## Autores ✒️
-
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
-* **Alberto Fuentes** - [21albertoff](https://github.com/21albertoff)
-* **Daniel Ortega** - [dor494](https://github.com/dor494)
 
 También puedes mirar la lista de todos los [contribuyentes](https://github.com/21albertoff/MDS2/contributors) quíenes han participado en este proyecto. 
 
