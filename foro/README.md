@@ -5,8 +5,6 @@ _Proyecto del foro de la asignatura de Modelado y Diseño del Sotfware II_
 
 ## Autores ✒️
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
 * **Alberto Fuentes** - [21albertoff](https://github.com/21albertoff)
 * **Daniel Ortega** - [dor494](https://github.com/dor494)
 
