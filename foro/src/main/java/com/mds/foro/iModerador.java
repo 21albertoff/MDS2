@@ -4,17 +4,17 @@ public interface iModerador extends iUsuario_identificado {
 
 	public Usuario_reportado[] consultar_UR();
 
-	public Mensaje_no_propietario__Moderador_[] consultar_M_Mo();
+	public Mensaje_no_propietario__Moderador_[] consultar_M_Mo(int aIdTema);
 
-	public Mensaje_usuario[] consultar_MU();
+	public Mensaje_usuario[] consultar_MU(int aIdUsuario);
 
-	public boolean eliminar_perfil(String aNombreUsuario);
+	public boolean eliminar_perfil(int aIdUsuario);
 
-	public boolean modificar_nombre(boolean aNombreUsuario, String aNewNombreUsuario);
+	public boolean modificar_nombre(int aIdUsuario, String aNewNombreUsuario);
 
-	public void notificar(String aNombreUsuario, String aMotivo);
+	public void notificar(int aIdUsuario, String aMotivo);
 
-	public void eliminar_reporte(String aNombreUsuario);
+	public void eliminar_reporte(int aIdUsuario);
 
 	public void ocultar_tema(int aIdTema);
 

@@ -11,7 +11,7 @@ public class DB_UsuariosNotificados {
 		throw new UnsupportedOperationException();
 	}
 
-	public void notificar(String aNombreUsuario, String aMotivo) {
+	public void notificar(int aIdUsuario, String aMotivo) {
 		throw new UnsupportedOperationException();
 	}
 }

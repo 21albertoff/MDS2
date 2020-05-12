@@ -7,15 +7,15 @@ public class DB_Temas {
 	public DB_Main _bd_main_temas;
 	public Vector<TemaDB> _contiene_tema = new Vector<TemaDB>();
 
-	public Tema[] consultar_T() {
+	public Tema[] consultar_T(int aIdSeccion) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Tema__Usuario_identificado_[] consultar_T_UI() {
+	public Tema__Usuario_identificado_[] consultar_T_UI(int aIdSeccion) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Tema__Administrador_[] consultar_T_A() {
+	public Tema__Administrador_[] consultar_T_A(int aIdSeccion) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -23,7 +23,7 @@ public class DB_Temas {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean guardar_tema(String aTituloTema, String aSubtituloTema) {
+	public boolean guardar_tema(int aIdSeccion, String aTituloTema, String aSubtituloTema) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -51,7 +51,7 @@ public class DB_Temas {
 		throw new UnsupportedOperationException();
 	}
 
-	public void valorar_tema() {
+	public void valorar_tema(int aIdUsuario, int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
 }

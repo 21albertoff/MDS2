@@ -15,11 +15,11 @@ public class DB_UsuariosRegistrados {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean recuperarContrasenia(String aCorreoElectronico) {
+	public boolean recuperarContrasenia(int aIdUsuario, String aCorreoElectronico) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Amigo[] consultar_A() {
+	public Amigo[] consultar_A(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -27,67 +27,67 @@ public class DB_UsuariosRegistrados {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean eliminar_amigoP(String aNombreUsuario) {
+	public boolean eliminar_amigoP(int aIdUsuario, int aIdAmigo) {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean eliminar_amigo(String aNombreUsuario) {
+	public boolean eliminar_amigo(int aIdUsuario, int aIdAmigo) {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean modificar_foto(String aFoto) {
+	public boolean modificar_foto(int aIdUsuario, String aFoto) {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean modificar_descripcion(String aDescripcion) {
+	public boolean modificar_descripcion(int aIdUsuario, String aDescripcion) {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean agregar_amigo(String aNombreUsuario) {
+	public boolean agregar_amigo(int aIdUsuario, int aIdAmigo) {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean cambiar_contrasenia(String aContrasenia) {
+	public boolean cambiar_contrasenia(int aIdUsuario, String aContrasenia) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Asignar_Desasignar_moderador() {
+	public void Asignar_Desasignar_moderador(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void cambiar_num_mensajes(int aCantidad) {
+	public void cambiar_num_mensajes(int aIdUsuario, int aCantidad) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void banear_usuario(String aTiempo) {
+	public void banear_usuario(int aIdUsuario, int aTiempo) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void quitar_moderador(String aNombreUsuario) {
+	public void quitar_moderador(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean eliminar_perfil(String aNombreUsuario) {
+	public boolean eliminar_perfil(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean modificar_nombre(String aNombreUsuario, String aNewNombreUsuario) {
+	public boolean modificar_nombre(int aIdUsuario, String aNewNombreUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void eliminar_reporte(String aNombreUsuario) {
+	public void eliminar_reporte(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Activar_Desactivar_notificaciones() {
+	public void Activar_Desactivar_notificaciones(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Activar_Desactivar_por_correo() {
+	public void Activar_Desactivar_por_correo(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void perfil_oculto() {
+	public void perfil_oculto(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 

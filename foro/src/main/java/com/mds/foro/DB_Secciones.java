@@ -23,7 +23,7 @@ public class DB_Secciones {
 		throw new UnsupportedOperationException();
 	}
 
-	public Ultimas_secciones__Administrador_[] consultar_US_A() {
+	public Ultima_seccion__Administrador_[] consultar_US_A() {
 		throw new UnsupportedOperationException();
 	}
 
@@ -31,7 +31,7 @@ public class DB_Secciones {
 		throw new UnsupportedOperationException();
 	}
 
-	public void quitar_seccion_fija(Object aIdSeccion) {
+	public void quitar_seccion_fija(int aIdSeccion) {
 		throw new UnsupportedOperationException();
 	}
 
