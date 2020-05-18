@@ -1,14 +1,39 @@
 package com.mds.foro;
 
-import java.util.Vector;
+import java.util.*;
+import java.io.*;
+import java.time.*;
+
 import com.mds.foro.Usuario_registradoDB;
 
 public class DB_UsuariosRegistrados {
 	public DB_Main _bd_main_usuarios_registrados;
 	public Vector<Usuario_registradoDB> _contiene_usuario_registrado = new Vector<Usuario_registradoDB>();
 
-	public boolean registrarse(String aNombreUsuario, String aNombreCompleto, String aCorreo, String aContrasenia, String aDescripcion, String aFoto) {
-		throw new UnsupportedOperationException();
+	public boolean registrarse(String nombreUsuario, String nombreCompleto, String correoUsuario, String passwordUsuario, String descripcionUsuario, String fotoUsuario) {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		
+			try {	
+				Usuario_DB nuevoUsuario = Usuario_DBDAO.createUsuario_DB();
+				nuevoUsuario.setNombreUsuario(nombreUsuario);
+				nuevoUsuario.setNombreCompleto(nombreCompleto);
+				nuevoUsuario.setCorreo(correoUsuario);
+				nuevoUsuario.setPassword(passwordUsuario);
+				nuevoUsuario.setDescripcion(descripcionUsuario);
+				nuevoUsuario.setFoto(fotoUsuario);
+				nuevoUsuario.setRecibir_notificacion(true);
+				nuevoUsuario.setRecibir_por_correo(true);
+				nuevoUsuario.setPerfil_oculto(false);
+				Usuario_DBDAO.save(nuevoUsuario);
+				t.commit();
+				return true;
+				
+		} catch (PersistentException e1) {
+			// TODO Auto-generated catch block
+			t.rollback();
+		}
+	
+		return false;
 	}
 
 	public boolean iniciar_sesion(String aNombreUsuario, String aContrasenia) {

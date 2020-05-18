@@ -7,12 +7,67 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	public DB_Secciones _bd_secciones;
 	public DB_Notificaciones _bd_notificaciones;
 	public DB_Mensajes _bd_mensajes;
-	public DB_UsuariosRegistrados _bd_usuarios_registrados;
+	public DB_UsuariosRegistrados registrados = new DB_UsuariosRegistrados();
 
-	public boolean registrarse(String aNombreUsuario, String aNombreCompleto, String aCorreo, String aContrasenia, String aDescripcion, String aFoto) {
+	//Usuario no identificado 
+	
+	public boolean registrarse(String nombreUsuario, String nombreCompleto, String correoUsuario, String passwordUsuario, String descripcionUsuario, String fotoUsuario) {
+		try {
+			return  registrados.registrarse(nombreUsuario, nombreCompleto, correoUsuario, passwordUsuario, descripcionUsuario, fotoUsuario);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean iniciar_sesion(String aNombreUsuario, String aContrasenia) {
 		throw new UnsupportedOperationException();
 	}
 
+	public boolean recuperarContrasenia(int aIdUsuario, String aCorreoElectronico) {
+		throw new UnsupportedOperationException();
+	}
+
+	//Usuario
+	
+	public Seccion_fija[] consultar_SF() {
+		throw new UnsupportedOperationException();
+	}
+
+	public Ultima_seccion[] consultar_US() {
+		throw new UnsupportedOperationException();
+	}
+	
+	public Tema[] consultar_T(int aIdSeccion) {
+		throw new UnsupportedOperationException();
+	}
+
+	public Mensaje[] consultar_M(int aIdTema) {
+		throw new UnsupportedOperationException();
+	}
+	
+	//Elementos fijos
+	
+	public Seccion_destacada[] consultar_SD() {
+		throw new UnsupportedOperationException();
+	}
+	
+	//Correo 
+	
+	public void enviar_Mensaje(int aIdUsuario, String aPassword) {
+		throw new UnsupportedOperationException();
+	}
+	
+	//Usuario identificado
+	
+	//Usuario registrado
+	
+	//Moderador
+	
+	//Administrador
+	
+	//Otros metodos
+	
 	public Usuario_registradoDB get_Correo() {
 		throw new UnsupportedOperationException();
 	}
@@ -30,34 +85,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	}
 
 	public AdministradorDB get_Administrador() {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean iniciar_sesion(String aNombreUsuario, String aContrasenia) {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean recuperarContrasenia(int aIdUsuario, String aCorreoElectronico) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Seccion_fija[] consultar_SF() {
-		throw new UnsupportedOperationException();
-	}
-
-	public Ultima_seccion[] consultar_US() {
-		throw new UnsupportedOperationException();
-	}
-
-	public Seccion_destacada[] consultar_SD() {
-		throw new UnsupportedOperationException();
-	}
-
-	public Tema[] consultar_T(int aIdSeccion) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Mensaje[] consultar_M(int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -286,10 +313,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	}
 
 	public void mostrar_mensaje(int aIdMensaje) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void enviar_Mensaje(int aIdUsuario, String aPassword) {
 		throw new UnsupportedOperationException();
 	}
 

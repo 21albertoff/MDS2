@@ -163,11 +163,11 @@ public class Usuario_DB implements Serializable {
 		return correo;
 	}
 	
-	public void setContraseña(String value) {
+	public void setPassword(String value) {
 		this.contraseña = value;
 	}
 	
-	public String getContraseña() {
+	public String getPassword() {
 		return contraseña;
 	}
 	
