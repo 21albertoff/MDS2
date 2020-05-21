@@ -7,12 +7,10 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
-
-import citas.Login;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Link;
+import com.mds.foro.*;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -26,8 +24,8 @@ public class miforo extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-    	Registrarse r = new Registrarse();
-    	setContent(r);
+    	Registrarse registro = new Registrarse();
+    	setContent(registro);
     }
 
     @WebServlet(urlPatterns = "/*", name = "miforoServlet", asyncSupported = true)

@@ -1,15 +1,12 @@
 package com.mds.foro;
 
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Image;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
-
-import com.vaadin.navigator.View;
-import com.vaadin.ui.DateField;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.Window;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Link;
+
+import citas.Administrador;
+import citas.Login;
+import citas.Usuario;
 
 public class Registrarse extends Registrarse_Ventana{
 	
@@ -34,10 +31,20 @@ public class Registrarse extends Registrarse_Ventana{
 	 */
 	
 	iUsuario_no_identificado usuarioNoIdentificado;
-	
 	public Registrarse(){
 		
 		usuarioNoIdentificado = new DB_Main();
+		menuRegistrarse.setVisible(false);
+		errorMensaje.setVisible(false);
+        
+        menuIniciarSesion.addClickListener(new Link.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				
+				setContent(new Iniciar_sesion());
+			}
+		});
+        
+   
 		
 		botonRegistrarse.addClickListener(new Button.ClickListener()
 			{
@@ -51,27 +58,27 @@ public class Registrarse extends Registrarse_Ventana{
 
 	private void registrarse() {
 		
-		boolean correcto= false;	
-		if (campoFoto.getValue() == null || campoFoto.getValue() == " ") {
+		if (campoFoto.getValue() == null || campoFoto.getValue() == "") {
 			campoFoto.setValue("https://i.dlpng.com/static/png/6728146_preview.png");
 		}
-			
-		if(campoPassword.getValue().equals(campoPassworddos.getValue())) {
-			correcto= usuarioNoIdentificado.registrarse(campoNombreUsuario.getValue(), campoNombreCompleto.getValue(), campoCorreoUsuario.getValue(), campoPassword.getValue(), campoDescripcion.getValue(), campoFoto.getValue());
+		
+		if (campoNombreUsuario.getValue() == null || campoNombreUsuario.getValue() == "" ||
+		    campoCorreoUsuario.getValue() == null || campoCorreoUsuario.getValue() == "" ||
+		    campoPassword.getValue() == null || campoPassword.getValue() == "" ||
+		    campoDescripcion.getValue() == null || campoDescripcion.getValue() == "" ||
+		    campoPassworddos.getValue() == null || campoPassworddos.getValue() == "" ) {
+			errorMensaje.setVisible(true);
+		}
+	
+		else if(campoPassword.getValue().equals(campoPassworddos.getValue())) {
+			usuarioNoIdentificado.registrarse(campoNombreUsuario.getValue(), 
+														campoNombreCompleto.getValue(), 
+														campoCorreoUsuario.getValue(),
+														campoPassword.getValue(), 
+														campoDescripcion.getValue(), 
+														campoFoto.getValue());
 		}
 			
-		if(correcto) {
-				for(Window windows : UI.getCurrent().getWindows()){
-					windows.close();
-					
-				}
-				Window iniciarSesion=new Window("Iniciar Sesion");
-				iniciarSesion.setContent(new Iniciar_sesion());
-				iniciarSesion.center();		
-				iniciarSesion.setResponsive(true);
-				usuarioNoIdentificado.getCurrent().addWindow(iniciarSesion);
-				
-			}
-	}
 
+	}
 }

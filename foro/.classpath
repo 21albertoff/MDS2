@@ -23,7 +23,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Alberto/Desktop/Base de datos/lib/orm.jar"/>
 	<classpathentry kind="src" output="target/classes" path="src/main/java">
 		<attributes>
 			<attribute name="optional" value="true"/>
@@ -37,6 +36,15 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Alberto/Desktop/mysql-connector-java-8.0.20.jar"/>
+	<classpathentry kind="lib" path="C:/mysql-connector-java-8.0.20.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/orm.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

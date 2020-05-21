@@ -1,5 +1,8 @@
 package com.mds.foro;
 
+import java.io.Serializable;
+import org.orm.PersistentException;
+
 public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fijos, iUsuario, iUsuario_identificado, iModerador, iUsuario_registrado, iAdministrador {
 	public DB_Temas _bd_temas;
 	public DB_Administradores _bd_administradores;

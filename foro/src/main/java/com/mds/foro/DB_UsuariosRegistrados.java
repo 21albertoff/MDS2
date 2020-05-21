@@ -1,8 +1,8 @@
 package com.mds.foro;
 
 import java.util.*;
-import java.io.*;
-import java.time.*;
+import org.orm.PersistentException;
+import org.orm.PersistentTransaction;
 
 import com.mds.foro.Usuario_registradoDB;
 
@@ -10,7 +10,7 @@ public class DB_UsuariosRegistrados {
 	public DB_Main _bd_main_usuarios_registrados;
 	public Vector<Usuario_registradoDB> _contiene_usuario_registrado = new Vector<Usuario_registradoDB>();
 
-	public boolean registrarse(String nombreUsuario, String nombreCompleto, String correoUsuario, String passwordUsuario, String descripcionUsuario, String fotoUsuario) {
+	public boolean registrarse(String nombreUsuario, String nombreCompleto, String correoUsuario, String passwordUsuario, String descripcionUsuario, String fotoUsuario) throws PersistentException{
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		
 			try {	
@@ -29,7 +29,6 @@ public class DB_UsuariosRegistrados {
 				return true;
 				
 		} catch (PersistentException e1) {
-			// TODO Auto-generated catch block
 			t.rollback();
 		}
 	

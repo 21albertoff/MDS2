@@ -37,6 +37,7 @@ public class Registrarse_Ventana extends AbsoluteLayout {
 	protected TextField campoDescripcion;
 	protected TextField campoFoto;
 	protected Label cambiarcontrasena;
+	protected Label errorMensaje;
 
 	public Registrarse_Ventana() {
 		Design.read(this);
