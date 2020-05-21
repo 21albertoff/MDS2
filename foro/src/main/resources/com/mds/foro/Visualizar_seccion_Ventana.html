@@ -39,10 +39,10 @@
    <vaadin-absolute-layout>
     <vaadin-panel style-name="borderless" size-full :top="10%" :left="0%">
      <vaadin-absolute-layout style-name="fondogris">
-      <vaadin-label style-name="seccion" plain-text :top="0%" :right="25%" :left="32%">
+      <vaadin-label style-name="seccion" plain-text _id="tituloSeccion" :top="0%" :right="25%" :left="32%">
         TITULO DE LA SECCIÓN 
       </vaadin-label>
-      <vaadin-panel style-name="borderless" size-full :top="10%" :right="23.7%" :left="25%">
+      <vaadin-panel style-name="borderless" size-full _id="panelTemas" :top="10%" :right="23.7%" :left="25%">
        <vaadin-vertical-layout>
         <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje2">
          <vaadin-image source="https://images.vexels.com/media/users/3/152688/isolated/preview/fff00bbd013c42d160e37579cd2e1df5-lavadora-trazo-icono-plomer--a-by-vexels.png" width="50px" height="50px" _id="imagenTema2" :center></vaadin-image>
@@ -306,7 +306,7 @@
         </vaadin-horizontal-layout>
        </vaadin-vertical-layout>
       </vaadin-panel>
-      <vaadin-vertical-layout size-full :top="45%" :right="2%" :bottom="5%" :left="78%">
+      <vaadin-vertical-layout spacing="false" size-full margin="false" :top="45%" :right="2%" :bottom="5%" :left="78%">
        <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje3">
         <vaadin-image source="https://cdn.pixabay.com/photo/2014/03/24/17/15/bike-295235_960_720.png" width="50px" height="50px" _id="imagenTema3" :center></vaadin-image>
         <vaadin-label style-name="negrita" plain-text _id="mensaje3" :middle>
@@ -350,19 +350,19 @@
         <vaadin-label plain-text></vaadin-label>
        </vaadin-horizontal-layout>
       </vaadin-vertical-layout>
-      <vaadin-label style-name="seccion" plain-text :top="41%" :right="3%" :bottom="6%" :left="79%">
+      <vaadin-label style-name="seccion" plain-text _id="seccionesDestacadas" :top="41%" :right="3%" :bottom="6%" :left="79%">
         SECCIONES DESTACADAS 
       </vaadin-label>
-      <vaadin-image size-full alt="Publicidad" :top="10%" :right="78%" :bottom="10%" :left="2%"></vaadin-image>
-      <vaadin-image size-full alt="Publicidad" :top="5%" :right="2%" :bottom="60%" :left="78%"></vaadin-image>
-      <vaadin-button style-name="primary" size-full plain-text :top="0%" :right="25%" :bottom="96%" :left="63%">
+      <vaadin-image size-full alt="Publicidad" _id="anuncio2" :top="10%" :right="78%" :bottom="10%" :left="2%"></vaadin-image>
+      <vaadin-image size-full alt="Publicidad" _id="anuncio" :top="5%" :right="2%" :bottom="60%" :left="78%"></vaadin-image>
+      <vaadin-button style-name="primary" size-full plain-text _id="crearTema" :top="0%" :right="25%" :bottom="96%" :left="63%">
         Crear Tema 
       </vaadin-button>
-      <vaadin-image source="https://images.vexels.com/media/users/3/152688/isolated/preview/fff00bbd013c42d160e37579cd2e1df5-lavadora-trazo-icono-plomer--a-by-vexels.png" width="60px" height="60px" :top="0%" :right="25%" :left="26%"></vaadin-image>
-      <vaadin-label style-name="negrita" plain-text _id="mensaje25" :top="3%" :right="25%" :left="32%">
+      <vaadin-image source="https://images.vexels.com/media/users/3/152688/isolated/preview/fff00bbd013c42d160e37579cd2e1df5-lavadora-trazo-icono-plomer--a-by-vexels.png" width="60px" height="60px" _id="iconoSeccion" :top="0%" :right="25%" :left="26%"></vaadin-image>
+      <vaadin-label style-name="negrita" plain-text _id="subtituloSeccion" :top="3%" :right="25%" :left="32%">
         SUBTITULO DE LA SECCION 
       </vaadin-label>
-      <vaadin-combo-box empty-selection-caption="Ordenar por:" size-full data-item-type="java.lang.String" :top="5%" :right="25%" :bottom="91%" :left="63%">
+      <vaadin-combo-box empty-selection-caption="Ordenar por:" size-full data-item-type="java.lang.String" _id="ordenarPor" :top="5%" :right="25%" :bottom="91%" :left="63%">
        <option item="Fecha">Fecha</option>
        <option item="Megusta">Me gusta</option>
        <option item="Mensajes">Mensajes</option>

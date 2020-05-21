@@ -7,6 +7,7 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Link;
+import com.vaadin.ui.Panel;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.declarative.Design;
 
@@ -44,6 +45,9 @@ public class Visualizar_tema_y_mensajes_Ventana extends AbsoluteLayout {
 	protected Link menuNotificacionesAdministrador;
 	protected Image menuimagenPerfilAdministador;
 	protected Link menuPanelControlAdministrador;
+	protected Panel panelTema;
+	protected Label tituloTema;
+	protected Panel panelMensaje;
 	protected VerticalLayout cajaMensaje1;
 	protected Image fotoUsuario1;
 	protected Label nombreUsuarios1;
@@ -72,9 +76,16 @@ public class Visualizar_tema_y_mensajes_Ventana extends AbsoluteLayout {
 	protected HorizontalLayout cajaMensaje133;
 	protected Image imagenTema133;
 	protected Label mensaje133;
-	protected Label mensaje25;
-	protected Label fechaMensajeUsuario213;
-	protected Label temaMensaje214;
+	protected Label seccionesDestacadas;
+	protected Image anuncio;
+	protected AbsoluteLayout cajaTema;
+	protected Image fotoPerfil;
+	protected Label nombreUsuario;
+	protected Label tituloTema2;
+	protected Label fechaTema;
+	protected Label numeroMensajes;
+	protected Image iconoMensajes;
+	protected Label descripcionTema;
 
 	public Visualizar_tema_y_mensajes_Ventana() {
 		Design.read(this);

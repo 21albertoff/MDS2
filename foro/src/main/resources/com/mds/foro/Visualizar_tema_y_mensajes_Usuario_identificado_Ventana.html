@@ -38,10 +38,10 @@
    </vaadin-absolute-layout>
    <vaadin-panel style-name="borderless" size-full :top="10%" :left="0%">
     <vaadin-absolute-layout style-name="fondogris">
-     <vaadin-label style-name="seccion" plain-text :top="0%" :right="45%" :left="45%">
+     <vaadin-label style-name="seccion" plain-text _id="tituloTema" :top="0%" :right="45%" :left="45%">
        TITULO DEL TEMA 
      </vaadin-label>
-     <vaadin-panel style-name="borderless" size-full :top="35%" :right="23.7%" :left="5%">
+     <vaadin-panel style-name="borderless" size-full _id="panelMensajes" :top="35%" :right="23.7%" :left="5%">
       <vaadin-vertical-layout>
        <vaadin-vertical-layout style-name="cajaMensaje" spacing="false" responsive width="90%" _id="cajaMensaje1">
         <vaadin-button icon="fonticon://Vaadin-Icons/e80b" primary-style-name="v-botton" style-name="eliminar" width="30px" height="30px" plain-text :right></vaadin-button>
@@ -145,39 +145,39 @@
        <vaadin-label plain-text></vaadin-label>
       </vaadin-horizontal-layout>
      </vaadin-vertical-layout>
-     <vaadin-label style-name="seccion" plain-text :top="41%" :right="3%" :bottom="6%" :left="79%">
+     <vaadin-label style-name="seccion" plain-text _id="seccionesDestacadas" :top="41%" :right="3%" :bottom="6%" :left="79%">
        SECCIONES DESTACADAS 
      </vaadin-label>
-     <vaadin-image size-full alt="Publicidad" :top="5%" :right="2%" :bottom="60%" :left="78%"></vaadin-image>
+     <vaadin-image size-full alt="Publicidad" _id="anuncio" :top="5%" :right="2%" :bottom="60%" :left="78%"></vaadin-image>
      <vaadin-absolute-layout style-name="cajaMensaje" :top="5%" :right="23.7%" :bottom="70%" :left="5%">
-      <vaadin-image source="https://cdn.dribbble.com/users/1016246/screenshots/2439534/dribbble-03.png" style-name="fotoPerfil" width="90px" height="90px" :top="10%" :left="3%"></vaadin-image>
-      <vaadin-label style-name="nombreUsuarios" plain-text :top="65%" :left="2.5%">
+      <vaadin-image source="https://cdn.dribbble.com/users/1016246/screenshots/2439534/dribbble-03.png" style-name="fotoPerfil" width="90px" height="90px" _id="fotoPerfil" :top="10%" :left="3%"></vaadin-image>
+      <vaadin-label style-name="nombreUsuarios" plain-text _id="nombreUsuario" :top="65%" :left="2.5%">
         Administrador 
       </vaadin-label>
-      <vaadin-label style-name="negrita" plain-text _id="mensaje25" :top="10%" :left="20%">
+      <vaadin-label style-name="negrita" plain-text _id="tituloTema2" :top="10%" :left="20%">
         TITULO DEL TEMA 
       </vaadin-label>
-      <vaadin-label plain-text _id="fechaMensajeUsuario213" :top="10%" :left="50%">
+      <vaadin-label plain-text _id="fechaTema" :top="10%" :left="50%">
         14/03/2020 
       </vaadin-label>
-      <vaadin-label plain-text _id="temaMensaje214" :top="10%" :left="85%">
+      <vaadin-label plain-text _id="numeroMensajes" :top="10%" :left="85%">
         456 
       </vaadin-label>
-      <vaadin-image source="https://image.flaticon.com/icons/svg/31/31278.svg" width="30px" height="30px" :top="10%" :left="90%"></vaadin-image>
-      <vaadin-button icon="fonticon://Vaadin-Icons/e80b" primary-style-name="v-botton" style-name="eliminar" width="30px" height="30px" plain-text :left="96%"></vaadin-button>
-      <vaadin-label size-full plain-text :top="28%" :right="20%" :bottom="10%" :left="20%">
+      <vaadin-image source="https://image.flaticon.com/icons/svg/31/31278.svg" width="30px" height="30px" _id="iconoMensajes" :top="10%" :left="90%"></vaadin-image>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e80b" primary-style-name="v-botton" style-name="eliminar" width="30px" height="30px" plain-text _id="eliminarTema" :left="96%"></vaadin-button>
+      <vaadin-label size-full plain-text _id="descripcionTema" :top="28%" :right="20%" :bottom="10%" :left="20%">
         Esto es la descripcion, pregunta, duda o sugerencia que ha dejado el usuario que ha creado el tema. 
       </vaadin-label>
-      <vaadin-button style-name="primary" size-full plain-text :top="75%" :right="2%" :bottom="5%" :left="82%">
+      <vaadin-button style-name="primary" size-full plain-text _id="responderTema" :top="75%" :right="2%" :bottom="5%" :left="82%">
         RESPONDER 
       </vaadin-button>
-      <vaadin-label plain-text _id="temaMensaje2513" :top="55%" :right="2%" :bottom="5%" :left="83%">
+      <vaadin-label plain-text _id="numeroMeGusta" :top="55%" :right="2%" :bottom="5%" :left="83%">
         4502 
       </vaadin-label>
-      <vaadin-check-box caption="Me gusta" :top="58%" :right="2%" :bottom="25%" :left="88%"></vaadin-check-box>
-      <vaadin-link icon="fonticon://Vaadin-Icons/e711" :top="77%" :left="6.5%"></vaadin-link>
+      <vaadin-check-box caption="Me gusta" _id="darMeGusta" :top="58%" :right="2%" :bottom="25%" :left="88%"></vaadin-check-box>
+      <vaadin-link icon="fonticon://Vaadin-Icons/e711" _id="reportarUsuario" :top="77%" :left="6.5%"></vaadin-link>
      </vaadin-absolute-layout>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e7fa" caption="ESCRIBIR MENSAJE" :top="31%" :right="23.7%" :bottom="70%" :left="5%"></vaadin-link>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e7fa" caption="ESCRIBIR MENSAJE" _id="escribirMensaje" :top="31%" :right="23.7%" :bottom="70%" :left="5%"></vaadin-link>
     </vaadin-absolute-layout>
    </vaadin-panel>
   </vaadin-absolute-layout>

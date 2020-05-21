@@ -4,10 +4,6 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Link;
 
-import citas.Administrador;
-import citas.Login;
-import citas.Usuario;
-
 public class Registrarse extends Registrarse_Ventana{
 	
 	/*
@@ -36,13 +32,6 @@ public class Registrarse extends Registrarse_Ventana{
 		usuarioNoIdentificado = new DB_Main();
 		menuRegistrarse.setVisible(false);
 		errorMensaje.setVisible(false);
-        
-        menuIniciarSesion.addClickListener(new Link.ClickListener() {
-			public void buttonClick(ClickEvent event) {
-				
-				setContent(new Iniciar_sesion());
-			}
-		});
         
    
 		
