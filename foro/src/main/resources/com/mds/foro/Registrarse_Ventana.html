@@ -12,26 +12,29 @@
       foroMDS2 
     </vaadin-label>
     <vaadin-absolute-layout responsive _id="menuUsuarioNoIdentifado">
-     <vaadin-link caption="Registrarse" primary-style-name="enlacesMenu" responsive size-full _id="menuRegistrarse" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e80d" caption="Iniciar Sesion" primary-style-name="enlacesMenu" responsive size-full _id="menuIniciarSesion" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
+     <vaadin-button primary-style-name="enlacesMenu" style-name="link" size-full _id="menuRegistrarse" :top="30%" :right="20%" :bottom="30%" :left="70%">
+       Registrarse 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e80d" primary-style-name="enlacesMenu" style-name="link" size-full _id="menuIniciarSesion" :top="30%" :right="5%" :bottom="30%" :left="82%">
+       IniciarSesion 
+     </vaadin-button>
     </vaadin-absolute-layout>
    </vaadin-absolute-layout>
    <vaadin-absolute-layout style-name="cajacambiar" responsive id="cajacambiar" _id="cajaCambiar" :top="30%" :right="10%" :bottom="25%" :left="10%">
-    <vaadin-password-field icon="fonticon://Vaadin-Icons/e7f2" caption="CONTRASEÑA" responsive placeholder="Introduce tu contraseña" width="350px" height="40px" _id="campoPassword" :top="50%" :left="5%"></vaadin-password-field>
+    <vaadin-password-field icon="fonticon://Vaadin-Icons/e7f2" caption="CONTRASEÑA" placeholder="Introduce tu contraseña" width="350px" height="40px" _id="campoPassword" :top="50%" :left="5%"></vaadin-password-field>
     <vaadin-button style-name="primary" id="confirmar" width="150px" height="50px" plain-text _id="botonRegistrarse" :top="80%" :left="84%">
       REGISTRARSE 
     </vaadin-button>
-    <vaadin-text-field icon="fonticon://Vaadin-Icons/e80d" caption="NOMBRE DE USUARIO" responsive placeholder="Introduce tu nick" width="350px" height="40px" error-message="Por favor, vuelva a escribir el nick" required _id="campoNombreUsuario" :top="10%" :left="5%"></vaadin-text-field>
-    <vaadin-text-field icon="fonticon://Vaadin-Icons/e80d" caption="CORREO ELECTRONICO" responsive placeholder="Introduce tu correo" width="350px" height="40px" error-message="Por favor, vuelva a escribir la contraseña" pattern="[A-Z]{1}" required _id="campoCorreoUsuario" :top="30%" :left="5%"></vaadin-text-field>
-    <vaadin-password-field icon="fonticon://Vaadin-Icons/e7f2" caption="REPITE CONTRASEÑA" responsive placeholder="Repite tu contraseña" width="350px" height="40px" error-message="Por favor, repite la contraseña" required _id="campoPassworddos" :top="70%" :left="5%"></vaadin-password-field>
-    <vaadin-text-field icon="fonticon://Vaadin-Icons/e80d" caption="NOMBRE COMPLETO" responsive placeholder="Introducce tu nombre completo" width="400px" height="40px" error-message="Por favor, introduce tu nombre" required _id="campoNombreCompleto" :top="10%" :left="43%"></vaadin-text-field>
-    <vaadin-text-field icon="fonticon://Vaadin-Icons/e80d" caption="DESCRIPCIÓN" responsive placeholder="Introducce una breve descripción" width="400px" height="203px" error-message="Por favor, introduce una breve descripcion" required _id="campoDescripcion" :top="30%" :left="43%"></vaadin-text-field>
-    <vaadin-text-field icon="fonticon://Vaadin-Icons/e7bb" caption="FOTO PERFIL" responsive placeholder="URL de imagen" width="120px" height="40px" error-message="Por favor, introduce una url valida" plain-text="" required _id="campoFoto" :top="10%" :left="85%"></vaadin-text-field>
+    <vaadin-text-field icon="fonticon://Vaadin-Icons/e80d" caption="NOMBRE DE USUARIO" placeholder="Introduce tu nick" width="350px" height="40px" error-message="Por favor, vuelva a escribir el nick" required _id="campoNombreUsuario" :top="10%" :left="5%"></vaadin-text-field>
+    <vaadin-text-field icon="fonticon://Vaadin-Icons/e80d" caption="CORREO ELECTRONICO" placeholder="Introduce tu correo" width="350px" height="40px" error-message="Por favor, vuelva a escribir la contraseña" pattern="[A-Z]{1}" required _id="campoCorreoUsuario" :top="30%" :left="5%"></vaadin-text-field>
+    <vaadin-password-field icon="fonticon://Vaadin-Icons/e7f2" caption="REPITE CONTRASEÑA" placeholder="Repite tu contraseña" width="350px" height="40px" error-message="Por favor, repite la contraseña" required _id="campoPassworddos" :top="70%" :left="5%"></vaadin-password-field>
+    <vaadin-text-field icon="fonticon://Vaadin-Icons/e80d" caption="NOMBRE COMPLETO" placeholder="Introducce tu nombre completo" width="400px" height="40px" error-message="Por favor, introduce tu nombre" required _id="campoNombreCompleto" :top="10%" :left="43%"></vaadin-text-field>
+    <vaadin-text-area icon="fonticon://Vaadin-Icons/e80d" caption="DESCRIPCIÓN" placeholder="Introducce una breve descripción" width="400px" height="203px" error-message="Por favor, introduce una breve descripcion" required _id="campoDescripcion" :top="30%" :left="43%"></vaadin-text-area>
+    <vaadin-text-field icon="fonticon://Vaadin-Icons/e7bb" caption="FOTO PERFIL" placeholder="URL de imagen" width="120px" height="40px" error-message="Por favor, introduce una url valida" plain-text="" required _id="campoFoto" :top="10%" :left="85%"></vaadin-text-field>
    </vaadin-absolute-layout>
    <vaadin-label responsive id="cambiarcontrasena" plain-text _id="cambiarcontrasena" :top="20%" :left="44.5%">
      REGISTRARSE 
    </vaadin-label>
-   <vaadin-label icon="fonticon://Vaadin-Icons/e707" caption="Todos los campos son obligatorios" responsive width="50px" height="0px" plain-text _id="errorMensaje" :top="575px" :left="655px"></vaadin-label>
   </vaadin-absolute-layout>
  </body>
 </html>

@@ -12,20 +12,26 @@
       foroMDS2 
     </vaadin-label>
     <vaadin-absolute-layout _id="menuUsuarioNoIdentifado">
-     <vaadin-link caption="Registrarse" primary-style-name="enlacesMenu" size-full _id="menuRegistrarse" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e80d" caption="Iniciar Sesion" primary-style-name="enlacesMenu" size-full _id="menuIniciarSesion" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
+     <vaadin-button primary-style-name="enlacesMenu" style-name="link" size-full _id="menuRegistrarse" :top="30%" :right="20%" :bottom="30%" :left="70%">
+       Registrarse 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e80d" primary-style-name="enlacesMenu" style-name="link" size-full _id="menuIniciarSesion" :top="30%" :right="5%" :bottom="30%" :left="82%">
+       Iniciar Sesion 
+     </vaadin-button>
     </vaadin-absolute-layout>
    </vaadin-absolute-layout>
    <vaadin-absolute-layout responsive id="cajacambiar" _id="cajacambiar" :top="30%" :right="30%" :bottom="25%" :left="30%">
-    <vaadin-password-field icon="fonticon://Vaadin-Icons/e7f2" caption="CONTRASEÑA" width="423px" height="40px" :top="55%" :left="13%"></vaadin-password-field>
+    <vaadin-password-field icon="fonticon://Vaadin-Icons/e7f2" caption="CONTRASEÑA" placeholder="Introducce tu contraseña" width="423px" height="40px" _id="campoPassword" :top="55%" :left="13%"></vaadin-password-field>
     <vaadin-label id="cambiarcontrasena" plain-text _id="cambiarcontrasena" :top="13%" :left="33%">
       INICIAR SESIÓN 
     </vaadin-label>
     <vaadin-button style-name="primary" width="150px" height="50px" plain-text _id="botonIniciarSesion" :top="75%" :left="61%">
       ACEPTAR 
     </vaadin-button>
-    <vaadin-text-field icon="fonticon://Vaadin-Icons/e80d" caption="NOMBRE DE USUARIO" placeholder="" width="423px" height="40px" _id="nombreUsuario" :top="35%" :left="13%"></vaadin-text-field>
-    <vaadin-link caption="RECUPERAR CONTRASEÑA" id="recuperarLink" _id="recuperarLink" :top="78%" :left="12%"></vaadin-link>
+    <vaadin-text-field icon="fonticon://Vaadin-Icons/e80d" caption="NOMBRE DE USUARIO" placeholder="Introducce tu nombre de usuario" width="423px" height="40px" _id="nombreUsuario" :top="35%" :left="13%"></vaadin-text-field>
+    <vaadin-button style-name="link" _id="recuperarPassword" :top="78%" :left="10%">
+      Recuperar contraseña 
+    </vaadin-button>
    </vaadin-absolute-layout>
    <vaadin-image source="https://fotos.subefotos.com/858c70625d0f52aa133eb2a674972170o.png" width="170px" height="170px" _id="imagenIniciarSesion" :top="12%" :left="43.5%"></vaadin-image>
   </vaadin-absolute-layout>

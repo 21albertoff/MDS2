@@ -35,8 +35,26 @@ public class DB_UsuariosRegistrados {
 		return false;
 	}
 
-	public boolean iniciar_sesion(String aNombreUsuario, String aContrasenia) {
-		throw new UnsupportedOperationException();
+	public boolean iniciar_sesion(String nombreUsuario, String passwordUsuario) throws PersistentException{
+		boolean correcto = false;
+		
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();;
+
+		try {
+			Usuario_DB cargarUsuarios = Usuario_DBDAO.loadUsuario_DBByQuery("Usuario_DB.nombreUsuario='"+nombreUsuario+"' and Usuario_DB.contraseña='"+passwordUsuario+"'",null);
+			for(Object usr: Usuario_DBDAO.queryUsuario_DB(null, null)) {
+				Usuario_DB usuario = (Usuario_DB) usr;
+				if(usuario.getNombreUsuario().equals(cargarUsuarios.getNombreUsuario())) {
+						Parametros.setIdUsuarioNavega(usuario.getIdUsuario());
+						Parametros.setUsuarioActual(usuario.getIdUsuario());
+						correcto = true;
+				} 
+			}
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
+		return correcto;
 	}
 
 	public boolean recuperarContrasenia(int aIdUsuario, String aCorreoElectronico) {

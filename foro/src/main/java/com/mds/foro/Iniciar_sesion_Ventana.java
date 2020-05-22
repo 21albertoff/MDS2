@@ -6,7 +6,7 @@ import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
-import com.vaadin.ui.Link;
+import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.declarative.Design;
 
@@ -24,13 +24,14 @@ import com.vaadin.ui.declarative.Design;
 public class Iniciar_sesion_Ventana extends AbsoluteLayout {
 	protected Label nombreForo;
 	protected AbsoluteLayout menuUsuarioNoIdentifado;
-	protected Link menuRegistrarse;
-	protected Link menuIniciarSesion;
+	protected Button menuRegistrarse;
+	protected Button menuIniciarSesion;
 	protected AbsoluteLayout cajacambiar;
+	protected PasswordField campoPassword;
 	protected Label cambiarcontrasena;
 	protected Button botonIniciarSesion;
 	protected TextField nombreUsuario;
-	protected Link recuperarLink;
+	protected Button recuperarPassword;
 	protected Image imagenIniciarSesion;
 
 	public Iniciar_sesion_Ventana() {

@@ -23,8 +23,13 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return false;
 	}
 	
-	public boolean iniciar_sesion(String aNombreUsuario, String aContrasenia) {
-		throw new UnsupportedOperationException();
+	public boolean iniciar_sesion(String nombreUsuario, String passwordUsuario) {
+		try {
+			return  registrados.iniciar_sesion(nombreUsuario, passwordUsuario);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 	public boolean recuperarContrasenia(int aIdUsuario, String aCorreoElectronico) {

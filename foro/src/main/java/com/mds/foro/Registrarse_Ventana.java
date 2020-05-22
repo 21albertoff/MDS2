@@ -5,8 +5,8 @@ import com.vaadin.annotations.DesignRoot;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
-import com.vaadin.ui.Link;
 import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.TextArea;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.declarative.Design;
 
@@ -25,8 +25,8 @@ public class Registrarse_Ventana extends AbsoluteLayout {
 	protected AbsoluteLayout menuSuperior;
 	protected Label nombreForo;
 	protected AbsoluteLayout menuUsuarioNoIdentifado;
-	protected Link menuRegistrarse;
-	protected Link menuIniciarSesion;
+	protected Button menuRegistrarse;
+	protected Button menuIniciarSesion;
 	protected AbsoluteLayout cajaCambiar;
 	protected PasswordField campoPassword;
 	protected Button botonRegistrarse;
@@ -34,10 +34,9 @@ public class Registrarse_Ventana extends AbsoluteLayout {
 	protected TextField campoCorreoUsuario;
 	protected PasswordField campoPassworddos;
 	protected TextField campoNombreCompleto;
-	protected TextField campoDescripcion;
+	protected TextArea campoDescripcion;
 	protected TextField campoFoto;
 	protected Label cambiarcontrasena;
-	protected Label errorMensaje;
 
 	public Registrarse_Ventana() {
 		Design.read(this);
