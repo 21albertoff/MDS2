@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -20,7 +20,7 @@ import javax.persistence.*;
 @Table(name="Usuario_registradoDB")
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorValue("Usuario_registradoDB")
-@PrimaryKeyJoinColumn(name="Usuario_DBIdUsuario", referencedColumnName="IdUsuario")
+@PrimaryKeyJoinColumn(name="idUsuario", referencedColumnName="IdUsuario")
 public class Usuario_registradoDB extends com.mds.foro.Usuario_DB implements Serializable {
 	public Usuario_registradoDB() {
 	}
@@ -40,15 +40,7 @@ public class Usuario_registradoDB extends com.mds.foro.Usuario_DB implements Ser
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == ORMConstants.KEY_USUARIO_REGISTRADODB_CONVERTIDO_POR) {
-			this.convertido_por = (com.mds.foro.AdministradorDB) owner;
-		}
-		
-		else if (key == ORMConstants.KEY_USUARIO_REGISTRADODB_BANEADO_POR) {
-			this.baneado_por = (com.mds.foro.AdministradorDB) owner;
-		}
-		
-		else if (key == ORMConstants.KEY_USUARIO_REGISTRADODB_NOTIFICADO_POR_MODERADOR) {
+		if (key == ORMConstants.KEY_USUARIO_REGISTRADODB_NOTIFICADO_POR_MODERADOR) {
 			this.notificado_por_Moderador = (com.mds.foro.Usuario_registradoDB) owner;
 		}
 	}
@@ -71,31 +63,21 @@ public class Usuario_registradoDB extends com.mds.foro.Usuario_DB implements Ser
 	@Column(name="UsuarioBaneado", nullable=false, length=1)	
 	private boolean usuarioBaneado;
 	
-	@ManyToMany(targetEntity=com.mds.foro.Usuario_registradoDB.class)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Usuario_registradoDB_Usuario_registradoDB", joinColumns={ @JoinColumn(name="Usuario_registradoDBUsuario_DBIdUsuario2") }, inverseJoinColumns={ @JoinColumn(name="Usuario_registradoDBUsuario_DBIdUsuario") })	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_reporta = new java.util.HashSet();
-	
-	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
+	@ManyToOne(targetEntity=com.mds.foro.Usuario_registradoDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="AdministradorDBUsuario_DBIdUsuario2", referencedColumnName="Usuario_DBIdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKUsuario_re761079"))	
-	private com.mds.foro.AdministradorDB baneado_por;
-	
-	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="AdministradorDBUsuario_DBIdUsuario", referencedColumnName="Usuario_DBIdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKUsuario_re102833"))	
-	private com.mds.foro.AdministradorDB convertido_por;
+	@JoinColumns(value={ @JoinColumn(name="notificadoPor", referencedColumnName="idUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKUsuario_re623061"))	
+	private com.mds.foro.Usuario_registradoDB notificado_por_Moderador;
 	
 	@OneToMany(mappedBy="notificado_por_Moderador", targetEntity=com.mds.foro.Usuario_registradoDB.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_notifica = new java.util.HashSet();
 	
-	@ManyToOne(targetEntity=com.mds.foro.Usuario_registradoDB.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="Usuario_registradoDBUsuario_DBIdUsuario", referencedColumnName="Usuario_DBIdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKUsuario_re942948"))	
-	private com.mds.foro.Usuario_registradoDB notificado_por_Moderador;
+	@ManyToMany(targetEntity=com.mds.foro.Usuario_registradoDB.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinTable(name="Usuario_registradoDB_Usuario_registradoDB", joinColumns={ @JoinColumn(name="Usuario_registradoDBUsuario_DBIdUsuario2") }, inverseJoinColumns={ @JoinColumn(name="Usuario_registradoDBUsuario_DBIdUsuario") })	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_reporta = new java.util.HashSet();
 	
 	@ManyToMany(mappedBy="ORM_reporta", targetEntity=com.mds.foro.Usuario_registradoDB.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
@@ -139,54 +121,6 @@ public class Usuario_registradoDB extends com.mds.foro.Usuario_DB implements Ser
 	
 	@Transient	
 	public final com.mds.foro.Usuario_registradoDBSetCollection reporta = new com.mds.foro.Usuario_registradoDBSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_REGISTRADODB_REPORTA, ORMConstants.KEY_USUARIO_REGISTRADODB_REPORTADO_POR, ORMConstants.KEY_MUL_MANY_TO_MANY);
-	
-	public void setConvertido_por(com.mds.foro.AdministradorDB value) {
-		if (convertido_por != null) {
-			convertido_por.convierte_en_moderador.remove(this);
-		}
-		if (value != null) {
-			value.convierte_en_moderador.add(this);
-		}
-	}
-	
-	public com.mds.foro.AdministradorDB getConvertido_por() {
-		return convertido_por;
-	}
-	
-	/**
-	 * This method is for internal use only.
-	 */
-	public void setORM_Convertido_por(com.mds.foro.AdministradorDB value) {
-		this.convertido_por = value;
-	}
-	
-	private com.mds.foro.AdministradorDB getORM_Convertido_por() {
-		return convertido_por;
-	}
-	
-	public void setBaneado_por(com.mds.foro.AdministradorDB value) {
-		if (baneado_por != null) {
-			baneado_por.banea.remove(this);
-		}
-		if (value != null) {
-			value.banea.add(this);
-		}
-	}
-	
-	public com.mds.foro.AdministradorDB getBaneado_por() {
-		return baneado_por;
-	}
-	
-	/**
-	 * This method is for internal use only.
-	 */
-	public void setORM_Baneado_por(com.mds.foro.AdministradorDB value) {
-		this.baneado_por = value;
-	}
-	
-	private com.mds.foro.AdministradorDB getORM_Baneado_por() {
-		return baneado_por;
-	}
 	
 	public void setNotificado_por_Moderador(com.mds.foro.Usuario_registradoDB value) {
 		if (notificado_por_Moderador != null) {

@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -31,7 +31,7 @@ public class MensajeDBDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final BooleanExpression eliminado;
 	public final BooleanExpression oculto;
 	public final StringExpression video;
-	public final StringExpression foto;
+	public final StringExpression foto1;
 	public final StringExpression foto2;
 	public final StringExpression foto3;
 	public final CollectionExpression contiene_respuesta;
@@ -51,7 +51,7 @@ public class MensajeDBDetachedCriteria extends AbstractORMDetachedCriteria {
 		eliminado = new BooleanExpression("eliminado", this.getDetachedCriteria());
 		oculto = new BooleanExpression("oculto", this.getDetachedCriteria());
 		video = new StringExpression("video", this.getDetachedCriteria());
-		foto = new StringExpression("foto", this.getDetachedCriteria());
+		foto1 = new StringExpression("foto1", this.getDetachedCriteria());
 		foto2 = new StringExpression("foto2", this.getDetachedCriteria());
 		foto3 = new StringExpression("foto3", this.getDetachedCriteria());
 		contiene_respuesta = new CollectionExpression("ORM_contiene_respuesta", this.getDetachedCriteria());
@@ -72,7 +72,7 @@ public class MensajeDBDetachedCriteria extends AbstractORMDetachedCriteria {
 		eliminado = new BooleanExpression("eliminado", this.getDetachedCriteria());
 		oculto = new BooleanExpression("oculto", this.getDetachedCriteria());
 		video = new StringExpression("video", this.getDetachedCriteria());
-		foto = new StringExpression("foto", this.getDetachedCriteria());
+		foto1 = new StringExpression("foto1", this.getDetachedCriteria());
 		foto2 = new StringExpression("foto2", this.getDetachedCriteria());
 		foto3 = new StringExpression("foto3", this.getDetachedCriteria());
 		contiene_respuesta = new CollectionExpression("ORM_contiene_respuesta", this.getDetachedCriteria());

@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -54,6 +54,10 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_USUARIO_DB_AMIGO_DE = 48564875;
 	
+	final int KEY_USUARIO_DB_BANEADO_POR = 928519258;
+	
+	final int KEY_USUARIO_DB_CONVERTIDO_POR = 870795301;
+	
 	final int KEY_USUARIO_DB_CREA_MENSAJE = -1291906341;
 	
 	final int KEY_USUARIO_DB_CREA_TEMA = -1426252471;
@@ -65,10 +69,6 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	final int KEY_USUARIO_DB_RECIBE = -338695476;
 	
 	final int KEY_USUARIO_NOTIFICADOSDB_BANEADO_PORN = 1009949061;
-	
-	final int KEY_USUARIO_REGISTRADODB_BANEADO_POR = -1244567926;
-	
-	final int KEY_USUARIO_REGISTRADODB_CONVERTIDO_POR = 472549365;
 	
 	final int KEY_USUARIO_REGISTRADODB_NOTIFICA = -228478953;
 	

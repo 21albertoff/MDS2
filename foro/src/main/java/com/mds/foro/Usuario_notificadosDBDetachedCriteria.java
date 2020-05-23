@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -20,15 +20,21 @@ import org.orm.criteria.*;
 
 public class Usuario_notificadosDBDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression idUsuario;
+	public final IntegerExpression convertido_porId;
+	public final AssociationExpression convertido_por;
+	public final IntegerExpression baneado_porId;
+	public final AssociationExpression baneado_por;
 	public final StringExpression nombreUsuario;
 	public final StringExpression nombreCompleto;
 	public final StringExpression correo;
-	public final StringExpression contraseña;
+	public final StringExpression password;
 	public final StringExpression descripcion;
 	public final StringExpression foto;
 	public final BooleanExpression recibir_notificacion;
 	public final BooleanExpression recibir_por_correo;
 	public final BooleanExpression perfil_oculto;
+	public final IntegerExpression permiso;
+	public final BooleanExpression baneado;
 	public final CollectionExpression amigo;
 	public final CollectionExpression da_megusta;
 	public final CollectionExpression amigo_de;
@@ -43,15 +49,21 @@ public class Usuario_notificadosDBDetachedCriteria extends AbstractORMDetachedCr
 	public Usuario_notificadosDBDetachedCriteria() {
 		super(com.mds.foro.Usuario_notificadosDB.class, com.mds.foro.Usuario_notificadosDBCriteria.class);
 		idUsuario = new IntegerExpression("idUsuario", this.getDetachedCriteria());
+		convertido_porId = new IntegerExpression("convertido_por.", this.getDetachedCriteria());
+		convertido_por = new AssociationExpression("convertido_por", this.getDetachedCriteria());
+		baneado_porId = new IntegerExpression("baneado_por.", this.getDetachedCriteria());
+		baneado_por = new AssociationExpression("baneado_por", this.getDetachedCriteria());
 		nombreUsuario = new StringExpression("nombreUsuario", this.getDetachedCriteria());
 		nombreCompleto = new StringExpression("nombreCompleto", this.getDetachedCriteria());
 		correo = new StringExpression("correo", this.getDetachedCriteria());
-		contraseña = new StringExpression("contraseña", this.getDetachedCriteria());
+		password = new StringExpression("password", this.getDetachedCriteria());
 		descripcion = new StringExpression("descripcion", this.getDetachedCriteria());
 		foto = new StringExpression("foto", this.getDetachedCriteria());
 		recibir_notificacion = new BooleanExpression("recibir_notificacion", this.getDetachedCriteria());
 		recibir_por_correo = new BooleanExpression("recibir_por_correo", this.getDetachedCriteria());
 		perfil_oculto = new BooleanExpression("perfil_oculto", this.getDetachedCriteria());
+		permiso = new IntegerExpression("permiso", this.getDetachedCriteria());
+		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		amigo = new CollectionExpression("ORM_amigo", this.getDetachedCriteria());
 		da_megusta = new CollectionExpression("ORM_da_megusta", this.getDetachedCriteria());
 		amigo_de = new CollectionExpression("ORM_amigo_de", this.getDetachedCriteria());
@@ -67,15 +79,21 @@ public class Usuario_notificadosDBDetachedCriteria extends AbstractORMDetachedCr
 	public Usuario_notificadosDBDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, com.mds.foro.Usuario_notificadosDBCriteria.class);
 		idUsuario = new IntegerExpression("idUsuario", this.getDetachedCriteria());
+		convertido_porId = new IntegerExpression("convertido_por.", this.getDetachedCriteria());
+		convertido_por = new AssociationExpression("convertido_por", this.getDetachedCriteria());
+		baneado_porId = new IntegerExpression("baneado_por.", this.getDetachedCriteria());
+		baneado_por = new AssociationExpression("baneado_por", this.getDetachedCriteria());
 		nombreUsuario = new StringExpression("nombreUsuario", this.getDetachedCriteria());
 		nombreCompleto = new StringExpression("nombreCompleto", this.getDetachedCriteria());
 		correo = new StringExpression("correo", this.getDetachedCriteria());
-		contraseña = new StringExpression("contraseña", this.getDetachedCriteria());
+		password = new StringExpression("password", this.getDetachedCriteria());
 		descripcion = new StringExpression("descripcion", this.getDetachedCriteria());
 		foto = new StringExpression("foto", this.getDetachedCriteria());
 		recibir_notificacion = new BooleanExpression("recibir_notificacion", this.getDetachedCriteria());
 		recibir_por_correo = new BooleanExpression("recibir_por_correo", this.getDetachedCriteria());
 		perfil_oculto = new BooleanExpression("perfil_oculto", this.getDetachedCriteria());
+		permiso = new IntegerExpression("permiso", this.getDetachedCriteria());
+		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		amigo = new CollectionExpression("ORM_amigo", this.getDetachedCriteria());
 		da_megusta = new CollectionExpression("ORM_da_megusta", this.getDetachedCriteria());
 		amigo_de = new CollectionExpression("ORM_amigo_de", this.getDetachedCriteria());
@@ -90,6 +108,14 @@ public class Usuario_notificadosDBDetachedCriteria extends AbstractORMDetachedCr
 	
 	public AdministradorDBDetachedCriteria createBaneado_porNCriteria() {
 		return new AdministradorDBDetachedCriteria(createCriteria("baneado_porN"));
+	}
+	
+	public AdministradorDBDetachedCriteria createConvertido_porCriteria() {
+		return new AdministradorDBDetachedCriteria(createCriteria("convertido_por"));
+	}
+	
+	public AdministradorDBDetachedCriteria createBaneado_porCriteria() {
+		return new AdministradorDBDetachedCriteria(createCriteria("baneado_por"));
 	}
 	
 	public Usuario_DBDetachedCriteria createAmigoCriteria() {

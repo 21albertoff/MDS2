@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -49,10 +49,24 @@ public class Usuario_DB implements Serializable {
 		return null;
 	}
 	
+	private void this_setOwner(Object owner, int key) {
+		if (key == ORMConstants.KEY_USUARIO_DB_BANEADO_POR) {
+			this.baneado_por = (com.mds.foro.AdministradorDB) owner;
+		}
+		
+		else if (key == ORMConstants.KEY_USUARIO_DB_CONVERTIDO_POR) {
+			this.convertido_por = (com.mds.foro.AdministradorDB) owner;
+		}
+	}
+	
 	@Transient	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
 		public java.util.Set getSet(int key) {
 			return this_getSet(key);
+		}
+		
+		public void setOwner(Object owner, int key) {
+			this_setOwner(owner, key);
 		}
 		
 	};
@@ -63,6 +77,16 @@ public class Usuario_DB implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="COM_MDS_FORO_USUARIO_DB_IDUSUARIO_GENERATOR", strategy="native")	
 	private int idUsuario;
 	
+	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns(value={ @JoinColumn(name="BaneadoPor", referencedColumnName="IdUsuario", nullable=true) }, foreignKey=@ForeignKey(name="FKUsuario_DB349403"))	
+	private com.mds.foro.AdministradorDB convertido_por;
+	
+	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns(value={ @JoinColumn(name="ModPor", referencedColumnName="IdUsuario", nullable=true) }, foreignKey=@ForeignKey(name="FKUsuario_DB127183"))	
+	private com.mds.foro.AdministradorDB baneado_por;
+	
 	@Column(name="NombreUsuario", nullable=true, length=255)	
 	private String nombreUsuario;
 	
@@ -72,8 +96,8 @@ public class Usuario_DB implements Serializable {
 	@Column(name="Correo", nullable=true, length=255)	
 	private String correo;
 	
-	@Column(name="Contraseña", nullable=true, length=255)	
-	private String contraseña;
+	@Column(name="Password", nullable=true, length=255)	
+	private String password;
 	
 	@Column(name="Descripcion", nullable=true, length=255)	
 	private String descripcion;
@@ -89,6 +113,12 @@ public class Usuario_DB implements Serializable {
 	
 	@Column(name="Perfil_oculto", nullable=false, length=1)	
 	private boolean perfil_oculto;
+	
+	@Column(name="Permiso", nullable=false, length=10)	
+	private int permiso;
+	
+	@Column(name="Baneado", nullable=false, length=1)	
+	private boolean baneado;
 	
 	@ManyToMany(targetEntity=com.mds.foro.Usuario_DB.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
@@ -164,11 +194,11 @@ public class Usuario_DB implements Serializable {
 	}
 	
 	public void setPassword(String value) {
-		this.contraseña = value;
+		this.password = value;
 	}
 	
 	public String getPassword() {
-		return contraseña;
+		return password;
 	}
 	
 	public void setDescripcion(String value) {
@@ -209,6 +239,22 @@ public class Usuario_DB implements Serializable {
 	
 	public boolean getPerfil_oculto() {
 		return perfil_oculto;
+	}
+	
+	public void setPermiso(int value) {
+		this.permiso = value;
+	}
+	
+	public int getPermiso() {
+		return permiso;
+	}
+	
+	public void setBaneado(boolean value) {
+		this.baneado = value;
+	}
+	
+	public boolean getBaneado() {
+		return baneado;
 	}
 	
 	private void setORM_Amigo(java.util.Set value) {
@@ -287,6 +333,54 @@ public class Usuario_DB implements Serializable {
 	
 	@Transient	
 	public final com.mds.foro.TemaDBSetCollection da_megusta_ = new com.mds.foro.TemaDBSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_DB_DA_MEGUSTA_, ORMConstants.KEY_TEMADB_GUSTADO_POR_, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	
+	public void setBaneado_por(com.mds.foro.AdministradorDB value) {
+		if (baneado_por != null) {
+			baneado_por.banea.remove(this);
+		}
+		if (value != null) {
+			value.banea.add(this);
+		}
+	}
+	
+	public com.mds.foro.AdministradorDB getBaneado_por() {
+		return baneado_por;
+	}
+	
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_Baneado_por(com.mds.foro.AdministradorDB value) {
+		this.baneado_por = value;
+	}
+	
+	private com.mds.foro.AdministradorDB getORM_Baneado_por() {
+		return baneado_por;
+	}
+	
+	public void setConvertido_por(com.mds.foro.AdministradorDB value) {
+		if (convertido_por != null) {
+			convertido_por.convierte_en_moderador.remove(this);
+		}
+		if (value != null) {
+			value.convierte_en_moderador.add(this);
+		}
+	}
+	
+	public com.mds.foro.AdministradorDB getConvertido_por() {
+		return convertido_por;
+	}
+	
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_Convertido_por(com.mds.foro.AdministradorDB value) {
+		this.convertido_por = value;
+	}
+	
+	private com.mds.foro.AdministradorDB getORM_Convertido_por() {
+		return convertido_por;
+	}
 	
 	public String toString() {
 		return String.valueOf(getIdUsuario());

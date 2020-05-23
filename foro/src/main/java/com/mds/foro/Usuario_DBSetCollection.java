@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -74,12 +74,14 @@ public class Usuario_DBSetCollection extends org.orm.util.ORMSet {
 	 * <li>nombreUsuario</li>
 	 * <li>nombreCompleto</li>
 	 * <li>correo</li>
-	 * <li>contraseña</li>
+	 * <li>password</li>
 	 * <li>descripcion</li>
 	 * <li>foto</li>
 	 * <li>recibir_notificacion</li>
 	 * <li>recibir_por_correo</li>
 	 * <li>perfil_oculto</li>
+	 * <li>permiso</li>
+	 * <li>baneado</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -94,12 +96,14 @@ public class Usuario_DBSetCollection extends org.orm.util.ORMSet {
 	 * <li>nombreUsuario</li>
 	 * <li>nombreCompleto</li>
 	 * <li>correo</li>
-	 * <li>contraseña</li>
+	 * <li>password</li>
 	 * <li>descripcion</li>
 	 * <li>foto</li>
 	 * <li>recibir_notificacion</li>
 	 * <li>recibir_por_correo</li>
 	 * <li>perfil_oculto</li>
+	 * <li>permiso</li>
+	 * <li>baneado</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array

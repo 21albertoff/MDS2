@@ -24,6 +24,10 @@ public class DB_UsuariosRegistrados {
 				nuevoUsuario.setRecibir_notificacion(true);
 				nuevoUsuario.setRecibir_por_correo(true);
 				nuevoUsuario.setPerfil_oculto(false);
+				nuevoUsuario.setPermiso(1);
+				nuevoUsuario.setBaneado(false);
+				nuevoUsuario.setBaneado_por(null);
+				nuevoUsuario.setConvertido_por(null);
 				Usuario_DBDAO.save(nuevoUsuario);
 				t.commit();
 				return true;
@@ -41,12 +45,13 @@ public class DB_UsuariosRegistrados {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();;
 
 		try {
-			Usuario_DB cargarUsuarios = Usuario_DBDAO.loadUsuario_DBByQuery("Usuario_DB.nombreUsuario='"+nombreUsuario+"' and Usuario_DB.contraseña='"+passwordUsuario+"'",null);
+			Usuario_DB cargarUsuarios = Usuario_DBDAO.loadUsuario_DBByQuery("Usuario_DB.nombreUsuario='"+nombreUsuario+"' and Usuario_DB.password='"+passwordUsuario+"'",null);
 			for(Object usr: Usuario_DBDAO.queryUsuario_DB(null, null)) {
 				Usuario_DB usuario = (Usuario_DB) usr;
 				if(usuario.getNombreUsuario().equals(cargarUsuarios.getNombreUsuario())) {
-						Parametros.setIdUsuarioNavega(usuario.getIdUsuario());
-						Parametros.setUsuarioActual(usuario.getIdUsuario());
+						Parametros.setIdUsuario(usuario.getIdUsuario());
+						Parametros.setTipoUsuario(usuario.getPermiso());
+						Parametros.setBaneado(usuario.getBaneado());
 						correcto = true;
 				} 
 			}

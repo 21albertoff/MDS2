@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -37,12 +37,12 @@ public class ProyectoFinalPersistentManager extends PersistentManager {
 	@Override
 	protected void configureMetadataSources(MetadataSources aMetadataSources) {
 		super.configureMetadataSources(aMetadataSources);
-		aMetadataSources.addAnnotatedClass(com.mds.foro.MensajeDB.class);
-		aMetadataSources.addAnnotatedClass(com.mds.foro.SeccionDB.class);
-		aMetadataSources.addAnnotatedClass(com.mds.foro.TemaDB.class);
 		aMetadataSources.addAnnotatedClass(com.mds.foro.Usuario_DB.class);
-		aMetadataSources.addAnnotatedClass(com.mds.foro.AdministradorDB.class);
 		aMetadataSources.addAnnotatedClass(com.mds.foro.Usuario_registradoDB.class);
+		aMetadataSources.addAnnotatedClass(com.mds.foro.SeccionDB.class);
+		aMetadataSources.addAnnotatedClass(com.mds.foro.MensajeDB.class);
+		aMetadataSources.addAnnotatedClass(com.mds.foro.TemaDB.class);
+		aMetadataSources.addAnnotatedClass(com.mds.foro.AdministradorDB.class);
 		aMetadataSources.addAnnotatedClass(com.mds.foro.NotificacionDB.class);
 		aMetadataSources.addAnnotatedClass(com.mds.foro.Usuario_notificadosDB.class);
 	}

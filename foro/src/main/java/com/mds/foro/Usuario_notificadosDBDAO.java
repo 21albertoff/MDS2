@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -327,6 +327,14 @@ public class Usuario_notificadosDBDAO {
 				usuario_notificadosDB.getBaneado_porN().baneaN.remove(usuario_notificadosDB);
 			}
 			
+			if (usuario_notificadosDB.getConvertido_por() != null) {
+				usuario_notificadosDB.getConvertido_por().convierte_en_moderador.remove(usuario_notificadosDB);
+			}
+			
+			if (usuario_notificadosDB.getBaneado_por() != null) {
+				usuario_notificadosDB.getBaneado_por().banea.remove(usuario_notificadosDB);
+			}
+			
 			com.mds.foro.Usuario_DB[] lAmigos = usuario_notificadosDB.amigo.toArray();
 			for(int i = 0; i < lAmigos.length; i++) {
 				lAmigos[i].amigo_de.remove(usuario_notificadosDB);
@@ -367,6 +375,14 @@ public class Usuario_notificadosDBDAO {
 		try {
 			if (usuario_notificadosDB.getBaneado_porN() != null) {
 				usuario_notificadosDB.getBaneado_porN().baneaN.remove(usuario_notificadosDB);
+			}
+			
+			if (usuario_notificadosDB.getConvertido_por() != null) {
+				usuario_notificadosDB.getConvertido_por().convierte_en_moderador.remove(usuario_notificadosDB);
+			}
+			
+			if (usuario_notificadosDB.getBaneado_por() != null) {
+				usuario_notificadosDB.getBaneado_por().banea.remove(usuario_notificadosDB);
 			}
 			
 			com.mds.foro.Usuario_DB[] lAmigos = usuario_notificadosDB.amigo.toArray();

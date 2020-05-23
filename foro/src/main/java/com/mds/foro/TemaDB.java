@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -64,17 +64,17 @@ public class TemaDB implements Serializable {
 	
 	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="AdministradorDBUsuario_DBIdUsuario", referencedColumnName="Usuario_DBIdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKTemaDB834799"))	
+	@JoinColumns(value={ @JoinColumn(name="ocultadoPor", referencedColumnName="IdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKTemaDB991971"))	
 	private com.mds.foro.AdministradorDB ocultado_por;
 	
 	@ManyToOne(targetEntity=com.mds.foro.Usuario_DB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="Usuario_DBIdUsuario", referencedColumnName="IdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKTemaDB757587"))	
+	@JoinColumns(value={ @JoinColumn(name="IdUsuario", referencedColumnName="IdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKTemaDB857812"))	
 	private com.mds.foro.Usuario_DB creado_por;
 	
 	@ManyToOne(targetEntity=com.mds.foro.SeccionDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="SeccionDBIdSeccion", referencedColumnName="IdSeccion", nullable=false) }, foreignKey=@ForeignKey(name="FKTemaDB29337"))	
+	@JoinColumns(value={ @JoinColumn(name="IdSeccion", referencedColumnName="IdSeccion", nullable=false) }, foreignKey=@ForeignKey(name="FKTemaDB219942"))	
 	private com.mds.foro.SeccionDB esta_en;
 	
 	@Column(name="Tema", nullable=true, length=255)	

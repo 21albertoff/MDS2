@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -323,11 +323,11 @@ public class AdministradorDBDAO {
 	
 	public static boolean deleteAndDissociate(com.mds.foro.AdministradorDB administradorDB)throws PersistentException {
 		try {
-			com.mds.foro.Usuario_registradoDB[] lConvierte_en_moderadors = administradorDB.convierte_en_moderador.toArray();
+			com.mds.foro.Usuario_DB[] lConvierte_en_moderadors = administradorDB.convierte_en_moderador.toArray();
 			for(int i = 0; i < lConvierte_en_moderadors.length; i++) {
 				lConvierte_en_moderadors[i].setConvertido_por(null);
 			}
-			com.mds.foro.Usuario_registradoDB[] lBaneas = administradorDB.banea.toArray();
+			com.mds.foro.Usuario_DB[] lBaneas = administradorDB.banea.toArray();
 			for(int i = 0; i < lBaneas.length; i++) {
 				lBaneas[i].setBaneado_por(null);
 			}
@@ -347,6 +347,14 @@ public class AdministradorDBDAO {
 			for(int i = 0; i < lOculta_mensajes.length; i++) {
 				lOculta_mensajes[i].setOcultado_por(null);
 			}
+			if (administradorDB.getConvertido_por() != null) {
+				administradorDB.getConvertido_por().convierte_en_moderador.remove(administradorDB);
+			}
+			
+			if (administradorDB.getBaneado_por() != null) {
+				administradorDB.getBaneado_por().banea.remove(administradorDB);
+			}
+			
 			com.mds.foro.Usuario_DB[] lAmigos = administradorDB.amigo.toArray();
 			for(int i = 0; i < lAmigos.length; i++) {
 				lAmigos[i].amigo_de.remove(administradorDB);
@@ -385,11 +393,11 @@ public class AdministradorDBDAO {
 	
 	public static boolean deleteAndDissociate(com.mds.foro.AdministradorDB administradorDB, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			com.mds.foro.Usuario_registradoDB[] lConvierte_en_moderadors = administradorDB.convierte_en_moderador.toArray();
+			com.mds.foro.Usuario_DB[] lConvierte_en_moderadors = administradorDB.convierte_en_moderador.toArray();
 			for(int i = 0; i < lConvierte_en_moderadors.length; i++) {
 				lConvierte_en_moderadors[i].setConvertido_por(null);
 			}
-			com.mds.foro.Usuario_registradoDB[] lBaneas = administradorDB.banea.toArray();
+			com.mds.foro.Usuario_DB[] lBaneas = administradorDB.banea.toArray();
 			for(int i = 0; i < lBaneas.length; i++) {
 				lBaneas[i].setBaneado_por(null);
 			}
@@ -409,6 +417,14 @@ public class AdministradorDBDAO {
 			for(int i = 0; i < lOculta_mensajes.length; i++) {
 				lOculta_mensajes[i].setOcultado_por(null);
 			}
+			if (administradorDB.getConvertido_por() != null) {
+				administradorDB.getConvertido_por().convierte_en_moderador.remove(administradorDB);
+			}
+			
+			if (administradorDB.getBaneado_por() != null) {
+				administradorDB.getBaneado_por().banea.remove(administradorDB);
+			}
+			
 			com.mds.foro.Usuario_DB[] lAmigos = administradorDB.amigo.toArray();
 			for(int i = 0; i < lAmigos.length; i++) {
 				lAmigos[i].amigo_de.remove(administradorDB);

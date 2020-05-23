@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -322,12 +322,12 @@ public class Usuario_DBDAO {
 	}
 	
 	public static boolean deleteAndDissociate(com.mds.foro.Usuario_DB usuario_DB)throws PersistentException {
-		if (usuario_DB instanceof com.mds.foro.AdministradorDB) {
-			return com.mds.foro.AdministradorDBDAO.deleteAndDissociate((com.mds.foro.AdministradorDB) usuario_DB);
-		}
-		
 		if (usuario_DB instanceof com.mds.foro.Usuario_registradoDB) {
 			return com.mds.foro.Usuario_registradoDBDAO.deleteAndDissociate((com.mds.foro.Usuario_registradoDB) usuario_DB);
+		}
+		
+		if (usuario_DB instanceof com.mds.foro.AdministradorDB) {
+			return com.mds.foro.AdministradorDBDAO.deleteAndDissociate((com.mds.foro.AdministradorDB) usuario_DB);
 		}
 		
 		if (usuario_DB instanceof com.mds.foro.Usuario_notificadosDB) {
@@ -335,6 +335,14 @@ public class Usuario_DBDAO {
 		}
 		
 		try {
+			if (usuario_DB.getConvertido_por() != null) {
+				usuario_DB.getConvertido_por().convierte_en_moderador.remove(usuario_DB);
+			}
+			
+			if (usuario_DB.getBaneado_por() != null) {
+				usuario_DB.getBaneado_por().banea.remove(usuario_DB);
+			}
+			
 			com.mds.foro.Usuario_DB[] lAmigos = usuario_DB.amigo.toArray();
 			for(int i = 0; i < lAmigos.length; i++) {
 				lAmigos[i].amigo_de.remove(usuario_DB);
@@ -372,12 +380,12 @@ public class Usuario_DBDAO {
 	}
 	
 	public static boolean deleteAndDissociate(com.mds.foro.Usuario_DB usuario_DB, org.orm.PersistentSession session)throws PersistentException {
-		if (usuario_DB instanceof com.mds.foro.AdministradorDB) {
-			return com.mds.foro.AdministradorDBDAO.deleteAndDissociate((com.mds.foro.AdministradorDB) usuario_DB, session);
-		}
-		
 		if (usuario_DB instanceof com.mds.foro.Usuario_registradoDB) {
 			return com.mds.foro.Usuario_registradoDBDAO.deleteAndDissociate((com.mds.foro.Usuario_registradoDB) usuario_DB, session);
+		}
+		
+		if (usuario_DB instanceof com.mds.foro.AdministradorDB) {
+			return com.mds.foro.AdministradorDBDAO.deleteAndDissociate((com.mds.foro.AdministradorDB) usuario_DB, session);
 		}
 		
 		if (usuario_DB instanceof com.mds.foro.Usuario_notificadosDB) {
@@ -385,6 +393,14 @@ public class Usuario_DBDAO {
 		}
 		
 		try {
+			if (usuario_DB.getConvertido_por() != null) {
+				usuario_DB.getConvertido_por().convierte_en_moderador.remove(usuario_DB);
+			}
+			
+			if (usuario_DB.getBaneado_por() != null) {
+				usuario_DB.getBaneado_por().banea.remove(usuario_DB);
+			}
+			
 			com.mds.foro.Usuario_DB[] lAmigos = usuario_DB.amigo.toArray();
 			for(int i = 0; i < lAmigos.length; i++) {
 				lAmigos[i].amigo_de.remove(usuario_DB);

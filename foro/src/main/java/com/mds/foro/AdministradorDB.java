@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -20,7 +20,7 @@ import javax.persistence.*;
 @Table(name="AdministradorDB")
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorValue("AdministradorDB")
-@PrimaryKeyJoinColumn(name="Usuario_DBIdUsuario", referencedColumnName="IdUsuario")
+@PrimaryKeyJoinColumn(name="IdUsuario", referencedColumnName="IdUsuario")
 public class AdministradorDB extends com.mds.foro.Usuario_DB implements Serializable {
 	public AdministradorDB() {
 	}
@@ -56,12 +56,12 @@ public class AdministradorDB extends com.mds.foro.Usuario_DB implements Serializ
 		
 	};
 	
-	@OneToMany(mappedBy="convertido_por", targetEntity=com.mds.foro.Usuario_registradoDB.class)	
+	@OneToMany(mappedBy="convertido_por", targetEntity=com.mds.foro.Usuario_DB.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_convierte_en_moderador = new java.util.HashSet();
 	
-	@OneToMany(mappedBy="baneado_por", targetEntity=com.mds.foro.Usuario_registradoDB.class)	
+	@OneToMany(mappedBy="baneado_por", targetEntity=com.mds.foro.Usuario_DB.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_banea = new java.util.HashSet();
@@ -95,7 +95,7 @@ public class AdministradorDB extends com.mds.foro.Usuario_DB implements Serializ
 	}
 	
 	@Transient	
-	public final com.mds.foro.Usuario_registradoDBSetCollection convierte_en_moderador = new com.mds.foro.Usuario_registradoDBSetCollection(this, _ormAdapter, ORMConstants.KEY_ADMINISTRADORDB_CONVIERTE_EN_MODERADOR, ORMConstants.KEY_USUARIO_REGISTRADODB_CONVERTIDO_POR, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final com.mds.foro.Usuario_DBSetCollection convierte_en_moderador = new com.mds.foro.Usuario_DBSetCollection(this, _ormAdapter, ORMConstants.KEY_ADMINISTRADORDB_CONVIERTE_EN_MODERADOR, ORMConstants.KEY_USUARIO_DB_CONVERTIDO_POR, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_Banea(java.util.Set value) {
 		this.ORM_banea = value;
@@ -106,7 +106,7 @@ public class AdministradorDB extends com.mds.foro.Usuario_DB implements Serializ
 	}
 	
 	@Transient	
-	public final com.mds.foro.Usuario_registradoDBSetCollection banea = new com.mds.foro.Usuario_registradoDBSetCollection(this, _ormAdapter, ORMConstants.KEY_ADMINISTRADORDB_BANEA, ORMConstants.KEY_USUARIO_REGISTRADODB_BANEADO_POR, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final com.mds.foro.Usuario_DBSetCollection banea = new com.mds.foro.Usuario_DBSetCollection(this, _ormAdapter, ORMConstants.KEY_ADMINISTRADORDB_BANEA, ORMConstants.KEY_USUARIO_DB_BANEADO_POR, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_Crea_seccion(java.util.Set value) {
 		this.ORM_crea_seccion = value;

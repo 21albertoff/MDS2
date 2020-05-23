@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -56,7 +56,7 @@ public class SeccionDB implements Serializable {
 	
 	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="AdministradorDBUsuario_DBIdUsuario", referencedColumnName="Usuario_DBIdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKSeccionDB209385"))	
+	@JoinColumns(value={ @JoinColumn(name="eliminadoPor", referencedColumnName="IdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKSeccionDB525692"))	
 	private com.mds.foro.AdministradorDB creada_por;
 	
 	@Column(name="Seccion", nullable=true, length=255)	

@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -44,7 +44,7 @@ public class NotificacionDB implements Serializable {
 	
 	@ManyToOne(targetEntity=com.mds.foro.Usuario_DB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="Usuario_DBIdUsuario", referencedColumnName="IdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKNotificaci133591"))	
+	@JoinColumns(value={ @JoinColumn(name="IdUsuario", referencedColumnName="IdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKNotificaci938224"))	
 	private com.mds.foro.Usuario_DB enviada_por;
 	
 	@Column(name="MensajeNotif", nullable=true, length=255)	

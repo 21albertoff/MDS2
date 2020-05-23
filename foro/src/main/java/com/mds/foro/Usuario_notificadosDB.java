@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -20,7 +20,7 @@ import javax.persistence.*;
 @Table(name="Usuario_notificadosDB")
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorValue("Usuario_notificadosDB")
-@PrimaryKeyJoinColumn(name="Usuario_DBIdUsuario", referencedColumnName="IdUsuario")
+@PrimaryKeyJoinColumn(name="IdUsuario", referencedColumnName="IdUsuario")
 public class Usuario_notificadosDB extends com.mds.foro.Usuario_DB implements Serializable {
 	public Usuario_notificadosDB() {
 	}
@@ -44,7 +44,7 @@ public class Usuario_notificadosDB extends com.mds.foro.Usuario_DB implements Se
 	
 	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="AdministradorDBUsuario_DBIdUsuario", referencedColumnName="Usuario_DBIdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKUsuario_no607441"))	
+	@JoinColumns(value={ @JoinColumn(name="notificadoPor", referencedColumnName="IdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKUsuario_no848103"))	
 	private com.mds.foro.AdministradorDB baneado_porN;
 	
 	public void setMotivo(String value) {

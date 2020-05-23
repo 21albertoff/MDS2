@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -323,30 +323,30 @@ public class Usuario_registradoDBDAO {
 	
 	public static boolean deleteAndDissociate(com.mds.foro.Usuario_registradoDB usuario_registradoDB)throws PersistentException {
 		try {
-			com.mds.foro.Usuario_registradoDB[] lReportas = usuario_registradoDB.reporta.toArray();
-			for(int i = 0; i < lReportas.length; i++) {
-				lReportas[i].reportado_por.remove(usuario_registradoDB);
-			}
-			if (usuario_registradoDB.getBaneado_por() != null) {
-				usuario_registradoDB.getBaneado_por().banea.remove(usuario_registradoDB);
-			}
-			
-			if (usuario_registradoDB.getConvertido_por() != null) {
-				usuario_registradoDB.getConvertido_por().convierte_en_moderador.remove(usuario_registradoDB);
+			if (usuario_registradoDB.getNotificado_por_Moderador() != null) {
+				usuario_registradoDB.getNotificado_por_Moderador().notifica.remove(usuario_registradoDB);
 			}
 			
 			com.mds.foro.Usuario_registradoDB[] lNotificas = usuario_registradoDB.notifica.toArray();
 			for(int i = 0; i < lNotificas.length; i++) {
 				lNotificas[i].setNotificado_por_Moderador(null);
 			}
-			if (usuario_registradoDB.getNotificado_por_Moderador() != null) {
-				usuario_registradoDB.getNotificado_por_Moderador().notifica.remove(usuario_registradoDB);
+			com.mds.foro.Usuario_registradoDB[] lReportas = usuario_registradoDB.reporta.toArray();
+			for(int i = 0; i < lReportas.length; i++) {
+				lReportas[i].reportado_por.remove(usuario_registradoDB);
 			}
-			
 			com.mds.foro.Usuario_registradoDB[] lReportado_pors = usuario_registradoDB.reportado_por.toArray();
 			for(int i = 0; i < lReportado_pors.length; i++) {
 				lReportado_pors[i].reporta.remove(usuario_registradoDB);
 			}
+			if (usuario_registradoDB.getConvertido_por() != null) {
+				usuario_registradoDB.getConvertido_por().convierte_en_moderador.remove(usuario_registradoDB);
+			}
+			
+			if (usuario_registradoDB.getBaneado_por() != null) {
+				usuario_registradoDB.getBaneado_por().banea.remove(usuario_registradoDB);
+			}
+			
 			com.mds.foro.Usuario_DB[] lAmigos = usuario_registradoDB.amigo.toArray();
 			for(int i = 0; i < lAmigos.length; i++) {
 				lAmigos[i].amigo_de.remove(usuario_registradoDB);
@@ -385,30 +385,30 @@ public class Usuario_registradoDBDAO {
 	
 	public static boolean deleteAndDissociate(com.mds.foro.Usuario_registradoDB usuario_registradoDB, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			com.mds.foro.Usuario_registradoDB[] lReportas = usuario_registradoDB.reporta.toArray();
-			for(int i = 0; i < lReportas.length; i++) {
-				lReportas[i].reportado_por.remove(usuario_registradoDB);
-			}
-			if (usuario_registradoDB.getBaneado_por() != null) {
-				usuario_registradoDB.getBaneado_por().banea.remove(usuario_registradoDB);
-			}
-			
-			if (usuario_registradoDB.getConvertido_por() != null) {
-				usuario_registradoDB.getConvertido_por().convierte_en_moderador.remove(usuario_registradoDB);
+			if (usuario_registradoDB.getNotificado_por_Moderador() != null) {
+				usuario_registradoDB.getNotificado_por_Moderador().notifica.remove(usuario_registradoDB);
 			}
 			
 			com.mds.foro.Usuario_registradoDB[] lNotificas = usuario_registradoDB.notifica.toArray();
 			for(int i = 0; i < lNotificas.length; i++) {
 				lNotificas[i].setNotificado_por_Moderador(null);
 			}
-			if (usuario_registradoDB.getNotificado_por_Moderador() != null) {
-				usuario_registradoDB.getNotificado_por_Moderador().notifica.remove(usuario_registradoDB);
+			com.mds.foro.Usuario_registradoDB[] lReportas = usuario_registradoDB.reporta.toArray();
+			for(int i = 0; i < lReportas.length; i++) {
+				lReportas[i].reportado_por.remove(usuario_registradoDB);
 			}
-			
 			com.mds.foro.Usuario_registradoDB[] lReportado_pors = usuario_registradoDB.reportado_por.toArray();
 			for(int i = 0; i < lReportado_pors.length; i++) {
 				lReportado_pors[i].reporta.remove(usuario_registradoDB);
 			}
+			if (usuario_registradoDB.getConvertido_por() != null) {
+				usuario_registradoDB.getConvertido_por().convierte_en_moderador.remove(usuario_registradoDB);
+			}
+			
+			if (usuario_registradoDB.getBaneado_por() != null) {
+				usuario_registradoDB.getBaneado_por().banea.remove(usuario_registradoDB);
+			}
+			
 			com.mds.foro.Usuario_DB[] lAmigos = usuario_registradoDB.amigo.toArray();
 			for(int i = 0; i < lAmigos.length; i++) {
 				lAmigos[i].amigo_de.remove(usuario_registradoDB);

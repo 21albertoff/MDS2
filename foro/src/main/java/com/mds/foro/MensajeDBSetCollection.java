@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -76,7 +76,7 @@ public class MensajeDBSetCollection extends org.orm.util.ORMSet {
 	 * <li>eliminado</li>
 	 * <li>oculto</li>
 	 * <li>video</li>
-	 * <li>foto</li>
+	 * <li>foto1</li>
 	 * <li>foto2</li>
 	 * <li>foto3</li>
 	 * </ul>
@@ -95,7 +95,7 @@ public class MensajeDBSetCollection extends org.orm.util.ORMSet {
 	 * <li>eliminado</li>
 	 * <li>oculto</li>
 	 * <li>video</li>
-	 * <li>foto</li>
+	 * <li>foto1</li>
 	 * <li>foto2</li>
 	 * <li>foto3</li>
 	 * </ul>

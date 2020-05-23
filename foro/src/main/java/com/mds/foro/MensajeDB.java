@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: dor494(University of Almeria)
+ * Licensee: Alberto Fuentes(University of Almeria)
  * License Type: Academic
  */
 package com.mds.foro;
@@ -67,17 +67,17 @@ public class MensajeDB implements Serializable {
 	
 	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="AdministradorDBUsuario_DBIdUsuario", referencedColumnName="Usuario_DBIdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKMensajeDB160401"))	
+	@JoinColumns(value={ @JoinColumn(name="ocultadoPor", referencedColumnName="IdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKMensajeDB3229"))	
 	private com.mds.foro.AdministradorDB ocultado_por;
 	
 	@ManyToOne(targetEntity=com.mds.foro.Usuario_DB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="Usuario_DBIdUsuario", referencedColumnName="IdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKMensajeDB218802"))	
+	@JoinColumns(value={ @JoinColumn(name="IdUsuario", referencedColumnName="IdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKMensajeDB118577"))	
 	private com.mds.foro.Usuario_DB creado_por;
 	
 	@ManyToOne(targetEntity=com.mds.foro.MensajeDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="MensajeDBIdMensaje", referencedColumnName="IdMensaje") }, foreignKey=@ForeignKey(name="FKMensajeDB386301"))	
+	@JoinColumns(value={ @JoinColumn(name="CitadoIDMensaje", referencedColumnName="IdMensaje") }, foreignKey=@ForeignKey(name="FKMensajeDB69487"))	
 	private com.mds.foro.MensajeDB esta_en;
 	
 	@Column(name="Mensaje", nullable=true, length=255)	
@@ -95,8 +95,8 @@ public class MensajeDB implements Serializable {
 	@Column(name="Video", nullable=true, length=255)	
 	private String video;
 	
-	@Column(name="Foto", nullable=true, length=255)	
-	private String foto;
+	@Column(name="Foto1", nullable=true, length=255)	
+	private String foto1;
 	
 	@Column(name="Foto2", nullable=true, length=255)	
 	private String foto2;
@@ -166,12 +166,12 @@ public class MensajeDB implements Serializable {
 		return video;
 	}
 	
-	public void setFoto(String value) {
-		this.foto = value;
+	public void setFoto1(String value) {
+		this.foto1 = value;
 	}
 	
-	public String getFoto() {
-		return foto;
+	public String getFoto1() {
+		return foto1;
 	}
 	
 	public void setFoto2(String value) {

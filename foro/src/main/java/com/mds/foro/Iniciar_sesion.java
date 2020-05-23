@@ -62,22 +62,26 @@ public class Iniciar_sesion extends Iniciar_sesion_Ventana {
 		inicio = usuarioNoIdentificado.iniciar_sesion(nombreUsuario.getValue(), campoPassword.getValue());
 		if (inicio) {
 			
+			if(Parametros.getBaneado()) {
+				Notification.show("Permiso denegado","Has sido temporalmente baneado", Notification.Type.ERROR_MESSAGE);
+			}
+			
 			//Usuario registrado
 			if(Parametros.getTipoUsuario()==1) {
-				addComponent(new Registrarse());
+				Notification.show("Usuario","", Notification.Type.ERROR_MESSAGE);
 			}
 			
 			//Moderador
 			if(Parametros.getTipoUsuario()==2) {
 				//addComponent(new Moderador());
-				Notification.show("2","", Notification.Type.ERROR_MESSAGE);
+				Notification.show("Moderador","", Notification.Type.ERROR_MESSAGE);
 
 			}
 			
 			//Administrador
 			if(Parametros.getTipoUsuario()==3) {
 				//addComponent(new Administrador());
-				Notification.show("3","", Notification.Type.ERROR_MESSAGE);
+				Notification.show("Adminisrtador","", Notification.Type.ERROR_MESSAGE);
 
 			}
 		}else {
