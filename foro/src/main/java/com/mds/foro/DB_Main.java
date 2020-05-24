@@ -4,12 +4,12 @@ import java.io.Serializable;
 import org.orm.PersistentException;
 
 public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fijos, iUsuario, iUsuario_identificado, iModerador, iUsuario_registrado, iAdministrador {
-	public DB_Temas _bd_temas;
-	public DB_Administradores _bd_administradores;
-	public DB_UsuariosNotificados _bd_usuarios_notificados;
-	public DB_Secciones secciones;
-	public DB_Notificaciones _bd_notificaciones;
-	public DB_Mensajes _bd_mensajes;
+	public DB_Temas temas = new DB_Temas();
+	public DB_Administradores administradores = new DB_Administradores();
+	public DB_UsuariosNotificados usuarios_notificados = new DB_UsuariosNotificados();
+	public DB_Secciones secciones = new DB_Secciones();
+	public DB_Notificaciones notificaciones = new DB_Notificaciones();
+	public DB_Mensajes mensajes = new DB_Mensajes();
 	public DB_UsuariosRegistrados registrados = new DB_UsuariosRegistrados();
 
 	//Usuario no identificado 

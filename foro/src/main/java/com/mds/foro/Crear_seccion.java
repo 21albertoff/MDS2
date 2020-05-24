@@ -31,15 +31,12 @@ public class Crear_seccion extends Crear_seccion_Ventana {
 	
 	public void guardar_seccion() {
 		//Comprobamos que todos los campos son obligatorios
-				if (tituloSeccion.getValue() == null || tituloSeccion.getValue() == "" ||
-				    iconoSeccion.getValue() == null || iconoSeccion.getValue() == "" ){
+				if (tituloSeccion.getValue() == null || tituloSeccion.getValue() == ""){
+					Notification.show("Todos los campos son obligatorios","", Notification.Type.ERROR_MESSAGE);
+				}else if (iconoSeccion.getValue() == null || iconoSeccion.getValue() == "" ) {
 					Notification.show("Todos los campos son obligatorios","", Notification.Type.ERROR_MESSAGE);
 				} else {
 					admin.crear_seccion(tituloSeccion.getValue(), iconoSeccion.getValue(), fijarSeccion.getValue());
 				}
-	}
-
-	public boolean validar_seccion() {
-		throw new UnsupportedOperationException();
 	}
 }

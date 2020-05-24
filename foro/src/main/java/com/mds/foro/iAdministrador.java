@@ -38,7 +38,7 @@ public interface iAdministrador extends iUsuario_identificado {
 
 	public void quitar_seccion_fija(int aIdSeccion);
 
-	public boolean crear_seccion(String aTituloSeccion, String aIcono, boolean aFijarSeccion);
+	public boolean crear_seccion(String tituloSeccion, String icono, boolean fijarSeccion);
 
 	public void quitar_moderador(int aIdUsuario);
 
