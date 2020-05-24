@@ -56,7 +56,7 @@ public class SeccionDB implements Serializable {
 	
 	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="eliminadoPor", referencedColumnName="IdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKSeccionDB525692"))	
+	@JoinColumns(value={ @JoinColumn(name="eliminadoPor", referencedColumnName="IdUsuario", nullable=true) }, foreignKey=@ForeignKey(name="FKSeccionDB525692"))	
 	private com.mds.foro.AdministradorDB creada_por;
 	
 	@Column(name="Seccion", nullable=true, length=255)	
@@ -65,10 +65,10 @@ public class SeccionDB implements Serializable {
 	@Column(name="Icono", nullable=true, length=255)	
 	private String icono;
 	
-	@Column(name="SeccionFija", nullable=false, length=1)	
+	@Column(name="SeccionFija", nullable=true, length=1)	
 	private boolean seccionFija;
 	
-	@Column(name="Eliminado", nullable=false, length=1)	
+	@Column(name="Eliminado", nullable=true, length=1)	
 	private boolean eliminado;
 	
 	@OneToMany(mappedBy="esta_en", targetEntity=com.mds.foro.TemaDB.class)	

@@ -1,6 +1,10 @@
 package com.mds.foro;
 
 import java.util.Vector;
+
+import org.orm.PersistentException;
+import org.orm.PersistentTransaction;
+
 import com.mds.foro.SeccionDB;
 
 public class DB_Secciones {
@@ -35,7 +39,24 @@ public class DB_Secciones {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean crear_seccion(String aTituloSeccion, String aIcono, boolean aFijarSeccion) {
-		throw new UnsupportedOperationException();
+	public boolean crear_seccion(String aTituloSeccion, String aIcono, boolean aFijarSeccion) throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		
+		try {	
+			SeccionDB nuevaSeccion = SeccionDBDAO.createSeccionDB();
+			nuevaSeccion.setSeccion(aTituloSeccion);
+			nuevaSeccion.setIcono(aIcono);
+			nuevaSeccion.setSeccionFija(aFijarSeccion);
+			nuevaSeccion.setEliminado(false);
+			nuevaSeccion.setCreada_por(null);
+			SeccionDBDAO.save(nuevaSeccion);
+			t.commit();
+			return true;
+			
+	} catch (PersistentException e1) {
+		t.rollback();
+	}
+
+	return false;
 	}
 }

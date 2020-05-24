@@ -7,7 +7,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	public DB_Temas _bd_temas;
 	public DB_Administradores _bd_administradores;
 	public DB_UsuariosNotificados _bd_usuarios_notificados;
-	public DB_Secciones _bd_secciones;
+	public DB_Secciones secciones;
 	public DB_Notificaciones _bd_notificaciones;
 	public DB_Mensajes _bd_mensajes;
 	public DB_UsuariosRegistrados registrados = new DB_UsuariosRegistrados();
@@ -248,8 +248,13 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean crear_seccion(String aTituloSeccion, String aIcono, boolean aFijarSeccion) {
-		throw new UnsupportedOperationException();
+	public boolean crear_seccion(String TituloSeccion, String Icono, boolean FijarSeccion) {
+		try {
+			return  secciones.crear_seccion(TituloSeccion, Icono, FijarSeccion);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 	public void quitar_moderador(int aIdUsuario) {

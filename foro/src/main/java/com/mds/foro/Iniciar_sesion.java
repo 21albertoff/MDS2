@@ -68,7 +68,9 @@ public class Iniciar_sesion extends Iniciar_sesion_Ventana {
 			
 			//Usuario registrado
 			if(Parametros.getTipoUsuario()==1) {
-				Notification.show("Usuario","", Notification.Type.ERROR_MESSAGE);
+				Usuario_identificado registro = new Usuario_identificado();
+		    	
+				addComponent(registro);
 			}
 			
 			//Moderador

@@ -17,14 +17,14 @@
     <vaadin-label responsive size-full plain-text _id="descripcionUsuario" :top="48%" :right="10%" :bottom="20%" :left="10%">
       Descripcion de usuario, aqui habra un texto de prueba, en este caso sera remplazado por la descripcion aportada por el usuario que tendra un maximo de 500 caracteres. Descripcion de usuario, aqui habra un texto de prueba, en este caso sera remplazado por la descripcion aportada por el usuario que tendra un maximo de 500caracteres. Descripcion de usuario, aqui habra un texto de prueba, en este caso sera remplazado por la descripcion aportada por el usuario que tendra un maximo de 500 caracteres. 
     </vaadin-label>
-    <vaadin-button icon="fonticon://Vaadin-Icons/e80b" style-name="danger" size-full tabindex="10" plain-text _id="eliminarAmigo" :top="89%" :right="10%" :bottom="5%" :left="10%">
+    <vaadin-button icon="fonticon://Vaadin-Icons/e80b" style-name="danger" size-full tabindex="10" plain-text _id="eliminarAmigo" :top="93%" :right="10%" :bottom="2%" :left="10%">
       Eliminar Amigo 
     </vaadin-button>
    </vaadin-absolute-layout>
-   <vaadin-label id="tituloMensajesdeUsuario" size-full ;="" plain-text _id="tituloMensajesdeUsuario" :top="20%" :right="10%" :bottom="75%" :left="45%">
+   <vaadin-label id="tituloMensajesdeUsuario" size-full ;="" plain-text _id="tituloMensajesdeUsuario" :top="20%" :right="10%" :bottom="75%" :left="41%">
      ÚLTIMOS MENSAJES DEL USUARIO 
    </vaadin-label>
-   <vaadin-vertical-layout :top="30%" :right="5%" :bottom="30%" :left="35%">
+   <vaadin-vertical-layout margin="false" :top="30%" :right="5%" :bottom="30%" :left="35%">
     <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje">
      <vaadin-image source="https://cdn.pixabay.com/photo/2014/03/24/17/15/bike-295235_960_720.png" width="50px" height="50px" _id="imagenTema" :center></vaadin-image>
      <vaadin-label plain-text _id="mensaje" :middle>
@@ -94,14 +94,14 @@
    <vaadin-button visible="false" style-name="morado" size-full tabindex="10" plain-text _id="añadirAmigo1" :top="85%" :right="20%" :bottom="10%" :left="50%">
      NOTIFICIAR USUARIO 
    </vaadin-button>
-   <vaadin-check-box caption="MODERADOR" :top="86%" :right="20%" :bottom="10%" :left="55%"></vaadin-check-box>
-   <vaadin-combo-box caption="CANTIDAD DE MENSAJES" data-item-type="java.lang.String" _id="cantidadMensajes" :top="85%" :right="20%" :bottom="10%" :left="35%">
+   <vaadin-check-box caption="MODERADOR" _id="ponerModerador" :top="89%" :right="20%" :bottom="10%" :left="55%"></vaadin-check-box>
+   <vaadin-combo-box caption="CANTIDAD DE MENSAJES" data-item-type="java.lang.String" _id="cantidadMensajes" :top="89%" :right="20%" :bottom="10%" :left="35%">
     <option item="Option1">3 Mensajes</option>
     <option item="Option2">4 Mensajes</option>
     <option item="Option3">5 Mensajes</option>
     <option item="Option4">6 Mensajes</option>
    </vaadin-combo-box>
-   <vaadin-button style-name="danger" size-full tabindex="10" plain-text _id="banearUsuario" :top="85%" :right="10%" :bottom="10%" :left="70%">
+   <vaadin-button style-name="danger" size-full tabindex="10" plain-text _id="banearUsuario" :top="89%" :right="10%" :bottom="6%" :left="70%">
      BANEAR USUARIO 
    </vaadin-button>
    <vaadin-absolute-layout icon="menuSuperior" style-name="menuSuperior" height="9%" _id="menuSuperior">

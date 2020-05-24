@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
  <head>
   <meta charset="UTF-8">
@@ -6,7 +7,7 @@
  </head>
  <body>
   <vaadin-absolute-layout style-name="fondogris">
-  <vaadin-absolute-layout icon="menuSuperior" style-name="menuSuperior" height="9%" _id="menuSuperior">
+   <vaadin-absolute-layout icon="menuSuperior" style-name="menuSuperior" height="9%" _id="menuSuperior">
     <vaadin-label style-name="nombreForo" size-full plain-text _id="nombreForo" :top="30%" :left="5%">
       foroMDS2 
     </vaadin-label>
@@ -37,14 +38,14 @@
    </vaadin-absolute-layout>
    <vaadin-panel style-name="borderless" size-full :top="10%" :left="0%">
     <vaadin-absolute-layout style-name="fondogris">
-     <vaadin-label style-name="seccion" plain-text :top="1%" :right="25%" :bottom="40%" :left="26%">
+     <vaadin-label style-name="seccion" plain-text _id="seccionesFijas" :top="1%" :right="25%" :bottom="40%" :left="26%">
        SECCIONES FIJAS 
      </vaadin-label>
-     <vaadin-label style-name="seccion" plain-text :top="31%" :right="25%" :left="26%">
+     <vaadin-label style-name="seccion" plain-text _id="ultimasSecciones" :top="32%" :right="25%" :left="26%">
        ULTIMAS SECCIONES 
      </vaadin-label>
-     <vaadin-panel style-name="borderless" size-full :top="35%" :right="23.7%" :left="25%">
-      <vaadin-vertical-layout>
+     <vaadin-panel style-name="borderless" size-full _id="panelUltimasSecciones" :top="35%" :right="23.7%" :left="25%">
+      <vaadin-vertical-layout _id="verticalUltimasSecciones">
        <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje2">
         <vaadin-image source="https://cdn.pixabay.com/photo/2014/03/24/17/15/bike-295235_960_720.png" width="50px" height="50px" _id="imagenTema2" :center></vaadin-image>
         <vaadin-label style-name="negrita" plain-text _id="mensaje2" :middle>
@@ -216,7 +217,7 @@
        </vaadin-horizontal-layout>
       </vaadin-vertical-layout>
      </vaadin-panel>
-     <vaadin-vertical-layout size-full :top="5%" :right="25%" :bottom="70%" :left="25%">
+     <vaadin-vertical-layout size-full margin="false" :top="5%" :right="25%" :bottom="70%" :left="25%">
       <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje">
        <vaadin-image source="https://cdn.pixabay.com/photo/2014/03/24/17/15/bike-295235_960_720.png" width="50px" height="50px" _id="imagenTema" :center></vaadin-image>
        <vaadin-label style-name="negrita" plain-text _id="mensaje" :middle>
@@ -306,7 +307,7 @@
      </vaadin-label>
      <vaadin-image size-full alt="Publicidad" :top="10%" :right="78%" :bottom="10%" :left="2%"></vaadin-image>
      <vaadin-image size-full alt="Publicidad" :top="5%" :right="2%" :bottom="60%" :left="78%"></vaadin-image>
-     <vaadin-button style-name="primary" size-full plain-text :top="0%" :right="25%" :bottom="96%" :left="63%">
+     <vaadin-button style-name="primary" size-full plain-text _id="crearSeccion" :top="0%" :right="25%" :bottom="96%" :left="63%">
        Crear Seccion 
      </vaadin-button>
     </vaadin-absolute-layout>

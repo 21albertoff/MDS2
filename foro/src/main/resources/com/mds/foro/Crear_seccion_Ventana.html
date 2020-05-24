@@ -7,20 +7,16 @@
  </head>
  <body>
   <vaadin-absolute-layout>
-   <vaadin-absolute-layout style-name="ventanaEmergente"></vaadin-absolute-layout>
-   <vaadin-absolute-layout style-name="cajaMensaje" :top="35%" :right="25%" :bottom="45%" :left="25%">
-    <vaadin-button style-name="confirmar primary" size-full plain-text :top="70%" :right="4%" :bottom="5%" :left="70%">
+   <vaadin-absolute-layout style-name="cajaMensaje" :top="35%" :right="20%" :bottom="40%" :left="20%">
+    <vaadin-button style-name="confirmar primary" size-full plain-text _id="botonGuardarSeccion" :top="70%" :right="4%" :bottom="5%" :left="70%">
       GUARDAR 
     </vaadin-button>
-    <vaadin-text-field caption="TITULO DE LA SECCION" placeholder="" width="300px" height="40px" :top="50%" :left="5%"></vaadin-text-field>
-    <vaadin-button icon="fonticon://Vaadin-Icons/e7bb" id="cargarImagen" plain-text :top="5%" :left="50%"></vaadin-button>
-    <vaadin-label id="negrita" plain-text :top="70%" :left="53.5%">
-      ICONO 
-    </vaadin-label>
-    <vaadin-label id="cambiarcontrasena" plain-text _id="cambiarcontrasena" :top="5%" :left="5%">
+    <vaadin-text-field caption="TITULO DE LA SECCION" placeholder="" width="300px" height="40px" _id="tituloSeccion" :top="38%" :left="5%"></vaadin-text-field>
+    <vaadin-label id="cambiarcontrasena" plain-text _id="labelCrearSeccion" :top="5%" :left="5%">
       CREAR NUEVA SECCION 
     </vaadin-label>
-    <vaadin-check-box caption="FIJAR SECCIÓN" :top="30%" :left="72%"></vaadin-check-box>
+    <vaadin-text-field caption="ICONO DE LA SECCION" placeholder="" width="300px" height="40px" _id="iconoSeccion" :top="38%" :left="56%"></vaadin-text-field>
+    <vaadin-check-box caption="Fijar Seccion" style-name="negrita" _id="fijarSeccion" :top="75%" :left="5%"></vaadin-check-box>
    </vaadin-absolute-layout>
   </vaadin-absolute-layout>
  </body>
