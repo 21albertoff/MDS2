@@ -122,11 +122,34 @@
   	font-size:17px;
   }
   
+  #eliminar{
+    color: #f9f0ef;
+	font-weight: 400;
+	text-align:center;
+	font-weight: bold;
+	
+	border-radius: 4px;
+	border: 1px solid #bb382e;
+	border-top-color: #bc3c31;
+	border-bottom-color: #b13028;
+	background-color: #ed473b;
+	background-image: -webkit-linear-gradient(top, #ee4c3f 2%, #e13e33 98%);
+	background-image: linear-gradient(to bottom,#ee4c3f 2%, #e13e33 98%);
+	-webkit-box-shadow: inset 0 1px 0 #ef786f, inset 0 -1px 0 #da3c31, 0 2px 3px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 0 #ef786f, inset 0 -1px 0 #da3c31, 0 2px 3px rgba(0, 0, 0, 0.05);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+  }
+  
+  #ventanaEmergente{
+   background-color: #000;
+   opacity: 0.4;
+  }
+  
   .banear{
   	font-size:15px;
   }
 
-.temaforo .v-botton-eliminar {
+  .v-botton-eliminar {
 	color: #f9f0ef;
 	font-weight: 400;
 	text-align:center;
@@ -144,7 +167,7 @@
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
-.temaforo .v-botton-eliminar:after {
+  .v-botton-eliminar:after {
 	border: inherit;
 	top: -1px;
 	right: -1px;
@@ -152,30 +175,30 @@
 	left: -1px;
 }
 
-.temaforo .v-botton-eliminar:hover:after {
+  .v-botton-eliminar:hover:after {
 	background-color: rgba(243, 137, 129, 0.1);
 }
 
-.temaforo .v-botton-eliminar:focus:after {
+  .v-botton-eliminar:focus:after {
 	border: inherit;
 	-webkit-box-shadow: 0 0 0 2px rgba(25, 125, 225, 0.5);
 	box-shadow: 0 0 0 2px rgba(25, 125, 225, 0.5);
 }
 
-.temaforo .v-botton-eliminar:active:after {
+   .v-botton-eliminar:active:after {
 	background-color: rgba(146, 12, 2, 0.2);
 }
   
-.temaforo .v-botton.v-disabled {
+   .v-botton.v-disabled {
 	opacity: 0.5;
 	filter: alpha(opacity=50) ;
 }
 
-.temaforo .v-botton.v-disabled:after {
+   .v-botton.v-disabled:after {
 	display: none;
 }
 
-.temaforo .v-botton-morado {
+   .v-botton-morado {
 	color: #eaf4e9;
 	font-weight: 400;
 	text-align:center;
@@ -194,7 +217,7 @@
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
-.temaforo .v-botton-morado:after {
+  .v-botton-morado:after {
 	border: inherit;
 	top: -1px;
 	right: -1px;
@@ -202,17 +225,17 @@
 	left: -1px;
 }
 
-.temaforo .v-botton-morado:hover:after {
+   .v-botton-morado:hover:after {
 	background-color: rgba(171, 71, 188, 0.1);
 }
 
-.temaforo .v-botton-morado:focus:after {
+   .v-botton-morado:focus:after {
 	border: inherit;
 	-webkit-box-shadow: 0 0 0 2px rgba(25, 125, 225, 0.5);
 	box-shadow: 0 0 0 2px rgba(25, 125, 225, 0.5);
 }
 
-.temaforo .v-botton-morado:active:after {
+   .v-botton-morado:active:after {
 	background-color: rgba(74, 20, 140, 0.2);
 	}
 
@@ -268,7 +291,7 @@
 	background-color: #fff;
 	}
 
-.temaforo .v-button-morado {
+.v-button-morado {
 	height: 37px;
 	padding: 0 16px;
 	color: #eaf4e9;
@@ -287,7 +310,7 @@
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
-.temaforo .v-button-morado:after {
+.v-button-morado:after {
 	border: inherit;
 	top: -1px;
 	right: -1px;
@@ -295,17 +318,17 @@
 	left: -1px;
 }
 
-.temaforo .v-button-morado:hover:after {
+.v-button-morado:hover:after {
 	background-color: rgba(171, 71, 188, 0.1);
 }
 
-.temaforo .v-button-morado:focus:after {
+.v-button-morado:focus:after {
 	border: inherit;
 	-webkit-box-shadow: 0 0 0 2px rgba(25, 125, 225, 0.5);
 	box-shadow: 0 0 0 2px rgba(25, 125, 225, 0.5);
 }
 
-.temaforo .v-button-morado:active:after {
+.v-button-morado:active:after {
 	background-color: rgba(74, 20, 140, 0.2);
 }
 	
