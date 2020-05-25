@@ -46,7 +46,7 @@ public class Visualizar_seccion_Ventana extends AbsoluteLayout {
 	protected Link menuNotificacionesAdministrador;
 	protected Image menuimagenPerfilAdministador;
 	protected Link menuPanelControlAdministrador;
-	protected Label tituloSeccion;
+	protected Label tituloS;
 	protected Panel panelTemas;
 	protected HorizontalLayout cajaMensaje2;
 	protected Image imagenTema2;
@@ -148,8 +148,7 @@ public class Visualizar_seccion_Ventana extends AbsoluteLayout {
 	protected Image anuncio2;
 	protected Image anuncio;
 	protected Button crearTema;
-	protected Image iconoSeccion;
-	protected Label subtituloSeccion;
+	protected Image iconoS;
 	protected ComboBox<java.lang.String> ordenarPor;
 
 	public Visualizar_seccion_Ventana() {

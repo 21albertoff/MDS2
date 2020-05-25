@@ -22,7 +22,6 @@ import com.vaadin.ui.declarative.Design;
 public class Ultima_seccion_Ventana extends HorizontalLayout {
 	protected Image iconoSeccion;
 	protected Button tituloSeccion;
-	protected Label fechaSeccion;
 	protected Label numeroTemas;
 	protected Button eliminarSeccion;
 

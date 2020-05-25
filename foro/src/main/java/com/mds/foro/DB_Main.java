@@ -63,7 +63,12 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	//Elementos fijos
 	
 	public List consultar_SD() {
-		throw new UnsupportedOperationException();
+		try {
+			return secciones.consultar_SD();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	//Correo 

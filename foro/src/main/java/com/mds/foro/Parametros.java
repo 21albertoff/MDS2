@@ -1,25 +1,17 @@
 package com.mds.foro;
 
 public class Parametros {
-	private static int idUsuario=-1;
-	private static int idVideo=-1;
-	private static int idLista=-1;
+	private static int idUsuario=1;
+	
+	private static int idSeccion=1;
+	private static String tituloSeccion="";
+	private static String iconoSeccion="";
+	
 	private static boolean baneado=false;
 	
 	private static int privilegioUsuario=1;
 	
-	private static String busqueda="";
-	private static String filtro="";
-	private static String filtroOrdenar="";
-	private static String campo_recup_contrasenia="";
-	private static int admin_usuario_seleccionado=-1;
-	private static int admin_categoria_seleccionada=-1;
-	private static int admin_video_seleccionado=-1;
-	private static int idUsuarioNavega=-1;
-	private static int usuarioActual=-1;
-	private static int idComentarioAEliminar = -1;
-	private static String contraseniaGenerada="";
-	
+
 	public static int getTipoUsuario() {
 		return privilegioUsuario;
 	}
@@ -39,6 +31,27 @@ public class Parametros {
 	}
 	public static void setIdUsuario(int idUsuario) {
 		Parametros.idUsuario = idUsuario;
+	}
+	
+	public static int getIdSeccion() {
+		return idSeccion;
+	}
+	public static void setIdSeccion(int idSeccion) {
+		Parametros.idSeccion = idSeccion;
+	}
+	
+	public static String getTituloSeccion() {
+		return tituloSeccion;
+	}
+	public static void setTituloSeccion(String tituloSeccion) {
+		Parametros.tituloSeccion = tituloSeccion;
+	}
+	
+	public static String getIconoSeccion() {
+		return iconoSeccion;
+	}
+	public static void setIconoSeccion(String iconoSeccion) {
+		Parametros.iconoSeccion = iconoSeccion;
 	}
 	
 	

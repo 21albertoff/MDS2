@@ -68,8 +68,7 @@ public class Iniciar_sesion extends Iniciar_sesion_Ventana {
 			
 			//Usuario registrado
 			if(Parametros.getTipoUsuario()==1) {
-				Usuario_identificado registro = new Usuario_identificado();
-		    	
+				Usuario_registrado registro = new Usuario_registrado();
 				addComponent(registro);
 			}
 			

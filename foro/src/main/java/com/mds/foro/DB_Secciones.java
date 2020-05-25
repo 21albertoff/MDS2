@@ -8,19 +8,40 @@ import org.orm.PersistentTransaction;
 
 import com.mds.foro.SeccionDB;
 
+@SuppressWarnings("unchecked")
 public class DB_Secciones {
 	public DB_Main _bd_main_secciones;
 	public Vector<SeccionDB> _contiene_seccion = new Vector<SeccionDB>();
 
-	public Seccion_destacada[] consultar_SD() {
-		throw new UnsupportedOperationException();
+	//Consultar secciones destacadas
+	public List<SeccionDB> consultar_SD() throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		List<SeccionDB> seccion = null;
+		try {
+			seccion = SeccionDBDAO.querySeccionDB(null, null);
+			t.commit();
+			
+		} catch (PersistentException e1) {
+			t.rollback();
+		}
+		return seccion;
 	}
 
-	public Seccion_fija[] consultar_SF() {
-		throw new UnsupportedOperationException();
+	//Consultar secciones fijas
+	public List<SeccionDB> consultar_SF() throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		List<SeccionDB> seccion = null;
+		try {
+			seccion = SeccionDBDAO.querySeccionDB(null, null);
+			t.commit();
+			
+		} catch (PersistentException e1) {
+			t.rollback();
+		}
+		return seccion;
 	}
 
-	@SuppressWarnings("unchecked")
+	//Consultar ultimas secciones
 	public List<SeccionDB> consultar_US() throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<SeccionDB> seccion = null;
@@ -28,9 +49,9 @@ public class DB_Secciones {
 			seccion = SeccionDBDAO.querySeccionDB(null, null);
 			t.commit();
 			
-	} catch (PersistentException e1) {
-		t.rollback();
-	}
+		} catch (PersistentException e1) {
+			t.rollback();
+		}
 		return seccion;
 	}
 
