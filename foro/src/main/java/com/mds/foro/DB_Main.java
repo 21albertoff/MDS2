@@ -40,7 +40,12 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	//Usuario
 	
 	public List consultar_SF() {
-		throw new UnsupportedOperationException();
+		try {
+			return secciones.consultar_SF();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public List<SeccionDB> consultar_US() {

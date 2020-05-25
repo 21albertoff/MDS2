@@ -61,27 +61,34 @@ public class Usuario_registrado extends Usuario_identificado {
 	@SuppressWarnings("unchecked")
 	private void cargarSeccionesFijas() {
 		List<SeccionDB> SF = usuario.consultar_SF();
-		int idSF = SF.size()-1;
-		while(idSF>=0) {
-			Ultima_seccion seccion = new Ultima_seccion();
-			seccion.tituloSeccion.setCaption(SF.get(idSF).getSeccion());
-			seccion.iconoSeccion.setSource(new ExternalResource(SF.get(idSF).getIcono()));
-			verticalUltimasSecciones.addComponent(seccion);
-			
-			final int id = idSF;
-			seccion.tituloSeccion.addClickListener(new Button.ClickListener() 
-				{
-					public void buttonClick(ClickEvent event) 
-					{ 
-						Parametros.setIdSeccion(SF.get(id).getORMID());
-						Parametros.setTituloSeccion(SF.get(id).getSeccion());
-						Parametros.setIconoSeccion(SF.get(id).getIcono());
-						addComponent(new Visualizar_seccion__Usuario_identificado_());
-					} 
-				}
-			);
-			idSF--;
-		}
+        int idSF = SF.size()-1;
+        int tres = 0;
+        while(idSF>=0 && tres<3) {
+            if(tres == 3) {
+                break;
+            }
+            if(SF.get(idSF).getSeccionFija()) {
+    			Ultima_seccion seccion = new Ultima_seccion();
+    			seccion.tituloSeccion.setCaption(SF.get(idSF).getSeccion());
+    			seccion.iconoSeccion.setSource(new ExternalResource(SF.get(idSF).getIcono()));
+                verticalSeccionesFijas.addComponent(seccion);
+
+                final int id = idSF;
+                seccion.tituloSeccion.addClickListener(new Button.ClickListener() 
+                    {
+                        public void buttonClick(ClickEvent event) 
+                        { 
+                            Parametros.setIdSeccion(SF.get(id).getORMID());
+                            Parametros.setTituloSeccion(SF.get(id).getSeccion());
+                            Parametros.setIconoSeccion(SF.get(id).getIcono());
+                            addComponent(new Visualizar_seccion__Usuario_identificado_());
+                        } 
+                    }
+                );
+                tres++;
+            }
+            idSF--;
+        }
 	}
 	
 	
