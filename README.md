@@ -7,7 +7,7 @@ _Proyecto del foro de la asignatura de Modelado y Diseño del Sotfware II_
 _En este repositorio te encontraras con el proyecto de creación de un foro que ha sido modelado previamente mediante diagramas y prototipados, cuyo resultado sera la implementación en codigo Java con la ayuda de la herramienta Vaadin_
 
 ```
-El foro todavia no esta adaptado de forma responsiva, **SE RECOMIENDA** visualizar las interfaces del proyecto en modo **Desktop(1440x900).
+El foro todavia no esta adaptado de forma responsiva, **SE RECOMIENDA** visualizar las interfaces del proyecto en modo **Desktop(1280x720).
 ```
 
 ### Pre-requisitos 📋
