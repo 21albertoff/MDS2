@@ -1,8 +1,10 @@
 package com.mds.foro;
 
+import java.util.List;
+
 public interface iUsuario_registrado extends iUsuario_identificado {
 
-	public Mensaje_no_propietario__Usuario_registrado_[] consulta_M_UR(int aIdTema);
+	public List consulta_M_UR(int aIdTema);
 
 	public void reportar_mensaje(int aIdUsuario, int aIdMensaje);
 

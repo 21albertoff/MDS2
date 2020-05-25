@@ -1,6 +1,7 @@
 package com.mds.foro;
 
-import java.io.Serializable;
+import java.util.List;
+
 import org.orm.PersistentException;
 
 public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fijos, iUsuario, iUsuario_identificado, iModerador, iUsuario_registrado, iAdministrador {
@@ -38,25 +39,30 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 
 	//Usuario
 	
-	public Seccion_fija[] consultar_SF() {
+	public List consultar_SF() {
 		throw new UnsupportedOperationException();
 	}
 
-	public Ultima_seccion[] consultar_US() {
-		throw new UnsupportedOperationException();
+	public List<SeccionDB> consultar_US() {
+		try {
+			return secciones.consultar_US();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
-	public Tema[] consultar_T(int aIdSeccion) {
+	public List consultar_T(int aIdSeccion) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Mensaje[] consultar_M(int aIdTema) {
+	public List consultar_M(int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
 	
 	//Elementos fijos
 	
-	public Seccion_destacada[] consultar_SD() {
+	public List consultar_SD() {
 		throw new UnsupportedOperationException();
 	}
 	
@@ -96,71 +102,71 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public Tema__Usuario_identificado_[] consultar_T_UI(int aIdSeccion) {
+	public List consultar_T_UI(int aIdSeccion) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Mensaje__Usuario_identificado_[] consultar_M_UI(int aIdTema) {
+	public List consultar_M_UI(int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Mensaje_amigo[] consultar_MA(int aIdAmigo) {
+	public List consultar_MA(int aIdAmigo) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Notificacion[] consultar_N(int aIdUsuario) {
+	public List consultar_N(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Amigo[] consultar_A(int aIdUsuario) {
+	public List consultar_A(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Mi_mensaje[] consultar_MisM(int aIdUsuario) {
+	public List consultar_MisM(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Mensaje_no_propietario__Usuario_registrado_[] consulta_M_UR(int aIdTema) {
+	public List consulta_M_UR(int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Usuario_reportado[] consultar_UR() {
+	public List consultar_UR() {
 		throw new UnsupportedOperationException();
 	}
 
-	public Mensaje_no_propietario__Moderador_[] consultar_M_Mo(int aIdTema) {
+	public List consultar_M_Mo(int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Mensaje_usuario[] consultar_MU(int aIdUsuario) {
+	public List consultar_MU(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Mensaje__Administrador_[] consultar_M_A(int aIdTema) {
+	public List consultar_M_A(int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Tema__Administrador_[] consultar_T_A(int aIdSeccion) {
+	public List consultar_T_A(int aIdSeccion) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Seccion_fija__Administrador_[] consultar_SF_A() {
+	public List consultar_SF_A() {
 		throw new UnsupportedOperationException();
 	}
 
-	public Ultima_seccion__Administrador_[] consultar_US_A() {
+	public List consultar_US_A() {
 		throw new UnsupportedOperationException();
 	}
 
-	public Tema_oculto[] consultar_TO() {
+	public List consultar_TO() {
 		throw new UnsupportedOperationException();
 	}
 
-	public Mensaje_oculto[] consultar_MO() {
+	public List consultar_MO() {
 		throw new UnsupportedOperationException();
 	}
 
-	public Usuario_notificado[] consultar_UN() {
+	public List consultar_UN() {
 		throw new UnsupportedOperationException();
 	}
 
@@ -329,7 +335,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public ModeradorE[] consultar_Mo() {
+	public List consultar_Mo() {
 		throw new UnsupportedOperationException();
 	}
 }

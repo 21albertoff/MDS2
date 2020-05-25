@@ -3,6 +3,8 @@ package com.mds.foro;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.NativeButton;
 
 @SuppressWarnings("serial")
 public class Crear_seccion extends Crear_seccion_Ventana {
@@ -23,7 +25,8 @@ public class Crear_seccion extends Crear_seccion_Ventana {
 			{ 
 				guardar_seccion();
 				//Ir a Seccion Ventana
-				//addComponent(new Usuario_identificado());
+				addComponent(new Usuario_identificado());
+				Notification.show("La seccion a sido creada con exito","", Notification.Type.WARNING_MESSAGE);
 			} 
 		}
 	);

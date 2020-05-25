@@ -1,5 +1,6 @@
 package com.mds.foro;
 
+import java.util.List;
 import java.util.Vector;
 
 import org.orm.PersistentException;
@@ -19,15 +20,25 @@ public class DB_Secciones {
 		throw new UnsupportedOperationException();
 	}
 
-	public Ultima_seccion[] consultar_US() {
+	@SuppressWarnings("unchecked")
+	public List<SeccionDB> consultar_US() throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		List<SeccionDB> seccion = null;
+		try {
+			seccion = SeccionDBDAO.querySeccionDB(null, null);
+			t.commit();
+			
+	} catch (PersistentException e1) {
+		t.rollback();
+	}
+		return seccion;
+	}
+
+	public List consultar_SF_A() {
 		throw new UnsupportedOperationException();
 	}
 
-	public Seccion_fija__Administrador_[] consultar_SF_A() {
-		throw new UnsupportedOperationException();
-	}
-
-	public Ultima_seccion__Administrador_[] consultar_US_A() {
+	public List consultar_US_A() {
 		throw new UnsupportedOperationException();
 	}
 

@@ -1,18 +1,20 @@
 package com.mds.foro;
 
+import java.util.List;
+
 public interface iUsuario_identificado extends iUsuario {
 
-	public Tema__Usuario_identificado_[] consultar_T_UI(int aIdSeccion);
+	public List consultar_T_UI(int aIdSeccion);
 
-	public Mensaje__Usuario_identificado_[] consultar_M_UI(int aIdTema);
+	public List consultar_M_UI(int aIdTema);
 
-	public Mensaje_amigo[] consultar_MA(int aIdAmigo);
+	public List consultar_MA(int aIdAmigo);
 
-	public Notificacion[] consultar_N(int aIdUsuario);
+	public List consultar_N(int aIdUsuario);
 
-	public Amigo[] consultar_A(int aIdUsuario);
+	public List consultar_A(int aIdUsuario);
 
-	public Mi_mensaje[] consultar_MisM(int aIdUsuario);
+	public List consultar_MisM(int aIdUsuario);
 
 	public boolean guardar_tema(int aIdSeccion, String aTituloTema, String aSubtituloTema);
 

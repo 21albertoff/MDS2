@@ -1,12 +1,14 @@
 package com.mds.foro;
 
+import java.util.List;
+
 public interface iModerador extends iUsuario_identificado {
 
-	public Usuario_reportado[] consultar_UR();
+	public List consultar_UR();
 
-	public Mensaje_no_propietario__Moderador_[] consultar_M_Mo(int aIdTema);
+	public List consultar_M_Mo(int aIdTema);
 
-	public Mensaje_usuario[] consultar_MU(int aIdUsuario);
+	public List consultar_MU(int aIdUsuario);
 
 	public boolean eliminar_perfil(int aIdUsuario);
 

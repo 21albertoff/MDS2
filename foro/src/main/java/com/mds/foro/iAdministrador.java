@@ -1,24 +1,26 @@
 package com.mds.foro;
 
+import java.util.List;
+
 public interface iAdministrador extends iUsuario_identificado {
 
-	public Mensaje_usuario[] consultar_MU(int aIdUsuario);
+	public List consultar_MU(int aIdUsuario);
 
-	public Mensaje__Administrador_[] consultar_M_A(int aIdTema);
+	public List consultar_M_A(int aIdTema);
 
-	public Tema__Administrador_[] consultar_T_A(int aIdSeccion);
+	public List consultar_T_A(int aIdSeccion);
 
-	public Seccion_fija__Administrador_[] consultar_SF_A();
+	public List consultar_SF_A();
 
-	public Ultima_seccion__Administrador_[] consultar_US_A();
+	public List consultar_US_A();
 
-	public ModeradorE[] consultar_Mo();
+	public List consultar_Mo();
 
-	public Tema_oculto[] consultar_TO();
+	public List consultar_TO();
 
-	public Mensaje_oculto[] consultar_MO();
+	public List consultar_MO();
 
-	public Usuario_notificado[] consultar_UN();
+	public List consultar_UN();
 
 	public void Asignar_Desasignar_moderador(int aIdUsuario);
 
