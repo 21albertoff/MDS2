@@ -67,17 +67,17 @@ public class MensajeDB implements Serializable {
 	
 	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="ocultadoPor", referencedColumnName="IdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKMensajeDB3229"))	
+	@JoinColumns(value={ @JoinColumn(name="Ocultado_por", referencedColumnName="IdUsuario") }, foreignKey=@ForeignKey(name="FKMensajeDB640192"))	
 	private com.mds.foro.AdministradorDB ocultado_por;
 	
 	@ManyToOne(targetEntity=com.mds.foro.Usuario_DB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="IdUsuario", referencedColumnName="IdUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKMensajeDB118577"))	
+	@JoinColumns(value={ @JoinColumn(name="Creado_por", referencedColumnName="IdUsuario") }, foreignKey=@ForeignKey(name="FKMensajeDB71729"))	
 	private com.mds.foro.Usuario_DB creado_por;
 	
 	@ManyToOne(targetEntity=com.mds.foro.MensajeDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="CitadoIDMensaje", referencedColumnName="IdMensaje") }, foreignKey=@ForeignKey(name="FKMensajeDB69487"))	
+	@JoinColumns(value={ @JoinColumn(name="Esta_en", referencedColumnName="IdMensaje") }, foreignKey=@ForeignKey(name="FKMensajeDB128135"))	
 	private com.mds.foro.MensajeDB esta_en;
 	
 	@Column(name="Mensaje", nullable=true, length=255)	

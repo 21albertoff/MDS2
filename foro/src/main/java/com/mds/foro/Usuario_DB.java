@@ -79,12 +79,12 @@ public class Usuario_DB implements Serializable {
 	
 	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="BaneadoPor", referencedColumnName="IdUsuario", nullable=true) }, foreignKey=@ForeignKey(name="FKUsuario_DB349403"))	
+	@JoinColumns(value={ @JoinColumn(name="Convertido_por", referencedColumnName="IdUsuario") }, foreignKey=@ForeignKey(name="FKUsuario_DB613758"))	
 	private com.mds.foro.AdministradorDB convertido_por;
 	
 	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="ModPor", referencedColumnName="IdUsuario", nullable=true) }, foreignKey=@ForeignKey(name="FKUsuario_DB127183"))	
+	@JoinColumns(value={ @JoinColumn(name="Baneado_por", referencedColumnName="IdUsuario") }, foreignKey=@ForeignKey(name="FKUsuario_DB750296"))	
 	private com.mds.foro.AdministradorDB baneado_por;
 	
 	@Column(name="NombreUsuario", nullable=true, length=255)	

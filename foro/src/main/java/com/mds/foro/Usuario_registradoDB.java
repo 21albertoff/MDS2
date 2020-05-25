@@ -20,7 +20,7 @@ import javax.persistence.*;
 @Table(name="Usuario_registradoDB")
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorValue("Usuario_registradoDB")
-@PrimaryKeyJoinColumn(name="idUsuario", referencedColumnName="IdUsuario")
+@PrimaryKeyJoinColumn(name="Notificado_por_Moderador", referencedColumnName="IdUsuario")
 public class Usuario_registradoDB extends com.mds.foro.Usuario_DB implements Serializable {
 	public Usuario_registradoDB() {
 	}
@@ -65,7 +65,7 @@ public class Usuario_registradoDB extends com.mds.foro.Usuario_DB implements Ser
 	
 	@ManyToOne(targetEntity=com.mds.foro.Usuario_registradoDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="notificadoPor", referencedColumnName="idUsuario", nullable=false) }, foreignKey=@ForeignKey(name="FKUsuario_re623061"))	
+	@JoinColumns(value={ @JoinColumn(name="Reportado_por", referencedColumnName="Notificado_por_Moderador") }, foreignKey=@ForeignKey(name="FKUsuario_re943131"))	
 	private com.mds.foro.Usuario_registradoDB notificado_por_Moderador;
 	
 	@OneToMany(mappedBy="notificado_por_Moderador", targetEntity=com.mds.foro.Usuario_registradoDB.class)	
