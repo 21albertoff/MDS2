@@ -21,7 +21,7 @@ public class Ultima_seccion extends Ultima_seccion_Ventana {
 	{
 		public void buttonClick(ClickEvent event) 
 		{ 
-			 cargar_seccion();		
+	
 		}
 
 	}
