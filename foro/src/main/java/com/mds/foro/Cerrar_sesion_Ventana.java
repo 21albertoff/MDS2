@@ -23,7 +23,7 @@ public class Cerrar_sesion_Ventana extends AbsoluteLayout {
 	protected AbsoluteLayout cajaBanearUsuario;
 	protected Label tituloMensajeCerrarSesion;
 	protected Button cancelarCerrarSesion;
-	protected Button cancelarCerrarSesion1;
+	protected Button cerrarSesion;
 
 	public Cerrar_sesion_Ventana() {
 		Design.read(this);

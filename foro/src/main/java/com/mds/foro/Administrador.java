@@ -38,6 +38,13 @@ public class Administrador extends Usuario_identificado {
 				guardar_seccion();
 			} 
 		});
+		
+		menuCerrarSesionAdministrador.addClickListener(new Button.ClickListener(){
+			public void buttonClick(ClickEvent event) { 
+				addComponent(new Cerrar_sesion());
+
+			} 
+		});
 	}
 	
 	@SuppressWarnings("unchecked")
