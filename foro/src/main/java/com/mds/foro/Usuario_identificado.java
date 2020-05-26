@@ -1,12 +1,6 @@
 package com.mds.foro;
 
-import java.util.List;
-
-import com.vaadin.server.ExternalResource;
-import com.vaadin.server.Resource;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
-
+@SuppressWarnings("serial")
 public class Usuario_identificado extends Seccion_Ventana {
 	/**public iUsuario_identificado _iUsuario_identificado;
 	public Visualizar_seccion__Usuario_identificado_ _visualizarSeccion_UI_;
@@ -14,5 +8,16 @@ public class Usuario_identificado extends Seccion_Ventana {
 	public Notificaciones _verListaNotificaciones;
 	public Cerrar_sesion _cerrarSesionPropia;**/
 	
+	public void inicializar() {
+	    crearSeccion.setVisible(false);
+	    menuUsuarioNoIdentifado.setVisible(false);
+	    menuUsuarioIdentificado.setVisible(true);
+	    menuUsuarioModerador.setVisible(false);
+	    menuUsuarioAdministrador.setVisible(false); 
+	}
+
+	public Usuario_identificado() {
+		inicializar();
+	}
 	
 }

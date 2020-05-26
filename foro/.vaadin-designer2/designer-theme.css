@@ -14784,6 +14784,7 @@ div.v-layout.v-horizontal.v-widget {
 	font-size: 20px;
 	text-decoration: none;
 	font-weight: bold;
+	color: #fff;
 }
 
 .temaforo .menuSuperior {
@@ -14884,7 +14885,7 @@ div.v-layout.v-horizontal.v-widget {
 
 .temaforo #ventanaEmergente {
 	background-color: #000;
-	opacity: 0.4;
+	opacity: 0.6;
 }
 
 .temaforo .banear {

@@ -15,17 +15,8 @@ public class Ultima_seccion extends Ultima_seccion_Ventana {
 	private Label _comentariosL;
 	public Ultimas_secciones _unnamed_Ultimas_secciones_;**/
 	
-	iUsuario usuario;
-	public Ultima_seccion(){
-	tituloSeccion.addClickListener(new Button.ClickListener()
-	{
-		public void buttonClick(ClickEvent event) 
-		{ 
+	public Ultima_seccion() {
+		eliminarSeccion.setVisible(false);
+	}
 	
-		}
-
-	}
-);
-	}
-
 }

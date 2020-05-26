@@ -6,6 +6,8 @@ public class Parametros {
 	private static int idSeccion=1;
 	private static String tituloSeccion="";
 	private static String iconoSeccion="";
+	private static int idSeccionEliminar=-1;
+
 	
 	private static boolean baneado=false;
 	
@@ -37,6 +39,13 @@ public class Parametros {
 		return idSeccion;
 	}
 	public static void setIdSeccion(int idSeccion) {
+		Parametros.idSeccion = idSeccion;
+	}
+	
+	public static int getIdSeccionEliminar() {
+		return idSeccion;
+	}
+	public static void setIdSeccionEliminar(int idSeccion) {
 		Parametros.idSeccion = idSeccion;
 	}
 	

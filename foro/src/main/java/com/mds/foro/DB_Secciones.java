@@ -55,30 +55,74 @@ public class DB_Secciones {
 		return seccion;
 	}
 
-	public List consultar_SF_A() {
-		throw new UnsupportedOperationException();
+	//Consultar secciones Fijas Administrador
+	public List consultar_SF_A() throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		List<SeccionDB> seccion = null;
+		try {
+			seccion = SeccionDBDAO.querySeccionDB(null, null);
+			t.commit();
+			
+		} catch (PersistentException e1) {
+			t.rollback();
+		}
+		return seccion;
 	}
 
-	public List consultar_US_A() {
-		throw new UnsupportedOperationException();
+	//Consultar ultimas secciones Administrador
+	public List consultar_US_A() throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		List<SeccionDB> seccion = null;
+		try {
+			seccion = SeccionDBDAO.querySeccionDB(null, null);
+			t.commit();
+			
+		} catch (PersistentException e1) {
+			t.rollback();
+		}
+		return seccion;
 	}
 
-	public boolean eliminar_seccion(int aIdSeccion) {
-		throw new UnsupportedOperationException();
+	//Eliminar seccion
+	public boolean eliminar_seccion(int idSeccion) throws PersistentException {
+		boolean eliminado = false;
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			SeccionDB seccion = SeccionDBDAO.loadSeccionDBByORMID(idSeccion);
+			seccion.setEliminado(true);
+			SeccionDBDAO.save(seccion);
+			t.commit();
+			eliminado=true;
+		}catch(Exception e) {
+			t.rollback();
+		}
+		return eliminado;
 	}
 
-	public void quitar_seccion_fija(int aIdSeccion) {
-		throw new UnsupportedOperationException();
+	//QuitarSeccionFija
+	public void quitar_seccion_fija(int idSeccion) throws PersistentException  {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			SeccionDB seccion = SeccionDBDAO.loadSeccionDBByORMID(idSeccion);
+			seccion.setSeccionFija(false);
+			SeccionDBDAO.save(seccion);
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
 	}
 
-	public boolean crear_seccion(String aTituloSeccion, String aIcono, boolean aFijarSeccion) throws PersistentException {
+	//Crear seccion
+	public boolean crear_seccion(String tituloSeccion, String icono, boolean fijarSeccion) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		
 		try {	
 			SeccionDB nuevaSeccion = SeccionDBDAO.createSeccionDB();
-			nuevaSeccion.setSeccion(aTituloSeccion);
-			nuevaSeccion.setIcono(aIcono);
-			nuevaSeccion.setSeccionFija(aFijarSeccion);
+			nuevaSeccion.setSeccion(tituloSeccion);
+			nuevaSeccion.setIcono(icono);
+			nuevaSeccion.setSeccionFija(fijarSeccion);
 			nuevaSeccion.setEliminado(false);
 			nuevaSeccion.setCreada_por(null);
 			SeccionDBDAO.save(nuevaSeccion);

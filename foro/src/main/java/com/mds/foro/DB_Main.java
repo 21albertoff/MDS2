@@ -161,11 +161,21 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	}
 
 	public List consultar_SF_A() {
-		throw new UnsupportedOperationException();
+		try {
+			return secciones.consultar_SF_A();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public List consultar_US_A() {
-		throw new UnsupportedOperationException();
+		try {
+			return secciones.consultar_US_A();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public List consultar_TO() {
@@ -256,17 +266,26 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean eliminar_seccion(int aIdSeccion) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void quitar_seccion_fija(int aIdSeccion) {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean crear_seccion(String TituloSeccion, String Icono, boolean FijarSeccion) {
+	public boolean eliminar_seccion(int idSeccion) {
 		try {
-			return  secciones.crear_seccion(TituloSeccion, Icono, FijarSeccion);
+			return  secciones.eliminar_seccion(idSeccion);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public void quitar_seccion_fija(int idSeccion) {
+		try {
+			secciones.quitar_seccion_fija(idSeccion);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public boolean crear_seccion(String tituloSeccion, String icono, boolean fijarSeccion) {
+		try {
+			return  secciones.crear_seccion(tituloSeccion, icono, fijarSeccion);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

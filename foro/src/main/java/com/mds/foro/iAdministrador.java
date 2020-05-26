@@ -36,7 +36,7 @@ public interface iAdministrador extends iUsuario_identificado {
 
 	public void banear_usuario(int aIdUsuario, int aTiempo);
 
-	public boolean eliminar_seccion(int aIdSeccion);
+	public boolean eliminar_seccion(int idSeccion);
 
 	public void quitar_seccion_fija(int aIdSeccion);
 

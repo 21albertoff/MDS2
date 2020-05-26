@@ -68,8 +68,8 @@ public class Iniciar_sesion extends Iniciar_sesion_Ventana {
 			
 			//Usuario registrado
 			if(Parametros.getTipoUsuario()==1) {
-				Usuario_registrado registro = new Usuario_registrado();
-				addComponent(registro);
+				Usuario_registrado Usuario = new Usuario_registrado();
+				addComponent(Usuario);
 			}
 			
 			//Moderador
@@ -81,8 +81,8 @@ public class Iniciar_sesion extends Iniciar_sesion_Ventana {
 			
 			//Administrador
 			if(Parametros.getTipoUsuario()==3) {
-				//addComponent(new Administrador());
-				Notification.show("Adminisrtador","", Notification.Type.ERROR_MESSAGE);
+				Administrador Admin = new Administrador();
+				addComponent(Admin);
 
 			}
 		}else {

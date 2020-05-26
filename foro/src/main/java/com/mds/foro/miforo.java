@@ -21,9 +21,8 @@ public class miforo extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-    	Registrarse registro = new Registrarse();
-    	
-    	setContent(registro);
+    	Registrarse registrarse = new Registrarse();
+    	setContent(registrarse);
     }
 
 

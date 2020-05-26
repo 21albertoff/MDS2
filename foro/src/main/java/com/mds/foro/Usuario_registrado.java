@@ -14,21 +14,19 @@ public class Usuario_registrado extends Usuario_identificado {
 	//public Escribir_ticket__Usuario_registrado_ _escribeTicket;
 	
 	iUsuario usuario;
+	public void inicializar() {
+		usuario = new DB_Main();
+		crearSeccion.setVisible(false);
+	    menuUsuarioNoIdentifado.setVisible(false);
+	    menuUsuarioIdentificado.setVisible(true);
+	    menuUsuarioModerador.setVisible(false);
+	    menuUsuarioAdministrador.setVisible(false); 
+	}
 
 	public Usuario_registrado() {
-		
-		usuario = new DB_Main();
+		inicializar();
 		cargarUltimasSecciones();
 		cargarSeccionesFijas();
-		
-		crearSeccion.addClickListener(new Button.ClickListener()
-		{
-			public void buttonClick(ClickEvent event) 
-			{ 
-				guardar_seccion();
-			} 
-		}
-	);
 	}
 	
 
@@ -37,6 +35,8 @@ public class Usuario_registrado extends Usuario_identificado {
 		List<SeccionDB> US = usuario.consultar_US();
 		int idUS = US.size()-1;
 		while(idUS>=0) {
+			if (US.get(idUS).getEliminado()==false) {
+
 			Ultima_seccion seccion = new Ultima_seccion();
 			seccion.tituloSeccion.setCaption(US.get(idUS).getSeccion());
 			seccion.iconoSeccion.setSource(new ExternalResource(US.get(idUS).getIcono()));
@@ -54,7 +54,9 @@ public class Usuario_registrado extends Usuario_identificado {
 					} 
 				}
 			);
+			}
 			idUS--;
+			
 		}
 	}
 	
@@ -68,7 +70,9 @@ public class Usuario_registrado extends Usuario_identificado {
                 break;
             }
             if(SF.get(idSF).getSeccionFija()) {
-    			Ultima_seccion seccion = new Ultima_seccion();
+    			if (SF.get(idSF).getEliminado()==false) {
+
+    			Seccion_fija seccion = new Seccion_fija();
     			seccion.tituloSeccion.setCaption(SF.get(idSF).getSeccion());
     			seccion.iconoSeccion.setSource(new ExternalResource(SF.get(idSF).getIcono()));
                 verticalSeccionesFijas.addComponent(seccion);
@@ -85,15 +89,11 @@ public class Usuario_registrado extends Usuario_identificado {
                         } 
                     }
                 );
+    			
                 tres++;
+    			}
             }
             idSF--;
         }
-	}
-	
-	
-	private void guardar_seccion() {
-		Crear_seccion nuevaSeccion = new Crear_seccion();
-		addComponent(nuevaSeccion);
 	}
 }
