@@ -78,7 +78,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	/**Elementos fijos**/
 	
 	//Consultar secciones destacadas
-	public List consultar_SD() {
+	public List<SeccionDB> consultar_SD() {
 		try {
 			return secciones.consultar_SD();
 		} catch (Exception e) {

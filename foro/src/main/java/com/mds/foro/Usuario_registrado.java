@@ -11,9 +11,12 @@ public class Usuario_registrado extends Usuario_identificado {
 	
 	//Declaraciones
 	iUsuario usuarioUR;
+	iElementos_fijos Elementos_fijos;
+
 	
 	//Inicializacion
 	public void inicializar() {
+		Elementos_fijos = new DB_Main();
 		usuarioUR = new DB_Main();
 	    menuUsuarioIdentificado.setVisible(true);
 	}
@@ -23,6 +26,7 @@ public class Usuario_registrado extends Usuario_identificado {
 		inicializar();
 		cargarUltimasSeccionesUR();
 		cargarSeccionesFijasUR();
+		cargarSeccionesDestacadasUR();
 		
 		menuCerrarSesionUsuario.addClickListener(new Button.ClickListener(){
 			public void buttonClick(ClickEvent event) { 
@@ -115,5 +119,42 @@ public class Usuario_registrado extends Usuario_identificado {
             idSF--;
         }
 	}
+	
+	//cargarSeccionesDestacadas
+			private void cargarSeccionesDestacadasUR() {
+				List<SeccionDB> SD = Elementos_fijos.consultar_SD();
+				int idSD = SD.size()-1;
+				int cuatro = 0;
+				while(idSD>=0 && cuatro<4) {
+					if(cuatro == 4) {
+						break;
+					}
+						if (SD.get(idSD).getEliminado()==false) {
+
+							Seccion_destacada seccion = new Seccion_destacada();
+							seccion.tituloSeccion.setCaption(SD.get(idSD).getSeccion());
+							seccion.iconoSeccion.setSource(new ExternalResource(SD.get(idSD).getIcono()));
+							verticalSeccionesDestacadas.addComponent(seccion);
+
+							final int id = idSD;
+							seccion.tituloSeccion.addClickListener(new Button.ClickListener() 
+							{
+								public void buttonClick(ClickEvent event) 
+								{ 
+									Parametros.setIdSeccion(SD.get(id).getORMID());
+									Parametros.setTituloSeccion(SD.get(id).getSeccion());
+				                    Parametros.setIconoSeccion(SD.get(id).getIcono());
+				                    addComponent(new Visualizar_seccion__Usuario_identificado_());
+								} 
+							}
+				        	);
+				    			
+							cuatro++;
+							}
+			     	
+					idSD--;
+			      	}
+			}
+
 	
 }

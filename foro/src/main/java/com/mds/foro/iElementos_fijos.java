@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface iElementos_fijos {
 
-	public List consultar_SD();
+	public List<SeccionDB> consultar_SD();
 }
