@@ -15,9 +15,6 @@ public class Administrador extends Usuario_identificado {
 	public void inicializar() {
 		admin = new DB_Main();
 	    crearSeccion.setVisible(true);
-	    menuUsuarioNoIdentifado.setVisible(false);
-	    menuUsuarioIdentificado.setVisible(false);
-	    menuUsuarioModerador.setVisible(false);
 	    menuUsuarioAdministrador.setVisible(true); 
 	}
 
@@ -35,6 +32,20 @@ public class Administrador extends Usuario_identificado {
 		menuCerrarSesionAdministrador.addClickListener(new Button.ClickListener(){
 			public void buttonClick(ClickEvent event) { 
 				addComponent(new Cerrar_sesion());
+
+			} 
+		});
+		
+		menuMiPerfilAdministrador.addClickListener(new Button.ClickListener(){
+			public void buttonClick(ClickEvent event) { 
+				addComponent(new Visualizar_mi_perfil());
+
+			} 
+		});
+		
+		menuNotificacionesAdministrador.addClickListener(new Button.ClickListener(){
+			public void buttonClick(ClickEvent event) { 
+				addComponent(new Notificaciones());
 
 			} 
 		});

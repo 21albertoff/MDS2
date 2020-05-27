@@ -24,7 +24,6 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Seccion_Ventana extends AbsoluteLayout {
 	protected AbsoluteLayout menuSuperior;
-	protected Button nombreForo;
 	protected AbsoluteLayout menuUsuarioNoIdentifado;
 	protected Button menuRegistrarse;
 	protected Button menuIniciarSesion;
@@ -42,6 +41,7 @@ public class Seccion_Ventana extends AbsoluteLayout {
 	protected Button menuCerrarSesionAdministrador;
 	protected Button menuNotificacionesAdministrador;
 	protected Button menuPanelControlAdministrador;
+	protected Button nombreForo;
 	protected Label seccionesFijas;
 	protected Label ultimasSecciones;
 	protected Panel panelUltimasSecciones;

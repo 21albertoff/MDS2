@@ -8,28 +8,46 @@ import com.vaadin.ui.Button.ClickEvent;
 
 @SuppressWarnings("serial") 
 public class Usuario_registrado extends Usuario_identificado {
-	//public iUsuario_registrado _iUsuario_registrado;
-	//public Mensajes__Usuario_registrado_ _verMensajes;
-	//public Visualizar_mi_perfil__Usuario_registrado_ _visualizaPerfil;
-	//public Escribir_ticket__Usuario_registrado_ _escribeTicket;
 	
+	//Declaraciones
 	iUsuario usuarioUR;
+	
+	//Inicializacion
 	public void inicializar() {
 		usuarioUR = new DB_Main();
-		crearSeccion.setVisible(false);
-	    menuUsuarioNoIdentifado.setVisible(false);
 	    menuUsuarioIdentificado.setVisible(true);
-	    menuUsuarioModerador.setVisible(false);
-	    menuUsuarioAdministrador.setVisible(false); 
 	}
 
+	//Constructor
 	public Usuario_registrado() {
 		inicializar();
 		cargarUltimasSeccionesUR();
 		cargarSeccionesFijasUR();
+		
+		menuCerrarSesionUsuario.addClickListener(new Button.ClickListener(){
+			public void buttonClick(ClickEvent event) { 
+				addComponent(new Cerrar_sesion());
+
+			} 
+		});
+		
+		menuMiPerfilUsuario.addClickListener(new Button.ClickListener(){
+			public void buttonClick(ClickEvent event) { 
+				addComponent(new Visualizar_mi_perfil());
+
+			} 
+		});
+		
+		menuNotificacionesUsuario.addClickListener(new Button.ClickListener(){
+			public void buttonClick(ClickEvent event) { 
+				addComponent(new Notificaciones());
+
+			} 
+		});
+		
 	}
 	
-
+	//Metodo cargar ultimas secciones
 	@SuppressWarnings("unchecked")
 	private void cargarUltimasSeccionesUR() {
 		List<SeccionDB> US = usuarioUR.consultar_US();
@@ -60,6 +78,7 @@ public class Usuario_registrado extends Usuario_identificado {
 		}
 	}
 	
+	//Metodo cargar secciones fijas
 	@SuppressWarnings("unchecked")
 	private void cargarSeccionesFijasUR() {
 		List<SeccionDB> SF = usuarioUR.consultar_SF();
@@ -96,4 +115,5 @@ public class Usuario_registrado extends Usuario_identificado {
             idSF--;
         }
 	}
+	
 }

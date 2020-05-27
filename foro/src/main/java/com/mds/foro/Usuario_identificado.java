@@ -11,7 +11,7 @@ public class Usuario_identificado extends Usuario {
 	public void inicializar() {
 	    crearSeccion.setVisible(false);
 	    menuUsuarioNoIdentifado.setVisible(false);
-	    menuUsuarioIdentificado.setVisible(true);
+	    menuUsuarioIdentificado.setVisible(false);
 	    menuUsuarioModerador.setVisible(false);
 	    menuUsuarioAdministrador.setVisible(false); 
 	}

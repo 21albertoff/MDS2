@@ -81,16 +81,14 @@ public class Iniciar_sesion extends Iniciar_sesion_Ventana {
 			
 			//Moderador
 			if(Parametros.getTipoUsuario()==2) {
-				//addComponent(new Moderador());
-				Notification.show("Moderador","", Notification.Type.ERROR_MESSAGE);
-
+				addComponent(new Moderador());
 			}
 			
 			//Administrador
 			if(Parametros.getTipoUsuario()==3) {
 				addComponent(new Administrador());
-
 			}
+			
 		}else {
 			//Fallo al iniciar sesion
 			Notification.show("El nombre de usuario o la contraseña es incorrecta","", Notification.Type.ERROR_MESSAGE);
