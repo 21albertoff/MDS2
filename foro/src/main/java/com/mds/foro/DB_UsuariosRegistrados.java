@@ -10,6 +10,7 @@ public class DB_UsuariosRegistrados {
 	public DB_Main _bd_main_usuarios_registrados;
 	public Vector<Usuario_registradoDB> _contiene_usuario_registrado = new Vector<Usuario_registradoDB>();
 
+	//Registrarse
 	public boolean registrarse(String nombreUsuario, String nombreCompleto, String correoUsuario, String passwordUsuario, String descripcionUsuario, String fotoUsuario) throws PersistentException{
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		
@@ -39,6 +40,7 @@ public class DB_UsuariosRegistrados {
 		return false;
 	}
 
+	//Inciar sesion
 	public boolean iniciar_sesion(String nombreUsuario, String passwordUsuario) throws PersistentException{
 		boolean correcto = false;
 		
@@ -62,6 +64,7 @@ public class DB_UsuariosRegistrados {
 		return correcto;
 	}
 
+	//Recuperar contrasenia
 	public boolean recuperarContrasenia(String nombreUsuario, String correoElectronico) throws PersistentException {
         boolean correcto = false;
 		
@@ -72,7 +75,10 @@ public class DB_UsuariosRegistrados {
 			for(Object usr: Usuario_DBDAO.queryUsuario_DB(null, null)) {
 				Usuario_DB usuario = (Usuario_DB) usr;
 				if(usuario.getNombreUsuario().equals(cargarUsuarios.getNombreUsuario())) {
-						correcto = true;
+					Parametros.setNombreUsuario(usuario.getNombreUsuario());
+					Parametros.setPasswordUsuario(usuario.getPassword());
+					Parametros.setCorreoUsuario(usuario.getCorreo());
+					correcto = true;
 				} 
 			}
 			t.commit();

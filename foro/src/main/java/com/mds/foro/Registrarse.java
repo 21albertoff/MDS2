@@ -42,7 +42,7 @@ public class Registrarse extends Registrarse_Ventana{
 		{
 			public void buttonClick(ClickEvent event) 
 			{ 
-				addComponent(new Usuario());
+				addComponent(new Usuario_no_identificado());
 				} 
 		}
 	    );

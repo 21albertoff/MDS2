@@ -1,9 +1,12 @@
 package com.mds.foro;
 
 public class Parametros {
-	private static int idUsuario=0;
-	
-	private static int idSeccion=0;
+	private static int idUsuario=1;
+	private static String nombreUsuario="";
+	private static String passwordUsuario="";
+	private static String correoUsuario="";
+
+	private static int idSeccion=1;
 	private static String tituloSeccion="";
 	private static String iconoSeccion="";
 	
@@ -59,6 +62,27 @@ public class Parametros {
 	}
 	public static void setIconoSeccion(String iconoSeccion) {
 		Parametros.iconoSeccion = iconoSeccion;
+	}
+	
+	public static String getNombreUsuario() {
+		return nombreUsuario;
+	}
+	public static void setNombreUsuario(String nombreUsuario) {
+		Parametros.nombreUsuario = nombreUsuario;
+	}
+	
+	public static String getPasswordUsuario() {
+		return passwordUsuario;
+	}
+	public static void setPasswordUsuario(String passwordUsuario) {
+		Parametros.passwordUsuario = passwordUsuario;
+	}
+	
+	public static String getCorreoUsuario() {
+		return correoUsuario;
+	}
+	public static void setCorreoUsuario(String correoUsuario) {
+		Parametros.correoUsuario = correoUsuario;
 	}
 		
 }

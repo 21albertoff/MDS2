@@ -13,9 +13,9 @@ public class Usuario_registrado extends Usuario_identificado {
 	//public Visualizar_mi_perfil__Usuario_registrado_ _visualizaPerfil;
 	//public Escribir_ticket__Usuario_registrado_ _escribeTicket;
 	
-	iUsuario usuario;
+	iUsuario usuarioUR;
 	public void inicializar() {
-		usuario = new DB_Main();
+		usuarioUR = new DB_Main();
 		crearSeccion.setVisible(false);
 	    menuUsuarioNoIdentifado.setVisible(false);
 	    menuUsuarioIdentificado.setVisible(true);
@@ -25,14 +25,14 @@ public class Usuario_registrado extends Usuario_identificado {
 
 	public Usuario_registrado() {
 		inicializar();
-		cargarUltimasSecciones();
-		cargarSeccionesFijas();
+		cargarUltimasSeccionesUR();
+		cargarSeccionesFijasUR();
 	}
 	
 
 	@SuppressWarnings("unchecked")
-	private void cargarUltimasSecciones() {
-		List<SeccionDB> US = usuario.consultar_US();
+	private void cargarUltimasSeccionesUR() {
+		List<SeccionDB> US = usuarioUR.consultar_US();
 		int idUS = US.size()-1;
 		while(idUS>=0) {
 			if (US.get(idUS).getEliminado()==false) {
@@ -61,8 +61,8 @@ public class Usuario_registrado extends Usuario_identificado {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private void cargarSeccionesFijas() {
-		List<SeccionDB> SF = usuario.consultar_SF();
+	private void cargarSeccionesFijasUR() {
+		List<SeccionDB> SF = usuarioUR.consultar_SF();
         int idSF = SF.size()-1;
         int tres = 0;
         while(idSF>=0 && tres<3) {

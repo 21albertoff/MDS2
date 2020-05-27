@@ -36,9 +36,9 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	}
 
 	//Recuperar contrasenia
-	public boolean recuperarContrasenia(String idUsuario, String correoElectronico) {
+	public boolean recuperarContrasenia(String nombreUsuario, String correoElectronico) {
 		try {
-			return  registrados.recuperarContrasenia(idUsuario, correoElectronico);
+			return  registrados.recuperarContrasenia(nombreUsuario, correoElectronico);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -48,7 +48,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	/**Usuario**/
 	
 	//Consultar secciones fijas
-	public List consultar_SF() {
+	public List<SeccionDB> consultar_SF() {
 		try {
 			return secciones.consultar_SF();
 		} catch (Exception e) {
@@ -57,6 +57,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return null;
 	}
 
+	//Consultar ultimas secciones
 	public List<SeccionDB> consultar_US() {
 		try {
 			return secciones.consultar_US();
@@ -74,8 +75,9 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 	
-	//Elementos fijos
+	/**Elementos fijos**/
 	
+	//Consultar secciones destacadas
 	public List consultar_SD() {
 		try {
 			return secciones.consultar_SD();
@@ -85,7 +87,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return null;
 	}
 	
-	//Correo 
+	/**Correo**/
 	
 	public void enviar_Mensaje(int aIdUsuario, String aPassword) {
 		throw new UnsupportedOperationException();

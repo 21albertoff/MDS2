@@ -10,8 +10,10 @@ import com.mds.foro.SeccionDB;
 
 @SuppressWarnings("unchecked")
 public class DB_Secciones {
-	public DB_Main _bd_main_secciones;
-	public Vector<SeccionDB> _contiene_seccion = new Vector<SeccionDB>();
+	
+	//Declaraciones
+	public DB_Main Mainsecciones;
+	public Vector<SeccionDB> contieneSeccion = new Vector<SeccionDB>();
 
 	//Consultar secciones destacadas
 	public List<SeccionDB> consultar_SD() throws PersistentException {
@@ -56,7 +58,7 @@ public class DB_Secciones {
 	}
 
 	//Consultar secciones Fijas Administrador
-	public List consultar_SF_A() throws PersistentException {
+	public List<SeccionDB> consultar_SF_A() throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<SeccionDB> seccion = null;
 		try {
@@ -70,7 +72,7 @@ public class DB_Secciones {
 	}
 
 	//Consultar ultimas secciones Administrador
-	public List consultar_US_A() throws PersistentException {
+	public List<SeccionDB> consultar_US_A() throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<SeccionDB> seccion = null;
 		try {

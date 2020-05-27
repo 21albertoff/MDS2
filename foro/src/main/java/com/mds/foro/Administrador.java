@@ -10,17 +10,10 @@ import com.vaadin.ui.Notification;
 
 @SuppressWarnings("serial")
 public class Administrador extends Usuario_identificado {
-	/*
-	public iAdministrador _iAdministrador;
-	public Secciones_fijas__Administrador_ _unnamed_Secciones_fijas__Administrador__;
-	public Ultimas_secciones__Administrador_ _unnamed_Ultimas_secciones__Administrador__;
-	public Panel_de_control _unnamed_Panel_de_control_;
-	public Crear_seccion _creaSeccion;
-	*/
-	
-	iAdministrador usuario;
+
+	iAdministrador admin;
 	public void inicializar() {
-		usuario = new DB_Main();
+		admin = new DB_Main();
 	    crearSeccion.setVisible(true);
 	    menuUsuarioNoIdentifado.setVisible(false);
 	    menuUsuarioIdentificado.setVisible(false);
@@ -49,7 +42,7 @@ public class Administrador extends Usuario_identificado {
 	
 	@SuppressWarnings("unchecked")
 	private void cargarUltimasSecciones() {
-		List<SeccionDB> US = usuario.consultar_US_A();
+		List<SeccionDB> US = admin.consultar_US_A();
 		int idUS = US.size()-1;
 		while(idUS>=0) {
 			if (US.get(idUS).getEliminado()==false) {
@@ -90,7 +83,7 @@ public class Administrador extends Usuario_identificado {
 	
 	@SuppressWarnings("unchecked")
 	private void cargarSeccionesFijas() {
-		List<SeccionDB> SF = usuario.consultar_SF_A();
+		List<SeccionDB> SF = admin.consultar_SF_A();
         int idSF = SF.size()-1;
         int tres = 0;
         while(idSF>=0 && tres<3) {
@@ -134,14 +127,14 @@ public class Administrador extends Usuario_identificado {
 	}
 	
 	private void eliminarSeccion(int idSeccion) {
-		if(usuario.eliminar_seccion(idSeccion)) {
+		if(admin.eliminar_seccion(idSeccion)) {
 			addComponent(new Administrador());
 			Notification.show("La seccion a sido eliminado con exito","", Notification.Type.WARNING_MESSAGE);
 		}	
 	}
 	
 	private void quitarSeccionFija(int idSeccion) {
-		usuario.quitar_seccion_fija(idSeccion); 
+		admin.quitar_seccion_fija(idSeccion); 
 		addComponent(new Administrador());
 		Notification.show("La seccion se ha quitado de la seccion fija exitosamente","", Notification.Type.WARNING_MESSAGE);
 	}

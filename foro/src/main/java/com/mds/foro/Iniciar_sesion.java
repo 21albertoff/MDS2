@@ -42,7 +42,7 @@ public class Iniciar_sesion extends Iniciar_sesion_Ventana {
 		{
 			public void buttonClick(ClickEvent event) 
 			{ 
-				addComponent(new Usuario());
+				addComponent(new Usuario_no_identificado());
 				} 
 		}
 	    );
@@ -76,8 +76,7 @@ public class Iniciar_sesion extends Iniciar_sesion_Ventana {
 			
 			//Usuario registrado
 			if(Parametros.getTipoUsuario()==1) {
-				Usuario_registrado Usuario = new Usuario_registrado();
-				addComponent(Usuario);
+				addComponent(new Usuario_registrado());
 			}
 			
 			//Moderador
@@ -89,8 +88,7 @@ public class Iniciar_sesion extends Iniciar_sesion_Ventana {
 			
 			//Administrador
 			if(Parametros.getTipoUsuario()==3) {
-				Administrador Admin = new Administrador();
-				addComponent(Admin);
+				addComponent(new Administrador());
 
 			}
 		}else {

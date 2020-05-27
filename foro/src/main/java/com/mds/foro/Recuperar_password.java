@@ -1,5 +1,7 @@
 package com.mds.foro;
 
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.HtmlEmail;
 
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Notification;
@@ -18,12 +20,11 @@ public class Recuperar_password extends Recuperar_password_Ventana{
 	//Constructor
 	public Recuperar_password() {
 		inicializar();
-		recuperarContrasenia();
 		nombreForo.addClickListener(new Button.ClickListener()
 		{
 			public void buttonClick(ClickEvent event) 
 			{ 
-				addComponent(new Usuario());
+				addComponent(new Usuario_no_identificado());
 				} 
 		}
 	    );
@@ -72,35 +73,34 @@ public class Recuperar_password extends Recuperar_password_Ventana{
 			Notification.show("El nombre o el correo no pueden estar vacios","", Notification.Type.ERROR_MESSAGE);
 		}
 		else if(usuarioNoIdentificado.recuperarContrasenia(labelNombreUsuario.getValue(), labelEmail.getValue())) {
-			//enviarPassword();
+			enviarPassword();
 		} else {
 			Notification.show("El nombre de usuario o el correo es incorrecto","", Notification.Type.ERROR_MESSAGE);
 		}
 	}
 	
 	//Metodo enviarPassword
-	/**public void enviarPassword() {
+	public void enviarPassword() {
 		try {			
 			HtmlEmail email = new HtmlEmail();
 			email.setHostName("smtp.gmail.com");
-			email.setSmtpPort(465);
+			email.setSmtpPort(587);
 			email.setSSLOnConnect(true);			
-			email.setAuthentication("mds2ual@gmail.com", "aprobada");
-			email.setFrom("mds2ual@gmail.com");
-			email.addTo(Parametros.getCampo_recup_contrasenia());				
-			email.setSubject("Nueva contrasenia");
-			email.setHtmlMsg("La nueva contrasenia es:"+Parametros.getContraseniaGenerada()+"<br/> Introduce esta contrasenia en el popup que aparece para restablecerla");				
+			email.setAuthentication("foromds22020@gmail.com", "mds22020");
+			email.setFrom("foromds22020@gmail.com");
+			email.addTo(Parametros.getCorreoUsuario());				
+			email.setSubject("Recuperacion de password");
+			email.setHtmlMsg("Saludos, "+Parametros.getNombreUsuario()+ ". Tu password es:"+Parametros.getPasswordUsuario()+"<br/> Introduce este password para iniciar sesion");				
 			email.send();		
-			Parametros.setContraseniaGenerada("");
-			Window w=new Window("Cambiar Contrasenia");
-			w.setContent(new Cambiar_Contrasena());
-			w.center();		
-			w.setResponsive(true);
-			UI.getCurrent().addWindow(w);
+			Parametros.setPasswordUsuario("");
+			Parametros.setCorreoUsuario("");
+			Parametros.setNombreUsuario("");
+			addComponent(new Iniciar_sesion());
+			Notification.show("Contraseña enviada","Revisa tu correo para obtener la contraseña", Notification.Type.WARNING_MESSAGE);
 			
 		}catch (EmailException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}*/
+	}
 }
