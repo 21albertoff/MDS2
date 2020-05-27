@@ -6,5 +6,5 @@ public interface iUsuario_no_identificado extends iUsuario {
 
 	public boolean iniciar_sesion(String nombreUsuario, String passwordUsuario);
 
-	public boolean recuperarContrasenia(int aIdUsuario, String aCorreoElectronico);
+	public boolean recuperarContrasenia(String nombreUsuario, String correoElectronico);
 }

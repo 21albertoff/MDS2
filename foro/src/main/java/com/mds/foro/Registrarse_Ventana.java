@@ -23,10 +23,10 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Registrarse_Ventana extends AbsoluteLayout {
 	protected AbsoluteLayout menuSuperior;
-	protected Label nombreForo;
 	protected AbsoluteLayout menuUsuarioNoIdentifado;
 	protected Button menuRegistrarse;
 	protected Button menuIniciarSesion;
+	protected Button nombreForo;
 	protected AbsoluteLayout cajaCambiar;
 	protected PasswordField campoPassword;
 	protected Button botonRegistrarse;

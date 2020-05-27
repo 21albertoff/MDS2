@@ -6,25 +6,43 @@ import com.vaadin.ui.Button.ClickEvent;
 
 @SuppressWarnings("serial")
 public class Iniciar_sesion extends Iniciar_sesion_Ventana {
-	/*
-	 private Label _tituloL; private TextField _nombreUsuarioTF; private TextField
-	 _passwordTF; private Label _recuperarPasswordJ; private Button
-	 _recuperarPasswordB; private Button _aceptarB; private Label _aceptarL;
-	 public Recuperar_password _recuperaPassword; public Validar_inicio_de_sesion
-	 _validar_inicio_de_sesion;
-	 */
 
+	//Declaraciones
 	iUsuario_no_identificado usuarioNoIdentificado;
 	
+	//Inicializar
 	private void inicializar() {
 		usuarioNoIdentificado = new DB_Main();
 		menuIniciarSesion.setVisible(false);
-        
+	}
+	
+	//Constructor
+	public Iniciar_sesion(){
+		inicializar();
+		
+		botonIniciarSesion.addClickListener(new Button.ClickListener()
+			{
+				public void buttonClick(ClickEvent event) 
+				{ 
+					iniciar_sesion();
+				} 
+			}
+		);
+		
 		menuRegistrarse.addClickListener(new Button.ClickListener()
 		{
 			public void buttonClick(ClickEvent event) 
 			{ 
 				addComponent(new Registrarse());
+				} 
+		}
+	    );
+		
+		nombreForo.addClickListener(new Button.ClickListener()
+		{
+			public void buttonClick(ClickEvent event) 
+			{ 
+				addComponent(new Usuario());
 				} 
 		}
 	    );
@@ -37,20 +55,10 @@ public class Iniciar_sesion extends Iniciar_sesion_Ventana {
 				} 
 		}
 	    );
-	}
-	public Iniciar_sesion(){
-		inicializar();
 		
-		botonIniciarSesion.addClickListener(new Button.ClickListener()
-			{
-				public void buttonClick(ClickEvent event) 
-				{ 
-					iniciar_sesion();
-				} 
-			}
-		);
 	}
 	
+	//Metodo iniciar sesion
 	private void iniciar_sesion() {
 		//Comprobar que los campos no estan vacios
 		if (nombreUsuario.getValue() == null || nombreUsuario.getValue() == "" ||

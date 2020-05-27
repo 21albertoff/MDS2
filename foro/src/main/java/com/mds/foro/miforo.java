@@ -23,7 +23,7 @@ public class miforo extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-    	Iniciar_sesion usuario = new Iniciar_sesion();
+    	Usuario usuario = new Usuario();
     	setContent(usuario);
     }
 

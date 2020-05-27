@@ -35,7 +35,7 @@ public class Administrador extends Usuario_identificado {
 		
 		crearSeccion.addClickListener(new Button.ClickListener(){
 			public void buttonClick(ClickEvent event) { 
-				guardar_seccion();
+				addComponent(new Crear_seccion());
 			} 
 		});
 		
@@ -131,11 +131,6 @@ public class Administrador extends Usuario_identificado {
             }
             idSF--;
         }
-	}
-	
-	private void guardar_seccion() {
-		Crear_seccion nuevaSeccion = new Crear_seccion();
-		addComponent(nuevaSeccion);
 	}
 	
 	private void eliminarSeccion(int idSeccion) {

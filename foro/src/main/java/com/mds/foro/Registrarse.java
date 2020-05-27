@@ -6,42 +6,17 @@ import com.vaadin.ui.Notification;
 
 @SuppressWarnings("serial")
 public class Registrarse extends Registrarse_Ventana{
-	
-	/*
-	private Label _tituloL;
-	private Label _nombreUsuario;
-	private TextField _nombreUsuarioTF;
-	private Label _nombreCompletoL;
-	private TextField _nombreCompletoTF;
-	private Label _correoElectronicoL;
-	private TextField _correoElectronicoTF;
-	private Image _imagen;
-	private Label _descripcionL;
-	private TextField _descripcionTF;
-	private Label _passwordL;
-	private TextField _passwordTF;
-	private Label _repetirPasswordL;
-	private TextField _repetirPasswordTF;
-	private Label _registrarseL;
-	private Button _registrarseB;
-	public Validar_registro _validar_registro;
-	 */
-	
+
+	//Declaraciones
 	iUsuario_no_identificado usuarioNoIdentificado;
+	
+	//Inicializar
 	private void inicializar(){
 		usuarioNoIdentificado = new DB_Main();
 		menuRegistrarse.setVisible(false);
-        
-		menuIniciarSesion.addClickListener(new Button.ClickListener()
-		{
-			public void buttonClick(ClickEvent event) 
-			{ 
-				addComponent(new Iniciar_sesion());
-				} 
-		}
-	    );
 	}
 	
+	//Constructor
 	public Registrarse(){
 		
 		inicializar();
@@ -53,8 +28,27 @@ public class Registrarse extends Registrarse_Ventana{
 				} 
 			}
 		);
+		
+		menuIniciarSesion.addClickListener(new Button.ClickListener()
+		{
+			public void buttonClick(ClickEvent event) 
+			{ 
+				addComponent(new Iniciar_sesion());
+				} 
+		}
+	    );
+		
+		nombreForo.addClickListener(new Button.ClickListener()
+		{
+			public void buttonClick(ClickEvent event) 
+			{ 
+				addComponent(new Usuario());
+				} 
+		}
+	    );
 	}
 
+	//Metodo registrarse
 	private void registrarse() {
 	
 		//Comprobamos que todos los campos son obligatorios

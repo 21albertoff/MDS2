@@ -1,13 +1,11 @@
 package com.mds.foro;
 
 public class Parametros {
-	private static int idUsuario=1;
+	private static int idUsuario=0;
 	
-	private static int idSeccion=1;
+	private static int idSeccion=0;
 	private static String tituloSeccion="";
 	private static String iconoSeccion="";
-	private static int idSeccionEliminar=-1;
-
 	
 	private static boolean baneado=false;
 	
@@ -62,7 +60,5 @@ public class Parametros {
 	public static void setIconoSeccion(String iconoSeccion) {
 		Parametros.iconoSeccion = iconoSeccion;
 	}
-	
-	
-	
+		
 }

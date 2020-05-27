@@ -62,8 +62,24 @@ public class DB_UsuariosRegistrados {
 		return correcto;
 	}
 
-	public boolean recuperarContrasenia(int aIdUsuario, String aCorreoElectronico) {
-		throw new UnsupportedOperationException();
+	public boolean recuperarContrasenia(String nombreUsuario, String correoElectronico) throws PersistentException {
+        boolean correcto = false;
+		
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();;
+
+		try {
+			Usuario_DB cargarUsuarios = Usuario_DBDAO.loadUsuario_DBByQuery("Usuario_DB.nombreUsuario='"+nombreUsuario+"' and Usuario_DB.correo='"+correoElectronico+"'",null);
+			for(Object usr: Usuario_DBDAO.queryUsuario_DB(null, null)) {
+				Usuario_DB usuario = (Usuario_DB) usr;
+				if(usuario.getNombreUsuario().equals(cargarUsuarios.getNombreUsuario())) {
+						correcto = true;
+				} 
+			}
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
+		return correcto;
 	}
 
 	public Amigo[] consultar_A(int aIdUsuario) {

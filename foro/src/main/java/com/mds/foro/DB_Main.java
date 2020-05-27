@@ -13,8 +13,9 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	public DB_Mensajes mensajes = new DB_Mensajes();
 	public DB_UsuariosRegistrados registrados = new DB_UsuariosRegistrados();
 
-	//Usuario no identificado 
+	/**Usuario no identificado**/
 	
+	//Registrarse
 	public boolean registrarse(String nombreUsuario, String nombreCompleto, String correoUsuario, String passwordUsuario, String descripcionUsuario, String fotoUsuario) {
 		try {
 			return  registrados.registrarse(nombreUsuario, nombreCompleto, correoUsuario, passwordUsuario, descripcionUsuario, fotoUsuario);
@@ -24,6 +25,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return false;
 	}
 	
+	//Iniciar Sesion
 	public boolean iniciar_sesion(String nombreUsuario, String passwordUsuario) {
 		try {
 			return  registrados.iniciar_sesion(nombreUsuario, passwordUsuario);
@@ -33,12 +35,19 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return false;
 	}
 
-	public boolean recuperarContrasenia(int aIdUsuario, String aCorreoElectronico) {
-		throw new UnsupportedOperationException();
+	//Recuperar contrasenia
+	public boolean recuperarContrasenia(String idUsuario, String correoElectronico) {
+		try {
+			return  registrados.recuperarContrasenia(idUsuario, correoElectronico);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
-	//Usuario
+	/**Usuario**/
 	
+	//Consultar secciones fijas
 	public List consultar_SF() {
 		try {
 			return secciones.consultar_SF();
