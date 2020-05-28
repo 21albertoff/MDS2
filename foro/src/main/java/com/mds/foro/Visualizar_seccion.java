@@ -5,9 +5,16 @@ import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
 
 public class Visualizar_seccion extends Visualizar_seccion_Ventana{
-	private Image _icono;
-	private Label _tituloL;
-	private Label _subtituloL;
-	private ComboBox _ordenarPor;
-	public Temas _verTemas;
+	
+	public void inicializar() {
+	    crearTema.setVisible(false);
+	    menuUsuarioNoIdentifado.setVisible(false);
+	    menuUsuarioIdentificado.setVisible(false);
+	    menuUsuarioModerador.setVisible(false);
+	    menuUsuarioAdministrador.setVisible(false); 
+	}
+
+	public Visualizar_seccion() {
+		inicializar();
+	}
 }

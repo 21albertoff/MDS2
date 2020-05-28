@@ -1,5 +1,6 @@
 package com.mds.foro;
 
+import java.util.List;
 import java.util.Vector;
 import com.mds.foro.MensajeDB;
 
@@ -7,7 +8,7 @@ public class DB_Mensajes {
 	public DB_Main _bd_main_mensajes;
 	public Vector<MensajeDB> _contiene_mensaje = new Vector<MensajeDB>();
 
-	public Mensaje[] consultar_M(int aIdTema) {
+	public List<MensajeDB> consultar_M(int idTema) {
 		throw new UnsupportedOperationException();
 	}
 

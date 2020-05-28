@@ -1,57 +1,249 @@
 package com.mds.foro;
 
+import java.util.List;
 import java.util.Vector;
+
+import org.orm.PersistentException;
+import org.orm.PersistentTransaction;
+
 import com.mds.foro.TemaDB;
 
 public class DB_Temas {
+	
+	//Declaraciones
 	public DB_Main _bd_main_temas;
 	public Vector<TemaDB> _contiene_tema = new Vector<TemaDB>();
 
-	public Tema[] consultar_T(int aIdSeccion) {
-		throw new UnsupportedOperationException();
+	//Consultar temas
+	@SuppressWarnings("null")
+	public List<TemaDB> consultar_T(int idSeccion) throws PersistentException {		
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();;
+		List<TemaDB> temas = null;
+		SeccionDB seccion = SeccionDBDAO.loadSeccionDBByORMID(idSeccion);
+		try {
+			for(Object tm: TemaDBDAO.queryTemaDB(null, null)) {
+				TemaDB tema = (TemaDB) tm;
+				
+				if(tema.getEsta_en().equals(seccion)) {
+					temas.add(tema);
+				} 
+			}
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
+		return temas;
 	}
 
-	public Tema__Usuario_identificado_[] consultar_T_UI(int aIdSeccion) {
-		throw new UnsupportedOperationException();
+	//Consultar temas usuario identificado
+	@SuppressWarnings("null")
+	public List<TemaDB> consultar_T_UI(int idSeccion) throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();;
+		List<TemaDB> temas = null;
+		SeccionDB seccion = SeccionDBDAO.loadSeccionDBByORMID(idSeccion);
+		try {
+			for(Object tm: TemaDBDAO.queryTemaDB(null, null)) {
+				TemaDB tema = (TemaDB) tm;
+				
+				if(tema.getEsta_en().equals(seccion)) {
+					temas.add(tema);
+				} 
+			}
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
+		return temas;
 	}
 
-	public Tema__Administrador_[] consultar_T_A(int aIdSeccion) {
-		throw new UnsupportedOperationException();
+	//Consultar temas administrador
+	@SuppressWarnings("null")
+	public List<TemaDB> consultar_T_A(int idSeccion) throws PersistentException{
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();;
+		List<TemaDB> temas = null;
+		SeccionDB seccion = SeccionDBDAO.loadSeccionDBByORMID(idSeccion);
+		try {
+			for(Object tm: TemaDBDAO.queryTemaDB(null, null)) {
+				TemaDB tema = (TemaDB) tm;
+				
+				if(tema.getEsta_en().equals(seccion)) {
+					temas.add(tema);
+				} 
+			}
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
+		return temas;
+	}
+	
+	//Consultar temas ocultos
+	@SuppressWarnings("null")
+	public List<TemaDB> consultar_TO() throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();;
+		List<TemaDB> temas = null;
+		try {
+			for(Object tm: TemaDBDAO.queryTemaDB(null, null)) {
+				TemaDB tema = (TemaDB) tm;
+				
+				if(tema.getOculto()) {
+					temas.add(tema);
+				} 
+			}
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
+		return temas;
 	}
 
-	public Tema_oculto[] consultar_TO() {
-		throw new UnsupportedOperationException();
+	//Crear tema
+	public boolean guardar_tema(int idSeccion, int idUsuario, String tituloTema, String subtituloTema)  throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		
+		try {	
+			TemaDB nuevoTema = TemaDBDAO.createTemaDB();
+			SeccionDB seccion = SeccionDBDAO.loadSeccionDBByORMID(idSeccion);
+			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
+			nuevoTema.setOcultado_por(null);
+			nuevoTema.setORM_Ocultado_por(null);
+			nuevoTema.setCreado_por(usuario);
+			nuevoTema.setORM_Creado_por(usuario);
+			nuevoTema.setORM_Esta_en(seccion);
+			nuevoTema.setEsta_en(seccion);
+			nuevoTema.setTema(tituloTema);
+			nuevoTema.setDescripcion(subtituloTema);
+			nuevoTema.setCantidadLike(0);
+			nuevoTema.setEliminado(false);
+			nuevoTema.setOculto(false);
+			TemaDBDAO.save(nuevoTema);
+			t.commit();
+			return true;
+			
+			} catch (PersistentException e1) {
+				t.rollback();
+
+				return false;
+			}
 	}
 
-	public boolean guardar_tema(int aIdSeccion, String aTituloTema, String aSubtituloTema) {
-		throw new UnsupportedOperationException();
+	//Eliminar propio tema
+	public boolean eliminar_propio_tema(int idTema, int idUsuario) throws PersistentException  {
+		boolean eliminado = false;
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
+			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
+			if (tema.getCreado_por()==usuario) {
+				tema.setEliminado(true);
+				TemaDBDAO.save(tema);
+				t.commit();
+				eliminado=true;
+			}
+
+		}catch(Exception e) {
+			t.rollback();
+		}
+		return eliminado;
 	}
 
-	public boolean eliminar_propio_tema(int aIdTema) {
-		throw new UnsupportedOperationException();
+	//Cambiar estado tema
+	public void cambiar_estado_tema(int idTema) throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
+			if (tema.getOculto()==false) {
+				tema.setOculto(true);
+				TemaDBDAO.save(tema);
+				t.commit();
+			} else {
+				tema.setOculto(false);
+				TemaDBDAO.save(tema);
+				t.commit();
+			}
+
+		}catch(Exception e) {
+			t.rollback();
+		}
 	}
 
-	public void cambiar_estado_tema(int aIdTema) {
-		throw new UnsupportedOperationException();
+	//Cerrar tema
+	public void cerrar_tema(int idTema) throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		
+		try {	
+			TemaDB nuevoTema = TemaDBDAO.createTemaDB();
+			String tituloTema = nuevoTema.getTema();
+			String nuevoTitulo = "(✅)" + tituloTema;
+			nuevoTema.setTema(nuevoTitulo);
+			TemaDBDAO.save(nuevoTema);
+			t.commit();
+			
+			} catch (PersistentException e1) {
+				t.rollback();
+			}
+	}	
+	
+	//Eliminar tema
+	public boolean eliminar_tema(int idTema) throws PersistentException{
+		boolean eliminado = false;
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
+			tema.setEliminado(true);
+			TemaDBDAO.save(tema);
+			t.commit();
+			eliminado=true;
+		}catch(Exception e) {
+			t.rollback();
+		}
+		return eliminado;
 	}
 
-	public void cerrar_tema(int aIdTema) {
-		throw new UnsupportedOperationException();
+	//Mostrar tema
+	public void mostrar_tema(int idTema) throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
+			tema.setOculto(true);
+			TemaDBDAO.save(tema);
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
 	}
 
-	public boolean eliminar_tema(int aIdTema) {
-		throw new UnsupportedOperationException();
+	//Ocultar tema
+	public void ocultar_tema(int idTema) throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
+			tema.setOculto(false);
+			TemaDBDAO.save(tema);
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
 	}
 
-	public void mostrar_tema(int aIdTema) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void ocultar_tema(int aIdTema) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void valorar_tema(int aIdUsuario, int aIdTema) {
-		throw new UnsupportedOperationException();
+	//Valorar tema
+	public void valorar_tema(int idUsuario, int idTema) throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
+			//Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
+			int likes = tema.getCantidadLike();
+			tema.setCantidadLike(likes+1);
+			TemaDBDAO.save(tema);
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
 	}
 }

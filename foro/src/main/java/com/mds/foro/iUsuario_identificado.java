@@ -16,7 +16,8 @@ public interface iUsuario_identificado extends iUsuario {
 
 	public List consultar_MisM(int aIdUsuario);
 
-	public boolean guardar_tema(int aIdSeccion, String aTituloTema, String aSubtituloTema);
+	//Crear tema
+	public boolean guardar_tema(int idSeccion,int idUsuario, String tituloTema, String subtituloTema);
 
 	public boolean eliminar_propio_tema(int aIdTema);
 

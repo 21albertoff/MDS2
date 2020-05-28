@@ -2,9 +2,9 @@ package com.mds.foro;
 
 import java.util.List;
 
-import org.orm.PersistentException;
-
 public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fijos, iUsuario, iUsuario_identificado, iModerador, iUsuario_registrado, iAdministrador {
+	
+	//Declaraciones
 	public DB_Temas temas = new DB_Temas();
 	public DB_Administradores administradores = new DB_Administradores();
 	public DB_UsuariosNotificados usuarios_notificados = new DB_UsuariosNotificados();
@@ -67,12 +67,24 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return null;
 	}
 	
-	public List consultar_T(int aIdSeccion) {
-		throw new UnsupportedOperationException();
+	//Consultar temas
+	public List<TemaDB> consultar_T(int idSeccion) {
+		try {
+			return temas.consultar_T(idSeccion);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
-	public List consultar_M(int aIdTema) {
-		throw new UnsupportedOperationException();
+	//Consultar mensajes
+	public List<MensajeDB> consultar_M(int idTema) {
+		try {
+			return mensajes.consultar_M(idTema);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	/**Elementos fijos**/
@@ -93,15 +105,74 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 	
-	//Usuario identificado
+	/**Usuario identificado**/
 	
-	//Usuario registrado
+	//Crear tema
+	public boolean guardar_tema(int idSeccion, int idUsuario, String tituloTema, String subtituloTema) {
+		try {
+			return temas.guardar_tema(idSeccion, idUsuario, tituloTema, subtituloTema);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
-	//Moderador
+	/**Usuario registrado**/
 	
-	//Administrador
+	/**Moderador**/
 	
-	//Otros metodos
+	/**Administrador**/
+	
+	//Consultar secciones fijas administrador
+	public List<SeccionDB> consultar_SF_A() {
+		try {
+			return secciones.consultar_SF_A();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	//Consultar ultimas secciones administrador
+	public List<SeccionDB> consultar_US_A() {
+		try {
+			return secciones.consultar_US_A();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	//Quitar seccion fija
+	public void quitar_seccion_fija(int idSeccion) {
+		try {
+			secciones.quitar_seccion_fija(idSeccion);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	//Crear seccion
+	public boolean crear_seccion(String tituloSeccion, String icono, boolean fijarSeccion) {
+		try {
+			return  secciones.crear_seccion(tituloSeccion, icono, fijarSeccion);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	//Eliminar seccion
+	public boolean eliminar_seccion(int idSeccion) {
+		try {
+			return  secciones.eliminar_seccion(idSeccion);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	/**Otros metodos**/
 	
 	public Usuario_registradoDB get_Correo() {
 		throw new UnsupportedOperationException();
@@ -171,24 +242,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public List consultar_SF_A() {
-		try {
-			return secciones.consultar_SF_A();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	public List consultar_US_A() {
-		try {
-			return secciones.consultar_US_A();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
 	public List consultar_TO() {
 		throw new UnsupportedOperationException();
 	}
@@ -198,10 +251,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	}
 
 	public List consultar_UN() {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean guardar_tema(int aIdSeccion, String aTituloTema, String aSubtituloTema) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -275,32 +324,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 
 	public void banear_usuario(int aIdUsuario, int aTiempo) {
 		throw new UnsupportedOperationException();
-	}
-
-	public boolean eliminar_seccion(int idSeccion) {
-		try {
-			return  secciones.eliminar_seccion(idSeccion);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-
-	public void quitar_seccion_fija(int idSeccion) {
-		try {
-			secciones.quitar_seccion_fija(idSeccion);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public boolean crear_seccion(String tituloSeccion, String icono, boolean fijarSeccion) {
-		try {
-			return  secciones.crear_seccion(tituloSeccion, icono, fijarSeccion);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return false;
 	}
 
 	public void quitar_moderador(int aIdUsuario) {

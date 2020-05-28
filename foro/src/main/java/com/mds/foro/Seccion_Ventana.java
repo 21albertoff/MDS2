@@ -45,8 +45,8 @@ public class Seccion_Ventana extends AbsoluteLayout {
 	protected Panel panelUltimasSecciones;
 	protected VerticalLayout verticalUltimasSecciones;
 	protected VerticalLayout verticalSeccionesFijas;
-	protected VerticalLayout verticalSeccionesDestacadas;
 	protected Button crearSeccion;
+	protected VerticalLayout verticalSeccionesDestacadas;
 
 	public Seccion_Ventana() {
 		Design.read(this);
