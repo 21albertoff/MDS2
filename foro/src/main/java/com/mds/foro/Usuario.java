@@ -53,6 +53,7 @@ public class Usuario extends Elementos_fijos {
 						}
 						else {
 							addComponent(new Visualizar_seccion());
+							
 						}
 					} 
 				});

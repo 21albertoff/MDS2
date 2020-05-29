@@ -1,20 +1,19 @@
 package com.mds.foro;
 
+
 import java.util.List;
 
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.Notification;
 import com.vaadin.ui.Button.ClickEvent;
 
-public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccion{
+public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccion_Ventana{
 
 	//Declaracion de variables
+	iElementos_fijos Elementos_fijos;
 	private int idSeccion;
 	private String tituloSeccion;
 	private String iconoSeccion;
-	iElementos_fijos Elementos_fijos;
 	
 	//Inicializacion
 	public void inicializar() {
@@ -24,6 +23,7 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 		iconoSeccion = Parametros.getIconoSeccion();
 		crearTema.setVisible(true);
 	    menuUsuarioIdentificado.setVisible(true);
+	    menuUsuarioNoIdentifado.setVisible(false);
 	}
 	
 	@SuppressWarnings("serial")
@@ -31,8 +31,7 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 		inicializar();
 		iconoS.setSource(new ExternalResource(iconoSeccion));
 		tituloS.setValue(tituloSeccion);
-		cargarSeccionesDestacadasUR();
-		consultarTema();
+		cargarSeccionesDestacadas();
 		
 		menuCerrarSesionUsuario.addClickListener(new Button.ClickListener(){
 			public void buttonClick(ClickEvent event) { 
@@ -57,7 +56,7 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 		
 		crearTema.addClickListener(new Button.ClickListener(){
 			public void buttonClick(ClickEvent event) { 
-				crearTema();
+				addComponent(new Crear_tema());
 			} 
 		});
 		
@@ -68,48 +67,58 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 		});
 	}
 	
-	//ConsultarTema
-	private void consultarTema() {
-		Notification.show("ConsultarTema","", Notification.Type.ERROR_MESSAGE);
-	}
-	//CrearTema
-	private void crearTema() {
-		Notification.show("CrearTema","", Notification.Type.ERROR_MESSAGE);
-	}
 	//cargarSeccionesDestacadas
-	@SuppressWarnings("serial")
-	private void cargarSeccionesDestacadasUR() {
-		List<SeccionDB> SD = Elementos_fijos.consultar_SD();
-		int idSD = SD.size()-1;
-		int cuatro = 0;
-		while(idSD>=0 && cuatro<4) {
-			if(cuatro == 4) {
-				break;
-			}
-				if (SD.get(idSD).getEliminado()==false) {
+		private void cargarSeccionesDestacadas() {
+			List<SeccionDB> SD = Elementos_fijos.consultar_SD();
+			int idSD = SD.size()-1;
+			int cuatro = 0;
+			while(idSD>=0 && cuatro<4) {
+				if(cuatro == 4) {
+					break;
+				}
+					if (SD.get(idSD).getEliminado()==false) {
 
-					Seccion_destacada seccion = new Seccion_destacada();
-					seccion.tituloSeccion.setCaption(SD.get(idSD).getSeccion());
-					seccion.iconoSeccion.setSource(new ExternalResource(SD.get(idSD).getIcono()));
-					verticalSeccionesDestacadas.addComponent(seccion);
+						Seccion_destacada seccion = new Seccion_destacada();
+						seccion.tituloSeccion.setCaption(SD.get(idSD).getSeccion());
+						seccion.iconoSeccion.setSource(new ExternalResource(SD.get(idSD).getIcono()));
+						verticalSeccionesDestacadas.addComponent(seccion);
 
-					final int id = idSD;
-					seccion.tituloSeccion.addClickListener(new Button.ClickListener() 
-					{
-						public void buttonClick(ClickEvent event) 
-						{ 
-							Parametros.setIdSeccion(SD.get(id).getORMID());
-							Parametros.setTituloSeccion(SD.get(id).getSeccion());
-		                    Parametros.setIconoSeccion(SD.get(id).getIcono());
-		                    addComponent(new Visualizar_seccion__Usuario_identificado_());
-						} 
-					}
-		        	);
-		    			
-					cuatro++;
-					}
-	     	
-			idSD--;
-	      	}
-	}
+						final int id = idSD;
+						seccion.tituloSeccion.addClickListener(new Button.ClickListener() 
+						{
+							public void buttonClick(ClickEvent event) 
+							{ 
+								Parametros.setIdSeccion(SD.get(id).getORMID());
+								Parametros.setTituloSeccion(SD.get(id).getSeccion());
+			                    Parametros.setIconoSeccion(SD.get(id).getIcono());
+			                    
+			                    //Usuario registrado
+								if(Parametros.getTipoUsuario()==1) {
+							        addComponent(new Visualizar_seccion__Usuario_identificado_());
+								}
+								
+								//Moderador
+								else if(Parametros.getTipoUsuario()==2) {
+							        addComponent(new Visualizar_seccion__Usuario_identificado_());
+								}
+								
+								//Administrador
+								else if(Parametros.getTipoUsuario()==3) {
+							        addComponent(new Visualizar_seccion__Administrador_());
+								}
+								
+								else {
+							        addComponent(new Visualizar_seccion());
+								}
+							} 
+						}
+			        	);
+			    			
+						cuatro++;
+						}
+		     	
+				idSD--;
+		      	}
+		}
+	
 }
