@@ -7,16 +7,16 @@
  </head>
  <body>
   <vaadin-absolute-layout>
-   <vaadin-absolute-layout style-name="ventanaEmergente"></vaadin-absolute-layout>
-   <vaadin-absolute-layout style-name="cajaMensaje" :top="35%" :right="25%" :bottom="45%" :left="25%">
-    <vaadin-button style-name="confirmar primary" size-full plain-text :top="70%" :right="4%" :bottom="5%" :left="70%">
-      GUARDAR 
+   <vaadin-absolute-layout style-name="ventanaEmergente" id="ventanaEmergente" _id="fondoNegro"></vaadin-absolute-layout>
+   <vaadin-absolute-layout style-name="cajaMensaje" :top="20%" :right="20%" :bottom="20%" :left="20%">
+    <vaadin-button style-name="confirmar primary" size-full plain-text _id="botonGuardarTema" :top="75%" :right="40%" :bottom="10%" :left="40%">
+      CREAR 
     </vaadin-button>
-    <vaadin-text-field caption="TITULO DEL TEMA" placeholder="" width="300px" height="40px" :top="40%" :left="5%"></vaadin-text-field>
-    <vaadin-label id="cambiarcontrasena" plain-text _id="cambiarcontrasena" :top="5%" :left="5%">
-      CREAR NUEVO TEMA 
+    <vaadin-text-field caption="TITULO DEL TEMA" placeholder="Introduce el titulo del tema" width="700px" height="40px" _id="tituloTema" :top="25%" :left="5%"></vaadin-text-field>
+    <vaadin-label id="cambiarcontrasena" plain-text _id="labelCrearTema" :top="5%" :left="5%">
+      CREAR NUEVA TEMA 
     </vaadin-label>
-    <vaadin-text-field caption="SUBTITULO DEL TEMA" placeholder="" width="300px" height="40px" :top="40%" :left="55%"></vaadin-text-field>
+    <vaadin-text-area caption="MENSAJE DEL TEMA" placeholder="Introducce el mensaje o subtitulo del tema" width="700px" height="120px" _id="descripcionTema" :top="42%" :left="5%"></vaadin-text-area>
    </vaadin-absolute-layout>
   </vaadin-absolute-layout>
  </body>

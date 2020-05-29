@@ -12,7 +12,7 @@ public class Parametros {
 	
 	private static boolean baneado=false;
 	
-	private static int privilegioUsuario=1;
+	private static int privilegioUsuario=0;
 	
 
 	public static int getTipoUsuario() {

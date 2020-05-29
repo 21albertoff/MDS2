@@ -28,7 +28,7 @@ public class miforo extends UI {
 
 
 	@WebServlet(urlPatterns = "/*", name = "miforoServlet", asyncSupported = true)
-    @VaadinServletConfiguration(ui = miforo.class, productionMode = false)
+    @VaadinServletConfiguration(ui = miforo.class, productionMode = true)
     public static class miforoServlet extends VaadinServlet {
     }
 }

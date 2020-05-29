@@ -30,6 +30,7 @@ public class Cerrar_sesion extends Cerrar_sesion_Ventana {
 		
 		cerrarSesion.addClickListener(new Button.ClickListener(){
 			public void buttonClick(ClickEvent event) { 
+				Parametros.setTipoUsuario(0);
 		    	addComponent(new Usuario_no_identificado());
 
 			} 

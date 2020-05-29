@@ -12,19 +12,16 @@ import com.vaadin.ui.Notification;
 public class Administrador extends Usuario_identificado {
 
 	iAdministrador admin;
-	iElementos_fijos Elementos_fijos;
-	public void inicializar() {
-		Elementos_fijos = new DB_Main();
+	public void inicializarA() {
 		admin = new DB_Main();
 	    crearSeccion.setVisible(true);
 	    menuUsuarioAdministrador.setVisible(true); 
 	}
 
 	public Administrador() {
-		inicializar();
+		inicializarA();
 		cargarUltimasSeccionesA();
 		cargarSeccionesFijasA();
-		cargarSeccionesDestacadasA();
 		
 		crearSeccion.addClickListener(new Button.ClickListener(){
 			public void buttonClick(ClickEvent event) { 
@@ -54,7 +51,6 @@ public class Administrador extends Usuario_identificado {
 		});
 	}
 	
-	@SuppressWarnings("unchecked")
 	private void cargarUltimasSeccionesA() {
 		List<SeccionDB> US = admin.consultar_US_A();
 		int idUS = US.size()-1;
@@ -74,7 +70,7 @@ public class Administrador extends Usuario_identificado {
 						Parametros.setIdSeccion(US.get(id).getORMID());
 						Parametros.setTituloSeccion(US.get(id).getSeccion());
 						Parametros.setIconoSeccion(US.get(id).getIcono());
-						addComponent(new Visualizar_seccion__Usuario_identificado_());
+                        addComponent(new Visualizar_seccion__Administrador_());
 					} 
 				}
 			);
@@ -95,7 +91,6 @@ public class Administrador extends Usuario_identificado {
         }
 	}
 	
-	@SuppressWarnings("unchecked")
 	private void cargarSeccionesFijasA() {
 		List<SeccionDB> SF = admin.consultar_SF_A();
         int idSF = SF.size()-1;
@@ -119,7 +114,7 @@ public class Administrador extends Usuario_identificado {
 	                            Parametros.setIdSeccion(SF.get(id).getORMID());
 	                            Parametros.setTituloSeccion(SF.get(id).getSeccion());
 	                            Parametros.setIconoSeccion(SF.get(id).getIcono());
-	                            addComponent(new Visualizar_seccion__Usuario_identificado_());
+	                            addComponent(new Visualizar_seccion__Administrador_());
 	                        } 
 	                    }
 	                );
@@ -138,44 +133,7 @@ public class Administrador extends Usuario_identificado {
             }
             idSF--;
         }
-	}
-	
-	//cargarSeccionesDestacadas
-			private void cargarSeccionesDestacadasA() {
-				List<SeccionDB> SD = Elementos_fijos.consultar_SD();
-				int idSD = SD.size()-1;
-				int cuatro = 0;
-				while(idSD>=0 && cuatro<4) {
-					if(cuatro == 4) {
-						break;
-					}
-						if (SD.get(idSD).getEliminado()==false) {
-
-							Seccion_destacada seccion = new Seccion_destacada();
-							seccion.tituloSeccion.setCaption(SD.get(idSD).getSeccion());
-							seccion.iconoSeccion.setSource(new ExternalResource(SD.get(idSD).getIcono()));
-							verticalSeccionesDestacadas.addComponent(seccion);
-
-							final int id = idSD;
-							seccion.tituloSeccion.addClickListener(new Button.ClickListener() 
-							{
-								public void buttonClick(ClickEvent event) 
-								{ 
-									Parametros.setIdSeccion(SD.get(id).getORMID());
-									Parametros.setTituloSeccion(SD.get(id).getSeccion());
-				                    Parametros.setIconoSeccion(SD.get(id).getIcono());
-				                    addComponent(new Visualizar_seccion__Usuario_identificado_());
-								} 
-							}
-				        	);
-				    			
-							cuatro++;
-							}
-			     	
-					idSD--;
-			      	}
-			}
-
+	}	
 	
 	private void eliminarSeccion(int idSeccion) {
 		if(admin.eliminar_seccion(idSeccion)) {
