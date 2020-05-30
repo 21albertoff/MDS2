@@ -13,7 +13,7 @@ public interface iUsuario extends iElementos_fijos {
 	
 	/**TEMAS**/
 	//Consultar temas
-	public List<TemaDB> consultar_T(int aIdSeccion);
+	public List<TemaDB> consultar_T(int idSeccion);
 
 	/**MENSAJES**/
 	//Consultar mensajes

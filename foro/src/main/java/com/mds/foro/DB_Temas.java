@@ -15,63 +15,45 @@ public class DB_Temas {
 	public Vector<TemaDB> _contiene_tema = new Vector<TemaDB>();
 
 	//Consultar temas
-	@SuppressWarnings("null")
+	@SuppressWarnings("unchecked")
 	public List<TemaDB> consultar_T(int idSeccion) throws PersistentException {		
-		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();;
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<TemaDB> temas = null;
-		SeccionDB seccion = SeccionDBDAO.loadSeccionDBByORMID(idSeccion);
-		try {
-			for(Object tm: TemaDBDAO.queryTemaDB(null, null)) {
-				TemaDB tema = (TemaDB) tm;
-				
-				if(tema.getEsta_en().equals(seccion)) {
-					temas.add(tema);
-				} 
-			}
+		try {			
+			temas = TemaDBDAO.queryTemaDB("TemaDB.esta_en='"+idSeccion+"'", null);
 			t.commit();
-		}catch(Exception e) {
+			
+		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return temas;
 	}
 
 	//Consultar temas usuario identificado
-	@SuppressWarnings("null")
+	@SuppressWarnings("unchecked")
 	public List<TemaDB> consultar_T_UI(int idSeccion) throws PersistentException {
-		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();;
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<TemaDB> temas = null;
-		SeccionDB seccion = SeccionDBDAO.loadSeccionDBByORMID(idSeccion);
-		try {
-			for(Object tm: TemaDBDAO.queryTemaDB(null, null)) {
-				TemaDB tema = (TemaDB) tm;
-				
-				if(tema.getEsta_en().equals(seccion)) {
-					temas.add(tema);
-				} 
-			}
+		try {			
+			temas = TemaDBDAO.queryTemaDB("TemaDB.esta_en='"+idSeccion+"'", null);
 			t.commit();
-		}catch(Exception e) {
+			
+		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return temas;
 	}
 
 	//Consultar temas administrador
-	@SuppressWarnings("null")
+	@SuppressWarnings("unchecked")
 	public List<TemaDB> consultar_T_A(int idSeccion) throws PersistentException{
-		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();;
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<TemaDB> temas = null;
-		SeccionDB seccion = SeccionDBDAO.loadSeccionDBByORMID(idSeccion);
-		try {
-			for(Object tm: TemaDBDAO.queryTemaDB(null, null)) {
-				TemaDB tema = (TemaDB) tm;
-				
-				if(tema.getEsta_en().equals(seccion)) {
-					temas.add(tema);
-				} 
-			}
+		try {			
+			temas = TemaDBDAO.queryTemaDB("TemaDB.esta_en='"+idSeccion+"'", null);
 			t.commit();
-		}catch(Exception e) {
+			
+		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return temas;
@@ -128,20 +110,16 @@ public class DB_Temas {
 	}
 
 	//Eliminar propio tema
-	public boolean eliminar_propio_tema(int idTema, int idUsuario) throws PersistentException  {
+	public boolean eliminar_propio_tema(int idTema) throws PersistentException  {
 		boolean eliminado = false;
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		
 		try {
 			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
-			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
-			if (tema.getCreado_por()==usuario) {
 				tema.setEliminado(true);
 				TemaDBDAO.save(tema);
 				t.commit();
 				eliminado=true;
-			}
-
 		}catch(Exception e) {
 			t.rollback();
 		}

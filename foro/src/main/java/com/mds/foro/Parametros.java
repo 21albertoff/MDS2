@@ -10,6 +10,10 @@ public class Parametros {
 	private static String tituloSeccion="";
 	private static String iconoSeccion="";
 	
+	private static int idTema=1;
+	private static String tituloTema="";
+	private static String iconoTema="";
+	
 	private static boolean baneado=false;
 	
 	private static int privilegioUsuario=0;
@@ -84,5 +88,25 @@ public class Parametros {
 	public static void setCorreoUsuario(String correoUsuario) {
 		Parametros.correoUsuario = correoUsuario;
 	}
+	
+	public static int getIdTema() {
+		return idTema;
+	}
+	public static void setIdTema(int idTema) {
+		Parametros.idTema = idTema;
+	}
 		
+	public static String getTituloTema() {
+		return tituloTema;
+	}
+	public static void setTituloTema(String tituloTema) {
+		Parametros.tituloTema = tituloTema;
+	}
+	
+	public static String getIconoTema() {
+		return iconoTema;
+	}
+	public static void setIconoTema(String iconoTema) {
+		Parametros.iconoTema = iconoTema;
+	}
 }

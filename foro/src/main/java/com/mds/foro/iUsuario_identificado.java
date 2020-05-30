@@ -4,7 +4,8 @@ import java.util.List;
 
 public interface iUsuario_identificado extends iUsuario {
 
-	public List consultar_T_UI(int aIdSeccion);
+	//Consultar temas
+	public List<TemaDB> consultar_T_UI(int idSeccion);
 
 	public List consultar_M_UI(int aIdTema);
 
@@ -19,7 +20,8 @@ public interface iUsuario_identificado extends iUsuario {
 	//Crear tema
 	public boolean guardar_tema(int idSeccion,int idUsuario, String tituloTema, String subtituloTema);
 
-	public boolean eliminar_propio_tema(int aIdTema);
+	//Eliminar propio tema
+	public boolean eliminar_propio_tema(int idTema);
 
 	public boolean agregar_fotos(int aIdMensaje, String aFoto1, String aFoto2, String aFoto3);
 

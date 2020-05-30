@@ -117,6 +117,27 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return false;
 	}
 	
+	//Consultar tema usuario identificado
+	public List<TemaDB> consultar_T_UI(int idSeccion) {
+		try {
+			return temas.consultar_T_UI(idSeccion);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	//Eliminar propio tema
+	public boolean eliminar_propio_tema(int idTema) {
+		try {
+			return  temas.eliminar_propio_tema(idTema);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	
 	/**Usuario registrado**/
 	
 	/**Moderador**/
@@ -172,6 +193,26 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return false;
 	}
 	
+	//Consultar temas administrador
+	public List<TemaDB> consultar_T_A(int idSeccion) {
+		try {
+			return temas.consultar_T_A(idSeccion);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	//Eliminar tema administrador
+	public boolean eliminar_tema(int idTema) {
+		try {
+			return  temas.eliminar_tema(idTema);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	/**Otros metodos**/
 	
 	public Usuario_registradoDB get_Correo() {
@@ -191,10 +232,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	}
 
 	public AdministradorDB get_Administrador() {
-		throw new UnsupportedOperationException();
-	}
-
-	public List consultar_T_UI(int aIdSeccion) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -238,10 +275,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public List consultar_T_A(int aIdSeccion) {
-		throw new UnsupportedOperationException();
-	}
-
 	public List consultar_TO() {
 		throw new UnsupportedOperationException();
 	}
@@ -251,10 +284,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	}
 
 	public List consultar_UN() {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean eliminar_propio_tema(int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -315,10 +344,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	}
 
 	public void cerrar_tema(int aIdTema) {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean eliminar_tema(int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
 

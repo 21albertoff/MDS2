@@ -6,25 +6,23 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje212">
-         <vaadin-image source="https://images.vexels.com/media/users/3/152688/isolated/preview/fff00bbd013c42d160e37579cd2e1df5-lavadora-trazo-icono-plomer--a-by-vexels.png" width="50px" height="50px" _id="imagenTema212" :center></vaadin-image>
-         <vaadin-label style-name="negrita" plain-text _id="mensaje213" :middle>
-           Tema 
-         </vaadin-label>
-         <vaadin-label plain-text></vaadin-label>
-         <vaadin-label plain-text _id="fechaMensajeUsuario212" :middle :right>
-           14/03/2020 
-         </vaadin-label>
-         <vaadin-label plain-text></vaadin-label>
-         <vaadin-label plain-text _id="temaMensaje213" :middle :right>
-           456 
-         </vaadin-label>
-         <vaadin-image source="https://image.flaticon.com/icons/svg/31/31278.svg" width="30px" height="30px" :middle></vaadin-image>
-         <vaadin-label plain-text _id="temaMensaje2512" :middle :right>
-           45 
-         </vaadin-label>
-         <vaadin-image source="https://images.vexels.com/media/users/3/137310/isolated/preview/cf5a1b0cf2ebd6f2d7f707ff9317495e-logotipo-del-coraz--n-trazo-by-vexels.png" width="30px" height="30px" :middle></vaadin-image>
-         <vaadin-button icon="fonticon://Vaadin-Icons/e80b" primary-style-name="v-botton" style-name="eliminar" width="30px" height="30px" plain-text :right></vaadin-button>
-        </vaadin-horizontal-layout>
+  <vaadin-horizontal-layout style-name="cajaMensaje" width-full>
+   <vaadin-image source="https://images.vexels.com/media/users/3/152688/isolated/preview/fff00bbd013c42d160e37579cd2e1df5-lavadora-trazo-icono-plomer--a-by-vexels.png" width="50px" height="50px" _id="imagenTema" :center></vaadin-image>
+   <vaadin-button style-name="link" responsive width-full plain-text _id="nombreTema" :middle>
+     Tema 
+   </vaadin-button>
+   <vaadin-label plain-text></vaadin-label>
+   <vaadin-label plain-text></vaadin-label>
+   <vaadin-label plain-text _id="comentarios" :middle :right>
+     456 
+   </vaadin-label>
+   <vaadin-image source="https://image.flaticon.com/icons/svg/31/31278.svg" width="30px" height="30px" :middle></vaadin-image>
+   <vaadin-label plain-text _id="cantidadMeGustas" :middle :right>
+     45 
+   </vaadin-label>
+   <vaadin-image source="https://images.vexels.com/media/users/3/137310/isolated/preview/cf5a1b0cf2ebd6f2d7f707ff9317495e-logotipo-del-coraz--n-trazo-by-vexels.png" width="30px" height="30px" :middle></vaadin-image>
+   <vaadin-button icon="fonticon://Vaadin-Icons/e80b" primary-style-name="v-botton" style-name="eliminar" width="30px" height="30px" plain-text _id="botonEliminarTema" :right></vaadin-button>
+   <vaadin-button primary-style-name="v-botton" enabled="false" width="30px" height="30px" plain-text _id="botonEliminarOculto"></vaadin-button>
+  </vaadin-horizontal-layout>
  </body>
 </html>

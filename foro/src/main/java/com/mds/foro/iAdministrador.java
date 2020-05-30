@@ -8,7 +8,9 @@ public interface iAdministrador extends iUsuario_identificado {
 
 	public List consultar_M_A(int aIdTema);
 
-	public List consultar_T_A(int aIdSeccion);
+	/**TEMAS**/
+	//Consultar temas Administrador
+	public List<TemaDB> consultar_T_A(int idSeccion);
 
 	/**SECCIONES**/
 	//Consultar secciones fijas Administrador
@@ -44,7 +46,8 @@ public interface iAdministrador extends iUsuario_identificado {
 
 	public void cerrar_tema(int aIdTema);
 
-	public boolean eliminar_tema(int aIdTema);
+	//Eliminar tema
+	public boolean eliminar_tema(int idTema);
 
 	public void banear_usuario(int aIdUsuario, int aTiempo);
 
