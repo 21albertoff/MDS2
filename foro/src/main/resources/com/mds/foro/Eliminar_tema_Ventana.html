@@ -7,15 +7,15 @@
  </head>
  <body>
   <vaadin-absolute-layout>
-   <vaadin-absolute-layout style-name="ventanaEmergente"></vaadin-absolute-layout>
-   <vaadin-absolute-layout style-name="cajaMensaje" :top="40%" :right="35%" :bottom="45%" :left="35%">
+   <vaadin-absolute-layout style-name="ventanaEmergente" id="ventanaEmergente" _id="fondoGris"></vaadin-absolute-layout>
+   <vaadin-absolute-layout style-name="cajaMensaje" :top="40%" :right="32%" :bottom="45%" :left="32%">
     <vaadin-label style-name="negrita" plain-text :top="5%" :left="5%">
       ¿Seguro que quieres eliminar el tema? 
     </vaadin-label>
-    <vaadin-button style-name="confirmar danger" size-full plain-text :top="60%" :right="5%" :bottom="5%" :left="55%">
+    <vaadin-button style-name="confirmar danger" size-full plain-text _id="botonEliminarTema" :top="60%" :right="5%" :bottom="5%" :left="55%">
       ELIMINAR 
     </vaadin-button>
-    <vaadin-button style-name="confirmar primary" size-full plain-text :top="60%" :right="55%" :bottom="5%" :left="5%">
+    <vaadin-button style-name="confirmar primary" size-full plain-text _id="botonCancelarTema" :top="60%" :right="55%" :bottom="5%" :left="5%">
       CANCELAR 
     </vaadin-button>
    </vaadin-absolute-layout>

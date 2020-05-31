@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.Button.ClickEvent;
 
 @SuppressWarnings("serial")
@@ -37,7 +38,7 @@ public class Visualizar_seccion extends Visualizar_seccion_Ventana {
 		tituloS.setValue(tituloSeccion);
 		cargarSeccionesDestacadas();
 		consultarTemas();
-
+		
 		if (!(Parametros.getTipoUsuario() == 1 || Parametros.getTipoUsuario() == 2
 				|| Parametros.getTipoUsuario() == 3)) {
 
@@ -64,6 +65,19 @@ public class Visualizar_seccion extends Visualizar_seccion_Ventana {
 	// consultarTemas
 	private void consultarTemas() {
 		List<TemaDB> T = usuario.consultar_T(idSeccion);
+		ordenarPor.setItems("Mensajes", "Me gusta", "Fecha");
+		ordenarPor.addValueChangeListener(event -> {
+		    if (event.getValue() == "Mensajes" ) {
+				Notification.show("Mensajes", "", Notification.Type.WARNING_MESSAGE);
+		    			    	
+		    }else if (event.getValue() == "Me gusta") {
+				Notification.show("Me gusta", "", Notification.Type.WARNING_MESSAGE);
+
+		    } else {
+				Notification.show("Fecha", "", Notification.Type.WARNING_MESSAGE);
+		    }
+		});
+		
 		int idT = T.size() - 1;
 		while (idT >= 0) {
 			if (T.get(idT).getEliminado() == false) {

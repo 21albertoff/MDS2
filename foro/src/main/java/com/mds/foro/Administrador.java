@@ -81,7 +81,8 @@ public class Administrador extends Usuario_identificado {
 			{
 					public void buttonClick(ClickEvent event) 
 					{ 
-						eliminarSeccion(US.get(id).getORMID());					
+						Parametros.setIdSeccion(US.get(id).getORMID());
+                        addComponent(new Eliminar_seccion());
 					} 
 				}
 			);
@@ -134,13 +135,6 @@ public class Administrador extends Usuario_identificado {
             idSF--;
         }
 	}	
-	
-	private void eliminarSeccion(int idSeccion) {
-		if(admin.eliminar_seccion(idSeccion)) {
-			addComponent(new Administrador());
-			Notification.show("La seccion a sido eliminado con exito","", Notification.Type.WARNING_MESSAGE);
-		}	
-	}
 	
 	private void quitarSeccionFija(int idSeccion) {
 		admin.quitar_seccion_fija(idSeccion); 

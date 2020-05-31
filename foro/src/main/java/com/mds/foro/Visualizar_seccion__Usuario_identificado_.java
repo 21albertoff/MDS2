@@ -2,13 +2,13 @@ package com.mds.foro;
 
 import java.util.List;
 
+import com.vaadin.navigator.View;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Notification;
 import com.vaadin.ui.Button.ClickEvent;
 
 @SuppressWarnings("serial")
-public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccion_Ventana {
+public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccion_Ventana implements View {
 
 	// Declaracion de variables
 	iElementos_fijos Elementos_fijos;
@@ -108,7 +108,8 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 				
 				tema.botonEliminarTema.addClickListener(new Button.ClickListener() {
 					public void buttonClick(ClickEvent event) {
-						eliminarTema(T.get(id).getORMID());
+						Parametros.setIdTema(T.get(id).getORMID());
+						addComponent(new Eliminar_tema());
 					}
 				});
 
@@ -153,13 +154,4 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 			idSD--;
 		}
 	}
-	
-	//Eliminar tema
-	private void eliminarTema(int idTema) {
-		if(usuarioidentificado.eliminar_propio_tema(idTema)) {
-			addComponent(new Visualizar_seccion__Usuario_identificado_());
-			Notification.show("El tema ha sido eliminado con exito","", Notification.Type.WARNING_MESSAGE);
-		}	
-	}
-
 }
