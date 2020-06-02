@@ -23,6 +23,8 @@ public class Tema_Ventana extends HorizontalLayout {
 	protected Image imagenTema;
 	protected Button nombreTema;
 	protected Label comentarios;
+	protected Image imagenUsuario;
+	protected Label nombreUsuario;
 	protected Label cantidadMeGustas;
 	protected Button botonEliminarTema;
 	protected Button botonEliminarOculto;
