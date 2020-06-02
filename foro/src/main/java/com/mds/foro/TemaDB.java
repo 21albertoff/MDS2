@@ -26,6 +26,9 @@ public class TemaDB implements Serializable {
 		if (key == ORMConstants.KEY_TEMADB_GUSTADO_POR_) {
 			return ORM_gustado_por_;
 		}
+		else if (key == ORMConstants.KEY_TEMADB_ESTA_EN_TEMA) {
+			return ORM_esta_en_tema;
+		}
 		
 		return null;
 	}
@@ -97,6 +100,11 @@ public class TemaDB implements Serializable {
 	@JoinTable(name="Usuario_DB_TemaDB", joinColumns={ @JoinColumn(name="TemaDBIdTema") }, inverseJoinColumns={ @JoinColumn(name="Usuario_DBIdUsuario") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_gustado_por_ = new java.util.HashSet();
+	
+	@OneToMany(mappedBy="contieneM", targetEntity=com.mds.foro.MensajeDB.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_esta_en_tema = new java.util.HashSet();
 	
 	private void setIdTema(int value) {
 		this.idTema = value;
@@ -232,6 +240,17 @@ public class TemaDB implements Serializable {
 	
 	@Transient	
 	public final com.mds.foro.Usuario_DBSetCollection gustado_por_ = new com.mds.foro.Usuario_DBSetCollection(this, _ormAdapter, ORMConstants.KEY_TEMADB_GUSTADO_POR_, ORMConstants.KEY_USUARIO_DB_DA_MEGUSTA_, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	
+	private void setORM_Esta_en_tema(java.util.Set value) {
+		this.ORM_esta_en_tema = value;
+	}
+	
+	private java.util.Set getORM_Esta_en_tema() {
+		return ORM_esta_en_tema;
+	}
+	
+	@Transient	
+	public final com.mds.foro.MensajeDBSetCollection esta_en_tema = new com.mds.foro.MensajeDBSetCollection(this, _ormAdapter, ORMConstants.KEY_TEMADB_ESTA_EN_TEMA, ORMConstants.KEY_MENSAJEDB_CONTIENEM, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getIdTema());

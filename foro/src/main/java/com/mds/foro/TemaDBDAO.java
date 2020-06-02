@@ -339,6 +339,10 @@ public class TemaDBDAO {
 			for(int i = 0; i < lGustado_por_s.length; i++) {
 				lGustado_por_s[i].da_megusta_.remove(temaDB);
 			}
+			com.mds.foro.MensajeDB[] lEsta_en_temas = temaDB.esta_en_tema.toArray();
+			for(int i = 0; i < lEsta_en_temas.length; i++) {
+				lEsta_en_temas[i].setContieneM(null);
+			}
 			return delete(temaDB);
 		}
 		catch(Exception e) {
@@ -364,6 +368,10 @@ public class TemaDBDAO {
 			com.mds.foro.Usuario_DB[] lGustado_por_s = temaDB.gustado_por_.toArray();
 			for(int i = 0; i < lGustado_por_s.length; i++) {
 				lGustado_por_s[i].da_megusta_.remove(temaDB);
+			}
+			com.mds.foro.MensajeDB[] lEsta_en_temas = temaDB.esta_en_tema.toArray();
+			for(int i = 0; i < lEsta_en_temas.length; i++) {
+				lEsta_en_temas[i].setContieneM(null);
 			}
 			try {
 				session.delete(temaDB);

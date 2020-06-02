@@ -56,7 +56,7 @@ public class SeccionDB implements Serializable {
 	
 	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="Creada_poir", referencedColumnName="IdUsuario") }, foreignKey=@ForeignKey(name="FKSeccionDB504667"))	
+	@JoinColumns(value={ @JoinColumn(name="Creado_poir", referencedColumnName="IdUsuario") }, foreignKey=@ForeignKey(name="FKSeccionDB313182"))	
 	private com.mds.foro.AdministradorDB creada_por;
 	
 	@Column(name="Seccion", nullable=true, length=255)	

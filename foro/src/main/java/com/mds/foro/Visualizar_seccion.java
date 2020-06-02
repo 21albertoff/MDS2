@@ -68,8 +68,6 @@ public class Visualizar_seccion extends Visualizar_seccion_Ventana {
 		ordenarPor.setItems("Mensajes", "Me gusta", "Fecha");
 		ordenarPor.addValueChangeListener(event -> {
 		    if (event.getValue() == "Mensajes" ) {
-				Notification.show("Mensajes", "", Notification.Type.WARNING_MESSAGE);
-		    			    	
 		    }else if (event.getValue() == "Me gusta") {
 				Notification.show("Me gusta", "", Notification.Type.WARNING_MESSAGE);
 
@@ -85,6 +83,9 @@ public class Visualizar_seccion extends Visualizar_seccion_Ventana {
 				Tema tema = new Tema();
 				tema.imagenTema.setSource(new ExternalResource(Parametros.getIconoSeccion()));
 				tema.nombreTema.setCaption(T.get(idT).getTema());
+				Usuario_DB Usuario = (T.get(idT).getCreado_por());
+				tema.imagenUsuario.setSource(new ExternalResource(Usuario.getFoto()));
+				tema.nombreUsuario.setValue(Usuario.getNombreUsuario());
 				int cantidadLike = T.get(idT).getCantidadLike();
 				String cantidadLikeTexto = "" + cantidadLike;
 				tema.cantidadMeGustas.setValue(cantidadLikeTexto);
@@ -142,4 +143,5 @@ public class Visualizar_seccion extends Visualizar_seccion_Ventana {
 			idSD--;
 		}
 	}
+	
 }

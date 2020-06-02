@@ -26,6 +26,8 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_ADMINISTRADORDB_OCULTA_TEMA = -1776955864;
 	
+	final int KEY_MENSAJEDB_CONTIENEM = 273887398;
+	
 	final int KEY_MENSAJEDB_CONTIENE_RESPUESTA = -2105013752;
 	
 	final int KEY_MENSAJEDB_CREADO_POR = 450708396;
@@ -45,6 +47,8 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	final int KEY_TEMADB_CREADO_POR = 471383110;
 	
 	final int KEY_TEMADB_ESTA_EN = 991694513;
+	
+	final int KEY_TEMADB_ESTA_EN_TEMA = 1840739475;
 	
 	final int KEY_TEMADB_GUSTADO_POR_ = 1346256010;
 	

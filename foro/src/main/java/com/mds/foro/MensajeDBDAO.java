@@ -323,6 +323,10 @@ public class MensajeDBDAO {
 	
 	public static boolean deleteAndDissociate(com.mds.foro.MensajeDB mensajeDB)throws PersistentException {
 		try {
+			if (mensajeDB.getContieneM() != null) {
+				mensajeDB.getContieneM().esta_en_tema.remove(mensajeDB);
+			}
+			
 			if (mensajeDB.getOcultado_por() != null) {
 				mensajeDB.getOcultado_por().oculta_mensaje.remove(mensajeDB);
 			}
@@ -353,6 +357,10 @@ public class MensajeDBDAO {
 	
 	public static boolean deleteAndDissociate(com.mds.foro.MensajeDB mensajeDB, org.orm.PersistentSession session)throws PersistentException {
 		try {
+			if (mensajeDB.getContieneM() != null) {
+				mensajeDB.getContieneM().esta_en_tema.remove(mensajeDB);
+			}
+			
 			if (mensajeDB.getOcultado_por() != null) {
 				mensajeDB.getOcultado_por().oculta_mensaje.remove(mensajeDB);
 			}

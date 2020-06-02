@@ -133,11 +133,11 @@ public class DB_Temas {
 		try {
 			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
 			if (tema.getOculto()==false) {
-				tema.setOculto(true);
+				ocultar_tema(idTema);
 				TemaDBDAO.save(tema);
 				t.commit();
 			} else {
-				tema.setOculto(false);
+				mostrar_tema(idTema);
 				TemaDBDAO.save(tema);
 				t.commit();
 			}
@@ -187,7 +187,7 @@ public class DB_Temas {
 		
 		try {
 			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
-			tema.setOculto(true);
+			tema.setOculto(false);
 			TemaDBDAO.save(tema);
 			t.commit();
 		}catch(Exception e) {
@@ -201,7 +201,7 @@ public class DB_Temas {
 		
 		try {
 			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
-			tema.setOculto(false);
+			tema.setOculto(true);
 			TemaDBDAO.save(tema);
 			t.commit();
 		}catch(Exception e) {
@@ -215,9 +215,17 @@ public class DB_Temas {
 		
 		try {
 			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
-			//Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
-			int likes = tema.getCantidadLike();
-			tema.setCantidadLike(likes+1);
+			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
+
+			if(usuario.da_megusta_.contains(tema)) {
+				usuario.da_megusta_.remove(tema);
+				int likes = tema.getCantidadLike();
+				tema.setCantidadLike(likes-1);
+			} else {
+				usuario.da_megusta_.add(tema);
+				int likes = tema.getCantidadLike();
+				tema.setCantidadLike(likes+1);
+			}
 			TemaDBDAO.save(tema);
 			t.commit();
 		}catch(Exception e) {

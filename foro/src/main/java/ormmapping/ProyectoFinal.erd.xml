@@ -182,7 +182,7 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="Notificado_por_Moderador">
+    <Column name="Notificado_por_moderador">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>com.mds.foro.Usuario_DB.IdUsuario</ReferencedColumn>
@@ -197,7 +197,7 @@
     <Column name="Reportado_por">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>com.mds.foro.Usuario_registradoDB.Notificado_por_Moderador</ReferencedColumn>
+      <ReferencedColumn>com.mds.foro.Usuario_registradoDB.Notificado_por_moderador</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>true</Nullable>
@@ -219,7 +219,7 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="Creada_poir">
+    <Column name="Creado_poir">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>com.mds.foro.AdministradorDB.IdUsuario</ReferencedColumn>
@@ -288,6 +288,18 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
+    <Column name="Tema">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>com.mds.foro.TemaDB.IdTema</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
     <Column name="Ocultado_por">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
@@ -312,7 +324,7 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="Esta_en">
+    <Column name="Respuesta">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>com.mds.foro.MensajeDB.IdMensaje</ReferencedColumn>
@@ -591,7 +603,7 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="baneadoPor">
+    <Column name="AdministradorDBUsuario_DBIdUsuario">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>com.mds.foro.AdministradorDB.IdUsuario</ReferencedColumn>
@@ -656,32 +668,6 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="Usuario_registradoDB_Usuario_registradoDB" Unlogged="false" PKClustered="0">
-    <Column name="Usuario_registradoDBUsuario_DBIdUsuario">
-      <PrimaryKey>true</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>com.mds.foro.Usuario_registradoDB.Notificado_por_Moderador</ReferencedColumn>
-      <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>assigned</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="Usuario_registradoDBUsuario_DBIdUsuario2">
-      <PrimaryKey>true</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>com.mds.foro.Usuario_registradoDB.Notificado_por_Moderador</ReferencedColumn>
-      <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>assigned</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-  </Entity>
   <Entity name="Usuario_DB_Usuario_DB" Unlogged="false" PKClustered="0">
     <Column name="Usuario_DBIdUsuario">
       <PrimaryKey>true</PrimaryKey>
@@ -708,11 +694,37 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <ForeignKey name="FKUsuario_re845531">
+  <Entity name="Usuario_registradoDB_Usuario_registradoDB" Unlogged="false" PKClustered="0">
+    <Column name="Usuario_registradoDBUsuario_DBIdUsuario">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>com.mds.foro.Usuario_registradoDB.Notificado_por_moderador</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Usuario_registradoDBUsuario_DBIdUsuario2">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>com.mds.foro.Usuario_registradoDB.Notificado_por_moderador</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <ForeignKey name="FKUsuario_re124440">
     <ReferenceTable>Usuario_registradoDB</ReferenceTable>
     <ReferencedTable>Usuario_DB</ReferencedTable>
     <Columns>
-      <Column>Notificado_por_Moderador</Column>
+      <Column>Notificado_por_moderador</Column>
     </Columns>
     <RefColumns>
       <Column>IdUsuario</Column>
@@ -768,21 +780,21 @@
       <Column>IdSeccion</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKSeccionDB504667">
+  <ForeignKey name="FKSeccionDB313182">
     <ReferenceTable>SeccionDB</ReferenceTable>
     <ReferencedTable>AdministradorDB</ReferencedTable>
     <Columns>
-      <Column>Creada_poir</Column>
+      <Column>Creado_poir</Column>
     </Columns>
     <RefColumns>
       <Column>IdUsuario</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKMensajeDB128135">
+  <ForeignKey name="FKMensajeDB682938">
     <ReferenceTable>MensajeDB</ReferenceTable>
     <ReferencedTable>MensajeDB</ReferencedTable>
     <Columns>
-      <Column>Esta_en</Column>
+      <Column>Respuesta</Column>
     </Columns>
     <RefColumns>
       <Column>IdMensaje</Column>
@@ -868,31 +880,11 @@
       <Column>IdUsuario</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKUsuario_re303995">
-    <ReferenceTable>Usuario_registradoDB_Usuario_registradoDB</ReferenceTable>
-    <ReferencedTable>Usuario_registradoDB</ReferencedTable>
-    <Columns>
-      <Column>Usuario_registradoDBUsuario_DBIdUsuario</Column>
-    </Columns>
-    <RefColumns>
-      <Column>Notificado_por_Moderador</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKUsuario_re78000">
-    <ReferenceTable>Usuario_registradoDB_Usuario_registradoDB</ReferenceTable>
-    <ReferencedTable>Usuario_registradoDB</ReferencedTable>
-    <Columns>
-      <Column>Usuario_registradoDBUsuario_DBIdUsuario2</Column>
-    </Columns>
-    <RefColumns>
-      <Column>Notificado_por_Moderador</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKUsuario_no450997">
+  <ForeignKey name="FKUsuario_no292333">
     <ReferenceTable>Usuario_notificadosDB</ReferenceTable>
     <ReferencedTable>AdministradorDB</ReferencedTable>
     <Columns>
-      <Column>baneadoPor</Column>
+      <Column>AdministradorDBUsuario_DBIdUsuario</Column>
     </Columns>
     <RefColumns>
       <Column>IdUsuario</Column>
@@ -928,14 +920,44 @@
       <Column>IdUsuario</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKUsuario_re943131">
+  <ForeignKey name="FKUsuario_re26840">
     <ReferenceTable>Usuario_registradoDB</ReferenceTable>
     <ReferencedTable>Usuario_registradoDB</ReferencedTable>
     <Columns>
       <Column>Reportado_por</Column>
     </Columns>
     <RefColumns>
-      <Column>Notificado_por_Moderador</Column>
+      <Column>Notificado_por_moderador</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKUsuario_re665976">
+    <ReferenceTable>Usuario_registradoDB_Usuario_registradoDB</ReferenceTable>
+    <ReferencedTable>Usuario_registradoDB</ReferencedTable>
+    <Columns>
+      <Column>Usuario_registradoDBUsuario_DBIdUsuario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Notificado_por_moderador</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKUsuario_re891971">
+    <ReferenceTable>Usuario_registradoDB_Usuario_registradoDB</ReferenceTable>
+    <ReferencedTable>Usuario_registradoDB</ReferencedTable>
+    <Columns>
+      <Column>Usuario_registradoDBUsuario_DBIdUsuario2</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Notificado_por_moderador</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKMensajeDB479124">
+    <ReferenceTable>MensajeDB</ReferenceTable>
+    <ReferencedTable>TemaDB</ReferencedTable>
+    <Columns>
+      <Column>Tema</Column>
+    </Columns>
+    <RefColumns>
+      <Column>IdTema</Column>
     </RefColumns>
   </ForeignKey>
 </Model>

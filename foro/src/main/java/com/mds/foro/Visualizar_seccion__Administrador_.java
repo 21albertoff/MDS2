@@ -79,6 +79,9 @@ public class Visualizar_seccion__Administrador_ extends Visualizar_seccion_Venta
 				Tema tema = new Tema();
 				tema.imagenTema.setSource(new ExternalResource(Parametros.getIconoSeccion()));
 				tema.nombreTema.setCaption(T.get(idT).getTema());
+				Usuario_DB Usuario = (T.get(idT).getCreado_por());
+				tema.imagenUsuario.setSource(new ExternalResource(Usuario.getFoto()));
+				tema.nombreUsuario.setValue(Usuario.getNombreUsuario());
 				int cantidadLike = T.get(idT).getCantidadLike();
 				String cantidadLikeTexto = "" + cantidadLike;
 				tema.cantidadMeGustas.setValue(cantidadLikeTexto);

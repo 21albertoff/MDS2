@@ -32,6 +32,7 @@ public class TemaDBDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final BooleanExpression eliminado;
 	public final BooleanExpression oculto;
 	public final CollectionExpression gustado_por_;
+	public final CollectionExpression esta_en_tema;
 	
 	public TemaDBDetachedCriteria() {
 		super(com.mds.foro.TemaDB.class, com.mds.foro.TemaDBCriteria.class);
@@ -48,6 +49,7 @@ public class TemaDBDetachedCriteria extends AbstractORMDetachedCriteria {
 		eliminado = new BooleanExpression("eliminado", this.getDetachedCriteria());
 		oculto = new BooleanExpression("oculto", this.getDetachedCriteria());
 		gustado_por_ = new CollectionExpression("ORM_gustado_por_", this.getDetachedCriteria());
+		esta_en_tema = new CollectionExpression("ORM_esta_en_tema", this.getDetachedCriteria());
 	}
 	
 	public TemaDBDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -65,6 +67,7 @@ public class TemaDBDetachedCriteria extends AbstractORMDetachedCriteria {
 		eliminado = new BooleanExpression("eliminado", this.getDetachedCriteria());
 		oculto = new BooleanExpression("oculto", this.getDetachedCriteria());
 		gustado_por_ = new CollectionExpression("ORM_gustado_por_", this.getDetachedCriteria());
+		esta_en_tema = new CollectionExpression("ORM_esta_en_tema", this.getDetachedCriteria());
 	}
 	
 	public AdministradorDBDetachedCriteria createOcultado_porCriteria() {
@@ -81,6 +84,10 @@ public class TemaDBDetachedCriteria extends AbstractORMDetachedCriteria {
 	
 	public Usuario_DBDetachedCriteria createGustado_por_Criteria() {
 		return new Usuario_DBDetachedCriteria(createCriteria("ORM_gustado_por_"));
+	}
+	
+	public MensajeDBDetachedCriteria createEsta_en_temaCriteria() {
+		return new MensajeDBDetachedCriteria(createCriteria("ORM_esta_en_tema"));
 	}
 	
 	public TemaDB uniqueTemaDB(PersistentSession session) {
