@@ -44,7 +44,7 @@ public class Usuario_notificadosDB extends com.mds.foro.Usuario_DB implements Se
 	
 	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="baneadoPor", referencedColumnName="IdUsuario") }, foreignKey=@ForeignKey(name="FKUsuario_no450997"))	
+	@JoinColumns(value={ @JoinColumn(name="AdministradorDBUsuario_DBIdUsuario", referencedColumnName="IdUsuario") }, foreignKey=@ForeignKey(name="FKUsuario_no292333"))	
 	private com.mds.foro.AdministradorDB baneado_porN;
 	
 	public void setMotivo(String value) {

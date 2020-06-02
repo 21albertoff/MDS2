@@ -32,6 +32,7 @@ public class TemaDBCriteria extends AbstractORMCriteria {
 	public final BooleanExpression eliminado;
 	public final BooleanExpression oculto;
 	public final CollectionExpression gustado_por_;
+	public final CollectionExpression esta_en_tema;
 	
 	public TemaDBCriteria(Criteria criteria) {
 		super(criteria);
@@ -48,6 +49,7 @@ public class TemaDBCriteria extends AbstractORMCriteria {
 		eliminado = new BooleanExpression("eliminado", this);
 		oculto = new BooleanExpression("oculto", this);
 		gustado_por_ = new CollectionExpression("ORM_gustado_por_", this);
+		esta_en_tema = new CollectionExpression("ORM_esta_en_tema", this);
 	}
 	
 	public TemaDBCriteria(PersistentSession session) {
@@ -72,6 +74,10 @@ public class TemaDBCriteria extends AbstractORMCriteria {
 	
 	public Usuario_DBCriteria createGustado_por_Criteria() {
 		return new Usuario_DBCriteria(createCriteria("ORM_gustado_por_"));
+	}
+	
+	public MensajeDBCriteria createEsta_en_temaCriteria() {
+		return new MensajeDBCriteria(createCriteria("ORM_esta_en_tema"));
 	}
 	
 	public TemaDB uniqueTemaDB() {

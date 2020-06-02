@@ -20,6 +20,8 @@ import org.orm.criteria.*;
 
 public class MensajeDBDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression idMensaje;
+	public final IntegerExpression contieneMId;
+	public final AssociationExpression contieneM;
 	public final IntegerExpression ocultado_porId;
 	public final AssociationExpression ocultado_por;
 	public final IntegerExpression creado_porId;
@@ -40,6 +42,8 @@ public class MensajeDBDetachedCriteria extends AbstractORMDetachedCriteria {
 	public MensajeDBDetachedCriteria() {
 		super(com.mds.foro.MensajeDB.class, com.mds.foro.MensajeDBCriteria.class);
 		idMensaje = new IntegerExpression("idMensaje", this.getDetachedCriteria());
+		contieneMId = new IntegerExpression("contieneM.idTema", this.getDetachedCriteria());
+		contieneM = new AssociationExpression("contieneM", this.getDetachedCriteria());
 		ocultado_porId = new IntegerExpression("ocultado_por.", this.getDetachedCriteria());
 		ocultado_por = new AssociationExpression("ocultado_por", this.getDetachedCriteria());
 		creado_porId = new IntegerExpression("creado_por.idUsuario", this.getDetachedCriteria());
@@ -61,6 +65,8 @@ public class MensajeDBDetachedCriteria extends AbstractORMDetachedCriteria {
 	public MensajeDBDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, com.mds.foro.MensajeDBCriteria.class);
 		idMensaje = new IntegerExpression("idMensaje", this.getDetachedCriteria());
+		contieneMId = new IntegerExpression("contieneM.idTema", this.getDetachedCriteria());
+		contieneM = new AssociationExpression("contieneM", this.getDetachedCriteria());
 		ocultado_porId = new IntegerExpression("ocultado_por.", this.getDetachedCriteria());
 		ocultado_por = new AssociationExpression("ocultado_por", this.getDetachedCriteria());
 		creado_porId = new IntegerExpression("creado_por.idUsuario", this.getDetachedCriteria());
@@ -77,6 +83,10 @@ public class MensajeDBDetachedCriteria extends AbstractORMDetachedCriteria {
 		foto3 = new StringExpression("foto3", this.getDetachedCriteria());
 		contiene_respuesta = new CollectionExpression("ORM_contiene_respuesta", this.getDetachedCriteria());
 		gustado_por = new CollectionExpression("ORM_gustado_por", this.getDetachedCriteria());
+	}
+	
+	public TemaDBDetachedCriteria createContieneMCriteria() {
+		return new TemaDBDetachedCriteria(createCriteria("contieneM"));
 	}
 	
 	public AdministradorDBDetachedCriteria createOcultado_porCriteria() {

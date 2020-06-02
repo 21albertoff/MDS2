@@ -42,6 +42,10 @@ public class MensajeDB implements Serializable {
 			this.ocultado_por = (com.mds.foro.AdministradorDB) owner;
 		}
 		
+		else if (key == ORMConstants.KEY_MENSAJEDB_CONTIENEM) {
+			this.contieneM = (com.mds.foro.TemaDB) owner;
+		}
+		
 		else if (key == ORMConstants.KEY_MENSAJEDB_ESTA_EN) {
 			this.esta_en = (com.mds.foro.MensajeDB) owner;
 		}
@@ -65,6 +69,11 @@ public class MensajeDB implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="COM_MDS_FORO_MENSAJEDB_IDMENSAJE_GENERATOR", strategy="native")	
 	private int idMensaje;
 	
+	@ManyToOne(targetEntity=com.mds.foro.TemaDB.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns(value={ @JoinColumn(name="Tema", referencedColumnName="IdTema") }, foreignKey=@ForeignKey(name="FKMensajeDB479124"))	
+	private com.mds.foro.TemaDB contieneM;
+	
 	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="Ocultado_por", referencedColumnName="IdUsuario") }, foreignKey=@ForeignKey(name="FKMensajeDB640192"))	
@@ -77,7 +86,7 @@ public class MensajeDB implements Serializable {
 	
 	@ManyToOne(targetEntity=com.mds.foro.MensajeDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="Esta_en", referencedColumnName="IdMensaje") }, foreignKey=@ForeignKey(name="FKMensajeDB128135"))	
+	@JoinColumns(value={ @JoinColumn(name="Respuesta", referencedColumnName="IdMensaje") }, foreignKey=@ForeignKey(name="FKMensajeDB682938"))	
 	private com.mds.foro.MensajeDB esta_en;
 	
 	@Column(name="Mensaje", nullable=true, length=255)	
@@ -247,6 +256,30 @@ public class MensajeDB implements Serializable {
 	
 	private com.mds.foro.AdministradorDB getORM_Ocultado_por() {
 		return ocultado_por;
+	}
+	
+	public void setContieneM(com.mds.foro.TemaDB value) {
+		if (contieneM != null) {
+			contieneM.esta_en_tema.remove(this);
+		}
+		if (value != null) {
+			value.esta_en_tema.add(this);
+		}
+	}
+	
+	public com.mds.foro.TemaDB getContieneM() {
+		return contieneM;
+	}
+	
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_ContieneM(com.mds.foro.TemaDB value) {
+		this.contieneM = value;
+	}
+	
+	private com.mds.foro.TemaDB getORM_ContieneM() {
+		return contieneM;
 	}
 	
 	public void setEsta_en(com.mds.foro.MensajeDB value) {

@@ -20,6 +20,8 @@ import org.orm.criteria.*;
 
 public class MensajeDBCriteria extends AbstractORMCriteria {
 	public final IntegerExpression idMensaje;
+	public final IntegerExpression contieneMId;
+	public final AssociationExpression contieneM;
 	public final IntegerExpression ocultado_porId;
 	public final AssociationExpression ocultado_por;
 	public final IntegerExpression creado_porId;
@@ -40,6 +42,8 @@ public class MensajeDBCriteria extends AbstractORMCriteria {
 	public MensajeDBCriteria(Criteria criteria) {
 		super(criteria);
 		idMensaje = new IntegerExpression("idMensaje", this);
+		contieneMId = new IntegerExpression("contieneM.idTema", this);
+		contieneM = new AssociationExpression("contieneM", this);
 		ocultado_porId = new IntegerExpression("ocultado_por.", this);
 		ocultado_por = new AssociationExpression("ocultado_por", this);
 		creado_porId = new IntegerExpression("creado_por.idUsuario", this);
@@ -64,6 +68,10 @@ public class MensajeDBCriteria extends AbstractORMCriteria {
 	
 	public MensajeDBCriteria() throws PersistentException {
 		this(ProyectoFinalPersistentManager.instance().getSession());
+	}
+	
+	public TemaDBCriteria createContieneMCriteria() {
+		return new TemaDBCriteria(createCriteria("contieneM"));
 	}
 	
 	public AdministradorDBCriteria createOcultado_porCriteria() {
