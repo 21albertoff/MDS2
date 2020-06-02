@@ -18,6 +18,8 @@ public class Parametros {
 	
 	private static int privilegioUsuario=0;
 	
+	private static String ordenarPor="";
+
 
 	public static int getTipoUsuario() {
 		return privilegioUsuario;
@@ -108,5 +110,11 @@ public class Parametros {
 	}
 	public static void setIconoTema(String iconoTema) {
 		Parametros.iconoTema = iconoTema;
+	}
+	public static String getOrdenarPor() {
+		return ordenarPor;
+	}
+	public static void setOrdenarPor(String ordenarPor) {
+		Parametros.ordenarPor = ordenarPor;
 	}
 }

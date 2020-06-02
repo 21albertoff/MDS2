@@ -1,5 +1,6 @@
 package com.mds.foro;
 
+import java.util.Comparator;
 import java.util.List;
 
 import com.vaadin.server.ExternalResource;
@@ -37,6 +38,7 @@ public class Visualizar_seccion extends Visualizar_seccion_Ventana {
 		iconoS.setSource(new ExternalResource(iconoSeccion));
 		tituloS.setValue(tituloSeccion);
 		cargarSeccionesDestacadas();
+		ordenarPor.setItems("Titulo", "Me gustas", "Fecha");
 		consultarTemas();
 		
 		if (!(Parametros.getTipoUsuario() == 1 || Parametros.getTipoUsuario() == 2
@@ -59,23 +61,37 @@ public class Visualizar_seccion extends Visualizar_seccion_Ventana {
 					addComponent(new Usuario_no_identificado());
 				}
 			});
+			
+			ordenarPor.addValueChangeListener(event -> {
+			    if (event.getValue() == "Titulo" ) {
+			        Parametros.setOrdenarPor("Titulo");
+			        addComponent(new Visualizar_seccion());
+			        
+			    }else if (event.getValue() == "Me gustas") {
+			        Parametros.setOrdenarPor("Me gustas");
+			        addComponent(new Visualizar_seccion());
+			    }else {
+			    	Parametros.setOrdenarPor("");
+			        addComponent(new Visualizar_seccion());
+			    }
+			});
 		}
 	}
 
 	// consultarTemas
 	private void consultarTemas() {
 		List<TemaDB> T = usuario.consultar_T(idSeccion);
-		ordenarPor.setItems("Mensajes", "Me gusta", "Fecha");
-		ordenarPor.addValueChangeListener(event -> {
-		    if (event.getValue() == "Mensajes" ) {
-		    }else if (event.getValue() == "Me gusta") {
-				Notification.show("Me gusta", "", Notification.Type.WARNING_MESSAGE);
-
-		    } else {
-				Notification.show("Fecha", "", Notification.Type.WARNING_MESSAGE);
-		    }
-		});
-		
+		if (Parametros.getOrdenarPor()=="Titulo") {
+			Comparador com;
+			com = new Comparador("Titulo");
+			 T.sort(com);
+		}
+		if (Parametros.getOrdenarPor()=="Me gustas") {
+			Comparador com;
+			com = new Comparador("Me gustas");
+			T.sort(com);
+		}
+   
 		int idT = T.size() - 1;
 		while (idT >= 0) {
 			if (T.get(idT).getEliminado() == false) {
