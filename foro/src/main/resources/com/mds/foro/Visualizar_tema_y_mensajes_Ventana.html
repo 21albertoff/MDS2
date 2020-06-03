@@ -11,11 +11,11 @@
     <vaadin-label style-name="nombreForo" size-full plain-text _id="nombreForo" :top="30%" :left="5%">
       foroMDS2 
     </vaadin-label>
-    <vaadin-absolute-layout visible="false" _id="menuUsuarioNoIdentifado">
+    <vaadin-absolute-layout _id="menuUsuarioNoIdentifado">
      <vaadin-link caption="Registrarse" primary-style-name="enlacesMenu" size-full _id="menuRegistrarse" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
      <vaadin-link icon="fonticon://Vaadin-Icons/e80d" caption="Iniciar Sesion" primary-style-name="enlacesMenu" size-full _id="menuIniciarSesion" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
     </vaadin-absolute-layout>
-    <vaadin-absolute-layout _id="menuUsuarioIdentificado">
+    <vaadin-absolute-layout visible="false" _id="menuUsuarioIdentificado">
      <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilUsuario" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
      <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionUsuario" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
      <vaadin-link icon="fonticon://Vaadin-Icons/e7b4" caption="Notificaciones" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesUsuario" :top="30%" :right="28%" :bottom="30%" :left="50%"></vaadin-link>
@@ -42,7 +42,7 @@
        TITULO DEL TEMA 
      </vaadin-label>
      <vaadin-panel style-name="borderless" size-full _id="panelMensaje" :top="35%" :right="23.7%" :left="5%">
-      <vaadin-vertical-layout>
+      <vaadin-vertical-layout _id="verticalMensajes">
        <vaadin-vertical-layout style-name="cajaMensaje" responsive width="90%" _id="cajaMensaje1">
         <vaadin-image source="https://cdn.dribbble.com/users/1016246/screenshots/2439534/dribbble-03.png" style-name="fotoPerfil" width="70px" height="70px" _id="fotoUsuario1" :middle :center></vaadin-image>
         <vaadin-label style-name="nombreUsuarios" plain-text _id="nombreUsuarios1" :center>
@@ -73,7 +73,7 @@
        </vaadin-vertical-layout>
       </vaadin-vertical-layout>
      </vaadin-panel>
-     <vaadin-vertical-layout spacing="false" size-full margin="false" :top="45%" :right="2%" :bottom="5%" :left="78%">
+     <vaadin-vertical-layout spacing="false" size-full margin="false" _id="verticalSeccionesDestacadas" :top="45%" :right="2%" :bottom="5%" :left="78%">
       <vaadin-horizontal-layout style-name="cajaMensaje" spacing="false" width-full _id="cajaMensaje3">
        <vaadin-image source="https://cdn.pixabay.com/photo/2014/03/24/17/15/bike-295235_960_720.png" width="50px" height="50px" _id="imagenTema3" :center></vaadin-image>
        <vaadin-label style-name="negrita" plain-text _id="mensaje3" :middle>

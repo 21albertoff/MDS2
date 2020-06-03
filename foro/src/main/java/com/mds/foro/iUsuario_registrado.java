@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface iUsuario_registrado extends iUsuario_identificado {
 
-	public List consulta_M_UR(int aIdTema);
+	public List<MensajeDB> consulta_M_UR(int aIdTema);
 
 	public void reportar_mensaje(int aIdUsuario, int aIdMensaje);
 

@@ -48,6 +48,7 @@ public class Visualizar_tema_y_mensajes_Ventana extends AbsoluteLayout {
 	protected Panel panelTema;
 	protected Label tituloTema;
 	protected Panel panelMensaje;
+	protected VerticalLayout verticalMensajes;
 	protected VerticalLayout cajaMensaje1;
 	protected Image fotoUsuario1;
 	protected Label nombreUsuarios1;
@@ -58,6 +59,7 @@ public class Visualizar_tema_y_mensajes_Ventana extends AbsoluteLayout {
 	protected Label nombreUsuarios2;
 	protected Label fechaMensajeUsuario21314;
 	protected Label descripcion2;
+	protected VerticalLayout verticalSeccionesDestacadas;
 	protected HorizontalLayout cajaMensaje3;
 	protected Image imagenTema3;
 	protected Label mensaje3;

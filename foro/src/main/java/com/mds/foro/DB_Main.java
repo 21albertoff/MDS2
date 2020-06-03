@@ -235,11 +235,11 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public List consultar_M_UI(int aIdTema) {
+	public List<MensajeDB> consultar_M_UI(int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
 
-	public List consultar_MA(int aIdAmigo) {
+	public List<MensajeDB> consultar_MA(int aIdAmigo) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -251,11 +251,11 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public List consultar_MisM(int aIdUsuario) {
+	public List<MensajeDB> consultar_MisM(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public List consulta_M_UR(int aIdTema) {
+	public List<MensajeDB> consulta_M_UR(int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -263,15 +263,15 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public List consultar_M_Mo(int aIdTema) {
+	public List<MensajeDB> consultar_M_Mo(int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
 
-	public List consultar_MU(int aIdUsuario) {
+	public List<MensajeDB> consultar_MU(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public List consultar_M_A(int aIdTema) {
+	public List<MensajeDB> consultar_M_A(int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -279,7 +279,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public List consultar_MO() {
+	public List<MensajeDB> consultar_MO() {
 		throw new UnsupportedOperationException();
 	}
 
