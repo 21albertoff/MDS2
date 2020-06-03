@@ -5,6 +5,8 @@ public class Parametros {
 	private static String nombreUsuario="";
 	private static String passwordUsuario="";
 	private static String correoUsuario="";
+	private static int perfilUsuario=1;
+
 
 	private static int idSeccion=1;
 	private static String tituloSeccion="";
@@ -13,13 +15,16 @@ public class Parametros {
 	private static int idTema=1;
 	private static String tituloTema="";
 	private static String iconoTema="";
-	
+	private static String usuarioTema="";
+	private static String descripcionTema="";
+	private static int numMensajesTema=0;
+
+
 	private static boolean baneado=false;
 	
 	private static int privilegioUsuario=0;
 	
 	private static String ordenarPor="";
-
 
 	public static int getTipoUsuario() {
 		return privilegioUsuario;
@@ -116,5 +121,32 @@ public class Parametros {
 	}
 	public static void setOrdenarPor(String ordenarPor) {
 		Parametros.ordenarPor = ordenarPor;
+	}
+	public static void setNombreUsuarioTema(String usuarioTema) {
+		Parametros.usuarioTema = usuarioTema;
+	}
+	
+	public static String getNombreUsuarioTema() {
+		return usuarioTema;
+	}
+	public static void setDescripcionTema(String descripcionTema) {
+		Parametros.descripcionTema = descripcionTema;
+	}
+	
+	public static String getDescripcionTema() {
+		return descripcionTema;
+	}
+	public static void setPerfilUsuario(int perfilUsuario) {
+		Parametros.perfilUsuario = perfilUsuario;
+	}
+	
+	public static int getPerfilUsuario() {
+		return perfilUsuario;
+	}
+	public static void setNumMensajes(int numMensajesTema) {	
+		Parametros.numMensajesTema = numMensajesTema;
+	}
+	public static int getNumMensajes() {
+		return numMensajesTema;
 	}
 }

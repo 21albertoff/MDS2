@@ -17,5 +17,5 @@ public interface iUsuario extends iElementos_fijos {
 
 	/**MENSAJES**/
 	//Consultar mensajes
-	public List<MensajeDB> consultar_M(int aIdTema);
+	public List<MensajeDB> consultar_M(int idTema);
 }

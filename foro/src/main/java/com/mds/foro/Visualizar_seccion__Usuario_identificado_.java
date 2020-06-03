@@ -34,6 +34,7 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 		iconoS.setSource(new ExternalResource(iconoSeccion));
 		tituloS.setValue(tituloSeccion);
 		cargarSeccionesDestacadas();
+		ordenarPor.setItems("Titulo", "Me gustas", "Fecha");
 		consultarTemas();
 
 		menuCerrarSesionUsuario.addClickListener(new Button.ClickListener() {
@@ -68,11 +69,35 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 				addComponent(new Usuario_registrado());
 			}
 		});
+		
+		ordenarPor.addValueChangeListener(event -> {
+		    if (event.getValue() == "Titulo" ) {
+		        Parametros.setOrdenarPor("Titulo");
+		        addComponent(new Visualizar_seccion());
+		        
+		    }else if (event.getValue() == "Me gustas") {
+		        Parametros.setOrdenarPor("Me gustas");
+		        addComponent(new Visualizar_seccion());
+		    }else {
+		    	Parametros.setOrdenarPor("");
+		        addComponent(new Visualizar_seccion());
+		    }
+		});
 	}
 
 	// consultarTemas
 	private void consultarTemas() {
 		List<TemaDB> T = usuarioidentificado.consultar_T_UI(idSeccion);
+		if (Parametros.getOrdenarPor()=="Titulo") {
+			Comparador com;
+			com = new Comparador("Titulo");
+			 T.sort(com);
+		}
+		if (Parametros.getOrdenarPor()=="Me gustas") {
+			Comparador com;
+			com = new Comparador("Me gustas");
+			T.sort(com);
+		}
 		int idT = T.size() - 1;
 		while (idT >= 0) {
 			if (T.get(idT).getEliminado() == false) {
@@ -105,7 +130,13 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 						Parametros.setIdTema(T.get(id).getORMID());
 						Parametros.setTituloTema(T.get(id).getTema());
 						Parametros.setIconoTema(Parametros.getIconoSeccion());
-						addComponent(new Visualizar_tema_y_mensajes());
+						
+						if(Parametros.getTipoUsuario()==1)
+						addComponent(new Visualizar_tema_y_mensajes__Usuario_identificado_());
+						
+						if(Parametros.getTipoUsuario()==2)
+							addComponent(new Visualizar_tema_y_mensajes__Moderador_());
+						
 					}
 				});
 				

@@ -1,11 +1,9 @@
 package com.mds.foro;
 
-import java.util.Comparator;
 import java.util.List;
 
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Notification;
 import com.vaadin.ui.Button.ClickEvent;
 
 @SuppressWarnings("serial")
@@ -115,7 +113,9 @@ public class Visualizar_seccion extends Visualizar_seccion_Ventana {
 					public void buttonClick(ClickEvent event) {
 						Parametros.setIdTema(T.get(id).getORMID());
 						Parametros.setTituloTema(T.get(id).getTema());
-						Parametros.setIconoTema(Parametros.getIconoSeccion());
+						Parametros.setIconoTema(Usuario.getFoto());
+						Parametros.setNombreUsuarioTema(Usuario.getNombreUsuario());
+						Parametros.setDescripcionTema(T.get(id).getDescripcion());
 						addComponent(new Visualizar_tema_y_mensajes());
 					}
 				});
