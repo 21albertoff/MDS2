@@ -223,8 +223,17 @@ PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession()
 		}
 	}
 
-	public void reportar_mensaje(int aIdUsuario, int aIdMensaje) {
-		throw new UnsupportedOperationException();
+	public void reportar_mensaje(int idUsuario, int idMensaje) throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			Usuario_registradoDB reporte = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuario);
+			reporte.reporta.add(reporte);
+			Usuario_registradoDBDAO.save(reporte);
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
 	}
 
 	public void ocultar_mensaje(int idMensaje) throws PersistentException {
