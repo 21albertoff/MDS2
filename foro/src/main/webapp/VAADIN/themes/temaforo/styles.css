@@ -15419,6 +15419,16 @@ div.v-layout.v-horizontal.v-widget {
 	overflow: hidden;
 }
 
+.temaforo .v-button.v-disabled {
+	color: red;
+	opacity: 0.5;
+	filter: alpha(opacity=50) ;
+}
+
+.temaforo .negro {
+	color: black;
+}
+
 .temaforo .nombreForo {
 	font-size: 20px;
 	text-decoration: none;
