@@ -8,15 +8,22 @@
  <body>
   <vaadin-absolute-layout style-name="panelControl">
    <vaadin-absolute-layout style-name="ventanaEmergente" _id="fondoOscuro"></vaadin-absolute-layout>
-   <vaadin-absolute-layout style-name="cajaMensaje" _id="cajaEscribirMensaje" :top="3%" :right="20%" :bottom="40%" :left="20%">
-    <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="imagenPerfil" :top="2%" :right="46%" :bottom="84%" :left="46%"></vaadin-image>
-    <vaadin-label style-name="nombreUsuarioEscribirMensaje" size-full plain-text _id="nombreUsuario" :top="15%" :right="35%" :bottom="80%" :left="35%">
+   <vaadin-absolute-layout style-name="cajaMensaje" _id="cajaEscribirMensaje" :top="3%" :right="20%" :bottom="30%" :left="20%">
+    <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" width-full height="70%" _id="imagenPerfil" :top="2%" :right="46%" :bottom="84%" :left="46%"></vaadin-image>
+    <vaadin-label style-name="nombreUsuarioEscribirMensaje" id="nombreUsuarioEscribirMensaje" width-full height="90%" plain-text _id="nombreUsuario" :top="12%" :bottom="80%">
       @NombreUsuario 
     </vaadin-label>
-    <vaadin-rich-text-area size-full _id="texto" :top="22%" :right="1%" :bottom="15%" :left="1%"></vaadin-rich-text-area>
     <vaadin-button style-name="primary" size-full plain-text _id="botonEscribirMensaje" :top="90%" :right="35%" :bottom="2%" :left="35%">
       Escribir mensaje 
     </vaadin-button>
+    <vaadin-text-field icon="fonticon://Vaadin-Icons/e7fc" caption="Imagen 1" placeholder="Introduce url de la imagen" size-full _id="imagen1" :top="57%" :right="67%" :bottom="36%" :left="3%"></vaadin-text-field>
+    <vaadin-text-area required-indicator-visible placeholder="Introduce el mensaje" size-full _id="mensajeEscrito" :top="20%" :right="3%" :bottom="50%" :left="3%"></vaadin-text-area>
+    <vaadin-text-field icon="fonticon://Vaadin-Icons/e7fc" caption="Imagen 2" placeholder="Introduce url de la imagen" size-full _id="imagen2" :top="57%" :right="35%" :bottom="36%" :left="35%"></vaadin-text-field>
+    <vaadin-text-field icon="fonticon://Vaadin-Icons/e7fc" caption="Imagen 3" placeholder="Introduce url de la imagen" size-full _id="imagen3" :top="57%" :right="3%" :bottom="36%" :left="67%"></vaadin-text-field>
+    <vaadin-text-field icon="fonticon://Vaadin-Icons/e78b" caption="Video" placeholder="Introduce url del video" size-full _id="video" :top="76%" :right="3%" :bottom="17%" :left="3%"></vaadin-text-field>
+    <vaadin-label size-full plain-text :top="67%" :right="48%" :bottom="36%" :left="48%">
+      o 
+    </vaadin-label>
    </vaadin-absolute-layout>
   </vaadin-absolute-layout>
  </body>

@@ -6,7 +6,8 @@ import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
-import com.vaadin.ui.RichTextArea;
+import com.vaadin.ui.TextArea;
+import com.vaadin.ui.TextField;
 import com.vaadin.ui.declarative.Design;
 
 /** 
@@ -25,8 +26,12 @@ public class Escribir_mensaje_Ventana extends AbsoluteLayout {
 	protected AbsoluteLayout cajaEscribirMensaje;
 	protected Image imagenPerfil;
 	protected Label nombreUsuario;
-	protected RichTextArea texto;
 	protected Button botonEscribirMensaje;
+	protected TextField imagen1;
+	protected TextArea mensajeEscrito;
+	protected TextField imagen2;
+	protected TextField imagen3;
+	protected TextField video;
 
 	public Escribir_mensaje_Ventana() {
 		Design.read(this);
