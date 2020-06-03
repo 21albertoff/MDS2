@@ -235,15 +235,25 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public List<MensajeDB> consultar_M_UI(int aIdTema) {
-		throw new UnsupportedOperationException();
+	public List<MensajeDB> consultar_M_UI(int idTema) {
+		try {
+			return mensajes.consultar_M_UI(idTema);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
-	public List<MensajeDB> consultar_MA(int aIdAmigo) {
-		throw new UnsupportedOperationException();
+	public List<MensajeDB> consultar_MA(int idAmigo) {
+		try {
+			return mensajes.consultar_MA(idAmigo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
-	public List consultar_N(int aIdUsuario) {
+	public List<Usuario_DB> consultar_N(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
