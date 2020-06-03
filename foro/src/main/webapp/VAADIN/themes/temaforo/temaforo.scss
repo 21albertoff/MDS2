@@ -36,6 +36,14 @@
 
   // Insert your own theme rules here
   
+  .v-button.v-disabled{
+    color: red;
+    opacity: 0.5;
+	filter: alpha(opacity=50) ;
+  }
+  .negro{
+  color:black;
+  }
   
   .nombreForo{
   	font-size: 20px;
