@@ -51,38 +51,33 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 		cantidadMensajes = (""+numMensajes);
 		numeroMensajes.setValue(cantidadMensajes);
 
-		menuCerrarSesionUsuario.addClickListener(new Button.ClickListener() {
-			public void buttonClick(ClickEvent event) {
-				addComponent(new Cerrar_sesion());
+		if (!(Parametros.getTipoUsuario() == 1 || Parametros.getTipoUsuario() == 2
+				|| Parametros.getTipoUsuario() == 3)) {
 
-			}
-		});
+			menuIniciarSesion.addClickListener(new Button.ClickListener() {
+				public void buttonClick(ClickEvent event) {
+					addComponent(new Iniciar_sesion());
+				}
+			});
 
-		menuMiPerfilUsuario.addClickListener(new Button.ClickListener() {
-			public void buttonClick(ClickEvent event) {
-				addComponent(new Visualizar_mi_perfil());
+			menuRegistrarse.addClickListener(new Button.ClickListener() {
+				public void buttonClick(ClickEvent event) {
+					addComponent(new Registrarse());
+				}
+			});
 
-			}
-		});
-
-		menuNotificacionesUsuario.addClickListener(new Button.ClickListener() {
-			public void buttonClick(ClickEvent event) {
-				addComponent(new Notificaciones());
-
-			}
-		});
-
-		nombreForo.addClickListener(new Button.ClickListener() {
-			public void buttonClick(ClickEvent event) {
-				addComponent(new Visualizar_seccion());
-			}
-		});
+			nombreForo.addClickListener(new Button.ClickListener() {
+				public void buttonClick(ClickEvent event) {
+					addComponent(new Usuario_no_identificado());
+				}
+			});
+		}
 
 	}
 	
 	private void consultarMensajes() {
 		List<MensajeDB> M = usuario.consultar_M(idTema);
-		int numMensajes = Parametros.getNumMensajes();
+		int numMensajes = 0;
 		int idM = 0;
 		while (idM < M.size()) {
 			if (M.get(idM).getEliminado() == false) {

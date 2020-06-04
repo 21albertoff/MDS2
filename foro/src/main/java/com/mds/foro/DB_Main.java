@@ -140,6 +140,15 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	
 	/**Usuario registrado**/
 	
+	//Valorar tema
+		public void valorar_tema(int idUsuario, int idTema) {
+			try {
+				temas.valorar_tema(idUsuario,idTema);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	
 	/**Moderador**/
 	
 	/**Administrador**/
@@ -212,6 +221,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return false;
 	}
+	
 	
 	/**Otros metodos**/
 	
@@ -373,9 +383,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public void valorar_tema(int aIdUsuario, int aIdTema) {
-		throw new UnsupportedOperationException();
-	}
+	
 
 	public void valorar_mensaje(int aIdUsuario, int aIdMensaje) {
 		throw new UnsupportedOperationException();

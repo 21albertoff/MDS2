@@ -17,7 +17,7 @@ public class DB_Mensajes {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<MensajeDB> mensajes = null;
 		try {			
-			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.esta_en='"+idTema+"'", null);
+			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.contieneM='"+idTema+"'", null);
 			t.commit();
 			
 		} catch (PersistentException e1) {
@@ -31,7 +31,7 @@ public class DB_Mensajes {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<MensajeDB> mensajes = null;
 		try {			
-			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.esta_en='"+idTema+"'", null);
+			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.contieneM='"+idTema+"'", null);
 			t.commit();
 			
 		} catch (PersistentException e1) {
@@ -45,7 +45,7 @@ public class DB_Mensajes {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<MensajeDB> mensajes = null;
 		try {			
-			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.esta_en='"+idTema+"'", null);
+			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.contieneM='"+idTema+"'", null);
 			t.commit();
 			
 		} catch (PersistentException e1) {
@@ -87,7 +87,7 @@ public class DB_Mensajes {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<MensajeDB> mensajes = null;
 		try {			
-			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.esta_en='"+idTema+"'", null);
+			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.contieneM='"+idTema+"'", null);
 			t.commit();
 			
 		} catch (PersistentException e1) {
@@ -115,7 +115,7 @@ public class DB_Mensajes {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<MensajeDB> mensajes = null;
 		try {			
-			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.esta_en='"+idTema+"'", null);
+			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.contieneM='"+idTema+"'", null);
 			t.commit();
 			
 		} catch (PersistentException e1) {

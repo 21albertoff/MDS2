@@ -215,17 +215,7 @@ public class DB_Temas {
 		
 		try {
 			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
-			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
-
-			if(usuario.da_megusta_.contains(tema)) {
-				usuario.da_megusta_.remove(tema);
-				int likes = tema.getCantidadLike();
-				tema.setCantidadLike(likes-1);
-			} else {
-				usuario.da_megusta_.add(tema);
-				int likes = tema.getCantidadLike();
-				tema.setCantidadLike(likes+1);
-			}
+			tema.setEliminado(true);
 			TemaDBDAO.save(tema);
 			t.commit();
 		}catch(Exception e) {

@@ -19,12 +19,16 @@ public class Parametros {
 	private static String descripcionTema="";
 	private static int numMensajesTema=0;
 
+	private static int idMensaje=1;
 
 	private static boolean baneado=false;
 	
 	private static int privilegioUsuario=0;
 	
 	private static String ordenarPor="";
+	private static int idUsuarioTema;
+	private static int likeTema;
+	private static int permiso;
 
 	public static int getTipoUsuario() {
 		return privilegioUsuario;
@@ -148,5 +152,30 @@ public class Parametros {
 	}
 	public static int getNumMensajes() {
 		return numMensajesTema;
+	}
+	public static int getMensaje() {
+		return idMensaje;
+	}
+	public static void setMensaje(int idMensaje) {
+		Parametros.idMensaje = idMensaje;
+		
+	}
+	public static int getUsuarioTema() {
+		return idUsuarioTema;
+	}
+	public static void setUsuarioTema(int idUsuarioTema) {
+		Parametros.idUsuarioTema = idUsuarioTema;		
+	}
+	public static int getLikeTema() {
+		return likeTema;
+	}
+	public static void setLikeTema(int likeTema) {
+		Parametros.likeTema = likeTema;		
+	}
+	public static int getTipoPermiso() {
+		return permiso;
+	}
+	public static void setTipoPermiso(int permiso) {
+		Parametros.permiso = permiso;		
 	}
 }

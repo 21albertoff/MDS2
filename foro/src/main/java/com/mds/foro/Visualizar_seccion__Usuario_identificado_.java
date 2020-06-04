@@ -73,14 +73,14 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 		ordenarPor.addValueChangeListener(event -> {
 		    if (event.getValue() == "Titulo" ) {
 		        Parametros.setOrdenarPor("Titulo");
-		        addComponent(new Visualizar_seccion());
+		        addComponent(new Visualizar_seccion__Usuario_identificado_());
 		        
 		    }else if (event.getValue() == "Me gustas") {
 		        Parametros.setOrdenarPor("Me gustas");
-		        addComponent(new Visualizar_seccion());
+		        addComponent(new Visualizar_seccion__Usuario_identificado_());
 		    }else {
 		    	Parametros.setOrdenarPor("");
-		        addComponent(new Visualizar_seccion());
+		        addComponent(new Visualizar_seccion__Usuario_identificado_());
 		    }
 		});
 	}
@@ -113,7 +113,9 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 				String cantidadLikeTexto = "" + cantidadLike;
 				tema.cantidadMeGustas.setValue(cantidadLikeTexto);
 				Usuario_DB usuario = T.get(idT).getCreado_por();
+				
 				int idUsuario = usuario.getORMID();
+				
 				if(!(idUsuario == Parametros.getIdUsuario())) {
 					tema.botonEliminarTema.setVisible(false);
 					tema.botonEliminarOculto.setVisible(true);
@@ -129,7 +131,12 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 					public void buttonClick(ClickEvent event) {
 						Parametros.setIdTema(T.get(id).getORMID());
 						Parametros.setTituloTema(T.get(id).getTema());
-						Parametros.setIconoTema(Parametros.getIconoSeccion());
+						Parametros.setIconoTema(Usuario.getFoto());
+						Parametros.setNombreUsuarioTema(Usuario.getNombreUsuario());
+						Parametros.setDescripcionTema(T.get(id).getDescripcion());
+						Parametros.setUsuarioTema(idUsuario);
+						Parametros.setLikeTema(T.get(id).getCantidadLike());
+						Parametros.setTipoPermiso(T.get(id).getCreado_por().getPermiso());
 						
 						if(Parametros.getTipoUsuario()==1)
 						addComponent(new Visualizar_tema_y_mensajes__Usuario_identificado_());

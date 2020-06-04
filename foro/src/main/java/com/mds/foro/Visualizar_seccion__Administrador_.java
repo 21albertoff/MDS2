@@ -72,14 +72,14 @@ public class Visualizar_seccion__Administrador_ extends Visualizar_seccion_Venta
 		ordenarPor.addValueChangeListener(event -> {
 		    if (event.getValue() == "Titulo" ) {
 		        Parametros.setOrdenarPor("Titulo");
-		        addComponent(new Visualizar_seccion());
+		        addComponent(new Visualizar_seccion__Administrador_());
 		        
 		    }else if (event.getValue() == "Me gustas") {
 		        Parametros.setOrdenarPor("Me gustas");
-		        addComponent(new Visualizar_seccion());
+		        addComponent(new Visualizar_seccion__Administrador_());
 		    }else {
 		    	Parametros.setOrdenarPor("");
-		        addComponent(new Visualizar_seccion());
+		        addComponent(new Visualizar_seccion__Administrador_());
 		    }
 		});
 	}

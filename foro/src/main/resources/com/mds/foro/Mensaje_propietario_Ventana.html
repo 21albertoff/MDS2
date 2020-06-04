@@ -9,20 +9,23 @@
   <vaadin-horizontal-layout>
    <vaadin-label width="80px" plain-text _id="citado"></vaadin-label>
    <vaadin-vertical-layout style-name="cajaMensaje" spacing="false" responsive width="900px">
-    <vaadin-button icon="fonticon://Vaadin-Icons/e80b" primary-style-name="v-botton" style-name="eliminar" width="30px" height="30px" plain-text :right></vaadin-button>
-    <vaadin-image source="https://cdn.dribbble.com/users/1016246/screenshots/2439534/dribbble-03.png" style-name="fotoPerfil" width="40px" height="40px" _id="fotoUsuario" :center></vaadin-image>
+    <vaadin-button icon="fonticon://Vaadin-Icons/e80b" primary-style-name="v-botton" style-name="eliminar" width="30px" height="30px" plain-text _id="botonEliminar" :right></vaadin-button>
+    <vaadin-image source="https://cdn.dribbble.com/users/1016246/screenshots/2439534/dribbble-03.png" style-name="fotoPerfil" width="40px" height="40px" _id="fotoPerfil" :center></vaadin-image>
     <vaadin-button style-name="link" plain-text _id="nickUsuario" :center>
       Danielor 
     </vaadin-button>
     <vaadin-button icon="fonticon://Vaadin-Icons/e711" style-name="link" _id="reportar" :center></vaadin-button>
-    <vaadin-button primary-style-name="v-botton" style-name="eliminar banear" width="15%" height-full plain-text :center>
+    <vaadin-button primary-style-name="v-botton" style-name="eliminar banear" width="15%" height-full plain-text _id="botonBanear" :center>
       BANEAR 
     </vaadin-button>
-    <vaadin-button primary-style-name="v-botton-morado" style-name="eliminar banear" width="15%" height-full plain-text :center>
+    <vaadin-button primary-style-name="v-botton-morado" style-name="eliminar notificar" width="15%" height-full plain-text _id="botonNotificar" :center>
       NOTIFICAR 
     </vaadin-button>
+    <vaadin-label style-name="cajaMensajeCitado" width="90%" plain-text _id="citarMen" :bottom :center>
+      Esta es la respuesta que ha dejado un crack al administrador.Esta es la respuesta que ha dejado un crack al administrador.Esta es la respuesta que ha dejado un crack al administrador.Esta es la respuesta que ha dejado un crack al administrador.Esta es la respuesta que ha dejado un crack al administrador.Esta es la respuesta que ha dejado un crack al administrador.Esta es la respuesta que ha dejado un crack al administrador.Esta es la respuesta que ha dejado un crack al administrador. 
+    </vaadin-label>
     <vaadin-label responsive width="90%" height-full plain-text _id="mensaje" :center>
-      rESPUESTA 
+      RESPUESTA 
     </vaadin-label>
     <vaadin-horizontal-layout width="90%" margin _id="videos" :middle :center>
      <vaadin-link icon="fonticon://Vaadin-Icons/e78b" description="Link del video" size-full _id="linkVideo" :bottom :center :expand></vaadin-link>
@@ -33,14 +36,16 @@
      <vaadin-image width-full height="50%" _id="imagen3"></vaadin-image>
     </vaadin-horizontal-layout>
     <vaadin-horizontal-layout width-full>
-     <vaadin-label plain-text _id="temaMensaje251313" :middle :right>
+     <vaadin-label plain-text _id="cantidadMeGusta" :middle :right>
        450 
      </vaadin-label>
-     <vaadin-button icon="fonticon://Vaadin-Icons/e780" style-name="negro link" plain-text _id="megusta"></vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e780" style-name="negro link" plain-text _id="botonMeGusta"></vaadin-button>
      <vaadin-label plain-text></vaadin-label>
      <vaadin-label plain-text></vaadin-label>
      <vaadin-label plain-text></vaadin-label>
-     <vaadin-link caption="RESPONDER" :bottom></vaadin-link>
+     <vaadin-button style-name="link" _id="responderMensaje" :bottom :center>
+       RESPONDER 
+     </vaadin-button>
     </vaadin-horizontal-layout>
     <vaadin-label plain-text></vaadin-label>
    </vaadin-vertical-layout>
