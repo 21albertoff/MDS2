@@ -2,13 +2,12 @@ package com.mds.foro;
 
 import java.util.List;
 
-import com.vaadin.navigator.View;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 
 @SuppressWarnings("serial")
-public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccion_Ventana implements View {
+public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccion_Ventana {
 
 	// Declaracion de variables
 	iElementos_fijos Elementos_fijos;
@@ -25,8 +24,21 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 		tituloSeccion = Parametros.getTituloSeccion();
 		iconoSeccion = Parametros.getIconoSeccion();
 		crearTema.setVisible(true);
-		menuUsuarioIdentificado.setVisible(true);
-		menuUsuarioNoIdentifado.setVisible(false);
+		if (Parametros.getTipoUsuario() == 1) {
+			menuUsuarioIdentificado.setVisible(true);
+			menuUsuarioNoIdentifado.setVisible(false);
+			menuUsuarioAdministrador.setVisible(false);
+			menuUsuarioModerador.setVisible(false);
+
+		}
+		else if (Parametros.getTipoUsuario() == 2) {
+			menuUsuarioModerador.setVisible(true);
+			menuUsuarioNoIdentifado.setVisible(false);
+			menuUsuarioIdentificado.setVisible(false);
+			menuUsuarioAdministrador.setVisible(false);
+
+
+		}
 	}
 
 	public Visualizar_seccion__Usuario_identificado_() {
@@ -66,7 +78,11 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 
 		nombreForo.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
+				if (Parametros.getTipoUsuario() == 1)
 				addComponent(new Usuario_registrado());
+				
+				if (Parametros.getTipoUsuario() == 2)
+					addComponent(new Moderador());
 			}
 		});
 		
@@ -136,12 +152,11 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 						Parametros.setDescripcionTema(T.get(id).getDescripcion());
 						Parametros.setUsuarioTema(idUsuario);
 						Parametros.setLikeTema(T.get(id).getCantidadLike());
-						Parametros.setTipoPermiso(T.get(id).getCreado_por().getPermiso());
 						
-						if(Parametros.getTipoUsuario()==1)
+						if(Parametros.getTipoUsuario() == 1)
 						addComponent(new Visualizar_tema_y_mensajes__Usuario_identificado_());
 						
-						if(Parametros.getTipoUsuario()==2)
+						if(Parametros.getTipoUsuario() == 2)
 							addComponent(new Visualizar_tema_y_mensajes__Moderador_());
 						
 					}

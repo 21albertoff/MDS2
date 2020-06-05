@@ -12,6 +12,7 @@ public class DB_Mensajes {
 	public DB_Main _bd_main_mensajes;
 	public Vector<MensajeDB> _contiene_mensaje = new Vector<MensajeDB>();
 
+	//Consultar mensajes usuario no identificado
 	@SuppressWarnings("unchecked")
 	public List<MensajeDB> consultar_M(int idTema) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
@@ -25,21 +26,7 @@ public class DB_Mensajes {
 		}
 		return mensajes;
 	}
-
-	@SuppressWarnings("unchecked")
-	public List<MensajeDB> consultar_M_UR(int idTema) throws PersistentException {
-		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		List<MensajeDB> mensajes = null;
-		try {			
-			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.contieneM='"+idTema+"'", null);
-			t.commit();
-			
-		} catch (PersistentException e1) {
-			t.rollback();
-		}
-		return mensajes;
-	}
-
+	
 	@SuppressWarnings("unchecked")
 	public List<MensajeDB> consultar_M_UI(int idTema) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
@@ -138,46 +125,6 @@ public class DB_Mensajes {
 		return mensajes;
 	}
 
-	public boolean agregar_fotos(int idMensaje, String foto1, String foto2, String foto3) throws PersistentException {
-		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		
-		try {	
-			MensajeDB mensaje = MensajeDBDAO.loadMensajeDBByORMID(idMensaje);
-			mensaje.setFoto1(foto1);
-			if(foto2 != null || foto2 != "") {
-				mensaje.setFoto2(foto2);
-			}
-			if(foto3 != null || foto3 != "") {
-				mensaje.setFoto2(foto3);
-			}
-			MensajeDBDAO.save(mensaje);
-			t.commit();
-			return true;
-			
-			} catch (PersistentException e1) {
-				t.rollback();
-
-				return false;
-			}
-	}
-
-	public boolean agregar_video(int idMensaje, String video) throws PersistentException {
-		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		
-		try {	
-			MensajeDB mensaje = MensajeDBDAO.loadMensajeDBByORMID(idMensaje);
-			mensaje.setVideo(video);
-			MensajeDBDAO.save(mensaje);
-			t.commit();
-			return true;
-			
-			} catch (PersistentException e1) {
-				t.rollback();
-
-				return false;
-			}
-	}
-
 	public boolean eliminar_mi_mensaje(int idMensaje) throws PersistentException {
 		boolean eliminado = false;
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
@@ -267,18 +214,24 @@ public class DB_Mensajes {
 			nuevoMensaje.setOculto(false);
 			nuevoMensaje.setMensaje(mensaje);
 			nuevoMensaje.setEsta_en(null);
-			nuevoMensaje.setFoto1(null);
-			nuevoMensaje.setFoto2(null);
-			nuevoMensaje.setFoto3(null);
-			nuevoMensaje.setVideo(null);
+			if (video == "null") {
+				nuevoMensaje.setVideo(null);
+				
+				if (foto1 == "null") { nuevoMensaje.setFoto1(null);
+				} else { nuevoMensaje.setFoto1(foto1);
+					if (foto2 == "null") { nuevoMensaje.setFoto2(null);
+					} else { nuevoMensaje.setFoto2(foto2);
+						if (foto3 == "null") { nuevoMensaje.setFoto3(null);
+						} else { nuevoMensaje.setFoto3(foto3);
+						}
+					}
+				}
+			} else {
+				nuevoMensaje.setVideo(video);
+			}
 			MensajeDBDAO.save(nuevoMensaje);
 			t.commit();
-			if(video != null || video != "") {
-				agregar_video(nuevoMensaje.getIdMensaje(),video);
-			}
-			if(foto1 != null || foto1 != "") {
-				agregar_fotos(nuevoMensaje.getIdMensaje(),foto1,foto2,foto3);
-			}
+			
 			return true;
 			
 			} catch (PersistentException e1) {
@@ -336,14 +289,23 @@ PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession()
 			nuevoMensaje.setFoto2(null);
 			nuevoMensaje.setFoto3(null);
 			nuevoMensaje.setVideo(null);
+			if (video == "null") {
+				nuevoMensaje.setVideo(null);
+				
+				if (foto1 == "null") { nuevoMensaje.setFoto1(null);
+				} else { nuevoMensaje.setFoto1(foto1);
+					if (foto2 == "null") { nuevoMensaje.setFoto2(null);
+					} else { nuevoMensaje.setFoto2(foto2);
+						if (foto3 == "null") { nuevoMensaje.setFoto3(null);
+						} else { nuevoMensaje.setFoto3(foto3);
+						}
+					}
+				}
+			} else {
+				nuevoMensaje.setVideo(video);
+			}
 			MensajeDBDAO.save(nuevoMensaje);
 			t.commit();
-			if(video != null || video != "") {
-				agregar_video(nuevoMensaje.getIdMensaje(),video);
-			}
-			if(foto1 != null || foto1 != "") {
-				agregar_fotos(nuevoMensaje.getIdMensaje(),foto1,foto2,foto3);
-			}
 
 			return true;
 			

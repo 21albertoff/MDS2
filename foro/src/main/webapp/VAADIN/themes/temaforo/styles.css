@@ -15625,12 +15625,16 @@ div.v-layout.v-horizontal.v-widget {
 	display: none;
 }
 
+.temaforo .textoPequeno {
+	font-size: 7px;
+}
+
 .temaforo .v-botton-morado {
 	color: #eaf4e9;
 	font-weight: 400;
 	text-align: center;
 	font-weight: bold;
-	font-size: 13px;
+	font-size: 10px;
 	border-radius: 4px;
 	border: 1px solid #9c27b0;
 	border-top-color: #9c27b0;

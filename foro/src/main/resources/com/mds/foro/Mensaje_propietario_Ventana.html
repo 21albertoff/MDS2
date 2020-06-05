@@ -8,7 +8,7 @@
  <body>
   <vaadin-horizontal-layout>
    <vaadin-label width="80px" plain-text _id="citado"></vaadin-label>
-   <vaadin-vertical-layout style-name="cajaMensaje" spacing="false" responsive width="900px">
+   <vaadin-vertical-layout style-name="cajaMensaje" responsive width="900px" margin="false">
     <vaadin-button icon="fonticon://Vaadin-Icons/e80b" primary-style-name="v-botton" style-name="eliminar" width="30px" height="30px" plain-text _id="botonEliminar" :right></vaadin-button>
     <vaadin-image source="https://cdn.dribbble.com/users/1016246/screenshots/2439534/dribbble-03.png" style-name="fotoPerfil" width="40px" height="40px" _id="fotoPerfil" :center></vaadin-image>
     <vaadin-button style-name="link" plain-text _id="nickUsuario" :center>
@@ -24,14 +24,13 @@
     <vaadin-label style-name="cajaMensajeCitado" width="90%" plain-text _id="citarMen" :bottom :center>
       Esta es la respuesta que ha dejado un crack al administrador.Esta es la respuesta que ha dejado un crack al administrador.Esta es la respuesta que ha dejado un crack al administrador.Esta es la respuesta que ha dejado un crack al administrador.Esta es la respuesta que ha dejado un crack al administrador.Esta es la respuesta que ha dejado un crack al administrador.Esta es la respuesta que ha dejado un crack al administrador.Esta es la respuesta que ha dejado un crack al administrador. 
     </vaadin-label>
-    <vaadin-label plain-text></vaadin-label>
     <vaadin-label responsive width="90%" height-full plain-text _id="mensaje" :center>
       RESPUESTA 
     </vaadin-label>
-    <vaadin-horizontal-layout width="90%" margin _id="videos" :middle :center>
-     <vaadin-link visible="false" icon="fonticon://Vaadin-Icons/e78b" description="Link del video" size-full _id="linkVideo" :bottom :center :expand></vaadin-link>
+    <vaadin-horizontal-layout spacing="false" width="90%" height-full _id="videos" :middle :center>
+     <vaadin-link icon="fonticon://Vaadin-Icons/e78b" description="Link del video" size-full _id="linkVideo" :bottom :center :expand></vaadin-link>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout width="90%" margin _id="imagen" :middle :center>
+    <vaadin-horizontal-layout spacing="false" width="90%" _id="imagen" :middle :center>
      <vaadin-image size-full _id="imagen1"></vaadin-image>
      <vaadin-image size-full _id="imagen2"></vaadin-image>
      <vaadin-image width-full height="50%" _id="imagen3"></vaadin-image>
@@ -42,9 +41,11 @@
      </vaadin-label>
      <vaadin-button icon="fonticon://Vaadin-Icons/e780" style-name="negro link" plain-text _id="botonMeGusta"></vaadin-button>
      <vaadin-label plain-text></vaadin-label>
-     <vaadin-button style-name="link" _id="responderMensaje">
+     <vaadin-label plain-text></vaadin-label>
+     <vaadin-button style-name="link" _id="responderMensaje" :middle>
        RESPONDER 
      </vaadin-button>
+     <vaadin-label plain-text></vaadin-label>
     </vaadin-horizontal-layout>
     <vaadin-label plain-text></vaadin-label>
    </vaadin-vertical-layout>

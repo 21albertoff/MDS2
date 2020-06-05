@@ -2,14 +2,12 @@ package com.mds.foro;
 
 import java.util.List;
 
-import org.orm.PersistentException;
 
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.CheckBox;
-import com.vaadin.ui.Notification;
 import com.vaadin.ui.Button.ClickEvent;
 
+@SuppressWarnings("serial")
 public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualizar_tema_y_mensajes_Usuario_identificado_Ventana {
 	// Declaracion de variables
 	iElementos_fijos Elementos_fijos;
@@ -39,7 +37,6 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 		menuUsuarioModerador.setVisible(false);
 	}
 
-	@SuppressWarnings("serial")
 	public Visualizar_tema_y_mensajes__Usuario_identificado_() {
 		inicializar();
 		cargarSeccionesDestacadas();
@@ -60,7 +57,7 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 		if (tema == propietario) {
 			eliminarTema.setVisible(true);
 		} else {
-			if (Parametros.getTipoPermiso() != 3)
+			if (Parametros.getTipoUsuario() != 3)
 				reportarUsuario.setVisible(true);
 			eliminarTema.setVisible(false);
 		}
@@ -110,6 +107,7 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 			public void buttonClick(ClickEvent event) {
 				Parametros.setIdTema(idTema);
 				Parametros.setCitado(false);
+				Parametros.setTipoUsuario(1);
 				addComponent(new Escribir_mensaje());
 			}
 		});
@@ -125,7 +123,6 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 	}
 
 	//Consultar Mensajes usuario identificado
-	@SuppressWarnings({ "serial", "unchecked" })
 	private void consultarMensajes() {
 		List<MensajeDB> M = usuarioI.consultar_M_UI(idTema);
 		int numMensajes = 0;
@@ -133,9 +130,17 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 		while (idM < M.size()) {
 			if (M.get(idM).getEliminado() == false) {
 				if (M.get(idM).getOculto() == false) {
+					
 					numMensajes++;
 					Parametros.setNumMensajes(numMensajes);
 					Mensaje_propietario mensaje = new Mensaje_propietario();
+					
+					//Ocultar elementos
+					mensaje.botonBanear.setVisible(false);
+					mensaje.botonNotificar.setVisible(false);
+					mensaje.botonEliminar.setVisible(false);
+					
+					//Citar mensaje
 					if (!(M.get(idM).getEsta_en() == null)) {
 						MensajeDB cita = M.get(idM).getEsta_en();
 						mensaje.citarMen.setValue(cita.getMensaje());
@@ -144,49 +149,59 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 						mensaje.citado.setVisible(false);
 					}
 
-					mensaje.botonBanear.setVisible(false);
-					mensaje.botonNotificar.setVisible(false);
-
+					//Mensaje propietario
 					int propietario = Parametros.getIdUsuario();
 					Usuario_DB user = M.get(idM).getCreado_por();
 					if (user.getIdUsuario() == propietario) {
 						mensaje.botonEliminar.setVisible(true);
+						mensaje.reportar.setVisible(false);
 						Parametros.setMensaje(M.get(idM).getIdMensaje());
-					} else {
-						mensaje.botonEliminar.setVisible(false);
+					} 
+					
+					//Mensaje de un admin
+					if (user.getPermiso() == 3) {
+						mensaje.reportar.setVisible(false);
 					}
+					
+					//Datos mensaje
 					mensaje.fotoPerfil.setSource(new ExternalResource(user.getFoto()));
 					mensaje.nickUsuario.setCaption(user.getNombreUsuario());
 					mensaje.mensaje.setValue(M.get(idM).getMensaje());
 					String gusta = ("" + M.get(idM).getCantidadLike());
 					mensaje.cantidadMeGusta.setValue(gusta);
-					mensaje.botonMeGusta.setVisible(true);
+					
+					//Videos e imagenes
+					String video = M.get(idM).getVideo();
+					String foto1 = M.get(idM).getFoto1();
+					String foto2 = M.get(idM).getFoto2();
+					String foto3 = M.get(idM).getFoto3();
 
-					if (!(M.get(idM).getVideo() == null || M.get(idM).getVideo() == "")) {
-						String linkVideo = M.get(idM).getVideo();
-						mensaje.linkVideo.setCaption(linkVideo);
-						mensaje.linkVideo.setResource(new ExternalResource(M.get(idM).getVideo()));
-						mensaje.imagen.setVisible(false);
-					} else {
+					if (video == null) {
+						mensaje.linkVideo.setVisible(false);
 						mensaje.videos.setVisible(false);
-						if (!(M.get(idM).getFoto1() == null || M.get(idM).getFoto1() == "")) {
-							mensaje.imagen1.setSource(new ExternalResource(M.get(idM).getFoto1()));
-						}
-						if (!(M.get(idM).getFoto2() == null || M.get(idM).getFoto2() == "")) {
-							mensaje.imagen2.setSource(new ExternalResource(M.get(idM).getFoto2()));
-						}
 
-						if (!(M.get(idM).getFoto3() == null || M.get(idM).getFoto3() == "")) {
-							mensaje.imagen3.setSource(new ExternalResource(M.get(idM).getFoto3()));
-						}
-
-						else {
+						if (foto1 == null) { mensaje.imagen1.setVisible(false); 
 							mensaje.imagen.setVisible(false);
+						} else { mensaje.imagen1.setSource(new ExternalResource(foto1));
+							if (foto2 == null) { mensaje.imagen2.setVisible(false);
+							} else { mensaje.imagen2.setSource(new ExternalResource(foto2));
+								if (foto3 == null) { mensaje.imagen3.setVisible(false);
+								} else { mensaje.imagen3.setSource(new ExternalResource(foto3));
+								}
+							}
 						}
+					} else {
+						mensaje.linkVideo.setCaption(video);
+						mensaje.linkVideo.setResource(new ExternalResource(video));
+						mensaje.videos.setVisible(true);
+						mensaje.linkVideo.setVisible(true);
+						mensaje.imagen.setVisible(false);
 					}
 
+					//Añadir mensaje
 					verticalMensajes.addComponent(mensaje);
 
+					//Metodos de cada boton
 					final int id = idM;
 					mensaje.nickUsuario.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
@@ -221,6 +236,7 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 							Parametros.setIdTema(idTema);
 							Parametros.setCitado(true);
 							Parametros.setIdCitado(M.get(id).getORMID());
+							Parametros.setTipoUsuario(1);
 							addComponent(new Escribir_mensaje());
 						}
 					});
@@ -233,7 +249,6 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 	}
 
 	// cargarSeccionesDestacadas
-	@SuppressWarnings("serial")
 	private void cargarSeccionesDestacadas() {
 		List<SeccionDB> SD = Elementos_fijos.consultar_SD();
 		int idSD = SD.size() - 1;

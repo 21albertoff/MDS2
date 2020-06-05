@@ -48,7 +48,10 @@ public class Usuario extends Elementos_fijos {
 						Parametros.setIconoSeccion(US.get(id).getIcono());
 						
 						//Usuario registrado
-						if(Parametros.getTipoUsuario()==1) {
+						if(Parametros.getTipoUsuario() == 1) {
+					        addComponent(new Visualizar_seccion__Usuario_identificado_());
+						}
+						else if(Parametros.getTipoUsuario() == 2) {
 					        addComponent(new Visualizar_seccion__Usuario_identificado_());
 						}
 						else {
@@ -90,7 +93,10 @@ public class Usuario extends Elementos_fijos {
 		                        Parametros.setIconoSeccion(SF.get(id).getIcono());
 		                        
 		                        //Usuario registrado
-								if(Parametros.getTipoUsuario()==1) {
+								if(Parametros.getTipoUsuario() == 1) {
+							        addComponent(new Visualizar_seccion__Usuario_identificado_());
+								}
+								else if(Parametros.getTipoUsuario() == 2) {
 							        addComponent(new Visualizar_seccion__Usuario_identificado_());
 								}
 								else {

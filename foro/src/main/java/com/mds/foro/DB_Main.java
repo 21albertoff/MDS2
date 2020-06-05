@@ -172,6 +172,15 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	
 	/**Moderador**/
 	
+	public List<MensajeDB> consultar_M_Mo(int idTema) {
+		try {
+			return mensajes.consultar_M_Mo(idTema);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	/**Administrador**/
 	
 	//Consultar secciones fijas administrador
@@ -304,10 +313,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public List<MensajeDB> consultar_M_Mo(int aIdTema) {
-		throw new UnsupportedOperationException();
-	}
-
 	public List<MensajeDB> consultar_MU(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
@@ -325,14 +330,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	}
 
 	public List consultar_UN() {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean agregar_fotos(int aIdMensaje, String aFoto1, String aFoto2, String aFoto3) {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean agregar_video(int aIdMensaje, String aVideo) {
 		throw new UnsupportedOperationException();
 	}
 

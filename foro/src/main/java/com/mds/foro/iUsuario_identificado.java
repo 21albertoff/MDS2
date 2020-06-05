@@ -7,7 +7,7 @@ public interface iUsuario_identificado extends iUsuario {
 	//Consultar temas
 	public List<TemaDB> consultar_T_UI(int idSeccion);
 
-	public List consultar_M_UI(int aIdTema);
+	public List<MensajeDB> consultar_M_UI(int idTema);
 
 	public List consultar_MA(int aIdAmigo);
 
@@ -22,10 +22,6 @@ public interface iUsuario_identificado extends iUsuario {
 
 	//Eliminar propio tema
 	public boolean eliminar_propio_tema(int idTema);
-
-	public boolean agregar_fotos(int aIdMensaje, String aFoto1, String aFoto2, String aFoto3);
-
-	public boolean agregar_video(int aIdMensaje, String aVideo);
 
 	public boolean agregar_amigo(int aIdUsuario, int aIdAmigo);
 

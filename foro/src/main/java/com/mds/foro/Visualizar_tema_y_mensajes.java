@@ -3,12 +3,10 @@ package com.mds.foro;
 import java.util.List;
 
 import com.vaadin.server.ExternalResource;
-import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Image;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.Button.ClickEvent;
 
+@SuppressWarnings("serial")
 public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Ventana {
 
 	// Declaracion de variables
@@ -21,7 +19,6 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 	private String descripcionT;
 	private int numMensajes;
 	private String cantidadMensajes;
-
 
 	// Inicializacion
 	public void inicializar() {
@@ -38,6 +35,7 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 		menuUsuarioModerador.setVisible(false);
 	}
 
+	//Constructor
 	public Visualizar_tema_y_mensajes() {
 		inicializar();
 		cargarSeccionesDestacadas();
@@ -48,7 +46,7 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 		nombreUsuario.setValue(nombreUsuarioTema);
 		descripcionTema.setValue(descripcionT);
 		numMensajes = Parametros.getNumMensajes();
-		cantidadMensajes = (""+numMensajes);
+		cantidadMensajes = ("" + numMensajes);
 		numeroMensajes.setValue(cantidadMensajes);
 
 		if (!(Parametros.getTipoUsuario() == 1 || Parametros.getTipoUsuario() == 2
@@ -74,63 +72,80 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 		}
 
 	}
-	
+
+	// Consultar Mensajes usuario identificado
 	private void consultarMensajes() {
 		List<MensajeDB> M = usuario.consultar_M(idTema);
 		int numMensajes = 0;
 		int idM = 0;
 		while (idM < M.size()) {
 			if (M.get(idM).getEliminado() == false) {
-				if(M.get(idM).getOculto() == false) {
+				if (M.get(idM).getOculto() == false) {
+
 					numMensajes++;
 					Parametros.setNumMensajes(numMensajes);
 					Mensaje mensaje = new Mensaje();
-					if(!(M.get(idM).getEsta_en() == null)) {
+
+					// Citar mensaje
+					if (!(M.get(idM).getEsta_en() == null)) {
 						MensajeDB cita = M.get(idM).getEsta_en();
 						mensaje.citarMen.setValue(cita.getMensaje());
 					} else {
 						mensaje.citarMen.setVisible(false);
 						mensaje.citado.setVisible(false);
 					}
+
+					// Datos mensaje
 					Usuario_DB user = M.get(idM).getCreado_por();
 					mensaje.fotoUsuario.setSource(new ExternalResource(user.getFoto()));
 					mensaje.nickUsuario.setCaption(user.getNombreUsuario());
 					mensaje.mensaje.setValue(M.get(idM).getMensaje());
-					
-					if(!(M.get(idM).getVideo() == null)) {
-						String linkVideo = M.get(idM).getVideo();
-						mensaje.linkVideo.setCaption(linkVideo);
-						mensaje.linkVideo.setResource(new ExternalResource(M.get(idM).getVideo()));
-						mensaje.imagen.setVisible(false);
-					} else {
+
+					// Videos e imagenes
+					String video = M.get(idM).getVideo();
+					String foto1 = M.get(idM).getFoto1();
+					String foto2 = M.get(idM).getFoto2();
+					String foto3 = M.get(idM).getFoto3();
+
+					if (video == null) {
+						mensaje.linkVideo.setVisible(false);
 						mensaje.videos.setVisible(false);
-						if(!(M.get(idM).getFoto1() == null || M.get(idM).getFoto1() == "")) {
-							mensaje.imagen1.setSource(new ExternalResource(M.get(idM).getFoto1()));
-						}
-						if(!(M.get(idM).getFoto2() == null || M.get(idM).getFoto2() == "")) {
-							mensaje.imagen2.setSource(new ExternalResource(M.get(idM).getFoto2()));
-						}
-							
-						if(!(M.get(idM).getFoto3() == null || M.get(idM).getFoto3() == "")) {
-							mensaje.imagen3.setSource(new ExternalResource(M.get(idM).getFoto3()));
-						}
-							
-						else {
+
+						if (foto1 == null) {
+							mensaje.imagen1.setVisible(false);
 							mensaje.imagen.setVisible(false);
+						} else {
+							mensaje.imagen1.setSource(new ExternalResource(foto1));
+							if (foto2 == null) {
+								mensaje.imagen2.setVisible(false);
+							} else {
+								mensaje.imagen2.setSource(new ExternalResource(foto2));
+								if (foto3 == null) {
+									mensaje.imagen3.setVisible(false);
+								} else {
+									mensaje.imagen3.setSource(new ExternalResource(foto3));
+								}
+							}
 						}
+					} else {
+						mensaje.linkVideo.setCaption(video);
+						mensaje.linkVideo.setResource(new ExternalResource(video));
+						mensaje.videos.setVisible(true);
+						mensaje.linkVideo.setVisible(true);
+						mensaje.imagen.setVisible(false);
 					}
-					
-				verticalMensajes.addComponent(mensaje);
 
+					// Añadir mensaje
+					verticalMensajes.addComponent(mensaje);
 
-				final int id = idM;
-				mensaje.nickUsuario.addClickListener(new Button.ClickListener() {
-					public void buttonClick(ClickEvent event) {
-						Parametros.setPerfilUsuario(M.get(id).getCreado_por().getORMID());
-						addComponent(new Visualizar_perfil());
-					}
-				});
-			}
+					final int id = idM;
+					mensaje.nickUsuario.addClickListener(new Button.ClickListener() {
+						public void buttonClick(ClickEvent event) {
+							Parametros.setPerfilUsuario(M.get(id).getCreado_por().getORMID());
+							addComponent(new Visualizar_perfil());
+						}
+					});
+				}
 			}
 			idM++;
 		}

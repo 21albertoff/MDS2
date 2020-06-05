@@ -6,7 +6,8 @@ public interface iModerador extends iUsuario_identificado {
 
 	public List consultar_UR();
 
-	public List consultar_M_Mo(int aIdTema);
+	//Consultar mensajes usuario moderador
+	public List<MensajeDB> consultar_M_Mo(int idTema);
 
 	public List consultar_MU(int aIdUsuario);
 

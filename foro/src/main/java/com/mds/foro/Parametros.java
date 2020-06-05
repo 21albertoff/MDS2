@@ -28,7 +28,6 @@ public class Parametros {
 	private static String ordenarPor="";
 	private static int idUsuarioTema;
 	private static int likeTema;
-	private static int permiso;
 	private static int likesTemas;
 	private static boolean citado = false;
 	private static int idCitado;
@@ -175,12 +174,7 @@ public class Parametros {
 	public static void setLikeTema(int likeTema) {
 		Parametros.likeTema = likeTema;		
 	}
-	public static int getTipoPermiso() {
-		return permiso;
-	}
-	public static void setTipoPermiso(int permiso) {
-		Parametros.permiso = permiso;		
-	}
+	
 	public static int getLikesTema() {
 		return likesTemas;
 	}
