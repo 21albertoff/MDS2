@@ -7,12 +7,8 @@
  </head>
  <body>
   <vaadin-absolute-layout style-name="panelControl">
-   <vaadin-absolute-layout style-name="ventanaEmergente" _id="fondoOscuro"></vaadin-absolute-layout>
+   <vaadin-absolute-layout style-name="ventanaEmergente" id="ventanaEmergente" _id="fondoOscuro"></vaadin-absolute-layout>
    <vaadin-absolute-layout style-name="cajaMensaje" _id="cajaEscribirMensaje" :top="3%" :right="20%" :bottom="30%" :left="20%">
-    <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" width-full height="70%" _id="imagenPerfil" :top="2%" :right="46%" :bottom="84%" :left="46%"></vaadin-image>
-    <vaadin-label style-name="nombreUsuarioEscribirMensaje" id="nombreUsuarioEscribirMensaje" width-full height="90%" plain-text _id="nombreUsuario" :top="12%" :bottom="80%">
-      @NombreUsuario 
-    </vaadin-label>
     <vaadin-button style-name="primary" size-full plain-text _id="botonEscribirMensaje" :top="90%" :right="35%" :bottom="2%" :left="35%">
       Escribir mensaje 
     </vaadin-button>
@@ -23,6 +19,9 @@
     <vaadin-text-field icon="fonticon://Vaadin-Icons/e78b" caption="Video" placeholder="Introduce url del video" size-full _id="video" :top="76%" :right="3%" :bottom="17%" :left="3%"></vaadin-text-field>
     <vaadin-label size-full plain-text :top="67%" :right="48%" :bottom="36%" :left="48%">
       o 
+    </vaadin-label>
+    <vaadin-label style-name="seccion nombreUsuarioEscribirMensaje" size-full plain-text _id="escribirMensaje" :top="5%" :right="30%" :bottom="90%" :left="30%">
+      ESCRIBIR MENSAJE 
     </vaadin-label>
    </vaadin-absolute-layout>
   </vaadin-absolute-layout>

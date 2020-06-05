@@ -29,6 +29,9 @@ public class Parametros {
 	private static int idUsuarioTema;
 	private static int likeTema;
 	private static int permiso;
+	private static int likesTemas;
+	private static boolean citado = false;
+	private static int idCitado;
 
 	public static int getTipoUsuario() {
 		return privilegioUsuario;
@@ -177,5 +180,25 @@ public class Parametros {
 	}
 	public static void setTipoPermiso(int permiso) {
 		Parametros.permiso = permiso;		
+	}
+	public static int getLikesTema() {
+		return likesTemas;
+	}
+	
+	public static void setLikesTema(int likesTemas) {
+		Parametros.likesTemas = likesTemas;		
+	}
+	public static boolean getCitado() {
+		return citado;
+	}
+	public static void setCitado(boolean citado) {
+		Parametros.citado = citado;		
+	}
+	
+	public static int getIdCitado() {
+		return idCitado;
+	}
+	public static void setIdCitado(int idCitado) {
+		Parametros.idCitado = idCitado;		
 	}
 }

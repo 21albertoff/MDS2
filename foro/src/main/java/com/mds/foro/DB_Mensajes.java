@@ -162,7 +162,7 @@ public class DB_Mensajes {
 	}
 
 	public boolean agregar_video(int idMensaje, String video) throws PersistentException {
-PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		
 		try {	
 			MensajeDB mensaje = MensajeDBDAO.loadMensajeDBByORMID(idMensaje);
@@ -267,15 +267,18 @@ PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession()
 			nuevoMensaje.setOculto(false);
 			nuevoMensaje.setMensaje(mensaje);
 			nuevoMensaje.setEsta_en(null);
+			nuevoMensaje.setFoto1(null);
+			nuevoMensaje.setFoto2(null);
+			nuevoMensaje.setFoto3(null);
+			nuevoMensaje.setVideo(null);
 			MensajeDBDAO.save(nuevoMensaje);
+			t.commit();
 			if(video != null || video != "") {
 				agregar_video(nuevoMensaje.getIdMensaje(),video);
 			}
 			if(foto1 != null || foto1 != "") {
 				agregar_fotos(nuevoMensaje.getIdMensaje(),foto1,foto2,foto3);
 			}
-				
-			t.commit();
 			return true;
 			
 			} catch (PersistentException e1) {
@@ -308,7 +311,46 @@ PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession()
 		}
 	}
 
-	public boolean citar_mensaje(String aMensaje, String aFotos, String aVideo, int aIdMensaje) {
-		throw new UnsupportedOperationException();
+	public boolean citar_mensaje(int idTema, int idUsuario, int idCita, String mensaje, String foto1, String foto2, String foto3, String video) throws PersistentException {
+PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		
+		try {	
+			MensajeDB nuevoMensaje = MensajeDBDAO.createMensajeDB();
+			
+			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
+			MensajeDB citado = MensajeDBDAO.loadMensajeDBByORMID(idCita);
+			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
+			nuevoMensaje.setOcultado_por(null);
+			nuevoMensaje.setORM_Ocultado_por(null);
+			nuevoMensaje.setCreado_por(usuario);
+			nuevoMensaje.setORM_Creado_por(usuario);
+			nuevoMensaje.setORM_Esta_en(null);
+			nuevoMensaje.setContieneM(tema);
+			nuevoMensaje.setORM_ContieneM(tema);;
+			nuevoMensaje.setCantidadLike(0);
+			nuevoMensaje.setEliminado(false);
+			nuevoMensaje.setOculto(false);
+			nuevoMensaje.setMensaje(mensaje);
+			nuevoMensaje.setEsta_en(citado);
+			nuevoMensaje.setFoto1(null);
+			nuevoMensaje.setFoto2(null);
+			nuevoMensaje.setFoto3(null);
+			nuevoMensaje.setVideo(null);
+			MensajeDBDAO.save(nuevoMensaje);
+			t.commit();
+			if(video != null || video != "") {
+				agregar_video(nuevoMensaje.getIdMensaje(),video);
+			}
+			if(foto1 != null || foto1 != "") {
+				agregar_fotos(nuevoMensaje.getIdMensaje(),foto1,foto2,foto3);
+			}
+
+			return true;
+			
+			} catch (PersistentException e1) {
+				t.rollback();
+
+				return false;
+			}
 	}
 }

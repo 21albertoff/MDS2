@@ -215,8 +215,23 @@ public class DB_Temas {
 		
 		try {
 			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
-			tema.setEliminado(true);
+			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
+
+			if(usuario.da_megusta_.contains(tema)) {
+				usuario.da_megusta_.remove(tema);
+				int likes = tema.getCantidadLike();
+				likes = likes -1;
+				tema.setCantidadLike(likes);
+				Parametros.setLikesTema(likes);
+			} else {
+				usuario.da_megusta_.add(tema);
+				int likes = tema.getCantidadLike();
+				likes = likes +1;
+				tema.setCantidadLike(likes);
+				Parametros.setLikesTema(likes);
+			}
 			TemaDBDAO.save(tema);
+			Usuario_DBDAO.save(usuario);
 			t.commit();
 		}catch(Exception e) {
 			t.rollback();

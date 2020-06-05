@@ -137,17 +137,38 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return false;
 	}
 
+	//Crear mensaje
+	public boolean crear_mensaje(int idTema, int idUsuario, String mensaje, String foto1, String foto2, String foto3, String video) {
+		try {
+			return mensajes.crear_mensaje(idTema, idUsuario, mensaje, foto1, foto2, foto3, video);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	// Valorar tema
+	public void valorar_tema(int idUsuario, int idTema) {
+		try {
+			temas.valorar_tema(idUsuario, idTema);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// Citar mensaje
+	public boolean citar_mensaje(int idTema, int idUsuario, int idCitado, String mensaje, String foto1, String foto2, String foto3, String video) {
+		try {
+			return mensajes.citar_mensaje(idTema, idUsuario, idCitado, mensaje, foto1, foto2, foto3, video);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 	/**Usuario registrado**/
 	
-	//Valorar tema
-		public void valorar_tema(int idUsuario, int idTema) {
-			try {
-				temas.valorar_tema(idUsuario,idTema);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+	
 	
 	/**Moderador**/
 	
@@ -378,13 +399,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	public void mostrar_tema(int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
-
-	public boolean crear_mensaje(int aIdUsuario, int aIdTema, String aMensaje, String aFotos, String aVideo) {
-		throw new UnsupportedOperationException();
-	}
-
-	
-
 	public void valorar_mensaje(int aIdUsuario, int aIdMensaje) {
 		throw new UnsupportedOperationException();
 	}
@@ -393,9 +407,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean citar_mensaje(String aMensaje, String aFotos, String aVideo, int aIdMensaje) {
-		throw new UnsupportedOperationException();
-	}
+
 
 	public void Activar_Desactivar_notificaciones(int aIdUsuario) {
 		throw new UnsupportedOperationException();

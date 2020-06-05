@@ -43,15 +43,15 @@ public interface iUsuario_identificado extends iUsuario {
 
 	public boolean eliminar_mi_mensaje(int aIdUsuario, int aIdMensaje);
 
-	public boolean crear_mensaje(int aIdUsuario, int aIdTema, String aMensaje, String aFotos, String aVideo);
+	//Crear mensaje
+	public boolean crear_mensaje(int idTema, int idUsuario, String mensaje, String foto1, String foto2, String foto3, String video);
 
-	public void valorar_tema(int aIdUsuario, int aIdTema);
+	public void valorar_tema(int idUsuario, int idTema);
 
 	public void valorar_mensaje(int aIdUsuario, int aIdMensaje);
 
-	public boolean citar_tema(String aMensaje, String aFotos, String aVideo, int aIdTema);
-
-	public boolean citar_mensaje(String aMensaje, String aFotos, String aVideo, int aIdMensaje);
+	//Citar mensaje
+	public boolean citar_mensaje(int idTema, int idUsuario, int idCitado, String mensaje, String foto1, String foto2, String foto3, String video);
 
 	public void Activar_Desactivar_notificaciones(int aIdUsuario);
 
