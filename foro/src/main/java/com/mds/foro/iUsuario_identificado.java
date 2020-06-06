@@ -37,11 +37,13 @@ public interface iUsuario_identificado extends iUsuario {
 
 	public boolean cambiar_contrasenia(int aIdUsuario, String aContrasenia);
 
-	public boolean eliminar_mi_mensaje(int aIdUsuario, int aIdMensaje);
+	//Eliminar mensaje propietario
+	public boolean eliminar_mi_mensaje(int idMensaje);
 
 	//Crear mensaje
 	public boolean crear_mensaje(int idTema, int idUsuario, String mensaje, String foto1, String foto2, String foto3, String video);
 
+	//Valorar tema
 	public void valorar_tema(int idUsuario, int idTema);
 
 	public void valorar_mensaje(int aIdUsuario, int aIdMensaje);

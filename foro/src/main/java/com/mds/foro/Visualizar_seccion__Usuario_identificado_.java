@@ -152,6 +152,7 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 						Parametros.setDescripcionTema(T.get(id).getDescripcion());
 						Parametros.setUsuarioTema(idUsuario);
 						Parametros.setLikeTema(T.get(id).getCantidadLike());
+						Parametros.setPermiso(Usuario.getPermiso());
 						
 						if(Parametros.getTipoUsuario() == 1)
 						addComponent(new Visualizar_tema_y_mensajes__Usuario_identificado_());

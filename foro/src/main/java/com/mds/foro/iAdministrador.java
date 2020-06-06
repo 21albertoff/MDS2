@@ -6,7 +6,9 @@ public interface iAdministrador extends iUsuario_identificado {
 
 	public List consultar_MU(int aIdUsuario);
 
-	public List consultar_M_A(int aIdTema);
+	/**MENSAJES**/
+	//Consultar mensajes administrador
+	public List<MensajeDB> consultar_M_A(int idTema);
 
 	/**TEMAS**/
 	//Consultar temas Administrador
@@ -40,11 +42,10 @@ public interface iAdministrador extends iUsuario_identificado {
 
 	public void cambiar_num_mensajes(int aIdUsuario, int aCantidad);
 
-	public boolean eliminar_mensaje(int aIdMensaje);
+	//Eliminar mensaje
+	public boolean eliminar_mensaje(int idMensaje);
 
 	public void cambiar_estado_tema(int aIdTema);
-
-	public void cerrar_tema(int aIdTema);
 
 	//Eliminar tema
 	public boolean eliminar_tema(int idTema);

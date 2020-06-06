@@ -52,34 +52,43 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 		numeroMensajes.setValue(cantidadMensajes);
 		String cantidadLikes = ("" + Parametros.getLikeTema());
 		numeroMeGusta.setValue(cantidadLikes);
-		
+		reportarUsuario.setVisible(false);
+
 		int propietario = Parametros.getIdUsuario();
 		int tema = Parametros.getUsuarioTema();
 		if (tema == propietario) {
 			eliminarTema.setVisible(true);
+			reportarUsuario.setVisible(false);
 		} else {
-			if (Parametros.getTipoUsuario() != 3)
+			if (Parametros.getPermiso() != 3)
 				reportarUsuario.setVisible(true);
 			eliminarTema.setVisible(false);
 		}
 		
-		menuCerrarSesionUsuario.addClickListener(new Button.ClickListener() {
+		menuCerrarSesionModerador.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				addComponent(new Cerrar_sesion());
 
 			}
 		});
 
-		menuMiPerfilUsuario.addClickListener(new Button.ClickListener() {
+		menuMiPerfilModerador.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				addComponent(new Visualizar_mi_perfil());
 
 			}
 		});
 
-		menuNotificacionesUsuario.addClickListener(new Button.ClickListener() {
+		menuNotificacionesModerador.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				addComponent(new Notificaciones());
+
+			}
+		});
+		
+		menuPanelControlModerador.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				addComponent(new Panel_de_control_del_moderador());
 
 			}
 		});
@@ -125,7 +134,7 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 
 	//Consultar Mensajes usuario identificado
 	private void consultarMensajes() {
-		List<MensajeDB> M = usuarioI.consultar_M_UI(idTema);
+		List<MensajeDB> M = moderador.consultar_M_Mo(idTema);
 		int numMensajes = 0;
 		int idM = 0;
 		while (idM < M.size()) {
@@ -156,8 +165,13 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 					if (user.getIdUsuario() == propietario) {
 						mensaje.botonEliminar.setVisible(true);
 						mensaje.botonNotificar.setVisible(false);
-						Parametros.setMensaje(M.get(idM).getIdMensaje());
+						Parametros.setIdMensaje(M.get(idM).getIdMensaje());
 					} 
+					
+					//Mensaje de un admin
+					if (user.getPermiso() == 3) {
+						mensaje.botonNotificar.setVisible(false);
+					}
 					
 					//Datos mensaje
 					mensaje.fotoPerfil.setSource(new ExternalResource(user.getFoto()));
@@ -207,9 +221,7 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 					});
 					mensaje.botonEliminar.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
-							int idMensaje = Parametros.getMensaje();
-							usuarioI.eliminar_mi_mensaje(Parametros.getIdUsuario(), idMensaje);
-							addComponent(new Visualizar_tema_y_mensajes__Usuario_identificado_());
+							addComponent(new Eliminar_mensaje());
 						}
 					});
 					mensaje.reportar.addClickListener(new Button.ClickListener() {
@@ -219,7 +231,7 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 					});
 					mensaje.botonMeGusta.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
-							int idMensaje = Parametros.getMensaje();
+							int idMensaje = Parametros.getIdMensaje();
 							usuarioI.valorar_mensaje(Parametros.getIdUsuario(), idMensaje);
 							addComponent(new Visualizar_tema_y_mensajes__Usuario_identificado_());
 						}

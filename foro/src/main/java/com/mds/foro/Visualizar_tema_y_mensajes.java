@@ -66,7 +66,7 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 
 			nombreForo.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
-					addComponent(new Usuario_no_identificado());
+					addComponent(new Visualizar_seccion());
 				}
 			});
 		}
@@ -85,6 +85,7 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 					numMensajes++;
 					Parametros.setNumMensajes(numMensajes);
 					Mensaje mensaje = new Mensaje();
+					mensaje.imagen.setVisible(false);
 
 					// Citar mensaje
 					if (!(M.get(idM).getEsta_en() == null)) {
@@ -113,16 +114,18 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 
 						if (foto1 == null) {
 							mensaje.imagen1.setVisible(false);
-							mensaje.imagen.setVisible(false);
 						} else {
 							mensaje.imagen1.setSource(new ExternalResource(foto1));
+							mensaje.imagen.setVisible(true);
 							if (foto2 == null) {
 								mensaje.imagen2.setVisible(false);
 							} else {
+								mensaje.imagen.setVisible(true);
 								mensaje.imagen2.setSource(new ExternalResource(foto2));
 								if (foto3 == null) {
 									mensaje.imagen3.setVisible(false);
 								} else {
+									mensaje.imagen.setVisible(true);
 									mensaje.imagen3.setSource(new ExternalResource(foto3));
 								}
 							}
@@ -132,7 +135,6 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 						mensaje.linkVideo.setResource(new ExternalResource(video));
 						mensaje.videos.setVisible(true);
 						mensaje.linkVideo.setVisible(true);
-						mensaje.imagen.setVisible(false);
 					}
 
 					// Añadir mensaje

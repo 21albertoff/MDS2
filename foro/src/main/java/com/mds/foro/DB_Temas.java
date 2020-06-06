@@ -146,23 +146,6 @@ public class DB_Temas {
 			t.rollback();
 		}
 	}
-
-	//Cerrar tema
-	public void cerrar_tema(int idTema) throws PersistentException {
-		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		
-		try {	
-			TemaDB nuevoTema = TemaDBDAO.createTemaDB();
-			String tituloTema = nuevoTema.getTema();
-			String nuevoTitulo = "(✅)" + tituloTema;
-			nuevoTema.setTema(nuevoTitulo);
-			TemaDBDAO.save(nuevoTema);
-			t.commit();
-			
-			} catch (PersistentException e1) {
-				t.rollback();
-			}
-	}	
 	
 	//Eliminar tema
 	public boolean eliminar_tema(int idTema) throws PersistentException{

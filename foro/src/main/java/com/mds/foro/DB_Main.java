@@ -166,12 +166,23 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return false;
 	}
 	
+	// Eliminar propio mensaje
+	public boolean eliminar_mi_mensaje(int idMensaje) {
+		try {
+			return mensajes.eliminar_mi_mensaje(idMensaje);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	/**Usuario registrado**/
 	
 	
 	
 	/**Moderador**/
 	
+	//Consultar mensajes moderador
 	public List<MensajeDB> consultar_M_Mo(int idTema) {
 		try {
 			return mensajes.consultar_M_Mo(idTema);
@@ -252,6 +263,25 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return false;
 	}
 	
+	//Eliminar mensaje administrador
+	public boolean eliminar_mensaje(int idMensaje) {
+		try {
+			return  mensajes.eliminar_mensaje(idMensaje);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	//Consultar mensajes administrador
+	public List<MensajeDB> consultar_M_A(int idTema) {
+		try {
+			return mensajes.consultar_M_A(idTema);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	/**Otros metodos**/
 	
@@ -317,10 +347,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public List<MensajeDB> consultar_M_A(int aIdTema) {
-		throw new UnsupportedOperationException();
-	}
-
 	public List consultar_TO() {
 		throw new UnsupportedOperationException();
 	}
@@ -361,10 +387,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean eliminar_mi_mensaje(int aIdUsuario, int aIdMensaje) {
-		throw new UnsupportedOperationException();
-	}
-
 	public void Asignar_Desasignar_moderador(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
@@ -373,15 +395,9 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean eliminar_mensaje(int aIdMensaje) {
-		throw new UnsupportedOperationException();
-	}
+
 
 	public void cambiar_estado_tema(int aIdTema) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void cerrar_tema(int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
 

@@ -31,6 +31,7 @@ public class Parametros {
 	private static int likesTemas;
 	private static boolean citado = false;
 	private static int idCitado;
+	private static int permisoTema;
 
 	public static int getTipoUsuario() {
 		return privilegioUsuario;
@@ -155,10 +156,10 @@ public class Parametros {
 	public static int getNumMensajes() {
 		return numMensajesTema;
 	}
-	public static int getMensaje() {
+	public static int getIdMensaje() {
 		return idMensaje;
 	}
-	public static void setMensaje(int idMensaje) {
+	public static void setIdMensaje(int idMensaje) {
 		Parametros.idMensaje = idMensaje;
 		
 	}
@@ -194,5 +195,12 @@ public class Parametros {
 	}
 	public static void setIdCitado(int idCitado) {
 		Parametros.idCitado = idCitado;		
+	}
+	
+	public static int getPermiso() {
+		return permisoTema;
+	}
+	public static void setPermiso(int permisoTema) {
+		Parametros.permisoTema = permisoTema;		
 	}
 }

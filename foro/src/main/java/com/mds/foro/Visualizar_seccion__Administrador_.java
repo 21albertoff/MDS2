@@ -36,21 +36,21 @@ public class Visualizar_seccion__Administrador_ extends Visualizar_seccion_Venta
 		ordenarPor.setItems("Titulo", "Me gustas", "Fecha");
 		consultarTemas();
 
-		menuCerrarSesionUsuario.addClickListener(new Button.ClickListener() {
+		menuCerrarSesionAdministrador.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				addComponent(new Cerrar_sesion());
 
 			}
 		});
 
-		menuMiPerfilUsuario.addClickListener(new Button.ClickListener() {
+		menuMiPerfilAdministrador.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				addComponent(new Visualizar_mi_perfil());
 
 			}
 		});
 
-		menuNotificacionesUsuario.addClickListener(new Button.ClickListener() {
+		menuNotificacionesAdministrador.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				addComponent(new Notificaciones());
 
@@ -111,14 +111,22 @@ public class Visualizar_seccion__Administrador_ extends Visualizar_seccion_Venta
 				String cantidadLikeTexto = "" + cantidadLike;
 				tema.cantidadMeGustas.setValue(cantidadLikeTexto);
 				tema.botonEliminarOculto.setVisible(false);
+				
+				Usuario_DB usuario = T.get(idT).getCreado_por();
 				verticalTemas.addComponent(tema);
+				
+				int idUsuario = usuario.getORMID();
 
 				final int id = idT;
 				tema.nombreTema.addClickListener(new Button.ClickListener() {
 					public void buttonClick(ClickEvent event) {
 						Parametros.setIdTema(T.get(id).getORMID());
 						Parametros.setTituloTema(T.get(id).getTema());
-						Parametros.setIconoTema(Parametros.getIconoSeccion());
+						Parametros.setIconoTema(Usuario.getFoto());
+						Parametros.setNombreUsuarioTema(Usuario.getNombreUsuario());
+						Parametros.setDescripcionTema(T.get(id).getDescripcion());
+						Parametros.setUsuarioTema(idUsuario);
+						Parametros.setLikeTema(T.get(id).getCantidadLike());
 						addComponent(new Visualizar_tema_y_mensajes__Administrador_());
 					}
 				});

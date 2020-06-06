@@ -44,7 +44,6 @@ public class Visualizar_tema_y_mensajes_Moderador_Ventana extends AbsoluteLayout
 	protected Label tituloTema;
 	protected Panel panelMensajes;
 	protected VerticalLayout verticalMensajes;
-	protected VerticalLayout verticalSeccionesDestacadas;
 	protected Label seccionesDestacadas;
 	protected Image anuncio;
 	protected Label nombreUsuario;
@@ -58,6 +57,7 @@ public class Visualizar_tema_y_mensajes_Moderador_Ventana extends AbsoluteLayout
 	protected Button reportarUsuario;
 	protected Image fotoPerfil;
 	protected Button escribirMensaje;
+	protected VerticalLayout verticalSeccionesDestacadas;
 
 	public Visualizar_tema_y_mensajes_Moderador_Ventana() {
 		Design.read(this);

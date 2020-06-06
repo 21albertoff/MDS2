@@ -51,13 +51,15 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 		numeroMensajes.setValue(cantidadMensajes);
 		String cantidadLikes = ("" + Parametros.getLikeTema());
 		numeroMeGusta.setValue(cantidadLikes);
-		
+		reportarUsuario.setVisible(false);
+
 		int propietario = Parametros.getIdUsuario();
 		int tema = Parametros.getUsuarioTema();
 		if (tema == propietario) {
 			eliminarTema.setVisible(true);
+			reportarUsuario.setVisible(false);
 		} else {
-			if (Parametros.getTipoUsuario() != 3)
+			if (Parametros.getPermiso() != 3)
 				reportarUsuario.setVisible(true);
 			eliminarTema.setVisible(false);
 		}
@@ -155,7 +157,7 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 					if (user.getIdUsuario() == propietario) {
 						mensaje.botonEliminar.setVisible(true);
 						mensaje.reportar.setVisible(false);
-						Parametros.setMensaje(M.get(idM).getIdMensaje());
+						Parametros.setIdMensaje(M.get(idM).getIdMensaje());
 					} 
 					
 					//Mensaje de un admin
@@ -211,21 +213,19 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 					});
 					mensaje.botonEliminar.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
-							int idMensaje = Parametros.getMensaje();
-							usuarioI.eliminar_mi_mensaje(Parametros.getIdUsuario(), idMensaje);
-							addComponent(new Visualizar_tema_y_mensajes__Usuario_identificado_());
+							addComponent(new Eliminar_mensaje());
 						}
 					});
 					mensaje.reportar.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
-							int idMensaje = Parametros.getMensaje();
+							int idMensaje = Parametros.getIdMensaje();
 							usuarioR.reportar_mensaje(M.get(id).getCreado_por().getIdUsuario(), idMensaje);
 							addComponent(new Visualizar_tema_y_mensajes__Usuario_identificado_());
 						}
 					});
 					mensaje.botonMeGusta.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
-							int idMensaje = Parametros.getMensaje();
+							int idMensaje = Parametros.getIdMensaje();
 							usuarioI.valorar_mensaje(Parametros.getIdUsuario(), idMensaje);
 							addComponent(new Visualizar_tema_y_mensajes__Usuario_identificado_());
 						}

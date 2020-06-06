@@ -141,6 +141,7 @@ public class DB_Mensajes {
 		return eliminado;
 	}
 
+	//Eliminar mensaje
 	public boolean eliminar_mensaje(int idMensaje) throws PersistentException {
 		boolean eliminado = false;
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
