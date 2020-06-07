@@ -116,6 +116,13 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 				addComponent(new Escribir_mensaje());
 			}
 		});
+		
+		reportarUsuario.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				Parametros.setIdBaneado(Parametros.getUsuarioTema());
+				addComponent(new Banear_usuario());
+			}
+		});
 	}
 	
 	//Valorar tema
@@ -213,16 +220,19 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 							addComponent(new Eliminar_mensaje());
 						}
 					});
-					mensaje.reportar.addClickListener(new Button.ClickListener() {
+					mensaje.botonBanear.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
-							addComponent(new Notificar_usuario());
+							Parametros.setIdBaneado(M.get(id).getCreado_por().getORMID());
+							addComponent(new Banear_usuario());
 						}
 					});
 					mensaje.botonMeGusta.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
+							int idUsuario = Parametros.getIdUsuario();
 							int idMensaje = Parametros.getIdMensaje();
-							usuarioI.valorar_mensaje(Parametros.getIdUsuario(), idMensaje);
-							addComponent(new Visualizar_tema_y_mensajes__Administrador_());
+							usuarioI.valorar_mensaje(idUsuario, idMensaje);
+							String likes = (""+Parametros.getLikesTema());
+							mensaje.cantidadMeGusta.setValue(likes);
 						}
 					});
 					

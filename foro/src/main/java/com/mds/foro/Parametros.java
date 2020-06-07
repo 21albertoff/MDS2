@@ -32,6 +32,7 @@ public class Parametros {
 	private static boolean citado = false;
 	private static int idCitado;
 	private static int permisoTema;
+	private static int idBaneado;
 
 	public static int getTipoUsuario() {
 		return privilegioUsuario;
@@ -202,5 +203,12 @@ public class Parametros {
 	}
 	public static void setPermiso(int permisoTema) {
 		Parametros.permisoTema = permisoTema;		
+	}
+	
+	public static int getIdBaneado() {
+		return idBaneado;
+	}
+	public static void setIdBaneado(int idBaneado) {
+		Parametros.idBaneado = idBaneado;		
 	}
 }

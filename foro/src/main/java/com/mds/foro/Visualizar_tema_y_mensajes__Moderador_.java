@@ -231,9 +231,11 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 					});
 					mensaje.botonMeGusta.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
+							int idUsuario = Parametros.getIdUsuario();
 							int idMensaje = Parametros.getIdMensaje();
-							usuarioI.valorar_mensaje(Parametros.getIdUsuario(), idMensaje);
-							addComponent(new Visualizar_tema_y_mensajes__Usuario_identificado_());
+							usuarioI.valorar_mensaje(idUsuario, idMensaje);
+							String likes = (""+Parametros.getLikesTema());
+							mensaje.cantidadMeGusta.setValue(likes);
 						}
 					});
 					

@@ -176,6 +176,15 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return false;
 	}
 	
+	//Valorar mensaje
+	public void valorar_mensaje(int idUsuario, int idMensaje) {
+		try {
+			 mensajes.valorar_mensaje(idUsuario, idMensaje);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	/**Usuario registrado**/
 	
 	
@@ -281,6 +290,15 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	//Banear usuario
+	public void banear_usuario(int idUsuario) {
+		try {
+			registrados.banear_usuario(idUsuario);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**Otros metodos**/
@@ -401,18 +419,11 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public void banear_usuario(int aIdUsuario, int aTiempo) {
-		throw new UnsupportedOperationException();
-	}
-
 	public void quitar_moderador(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 
 	public void mostrar_tema(int aIdTema) {
-		throw new UnsupportedOperationException();
-	}
-	public void valorar_mensaje(int aIdUsuario, int aIdMensaje) {
 		throw new UnsupportedOperationException();
 	}
 

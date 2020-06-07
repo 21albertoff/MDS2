@@ -50,7 +50,8 @@ public interface iAdministrador extends iUsuario_identificado {
 	//Eliminar tema
 	public boolean eliminar_tema(int idTema);
 
-	public void banear_usuario(int aIdUsuario, int aTiempo);
+	//Banear usuario
+	public void banear_usuario(int idUsuario);
 
 	public void quitar_moderador(int aIdUsuario);
 

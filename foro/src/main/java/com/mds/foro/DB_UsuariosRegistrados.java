@@ -214,7 +214,7 @@ public class DB_UsuariosRegistrados {
 		throw new UnsupportedOperationException();
 	}
 
-	public void banear_usuario(int idUsuario, int tiempo) throws PersistentException {
+	public void banear_usuario(int idUsuario) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		
 		try {

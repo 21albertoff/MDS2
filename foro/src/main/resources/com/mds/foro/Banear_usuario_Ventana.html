@@ -7,22 +7,16 @@
  </head>
  <body>
   <vaadin-absolute-layout>
-   <vaadin-absolute-layout style-name="ventanaEmergente" _id="fondoNegro"></vaadin-absolute-layout>
-   <vaadin-absolute-layout style-name="cajaMensaje" _id="cajaBanearUsuario" :top="30%" :right="35%" :bottom="45%" :left="35%">
-    <vaadin-label size-full plain-text _id="tituloMensajeBanear" :top="5%" :right="5%" :bottom="80%" :left="5%">
+   <vaadin-absolute-layout style-name="ventanaEmergente" id="ventanaEmergente" _id="fondoGris"></vaadin-absolute-layout>
+   <vaadin-absolute-layout style-name="cajaMensaje" :top="40%" :right="32%" :bottom="45%" :left="32%">
+    <vaadin-label style-name="negrita" plain-text :top="5%" :left="5%">
       ¿Seguro que quieres banear al usuario? 
     </vaadin-label>
-    <vaadin-combo-box caption="Seleccionar tiempo de baneo" empty-selection-caption="Elegir tiempo" size-full data-item-type="java.lang.String" :top="40%" :right="25%" :bottom="40%" :left="25%">
-     <option item="Dia">1 Día</option>
-     <option item="Semana">1 Semana</option>
-     <option item="Mes">1 Mes</option>
-     <option item="Siempre">Para siempre</option>
-    </vaadin-combo-box>
-    <vaadin-button style-name="primary" size-full plain-text _id="cancelarBaneo" :top="75%" :right="55%" :bottom="5%" :left="5%">
-      Cancelar 
+    <vaadin-button style-name="confirmar danger" size-full plain-text _id="botonBanear" :top="60%" :right="5%" :bottom="5%" :left="55%">
+      BANEAR 
     </vaadin-button>
-    <vaadin-button style-name="danger" size-full plain-text _id="confirmarBaneo" :top="75%" :right="5%" :bottom="5%" :left="55%">
-      Banear 
+    <vaadin-button style-name="confirmar primary" size-full plain-text _id="botonCancelarBaneo" :top="60%" :right="55%" :bottom="5%" :left="5%">
+      CANCELAR 
     </vaadin-button>
    </vaadin-absolute-layout>
   </vaadin-absolute-layout>

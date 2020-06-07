@@ -46,7 +46,8 @@ public interface iUsuario_identificado extends iUsuario {
 	//Valorar tema
 	public void valorar_tema(int idUsuario, int idTema);
 
-	public void valorar_mensaje(int aIdUsuario, int aIdMensaje);
+	//Valorar mensaje
+	public void valorar_mensaje(int idUsuario, int idMensaje);
 
 	//Citar mensaje
 	public boolean citar_mensaje(int idTema, int idUsuario, int idCitado, String mensaje, String foto1, String foto2, String foto3, String video);

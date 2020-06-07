@@ -249,16 +249,21 @@ PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession()
 			MensajeDB mensaje = MensajeDBDAO.loadMensajeDBByORMID(idMensaje);
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
 
-			if(usuario.da_megusta.contains(mensaje)) {
-				usuario.da_megusta.remove(mensaje);
+			if(mensaje.gustado_por.contains(usuario)) {
+				mensaje.gustado_por.remove(usuario);
 				int likes = mensaje.getCantidadLike();
-				mensaje.setCantidadLike(likes-1);
+				likes = likes -1;
+				mensaje.setCantidadLike(likes);
+				Parametros.setLikesTema(likes);
 			} else {
-				usuario.da_megusta.add(mensaje);
+				mensaje.gustado_por.add(usuario);
 				int likes = mensaje.getCantidadLike();
-				mensaje.setCantidadLike(likes+1);
+				likes = likes +1;
+				mensaje.setCantidadLike(likes);
+				Parametros.setLikesTema(likes);
 			}
 			MensajeDBDAO.save(mensaje);
+			Usuario_DBDAO.save(usuario);
 			t.commit();
 		}catch(Exception e) {
 			t.rollback();
