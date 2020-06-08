@@ -20,14 +20,14 @@ import org.orm.criteria.*;
 
 public class MensajeDBDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression idMensaje;
-	public final IntegerExpression contieneMId;
-	public final AssociationExpression contieneM;
-	public final IntegerExpression ocultado_porId;
-	public final AssociationExpression ocultado_por;
-	public final IntegerExpression creado_porId;
-	public final AssociationExpression creado_por;
 	public final IntegerExpression esta_enId;
 	public final AssociationExpression esta_en;
+	public final IntegerExpression contieneMId;
+	public final AssociationExpression contieneM;
+	public final IntegerExpression creado_porId;
+	public final AssociationExpression creado_por;
+	public final IntegerExpression ocultado_porId;
+	public final AssociationExpression ocultado_por;
 	public final StringExpression mensaje;
 	public final IntegerExpression cantidadLike;
 	public final BooleanExpression eliminado;
@@ -42,14 +42,14 @@ public class MensajeDBDetachedCriteria extends AbstractORMDetachedCriteria {
 	public MensajeDBDetachedCriteria() {
 		super(com.mds.foro.MensajeDB.class, com.mds.foro.MensajeDBCriteria.class);
 		idMensaje = new IntegerExpression("idMensaje", this.getDetachedCriteria());
-		contieneMId = new IntegerExpression("contieneM.idTema", this.getDetachedCriteria());
-		contieneM = new AssociationExpression("contieneM", this.getDetachedCriteria());
-		ocultado_porId = new IntegerExpression("ocultado_por.", this.getDetachedCriteria());
-		ocultado_por = new AssociationExpression("ocultado_por", this.getDetachedCriteria());
-		creado_porId = new IntegerExpression("creado_por.idUsuario", this.getDetachedCriteria());
-		creado_por = new AssociationExpression("creado_por", this.getDetachedCriteria());
 		esta_enId = new IntegerExpression("esta_en.idMensaje", this.getDetachedCriteria());
 		esta_en = new AssociationExpression("esta_en", this.getDetachedCriteria());
+		contieneMId = new IntegerExpression("contieneM.idTema", this.getDetachedCriteria());
+		contieneM = new AssociationExpression("contieneM", this.getDetachedCriteria());
+		creado_porId = new IntegerExpression("creado_por.idUsuario", this.getDetachedCriteria());
+		creado_por = new AssociationExpression("creado_por", this.getDetachedCriteria());
+		ocultado_porId = new IntegerExpression("ocultado_por.", this.getDetachedCriteria());
+		ocultado_por = new AssociationExpression("ocultado_por", this.getDetachedCriteria());
 		mensaje = new StringExpression("mensaje", this.getDetachedCriteria());
 		cantidadLike = new IntegerExpression("cantidadLike", this.getDetachedCriteria());
 		eliminado = new BooleanExpression("eliminado", this.getDetachedCriteria());
@@ -65,14 +65,14 @@ public class MensajeDBDetachedCriteria extends AbstractORMDetachedCriteria {
 	public MensajeDBDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, com.mds.foro.MensajeDBCriteria.class);
 		idMensaje = new IntegerExpression("idMensaje", this.getDetachedCriteria());
-		contieneMId = new IntegerExpression("contieneM.idTema", this.getDetachedCriteria());
-		contieneM = new AssociationExpression("contieneM", this.getDetachedCriteria());
-		ocultado_porId = new IntegerExpression("ocultado_por.", this.getDetachedCriteria());
-		ocultado_por = new AssociationExpression("ocultado_por", this.getDetachedCriteria());
-		creado_porId = new IntegerExpression("creado_por.idUsuario", this.getDetachedCriteria());
-		creado_por = new AssociationExpression("creado_por", this.getDetachedCriteria());
 		esta_enId = new IntegerExpression("esta_en.idMensaje", this.getDetachedCriteria());
 		esta_en = new AssociationExpression("esta_en", this.getDetachedCriteria());
+		contieneMId = new IntegerExpression("contieneM.idTema", this.getDetachedCriteria());
+		contieneM = new AssociationExpression("contieneM", this.getDetachedCriteria());
+		creado_porId = new IntegerExpression("creado_por.idUsuario", this.getDetachedCriteria());
+		creado_por = new AssociationExpression("creado_por", this.getDetachedCriteria());
+		ocultado_porId = new IntegerExpression("ocultado_por.", this.getDetachedCriteria());
+		ocultado_por = new AssociationExpression("ocultado_por", this.getDetachedCriteria());
 		mensaje = new StringExpression("mensaje", this.getDetachedCriteria());
 		cantidadLike = new IntegerExpression("cantidadLike", this.getDetachedCriteria());
 		eliminado = new BooleanExpression("eliminado", this.getDetachedCriteria());
@@ -85,20 +85,20 @@ public class MensajeDBDetachedCriteria extends AbstractORMDetachedCriteria {
 		gustado_por = new CollectionExpression("ORM_gustado_por", this.getDetachedCriteria());
 	}
 	
-	public TemaDBDetachedCriteria createContieneMCriteria() {
-		return new TemaDBDetachedCriteria(createCriteria("contieneM"));
+	public MensajeDBDetachedCriteria createEsta_enCriteria() {
+		return new MensajeDBDetachedCriteria(createCriteria("esta_en"));
 	}
 	
-	public AdministradorDBDetachedCriteria createOcultado_porCriteria() {
-		return new AdministradorDBDetachedCriteria(createCriteria("ocultado_por"));
+	public TemaDBDetachedCriteria createContieneMCriteria() {
+		return new TemaDBDetachedCriteria(createCriteria("contieneM"));
 	}
 	
 	public Usuario_DBDetachedCriteria createCreado_porCriteria() {
 		return new Usuario_DBDetachedCriteria(createCriteria("creado_por"));
 	}
 	
-	public MensajeDBDetachedCriteria createEsta_enCriteria() {
-		return new MensajeDBDetachedCriteria(createCriteria("esta_en"));
+	public AdministradorDBDetachedCriteria createOcultado_porCriteria() {
+		return new AdministradorDBDetachedCriteria(createCriteria("ocultado_por"));
 	}
 	
 	public MensajeDBDetachedCriteria createContiene_respuestaCriteria() {

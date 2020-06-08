@@ -34,7 +34,6 @@ public class Usuario_DBDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final BooleanExpression recibir_por_correo;
 	public final BooleanExpression perfil_oculto;
 	public final IntegerExpression permiso;
-	public final BooleanExpression baneado;
 	public final CollectionExpression amigo;
 	public final CollectionExpression da_megusta;
 	public final CollectionExpression amigo_de;
@@ -60,7 +59,6 @@ public class Usuario_DBDetachedCriteria extends AbstractORMDetachedCriteria {
 		recibir_por_correo = new BooleanExpression("recibir_por_correo", this.getDetachedCriteria());
 		perfil_oculto = new BooleanExpression("perfil_oculto", this.getDetachedCriteria());
 		permiso = new IntegerExpression("permiso", this.getDetachedCriteria());
-		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		amigo = new CollectionExpression("ORM_amigo", this.getDetachedCriteria());
 		da_megusta = new CollectionExpression("ORM_da_megusta", this.getDetachedCriteria());
 		amigo_de = new CollectionExpression("ORM_amigo_de", this.getDetachedCriteria());
@@ -87,7 +85,6 @@ public class Usuario_DBDetachedCriteria extends AbstractORMDetachedCriteria {
 		recibir_por_correo = new BooleanExpression("recibir_por_correo", this.getDetachedCriteria());
 		perfil_oculto = new BooleanExpression("perfil_oculto", this.getDetachedCriteria());
 		permiso = new IntegerExpression("permiso", this.getDetachedCriteria());
-		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		amigo = new CollectionExpression("ORM_amigo", this.getDetachedCriteria());
 		da_megusta = new CollectionExpression("ORM_da_megusta", this.getDetachedCriteria());
 		amigo_de = new CollectionExpression("ORM_amigo_de", this.getDetachedCriteria());

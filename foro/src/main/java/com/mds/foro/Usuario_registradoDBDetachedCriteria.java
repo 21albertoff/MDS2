@@ -34,7 +34,6 @@ public class Usuario_registradoDBDetachedCriteria extends AbstractORMDetachedCri
 	public final BooleanExpression recibir_por_correo;
 	public final BooleanExpression perfil_oculto;
 	public final IntegerExpression permiso;
-	public final BooleanExpression baneado;
 	public final CollectionExpression amigo;
 	public final CollectionExpression da_megusta;
 	public final CollectionExpression amigo_de;
@@ -42,11 +41,8 @@ public class Usuario_registradoDBDetachedCriteria extends AbstractORMDetachedCri
 	public final CollectionExpression crea_tema;
 	public final CollectionExpression crea_mensaje;
 	public final CollectionExpression da_megusta_;
-	public final BooleanExpression usuarioModerador;
-	public final BooleanExpression usuarioBaneado;
-	public final IntegerExpression notificado_por_ModeradorId;
-	public final AssociationExpression notificado_por_Moderador;
-	public final CollectionExpression notifica;
+	public final StringExpression motivo;
+	public final BooleanExpression baneado;
 	public final CollectionExpression reporta;
 	public final CollectionExpression reportado_por;
 	
@@ -67,7 +63,6 @@ public class Usuario_registradoDBDetachedCriteria extends AbstractORMDetachedCri
 		recibir_por_correo = new BooleanExpression("recibir_por_correo", this.getDetachedCriteria());
 		perfil_oculto = new BooleanExpression("perfil_oculto", this.getDetachedCriteria());
 		permiso = new IntegerExpression("permiso", this.getDetachedCriteria());
-		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		amigo = new CollectionExpression("ORM_amigo", this.getDetachedCriteria());
 		da_megusta = new CollectionExpression("ORM_da_megusta", this.getDetachedCriteria());
 		amigo_de = new CollectionExpression("ORM_amigo_de", this.getDetachedCriteria());
@@ -75,11 +70,8 @@ public class Usuario_registradoDBDetachedCriteria extends AbstractORMDetachedCri
 		crea_tema = new CollectionExpression("ORM_crea_tema", this.getDetachedCriteria());
 		crea_mensaje = new CollectionExpression("ORM_crea_mensaje", this.getDetachedCriteria());
 		da_megusta_ = new CollectionExpression("ORM_da_megusta_", this.getDetachedCriteria());
-		usuarioModerador = new BooleanExpression("usuarioModerador", this.getDetachedCriteria());
-		usuarioBaneado = new BooleanExpression("usuarioBaneado", this.getDetachedCriteria());
-		notificado_por_ModeradorId = new IntegerExpression("notificado_por_Moderador.", this.getDetachedCriteria());
-		notificado_por_Moderador = new AssociationExpression("notificado_por_Moderador", this.getDetachedCriteria());
-		notifica = new CollectionExpression("ORM_notifica", this.getDetachedCriteria());
+		motivo = new StringExpression("motivo", this.getDetachedCriteria());
+		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		reporta = new CollectionExpression("ORM_reporta", this.getDetachedCriteria());
 		reportado_por = new CollectionExpression("ORM_reportado_por", this.getDetachedCriteria());
 	}
@@ -101,7 +93,6 @@ public class Usuario_registradoDBDetachedCriteria extends AbstractORMDetachedCri
 		recibir_por_correo = new BooleanExpression("recibir_por_correo", this.getDetachedCriteria());
 		perfil_oculto = new BooleanExpression("perfil_oculto", this.getDetachedCriteria());
 		permiso = new IntegerExpression("permiso", this.getDetachedCriteria());
-		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		amigo = new CollectionExpression("ORM_amigo", this.getDetachedCriteria());
 		da_megusta = new CollectionExpression("ORM_da_megusta", this.getDetachedCriteria());
 		amigo_de = new CollectionExpression("ORM_amigo_de", this.getDetachedCriteria());
@@ -109,21 +100,10 @@ public class Usuario_registradoDBDetachedCriteria extends AbstractORMDetachedCri
 		crea_tema = new CollectionExpression("ORM_crea_tema", this.getDetachedCriteria());
 		crea_mensaje = new CollectionExpression("ORM_crea_mensaje", this.getDetachedCriteria());
 		da_megusta_ = new CollectionExpression("ORM_da_megusta_", this.getDetachedCriteria());
-		usuarioModerador = new BooleanExpression("usuarioModerador", this.getDetachedCriteria());
-		usuarioBaneado = new BooleanExpression("usuarioBaneado", this.getDetachedCriteria());
-		notificado_por_ModeradorId = new IntegerExpression("notificado_por_Moderador.", this.getDetachedCriteria());
-		notificado_por_Moderador = new AssociationExpression("notificado_por_Moderador", this.getDetachedCriteria());
-		notifica = new CollectionExpression("ORM_notifica", this.getDetachedCriteria());
+		motivo = new StringExpression("motivo", this.getDetachedCriteria());
+		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		reporta = new CollectionExpression("ORM_reporta", this.getDetachedCriteria());
 		reportado_por = new CollectionExpression("ORM_reportado_por", this.getDetachedCriteria());
-	}
-	
-	public Usuario_registradoDBDetachedCriteria createNotificado_por_ModeradorCriteria() {
-		return new Usuario_registradoDBDetachedCriteria(createCriteria("notificado_por_Moderador"));
-	}
-	
-	public Usuario_registradoDBDetachedCriteria createNotificaCriteria() {
-		return new Usuario_registradoDBDetachedCriteria(createCriteria("ORM_notifica"));
 	}
 	
 	public Usuario_registradoDBDetachedCriteria createReportaCriteria() {

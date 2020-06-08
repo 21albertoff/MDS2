@@ -20,12 +20,12 @@ import org.orm.criteria.*;
 
 public class TemaDBCriteria extends AbstractORMCriteria {
 	public final IntegerExpression idTema;
-	public final IntegerExpression ocultado_porId;
-	public final AssociationExpression ocultado_por;
 	public final IntegerExpression creado_porId;
 	public final AssociationExpression creado_por;
 	public final IntegerExpression esta_enId;
 	public final AssociationExpression esta_en;
+	public final IntegerExpression ocultado_porId;
+	public final AssociationExpression ocultado_por;
 	public final StringExpression tema;
 	public final StringExpression descripcion;
 	public final IntegerExpression cantidadLike;
@@ -37,12 +37,12 @@ public class TemaDBCriteria extends AbstractORMCriteria {
 	public TemaDBCriteria(Criteria criteria) {
 		super(criteria);
 		idTema = new IntegerExpression("idTema", this);
-		ocultado_porId = new IntegerExpression("ocultado_por.", this);
-		ocultado_por = new AssociationExpression("ocultado_por", this);
 		creado_porId = new IntegerExpression("creado_por.idUsuario", this);
 		creado_por = new AssociationExpression("creado_por", this);
 		esta_enId = new IntegerExpression("esta_en.idSeccion", this);
 		esta_en = new AssociationExpression("esta_en", this);
+		ocultado_porId = new IntegerExpression("ocultado_por.", this);
+		ocultado_por = new AssociationExpression("ocultado_por", this);
 		tema = new StringExpression("tema", this);
 		descripcion = new StringExpression("descripcion", this);
 		cantidadLike = new IntegerExpression("cantidadLike", this);
@@ -60,16 +60,16 @@ public class TemaDBCriteria extends AbstractORMCriteria {
 		this(ProyectoFinalPersistentManager.instance().getSession());
 	}
 	
-	public AdministradorDBCriteria createOcultado_porCriteria() {
-		return new AdministradorDBCriteria(createCriteria("ocultado_por"));
-	}
-	
 	public Usuario_DBCriteria createCreado_porCriteria() {
 		return new Usuario_DBCriteria(createCriteria("creado_por"));
 	}
 	
 	public SeccionDBCriteria createEsta_enCriteria() {
 		return new SeccionDBCriteria(createCriteria("esta_en"));
+	}
+	
+	public AdministradorDBCriteria createOcultado_porCriteria() {
+		return new AdministradorDBCriteria(createCriteria("ocultado_por"));
 	}
 	
 	public Usuario_DBCriteria createGustado_por_Criteria() {

@@ -117,18 +117,15 @@ public class Usuario_DB implements Serializable {
 	@Column(name="Permiso", nullable=false, length=10)	
 	private int permiso;
 	
-	@Column(name="Baneado", nullable=false, length=1)	
-	private boolean baneado;
-	
 	@ManyToMany(targetEntity=com.mds.foro.Usuario_DB.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Usuario_DB_Usuario_DB", joinColumns={ @JoinColumn(name="Usuario_DBIdUsuario2") }, inverseJoinColumns={ @JoinColumn(name="Usuario_DBIdUsuario") })	
+	@JoinTable(name="Usuario_DB_Usuario_DB2", joinColumns={ @JoinColumn(name="Usuario_DBIdUsuario2") }, inverseJoinColumns={ @JoinColumn(name="Usuario_DBIdUsuario") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_amigo = new java.util.HashSet();
 	
 	@ManyToMany(targetEntity=com.mds.foro.MensajeDB.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="MensajeDB_Usuario_DB", joinColumns={ @JoinColumn(name="Usuario_DBIdUsuario") }, inverseJoinColumns={ @JoinColumn(name="MensajeDBIdMensaje") })	
+	@JoinTable(name="MensajeDB_Usuario_DB2", joinColumns={ @JoinColumn(name="Usuario_DBIdUsuario") }, inverseJoinColumns={ @JoinColumn(name="MensajeDBIdMensaje") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_da_megusta = new java.util.HashSet();
 	
@@ -247,14 +244,6 @@ public class Usuario_DB implements Serializable {
 	
 	public int getPermiso() {
 		return permiso;
-	}
-	
-	public void setBaneado(boolean value) {
-		this.baneado = value;
-	}
-	
-	public boolean getBaneado() {
-		return baneado;
 	}
 	
 	private void setORM_Amigo(java.util.Set value) {

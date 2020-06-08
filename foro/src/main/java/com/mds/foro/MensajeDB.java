@@ -69,25 +69,25 @@ public class MensajeDB implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="COM_MDS_FORO_MENSAJEDB_IDMENSAJE_GENERATOR", strategy="native")	
 	private int idMensaje;
 	
+	@ManyToOne(targetEntity=com.mds.foro.MensajeDB.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns(value={ @JoinColumn(name="Respuesta", referencedColumnName="IdMensaje") }, foreignKey=@ForeignKey(name="FKMensajeDB682938"))	
+	private com.mds.foro.MensajeDB esta_en;
+	
 	@ManyToOne(targetEntity=com.mds.foro.TemaDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="Tema", referencedColumnName="IdTema") }, foreignKey=@ForeignKey(name="FKMensajeDB479124"))	
 	private com.mds.foro.TemaDB contieneM;
-	
-	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="Ocultado_por", referencedColumnName="IdUsuario") }, foreignKey=@ForeignKey(name="FKMensajeDB640192"))	
-	private com.mds.foro.AdministradorDB ocultado_por;
 	
 	@ManyToOne(targetEntity=com.mds.foro.Usuario_DB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="Creado_por", referencedColumnName="IdUsuario") }, foreignKey=@ForeignKey(name="FKMensajeDB71729"))	
 	private com.mds.foro.Usuario_DB creado_por;
 	
-	@ManyToOne(targetEntity=com.mds.foro.MensajeDB.class, fetch=FetchType.LAZY)	
+	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="Respuesta", referencedColumnName="IdMensaje") }, foreignKey=@ForeignKey(name="FKMensajeDB682938"))	
-	private com.mds.foro.MensajeDB esta_en;
+	@JoinColumns(value={ @JoinColumn(name="Ocultado_por", referencedColumnName="IdUsuario") }, foreignKey=@ForeignKey(name="FKMensajeDB640192"))	
+	private com.mds.foro.AdministradorDB ocultado_por;
 	
 	@Column(name="Mensaje", nullable=true, length=255)	
 	private String mensaje;

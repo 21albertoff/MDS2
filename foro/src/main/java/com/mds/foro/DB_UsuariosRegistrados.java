@@ -10,13 +10,39 @@ public class DB_UsuariosRegistrados {
 	public DB_Main _bd_main_usuarios_registrados;
 	public Vector<Usuario_registradoDB> _contiene_usuario_registrado = new Vector<Usuario_registradoDB>();
 
+	@SuppressWarnings("unchecked")
+	public List<Usuario_registradoDB> consultar_UN() throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		List<Usuario_registradoDB> notificados = null;
+		try {			
+			notificados = Usuario_registradoDBDAO.queryUsuario_registradoDB(null, null);
+			t.commit();
+		} catch (PersistentException e1) {
+			t.rollback();
+		}
+		return notificados;
+	}
+
+	public void notificar(int idUsuario, String motivo) throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			Usuario_registradoDB usuarioNotificado = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuario);
+			usuarioNotificado.setMotivo(motivo);
+			Usuario_registradoDBDAO.save(usuarioNotificado);
+			t.commit();
+			} catch (PersistentException e1) {
+				t.rollback();
+			}
+	}
+	
 	//Registrarse
 	public boolean registrarse(String nombreUsuario, String nombreCompleto, String correoUsuario, String passwordUsuario, String descripcionUsuario, String fotoUsuario) throws PersistentException{
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		
 			try {
-				Usuario_notificadosDB usuarioNotificado = Usuario_notificadosDBDAO.createUsuario_notificadosDB();
-				usuarioNotificado.setMotivo(null);
+				Usuario_registradoDB usuarioNotificado = Usuario_registradoDBDAO.createUsuario_registradoDB();
+				usuarioNotificado.setMotivo("");
 				usuarioNotificado.setNombreUsuario(nombreUsuario);
 				usuarioNotificado.setNombreCompleto(nombreCompleto);
 				usuarioNotificado.setCorreo(correoUsuario);
@@ -54,7 +80,9 @@ public class DB_UsuariosRegistrados {
 				if(usuario.getNombreUsuario().equals(cargarUsuarios.getNombreUsuario())) {
 						Parametros.setIdUsuario(usuario.getIdUsuario());
 						Parametros.setTipoUsuario(usuario.getPermiso());
-						Parametros.setBaneado(usuario.getBaneado());
+						int idUsuario = usuario.getIdUsuario();
+						Usuario_registradoDB ur = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuario);
+						Parametros.setBaneado(ur.getBaneado());
 						correcto = true;
 				} 
 			}
@@ -219,7 +247,7 @@ public class DB_UsuariosRegistrados {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		
 		try {
-			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
+			Usuario_registradoDB usuario = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuario);
 			usuario.setBaneado(true);
 			t.commit();
 		}catch(Exception e) {

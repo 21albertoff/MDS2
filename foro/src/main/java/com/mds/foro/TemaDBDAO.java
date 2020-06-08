@@ -323,16 +323,16 @@ public class TemaDBDAO {
 	
 	public static boolean deleteAndDissociate(com.mds.foro.TemaDB temaDB)throws PersistentException {
 		try {
-			if (temaDB.getOcultado_por() != null) {
-				temaDB.getOcultado_por().oculta_tema.remove(temaDB);
-			}
-			
 			if (temaDB.getCreado_por() != null) {
 				temaDB.getCreado_por().crea_tema.remove(temaDB);
 			}
 			
 			if (temaDB.getEsta_en() != null) {
 				temaDB.getEsta_en().contiene.remove(temaDB);
+			}
+			
+			if (temaDB.getOcultado_por() != null) {
+				temaDB.getOcultado_por().oculta_tema.remove(temaDB);
 			}
 			
 			com.mds.foro.Usuario_DB[] lGustado_por_s = temaDB.gustado_por_.toArray();
@@ -353,16 +353,16 @@ public class TemaDBDAO {
 	
 	public static boolean deleteAndDissociate(com.mds.foro.TemaDB temaDB, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if (temaDB.getOcultado_por() != null) {
-				temaDB.getOcultado_por().oculta_tema.remove(temaDB);
-			}
-			
 			if (temaDB.getCreado_por() != null) {
 				temaDB.getCreado_por().crea_tema.remove(temaDB);
 			}
 			
 			if (temaDB.getEsta_en() != null) {
 				temaDB.getEsta_en().contiene.remove(temaDB);
+			}
+			
+			if (temaDB.getOcultado_por() != null) {
+				temaDB.getOcultado_por().oculta_tema.remove(temaDB);
 			}
 			
 			com.mds.foro.Usuario_DB[] lGustado_por_s = temaDB.gustado_por_.toArray();

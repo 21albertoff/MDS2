@@ -20,14 +20,14 @@ import org.orm.criteria.*;
 
 public class MensajeDBCriteria extends AbstractORMCriteria {
 	public final IntegerExpression idMensaje;
-	public final IntegerExpression contieneMId;
-	public final AssociationExpression contieneM;
-	public final IntegerExpression ocultado_porId;
-	public final AssociationExpression ocultado_por;
-	public final IntegerExpression creado_porId;
-	public final AssociationExpression creado_por;
 	public final IntegerExpression esta_enId;
 	public final AssociationExpression esta_en;
+	public final IntegerExpression contieneMId;
+	public final AssociationExpression contieneM;
+	public final IntegerExpression creado_porId;
+	public final AssociationExpression creado_por;
+	public final IntegerExpression ocultado_porId;
+	public final AssociationExpression ocultado_por;
 	public final StringExpression mensaje;
 	public final IntegerExpression cantidadLike;
 	public final BooleanExpression eliminado;
@@ -42,14 +42,14 @@ public class MensajeDBCriteria extends AbstractORMCriteria {
 	public MensajeDBCriteria(Criteria criteria) {
 		super(criteria);
 		idMensaje = new IntegerExpression("idMensaje", this);
-		contieneMId = new IntegerExpression("contieneM.idTema", this);
-		contieneM = new AssociationExpression("contieneM", this);
-		ocultado_porId = new IntegerExpression("ocultado_por.", this);
-		ocultado_por = new AssociationExpression("ocultado_por", this);
-		creado_porId = new IntegerExpression("creado_por.idUsuario", this);
-		creado_por = new AssociationExpression("creado_por", this);
 		esta_enId = new IntegerExpression("esta_en.idMensaje", this);
 		esta_en = new AssociationExpression("esta_en", this);
+		contieneMId = new IntegerExpression("contieneM.idTema", this);
+		contieneM = new AssociationExpression("contieneM", this);
+		creado_porId = new IntegerExpression("creado_por.idUsuario", this);
+		creado_por = new AssociationExpression("creado_por", this);
+		ocultado_porId = new IntegerExpression("ocultado_por.", this);
+		ocultado_por = new AssociationExpression("ocultado_por", this);
 		mensaje = new StringExpression("mensaje", this);
 		cantidadLike = new IntegerExpression("cantidadLike", this);
 		eliminado = new BooleanExpression("eliminado", this);
@@ -70,20 +70,20 @@ public class MensajeDBCriteria extends AbstractORMCriteria {
 		this(ProyectoFinalPersistentManager.instance().getSession());
 	}
 	
-	public TemaDBCriteria createContieneMCriteria() {
-		return new TemaDBCriteria(createCriteria("contieneM"));
+	public MensajeDBCriteria createEsta_enCriteria() {
+		return new MensajeDBCriteria(createCriteria("esta_en"));
 	}
 	
-	public AdministradorDBCriteria createOcultado_porCriteria() {
-		return new AdministradorDBCriteria(createCriteria("ocultado_por"));
+	public TemaDBCriteria createContieneMCriteria() {
+		return new TemaDBCriteria(createCriteria("contieneM"));
 	}
 	
 	public Usuario_DBCriteria createCreado_porCriteria() {
 		return new Usuario_DBCriteria(createCriteria("creado_por"));
 	}
 	
-	public MensajeDBCriteria createEsta_enCriteria() {
-		return new MensajeDBCriteria(createCriteria("esta_en"));
+	public AdministradorDBCriteria createOcultado_porCriteria() {
+		return new AdministradorDBCriteria(createCriteria("ocultado_por"));
 	}
 	
 	public MensajeDBCriteria createContiene_respuestaCriteria() {

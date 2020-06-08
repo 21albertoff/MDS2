@@ -322,16 +322,12 @@ public class Usuario_DBDAO {
 	}
 	
 	public static boolean deleteAndDissociate(com.mds.foro.Usuario_DB usuario_DB)throws PersistentException {
-		if (usuario_DB instanceof com.mds.foro.Usuario_registradoDB) {
-			return com.mds.foro.Usuario_registradoDBDAO.deleteAndDissociate((com.mds.foro.Usuario_registradoDB) usuario_DB);
-		}
-		
 		if (usuario_DB instanceof com.mds.foro.AdministradorDB) {
 			return com.mds.foro.AdministradorDBDAO.deleteAndDissociate((com.mds.foro.AdministradorDB) usuario_DB);
 		}
 		
-		if (usuario_DB instanceof com.mds.foro.Usuario_notificadosDB) {
-			return com.mds.foro.Usuario_notificadosDBDAO.deleteAndDissociate((com.mds.foro.Usuario_notificadosDB) usuario_DB);
+		if (usuario_DB instanceof com.mds.foro.Usuario_registradoDB) {
+			return com.mds.foro.Usuario_registradoDBDAO.deleteAndDissociate((com.mds.foro.Usuario_registradoDB) usuario_DB);
 		}
 		
 		try {
@@ -380,16 +376,12 @@ public class Usuario_DBDAO {
 	}
 	
 	public static boolean deleteAndDissociate(com.mds.foro.Usuario_DB usuario_DB, org.orm.PersistentSession session)throws PersistentException {
-		if (usuario_DB instanceof com.mds.foro.Usuario_registradoDB) {
-			return com.mds.foro.Usuario_registradoDBDAO.deleteAndDissociate((com.mds.foro.Usuario_registradoDB) usuario_DB, session);
-		}
-		
 		if (usuario_DB instanceof com.mds.foro.AdministradorDB) {
 			return com.mds.foro.AdministradorDBDAO.deleteAndDissociate((com.mds.foro.AdministradorDB) usuario_DB, session);
 		}
 		
-		if (usuario_DB instanceof com.mds.foro.Usuario_notificadosDB) {
-			return com.mds.foro.Usuario_notificadosDBDAO.deleteAndDissociate((com.mds.foro.Usuario_notificadosDB) usuario_DB, session);
+		if (usuario_DB instanceof com.mds.foro.Usuario_registradoDB) {
+			return com.mds.foro.Usuario_registradoDBDAO.deleteAndDissociate((com.mds.foro.Usuario_registradoDB) usuario_DB, session);
 		}
 		
 		try {

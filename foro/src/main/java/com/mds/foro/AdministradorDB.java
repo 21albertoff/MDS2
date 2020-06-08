@@ -35,9 +35,6 @@ public class AdministradorDB extends com.mds.foro.Usuario_DB implements Serializ
 		else if (key == ORMConstants.KEY_ADMINISTRADORDB_CREA_SECCION) {
 			return ORM_crea_seccion;
 		}
-		else if (key == ORMConstants.KEY_ADMINISTRADORDB_BANEAN) {
-			return ORM_baneaN;
-		}
 		else if (key == ORMConstants.KEY_ADMINISTRADORDB_OCULTA_TEMA) {
 			return ORM_oculta_tema;
 		}
@@ -70,11 +67,6 @@ public class AdministradorDB extends com.mds.foro.Usuario_DB implements Serializ
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_crea_seccion = new java.util.HashSet();
-	
-	@OneToMany(mappedBy="baneado_porN", targetEntity=com.mds.foro.Usuario_notificadosDB.class)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_baneaN = new java.util.HashSet();
 	
 	@OneToMany(mappedBy="ocultado_por", targetEntity=com.mds.foro.TemaDB.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
@@ -118,17 +110,6 @@ public class AdministradorDB extends com.mds.foro.Usuario_DB implements Serializ
 	
 	@Transient	
 	public final com.mds.foro.SeccionDBSetCollection crea_seccion = new com.mds.foro.SeccionDBSetCollection(this, _ormAdapter, ORMConstants.KEY_ADMINISTRADORDB_CREA_SECCION, ORMConstants.KEY_SECCIONDB_CREADA_POR, ORMConstants.KEY_MUL_ONE_TO_MANY);
-	
-	private void setORM_BaneaN(java.util.Set value) {
-		this.ORM_baneaN = value;
-	}
-	
-	private java.util.Set getORM_BaneaN() {
-		return ORM_baneaN;
-	}
-	
-	@Transient	
-	public final com.mds.foro.Usuario_notificadosDBSetCollection baneaN = new com.mds.foro.Usuario_notificadosDBSetCollection(this, _ormAdapter, ORMConstants.KEY_ADMINISTRADORDB_BANEAN, ORMConstants.KEY_USUARIO_NOTIFICADOSDB_BANEADO_PORN, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_Oculta_tema(java.util.Set value) {
 		this.ORM_oculta_tema = value;

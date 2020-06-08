@@ -81,7 +81,6 @@ public class Usuario_DBSetCollection extends org.orm.util.ORMSet {
 	 * <li>recibir_por_correo</li>
 	 * <li>perfil_oculto</li>
 	 * <li>permiso</li>
-	 * <li>baneado</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -103,7 +102,6 @@ public class Usuario_DBSetCollection extends org.orm.util.ORMSet {
 	 * <li>recibir_por_correo</li>
 	 * <li>perfil_oculto</li>
 	 * <li>permiso</li>
-	 * <li>baneado</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array

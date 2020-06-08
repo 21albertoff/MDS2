@@ -335,10 +335,6 @@ public class AdministradorDBDAO {
 			for(int i = 0; i < lCrea_seccions.length; i++) {
 				lCrea_seccions[i].setCreada_por(null);
 			}
-			com.mds.foro.Usuario_notificadosDB[] lBaneaNs = administradorDB.baneaN.toArray();
-			for(int i = 0; i < lBaneaNs.length; i++) {
-				lBaneaNs[i].setBaneado_porN(null);
-			}
 			com.mds.foro.TemaDB[] lOculta_temas = administradorDB.oculta_tema.toArray();
 			for(int i = 0; i < lOculta_temas.length; i++) {
 				lOculta_temas[i].setOcultado_por(null);
@@ -404,10 +400,6 @@ public class AdministradorDBDAO {
 			com.mds.foro.SeccionDB[] lCrea_seccions = administradorDB.crea_seccion.toArray();
 			for(int i = 0; i < lCrea_seccions.length; i++) {
 				lCrea_seccions[i].setCreada_por(null);
-			}
-			com.mds.foro.Usuario_notificadosDB[] lBaneaNs = administradorDB.baneaN.toArray();
-			for(int i = 0; i < lBaneaNs.length; i++) {
-				lBaneaNs[i].setBaneado_porN(null);
 			}
 			com.mds.foro.TemaDB[] lOculta_temas = administradorDB.oculta_tema.toArray();
 			for(int i = 0; i < lOculta_temas.length; i++) {

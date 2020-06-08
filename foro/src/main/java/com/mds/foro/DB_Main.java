@@ -7,7 +7,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	//Declaraciones
 	public DB_Temas temas = new DB_Temas();
 	public DB_Administradores administradores = new DB_Administradores();
-	public DB_UsuariosNotificados usuarios_notificados = new DB_UsuariosNotificados();
 	public DB_Secciones secciones = new DB_Secciones();
 	public DB_Notificaciones notificaciones = new DB_Notificaciones();
 	public DB_Mensajes mensajes = new DB_Mensajes();
@@ -204,7 +203,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	//Notificar usuario
 	public void notificar(int idUsuario, String motivo) {
 		try {
-			usuarios_notificados.notificar(idUsuario, motivo);
+			registrados.notificar(idUsuario, motivo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -323,20 +323,20 @@ public class MensajeDBDAO {
 	
 	public static boolean deleteAndDissociate(com.mds.foro.MensajeDB mensajeDB)throws PersistentException {
 		try {
-			if (mensajeDB.getContieneM() != null) {
-				mensajeDB.getContieneM().esta_en_tema.remove(mensajeDB);
+			if (mensajeDB.getEsta_en() != null) {
+				mensajeDB.getEsta_en().contiene_respuesta.remove(mensajeDB);
 			}
 			
-			if (mensajeDB.getOcultado_por() != null) {
-				mensajeDB.getOcultado_por().oculta_mensaje.remove(mensajeDB);
+			if (mensajeDB.getContieneM() != null) {
+				mensajeDB.getContieneM().esta_en_tema.remove(mensajeDB);
 			}
 			
 			if (mensajeDB.getCreado_por() != null) {
 				mensajeDB.getCreado_por().crea_mensaje.remove(mensajeDB);
 			}
 			
-			if (mensajeDB.getEsta_en() != null) {
-				mensajeDB.getEsta_en().contiene_respuesta.remove(mensajeDB);
+			if (mensajeDB.getOcultado_por() != null) {
+				mensajeDB.getOcultado_por().oculta_mensaje.remove(mensajeDB);
 			}
 			
 			com.mds.foro.MensajeDB[] lContiene_respuestas = mensajeDB.contiene_respuesta.toArray();
@@ -357,20 +357,20 @@ public class MensajeDBDAO {
 	
 	public static boolean deleteAndDissociate(com.mds.foro.MensajeDB mensajeDB, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if (mensajeDB.getContieneM() != null) {
-				mensajeDB.getContieneM().esta_en_tema.remove(mensajeDB);
+			if (mensajeDB.getEsta_en() != null) {
+				mensajeDB.getEsta_en().contiene_respuesta.remove(mensajeDB);
 			}
 			
-			if (mensajeDB.getOcultado_por() != null) {
-				mensajeDB.getOcultado_por().oculta_mensaje.remove(mensajeDB);
+			if (mensajeDB.getContieneM() != null) {
+				mensajeDB.getContieneM().esta_en_tema.remove(mensajeDB);
 			}
 			
 			if (mensajeDB.getCreado_por() != null) {
 				mensajeDB.getCreado_por().crea_mensaje.remove(mensajeDB);
 			}
 			
-			if (mensajeDB.getEsta_en() != null) {
-				mensajeDB.getEsta_en().contiene_respuesta.remove(mensajeDB);
+			if (mensajeDB.getOcultado_por() != null) {
+				mensajeDB.getOcultado_por().oculta_mensaje.remove(mensajeDB);
 			}
 			
 			com.mds.foro.MensajeDB[] lContiene_respuestas = mensajeDB.contiene_respuesta.toArray();

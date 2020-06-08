@@ -34,7 +34,6 @@ public class AdministradorDBCriteria extends AbstractORMCriteria {
 	public final BooleanExpression recibir_por_correo;
 	public final BooleanExpression perfil_oculto;
 	public final IntegerExpression permiso;
-	public final BooleanExpression baneado;
 	public final CollectionExpression amigo;
 	public final CollectionExpression da_megusta;
 	public final CollectionExpression amigo_de;
@@ -45,7 +44,6 @@ public class AdministradorDBCriteria extends AbstractORMCriteria {
 	public final CollectionExpression convierte_en_moderador;
 	public final CollectionExpression banea;
 	public final CollectionExpression crea_seccion;
-	public final CollectionExpression baneaN;
 	public final CollectionExpression oculta_tema;
 	public final CollectionExpression oculta_mensaje;
 	
@@ -66,7 +64,6 @@ public class AdministradorDBCriteria extends AbstractORMCriteria {
 		recibir_por_correo = new BooleanExpression("recibir_por_correo", this);
 		perfil_oculto = new BooleanExpression("perfil_oculto", this);
 		permiso = new IntegerExpression("permiso", this);
-		baneado = new BooleanExpression("baneado", this);
 		amigo = new CollectionExpression("ORM_amigo", this);
 		da_megusta = new CollectionExpression("ORM_da_megusta", this);
 		amigo_de = new CollectionExpression("ORM_amigo_de", this);
@@ -77,7 +74,6 @@ public class AdministradorDBCriteria extends AbstractORMCriteria {
 		convierte_en_moderador = new CollectionExpression("ORM_convierte_en_moderador", this);
 		banea = new CollectionExpression("ORM_banea", this);
 		crea_seccion = new CollectionExpression("ORM_crea_seccion", this);
-		baneaN = new CollectionExpression("ORM_baneaN", this);
 		oculta_tema = new CollectionExpression("ORM_oculta_tema", this);
 		oculta_mensaje = new CollectionExpression("ORM_oculta_mensaje", this);
 	}
@@ -100,10 +96,6 @@ public class AdministradorDBCriteria extends AbstractORMCriteria {
 	
 	public SeccionDBCriteria createCrea_seccionCriteria() {
 		return new SeccionDBCriteria(createCriteria("ORM_crea_seccion"));
-	}
-	
-	public Usuario_notificadosDBCriteria createBaneaNCriteria() {
-		return new Usuario_notificadosDBCriteria(createCriteria("ORM_baneaN"));
 	}
 	
 	public TemaDBCriteria createOculta_temaCriteria() {

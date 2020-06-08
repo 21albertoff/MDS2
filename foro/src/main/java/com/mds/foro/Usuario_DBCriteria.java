@@ -34,7 +34,6 @@ public class Usuario_DBCriteria extends AbstractORMCriteria {
 	public final BooleanExpression recibir_por_correo;
 	public final BooleanExpression perfil_oculto;
 	public final IntegerExpression permiso;
-	public final BooleanExpression baneado;
 	public final CollectionExpression amigo;
 	public final CollectionExpression da_megusta;
 	public final CollectionExpression amigo_de;
@@ -60,7 +59,6 @@ public class Usuario_DBCriteria extends AbstractORMCriteria {
 		recibir_por_correo = new BooleanExpression("recibir_por_correo", this);
 		perfil_oculto = new BooleanExpression("perfil_oculto", this);
 		permiso = new IntegerExpression("permiso", this);
-		baneado = new BooleanExpression("baneado", this);
 		amigo = new CollectionExpression("ORM_amigo", this);
 		da_megusta = new CollectionExpression("ORM_da_megusta", this);
 		amigo_de = new CollectionExpression("ORM_amigo_de", this);

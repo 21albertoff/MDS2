@@ -20,16 +20,13 @@ import javax.persistence.*;
 @Table(name="Usuario_registradoDB")
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorValue("Usuario_registradoDB")
-@PrimaryKeyJoinColumn(name="Notificado_por_moderador", referencedColumnName="IdUsuario")
+@PrimaryKeyJoinColumn(name="IdUsuario", referencedColumnName="IdUsuario")
 public class Usuario_registradoDB extends com.mds.foro.Usuario_DB implements Serializable {
 	public Usuario_registradoDB() {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == ORMConstants.KEY_USUARIO_REGISTRADODB_NOTIFICA) {
-			return ORM_notifica;
-		}
-		else if (key == ORMConstants.KEY_USUARIO_REGISTRADODB_REPORTA) {
+		if (key == ORMConstants.KEY_USUARIO_REGISTRADODB_REPORTA) {
 			return ORM_reporta;
 		}
 		else if (key == ORMConstants.KEY_USUARIO_REGISTRADODB_REPORTADO_POR) {
@@ -39,43 +36,23 @@ public class Usuario_registradoDB extends com.mds.foro.Usuario_DB implements Ser
 		return null;
 	}
 	
-	private void this_setOwner(Object owner, int key) {
-		if (key == ORMConstants.KEY_USUARIO_REGISTRADODB_NOTIFICADO_POR_MODERADOR) {
-			this.notificado_por_Moderador = (com.mds.foro.Usuario_registradoDB) owner;
-		}
-	}
-	
 	@Transient	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
 		public java.util.Set getSet(int key) {
 			return this_getSet(key);
 		}
 		
-		public void setOwner(Object owner, int key) {
-			this_setOwner(owner, key);
-		}
-		
 	};
 	
-	@Column(name="UsuarioModerador", nullable=false, length=1)	
-	private boolean usuarioModerador;
+	@Column(name="Motivo", nullable=false, length=255)	
+	private String motivo;
 	
-	@Column(name="UsuarioBaneado", nullable=false, length=1)	
-	private boolean usuarioBaneado;
-	
-	@ManyToOne(targetEntity=com.mds.foro.Usuario_registradoDB.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="Reportado_por", referencedColumnName="Notificado_por_moderador") }, foreignKey=@ForeignKey(name="FKUsuario_re26840"))	
-	private com.mds.foro.Usuario_registradoDB notificado_por_Moderador;
-	
-	@OneToMany(mappedBy="notificado_por_Moderador", targetEntity=com.mds.foro.Usuario_registradoDB.class)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_notifica = new java.util.HashSet();
+	@Column(name="Baneado", nullable=false, length=1)	
+	private boolean baneado;
 	
 	@ManyToMany(targetEntity=com.mds.foro.Usuario_registradoDB.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Usuario_registradoDB_Usuario_registradoDB", joinColumns={ @JoinColumn(name="Usuario_registradoDBUsuario_DBIdUsuario2") }, inverseJoinColumns={ @JoinColumn(name="Usuario_registradoDBUsuario_DBIdUsuario") })	
+	@JoinTable(name="Usuario_registradoDB_Usuario_registradoDB2", joinColumns={ @JoinColumn(name="Usuario_registradoDBUsuario_DBIdUsuario2") }, inverseJoinColumns={ @JoinColumn(name="Usuario_registradoDBUsuario_DBIdUsuario") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_reporta = new java.util.HashSet();
 	
@@ -84,32 +61,21 @@ public class Usuario_registradoDB extends com.mds.foro.Usuario_DB implements Ser
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_reportado_por = new java.util.HashSet();
 	
-	public void setUsuarioModerador(boolean value) {
-		this.usuarioModerador = value;
+	public void setMotivo(String value) {
+		this.motivo = value;
 	}
 	
-	public boolean getUsuarioModerador() {
-		return usuarioModerador;
+	public String getMotivo() {
+		return motivo;
 	}
 	
-	public void setUsuarioBaneado(boolean value) {
-		this.usuarioBaneado = value;
+	public void setBaneado(boolean value) {
+		this.baneado = value;
 	}
 	
-	public boolean getUsuarioBaneado() {
-		return usuarioBaneado;
+	public boolean getBaneado() {
+		return baneado;
 	}
-	
-	private void setORM_Notifica(java.util.Set value) {
-		this.ORM_notifica = value;
-	}
-	
-	private java.util.Set getORM_Notifica() {
-		return ORM_notifica;
-	}
-	
-	@Transient	
-	public final com.mds.foro.Usuario_registradoDBSetCollection notifica = new com.mds.foro.Usuario_registradoDBSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_REGISTRADODB_NOTIFICA, ORMConstants.KEY_USUARIO_REGISTRADODB_NOTIFICADO_POR_MODERADOR, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_Reporta(java.util.Set value) {
 		this.ORM_reporta = value;
@@ -121,30 +87,6 @@ public class Usuario_registradoDB extends com.mds.foro.Usuario_DB implements Ser
 	
 	@Transient	
 	public final com.mds.foro.Usuario_registradoDBSetCollection reporta = new com.mds.foro.Usuario_registradoDBSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_REGISTRADODB_REPORTA, ORMConstants.KEY_USUARIO_REGISTRADODB_REPORTADO_POR, ORMConstants.KEY_MUL_MANY_TO_MANY);
-	
-	public void setNotificado_por_Moderador(com.mds.foro.Usuario_registradoDB value) {
-		if (notificado_por_Moderador != null) {
-			notificado_por_Moderador.notifica.remove(this);
-		}
-		if (value != null) {
-			value.notifica.add(this);
-		}
-	}
-	
-	public com.mds.foro.Usuario_registradoDB getNotificado_por_Moderador() {
-		return notificado_por_Moderador;
-	}
-	
-	/**
-	 * This method is for internal use only.
-	 */
-	public void setORM_Notificado_por_Moderador(com.mds.foro.Usuario_registradoDB value) {
-		this.notificado_por_Moderador = value;
-	}
-	
-	private com.mds.foro.Usuario_registradoDB getORM_Notificado_por_Moderador() {
-		return notificado_por_Moderador;
-	}
 	
 	private void setORM_Reportado_por(java.util.Set value) {
 		this.ORM_reportado_por = value;

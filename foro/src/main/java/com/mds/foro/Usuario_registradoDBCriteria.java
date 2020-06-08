@@ -34,7 +34,6 @@ public class Usuario_registradoDBCriteria extends AbstractORMCriteria {
 	public final BooleanExpression recibir_por_correo;
 	public final BooleanExpression perfil_oculto;
 	public final IntegerExpression permiso;
-	public final BooleanExpression baneado;
 	public final CollectionExpression amigo;
 	public final CollectionExpression da_megusta;
 	public final CollectionExpression amigo_de;
@@ -42,11 +41,8 @@ public class Usuario_registradoDBCriteria extends AbstractORMCriteria {
 	public final CollectionExpression crea_tema;
 	public final CollectionExpression crea_mensaje;
 	public final CollectionExpression da_megusta_;
-	public final BooleanExpression usuarioModerador;
-	public final BooleanExpression usuarioBaneado;
-	public final IntegerExpression notificado_por_ModeradorId;
-	public final AssociationExpression notificado_por_Moderador;
-	public final CollectionExpression notifica;
+	public final StringExpression motivo;
+	public final BooleanExpression baneado;
 	public final CollectionExpression reporta;
 	public final CollectionExpression reportado_por;
 	
@@ -67,7 +63,6 @@ public class Usuario_registradoDBCriteria extends AbstractORMCriteria {
 		recibir_por_correo = new BooleanExpression("recibir_por_correo", this);
 		perfil_oculto = new BooleanExpression("perfil_oculto", this);
 		permiso = new IntegerExpression("permiso", this);
-		baneado = new BooleanExpression("baneado", this);
 		amigo = new CollectionExpression("ORM_amigo", this);
 		da_megusta = new CollectionExpression("ORM_da_megusta", this);
 		amigo_de = new CollectionExpression("ORM_amigo_de", this);
@@ -75,11 +70,8 @@ public class Usuario_registradoDBCriteria extends AbstractORMCriteria {
 		crea_tema = new CollectionExpression("ORM_crea_tema", this);
 		crea_mensaje = new CollectionExpression("ORM_crea_mensaje", this);
 		da_megusta_ = new CollectionExpression("ORM_da_megusta_", this);
-		usuarioModerador = new BooleanExpression("usuarioModerador", this);
-		usuarioBaneado = new BooleanExpression("usuarioBaneado", this);
-		notificado_por_ModeradorId = new IntegerExpression("notificado_por_Moderador.", this);
-		notificado_por_Moderador = new AssociationExpression("notificado_por_Moderador", this);
-		notifica = new CollectionExpression("ORM_notifica", this);
+		motivo = new StringExpression("motivo", this);
+		baneado = new BooleanExpression("baneado", this);
 		reporta = new CollectionExpression("ORM_reporta", this);
 		reportado_por = new CollectionExpression("ORM_reportado_por", this);
 	}
@@ -90,14 +82,6 @@ public class Usuario_registradoDBCriteria extends AbstractORMCriteria {
 	
 	public Usuario_registradoDBCriteria() throws PersistentException {
 		this(ProyectoFinalPersistentManager.instance().getSession());
-	}
-	
-	public Usuario_registradoDBCriteria createNotificado_por_ModeradorCriteria() {
-		return new Usuario_registradoDBCriteria(createCriteria("notificado_por_Moderador"));
-	}
-	
-	public Usuario_registradoDBCriteria createNotificaCriteria() {
-		return new Usuario_registradoDBCriteria(createCriteria("ORM_notifica"));
 	}
 	
 	public Usuario_registradoDBCriteria createReportaCriteria() {

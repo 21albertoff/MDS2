@@ -65,11 +65,6 @@ public class TemaDB implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="COM_MDS_FORO_TEMADB_IDTEMA_GENERATOR", strategy="native")	
 	private int idTema;
 	
-	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="Ocultado_por", referencedColumnName="IdUsuario") }, foreignKey=@ForeignKey(name="FKTemaDB355008"))	
-	private com.mds.foro.AdministradorDB ocultado_por;
-	
 	@ManyToOne(targetEntity=com.mds.foro.Usuario_DB.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="Creado_por", referencedColumnName="IdUsuario") }, foreignKey=@ForeignKey(name="FKTemaDB48119"))	
@@ -79,6 +74,11 @@ public class TemaDB implements Serializable {
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="Esta_en", referencedColumnName="IdSeccion") }, foreignKey=@ForeignKey(name="FKTemaDB646077"))	
 	private com.mds.foro.SeccionDB esta_en;
+	
+	@ManyToOne(targetEntity=com.mds.foro.AdministradorDB.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns(value={ @JoinColumn(name="Ocultado_por", referencedColumnName="IdUsuario") }, foreignKey=@ForeignKey(name="FKTemaDB355008"))	
+	private com.mds.foro.AdministradorDB ocultado_por;
 	
 	@Column(name="Tema", nullable=true, length=255)	
 	private String tema;
@@ -97,7 +97,7 @@ public class TemaDB implements Serializable {
 	
 	@ManyToMany(targetEntity=com.mds.foro.Usuario_DB.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Usuario_DB_TemaDB", joinColumns={ @JoinColumn(name="TemaDBIdTema") }, inverseJoinColumns={ @JoinColumn(name="Usuario_DBIdUsuario") })	
+	@JoinTable(name="Usuario_DB_TemaDB2", joinColumns={ @JoinColumn(name="TemaDBIdTema") }, inverseJoinColumns={ @JoinColumn(name="Usuario_DBIdUsuario") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_gustado_por_ = new java.util.HashSet();
 	
