@@ -15,21 +15,22 @@ public class DB_UsuariosRegistrados {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		
 			try {
-				Usuario_DB nuevoUsuario = Usuario_DBDAO.createUsuario_DB();
-				nuevoUsuario.setNombreUsuario(nombreUsuario);
-				nuevoUsuario.setNombreCompleto(nombreCompleto);
-				nuevoUsuario.setCorreo(correoUsuario);
-				nuevoUsuario.setPassword(passwordUsuario);
-				nuevoUsuario.setDescripcion(descripcionUsuario);
-				nuevoUsuario.setFoto(fotoUsuario);
-				nuevoUsuario.setRecibir_notificacion(true);
-				nuevoUsuario.setRecibir_por_correo(true);
-				nuevoUsuario.setPerfil_oculto(false);
-				nuevoUsuario.setPermiso(1);
-				nuevoUsuario.setBaneado(false);
-				nuevoUsuario.setBaneado_por(null);
-				nuevoUsuario.setConvertido_por(null);
-				Usuario_DBDAO.save(nuevoUsuario);
+				Usuario_notificadosDB usuarioNotificado = Usuario_notificadosDBDAO.createUsuario_notificadosDB();
+				usuarioNotificado.setMotivo(null);
+				usuarioNotificado.setNombreUsuario(nombreUsuario);
+				usuarioNotificado.setNombreCompleto(nombreCompleto);
+				usuarioNotificado.setCorreo(correoUsuario);
+				usuarioNotificado.setPassword(passwordUsuario);
+				usuarioNotificado.setDescripcion(descripcionUsuario);
+				usuarioNotificado.setFoto(fotoUsuario);
+				usuarioNotificado.setRecibir_notificacion(true);
+				usuarioNotificado.setRecibir_por_correo(true);
+				usuarioNotificado.setPerfil_oculto(false);
+				usuarioNotificado.setPermiso(1);
+				usuarioNotificado.setBaneado(false);
+				usuarioNotificado.setBaneado_por(null);
+				usuarioNotificado.setConvertido_por(null);
+				Usuario_DBDAO.save(usuarioNotificado);
 				t.commit();
 				return true;
 				

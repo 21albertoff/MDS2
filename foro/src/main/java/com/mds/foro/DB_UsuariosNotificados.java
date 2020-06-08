@@ -29,9 +29,9 @@ public class DB_UsuariosNotificados {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		
 		try {
-			Usuario_notificadosDB nuevoNotificado = Usuario_notificadosDBDAO.createUsuario_notificadosDB();
-			nuevoNotificado.setMotivo(motivo);
-			Usuario_notificadosDBDAO.save(nuevoNotificado);
+			Usuario_notificadosDB usuarioNotificado = Usuario_notificadosDBDAO.loadUsuario_notificadosDBByORMID(idUsuario);
+			usuarioNotificado.setMotivo(motivo);
+			Usuario_notificadosDBDAO.save(usuarioNotificado);
 			t.commit();
 			} catch (PersistentException e1) {
 				t.rollback();
