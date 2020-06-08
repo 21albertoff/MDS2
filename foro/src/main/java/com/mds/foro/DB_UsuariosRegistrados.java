@@ -14,7 +14,7 @@ public class DB_UsuariosRegistrados {
 	public boolean registrarse(String nombreUsuario, String nombreCompleto, String correoUsuario, String passwordUsuario, String descripcionUsuario, String fotoUsuario) throws PersistentException{
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		
-			try {	
+			try {
 				Usuario_DB nuevoUsuario = Usuario_DBDAO.createUsuario_DB();
 				nuevoUsuario.setNombreUsuario(nombreUsuario);
 				nuevoUsuario.setNombreCompleto(nombreCompleto);

@@ -28,7 +28,7 @@ public class DB_UsuariosNotificados {
 	public void notificar(int idUsuario, String motivo) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		
-		try {	
+		try {
 			Usuario_notificadosDB nuevoNotificado = Usuario_notificadosDBDAO.createUsuario_notificadosDB();
 			nuevoNotificado.setMotivo(motivo);
 			Usuario_notificadosDBDAO.save(nuevoNotificado);

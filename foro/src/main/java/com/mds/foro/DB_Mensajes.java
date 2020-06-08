@@ -243,7 +243,7 @@ public class DB_Mensajes {
 	}
 
 	public void valorar_mensaje(int idUsuario, int idMensaje) throws PersistentException {
-PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		
 		try {
 			MensajeDB mensaje = MensajeDBDAO.loadMensajeDBByORMID(idMensaje);
@@ -254,16 +254,16 @@ PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession()
 				int likes = mensaje.getCantidadLike();
 				likes = likes -1;
 				mensaje.setCantidadLike(likes);
-				Parametros.setLikesTema(likes);
+				Parametros.setLikesMensaje(likes);
 			} else {
 				mensaje.gustado_por.add(usuario);
 				int likes = mensaje.getCantidadLike();
 				likes = likes +1;
 				mensaje.setCantidadLike(likes);
-				Parametros.setLikesTema(likes);
+				Parametros.setLikesMensaje(likes);
 			}
-			MensajeDBDAO.save(mensaje);
 			Usuario_DBDAO.save(usuario);
+			MensajeDBDAO.save(mensaje);
 			t.commit();
 		}catch(Exception e) {
 			t.rollback();

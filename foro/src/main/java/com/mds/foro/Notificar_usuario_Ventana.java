@@ -23,8 +23,8 @@ public class Notificar_usuario_Ventana extends AbsoluteLayout {
 	protected AbsoluteLayout fondoNegro;
 	protected AbsoluteLayout cajaNotificarUsuario;
 	protected Label tituloMensajeBanear;
-	protected Button cancelarNotificacion;
-	protected Button confirmarNotificacion;
+	protected Button botonCancelarNotificacion;
+	protected Button botonNotificar;
 	protected TextArea motivoNotificacion;
 
 	public Notificar_usuario_Ventana() {

@@ -1,20 +1,43 @@
 package com.mds.foro;
 
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.Link;
+import com.vaadin.ui.Notification;
+import com.vaadin.ui.Button.ClickEvent;
 
+@SuppressWarnings("serial")
 public class Notificar_usuario extends Notificar_usuario_Ventana {
 	
-	//Declaracion de variables
-	private Label _preguntaL;
-	private Label _cancelarL;
-	private Button _cancelarB;
-	private Link _notificar_usuario;
-	public Mensaje_no_propietario__Moderador_ _unnamed_Mensaje_no_propietario__Moderador__;
-	public Visualizar_perfil__Moderador_ _unnamed_Visualizar_perfil__Moderador__;
+	// Declaraciones
+		iModerador moderador;
 
-	public void notificar_usuario() {
-		throw new UnsupportedOperationException();
-	}
+		// Inicializacion
+		public void inicializar() {
+			moderador = new DB_Main();
+		}
+
+		// Constructor
+		public Notificar_usuario() {
+				inicializar();
+
+				botonCancelarNotificacion.addClickListener(new Button.ClickListener() {
+					public void buttonClick(ClickEvent event) {
+							addComponent(new Visualizar_tema_y_mensajes__Moderador_());
+						
+					}
+				});
+
+				botonNotificar.addClickListener(new Button.ClickListener() {
+					public void buttonClick(ClickEvent event) {
+							notificarUsuario();
+					}
+				});
+			}
+
+		// Banear usuario
+		private void notificarUsuario() {
+				moderador.notificar(Parametros.getIdNotificado(), motivoNotificacion.getValue()); 
+				addComponent(new Visualizar_tema_y_mensajes__Moderador_());
+				Notification.show("El usuario ha sido notificado", "", Notification.Type.WARNING_MESSAGE);
+			
+		}
 }

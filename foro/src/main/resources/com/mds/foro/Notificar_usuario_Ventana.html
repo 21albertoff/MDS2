@@ -7,18 +7,18 @@
  </head>
  <body>
   <vaadin-absolute-layout>
-   <vaadin-absolute-layout style-name="ventanaEmergente" _id="fondoNegro"></vaadin-absolute-layout>
+   <vaadin-absolute-layout style-name="ventanaEmergente" id="ventanaEmergente" _id="fondoNegro"></vaadin-absolute-layout>
    <vaadin-absolute-layout style-name="cajaMensaje" _id="cajaNotificarUsuario" :top="30%" :right="35%" :bottom="45%" :left="35%">
     <vaadin-label style-name="mensajesCentrados" size-full plain-text _id="tituloMensajeBanear" :top="10px" :right="5%" :bottom="80%" :left="5%">
       Indica el motivo de la notificacion 
     </vaadin-label>
-    <vaadin-button style-name="primary" size-full plain-text _id="cancelarNotificacion" :top="75%" :right="55%" :bottom="5%" :left="5%">
+    <vaadin-button style-name="primary" size-full plain-text _id="botonCancelarNotificacion" :top="75%" :right="55%" :bottom="5%" :left="5%">
       Cancelar 
     </vaadin-button>
-    <vaadin-button style-name="morado" size-full plain-text _id="confirmarNotificacion" :top="75%" :right="5%" :bottom="5%" :left="55%">
+    <vaadin-button style-name="morado" size-full plain-text _id="botonNotificar" :top="75%" :right="5%" :bottom="5%" :left="55%">
       Notificar 
     </vaadin-button>
-    <vaadin-text-area size-full _id="motivoNotificacion" :top="25%" :right="10%" :bottom="30%" :left="10%"></vaadin-text-area>
+    <vaadin-text-area placeholder="Escribe el motivo del reporte" size-full _id="motivoNotificacion" :top="25%" :right="10%" :bottom="30%" :left="10%"></vaadin-text-area>
    </vaadin-absolute-layout>
   </vaadin-absolute-layout>
  </body>

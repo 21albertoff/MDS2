@@ -133,6 +133,7 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 			if (M.get(idM).getEliminado() == false) {
 				if (M.get(idM).getOculto() == false) {
 					
+					Parametros.setIdMensaje(M.get(idM).getORMID());
 					numMensajes++;
 					Parametros.setNumMensajes(numMensajes);
 					Mensaje_propietario mensaje = new Mensaje_propietario();
@@ -225,10 +226,8 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 					});
 					mensaje.botonMeGusta.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
-							int idUsuario = Parametros.getIdUsuario();
-							int idMensaje = Parametros.getIdMensaje();
-							usuarioI.valorar_mensaje(idUsuario, idMensaje);
-							String likes = (""+Parametros.getLikesTema());
+							valorarMensaje();
+							String likes = (""+Parametros.getLikesMensaje());
 							mensaje.cantidadMeGusta.setValue(likes);
 						}
 					});
@@ -248,6 +247,13 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 			}
 			idM++;
 		}
+	}
+	
+	//Valorar mensaje
+	private void valorarMensaje() {
+		int idUsuario = Parametros.getIdUsuario();
+		int idMensaje = Parametros.getIdMensaje();
+		usuarioI.valorar_mensaje(idUsuario, idMensaje);
 	}
 
 	// cargarSeccionesDestacadas

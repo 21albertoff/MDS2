@@ -201,6 +201,15 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return null;
 	}
 	
+	//Notificar usuario
+	public void notificar(int idUsuario, String motivo) {
+		try {
+			usuarios_notificados.notificar(idUsuario, motivo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	/**Administrador**/
 	
 	//Consultar secciones fijas administrador
@@ -301,6 +310,16 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 	}
 	
+	//Consultar mensajes administrador
+	public List<MensajeDB> consultar_MA(int idAmigo) {
+		try {
+			return mensajes.consultar_MA(idAmigo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	/**Otros metodos**/
 	
 	public Usuario_registradoDB get_Correo() {
@@ -326,15 +345,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	public List<MensajeDB> consultar_M_UI(int idTema) {
 		try {
 			return mensajes.consultar_M_UI(idTema);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	public List<MensajeDB> consultar_MA(int idAmigo) {
-		try {
-			return mensajes.consultar_MA(idAmigo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -450,10 +460,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	}
 
 	public boolean modificar_nombre(int aIdUsuario, String aNewNombreUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void notificar(int aIdUsuario, String aMotivo) {
 		throw new UnsupportedOperationException();
 	}
 

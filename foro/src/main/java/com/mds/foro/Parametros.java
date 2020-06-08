@@ -33,6 +33,9 @@ public class Parametros {
 	private static int idCitado;
 	private static int permisoTema;
 	private static int idBaneado;
+	private static int likesMensaje;
+	private static int idNotificado;
+	
 
 	public static int getTipoUsuario() {
 		return privilegioUsuario;
@@ -210,5 +213,20 @@ public class Parametros {
 	}
 	public static void setIdBaneado(int idBaneado) {
 		Parametros.idBaneado = idBaneado;		
+	}
+	
+	public static int getLikesMensaje() {
+		return likesMensaje;
+	}
+	
+	public static void setLikesMensaje(int likesMensaje) {
+		Parametros.likesMensaje = likesMensaje;		
+	}
+	
+	public static int getIdNotificado() {
+		return idNotificado;
+	}
+	public static void setIdNotificado(int idNotificado) {
+		Parametros.idNotificado = idNotificado;		
 	}
 }

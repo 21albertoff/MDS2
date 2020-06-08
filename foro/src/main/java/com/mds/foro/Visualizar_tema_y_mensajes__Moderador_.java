@@ -121,6 +121,13 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 				addComponent(new Escribir_mensaje());
 			}
 		});
+		
+		reportarUsuario.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				Parametros.setIdNotificado(tema);
+				addComponent(new Notificar_usuario());
+			}
+		});
 	}
 	
 	//Valorar tema
@@ -141,6 +148,7 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 			if (M.get(idM).getEliminado() == false) {
 				if (M.get(idM).getOculto() == false) {
 					
+					Parametros.setIdMensaje(M.get(idM).getORMID());
 					numMensajes++;
 					Parametros.setNumMensajes(numMensajes);
 					Mensaje_propietario mensaje = new Mensaje_propietario();
@@ -224,17 +232,16 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 							addComponent(new Eliminar_mensaje());
 						}
 					});
-					mensaje.reportar.addClickListener(new Button.ClickListener() {
+					mensaje.botonNotificar.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
+							Parametros.setIdNotificado(M.get(id).getCreado_por().getORMID());
 							addComponent(new Notificar_usuario());
 						}
 					});
 					mensaje.botonMeGusta.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
-							int idUsuario = Parametros.getIdUsuario();
-							int idMensaje = Parametros.getIdMensaje();
-							usuarioI.valorar_mensaje(idUsuario, idMensaje);
-							String likes = (""+Parametros.getLikesTema());
+							valorarMensaje();
+							String likes = (""+Parametros.getLikesMensaje());
 							mensaje.cantidadMeGusta.setValue(likes);
 						}
 					});
@@ -254,6 +261,13 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 			}
 			idM++;
 		}
+	}
+	
+	//Valorar mensaje
+	private void valorarMensaje() {
+		int idUsuario = Parametros.getIdUsuario();
+		int idMensaje = Parametros.getIdMensaje();
+		usuarioI.valorar_mensaje(idUsuario, idMensaje);
 	}
 
 	// cargarSeccionesDestacadas

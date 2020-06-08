@@ -15,7 +15,8 @@ public interface iModerador extends iUsuario_identificado {
 
 	public boolean modificar_nombre(int aIdUsuario, String aNewNombreUsuario);
 
-	public void notificar(int aIdUsuario, String aMotivo);
+	//Notificar usuarios
+	public void notificar(int idUsuario, String motivo);
 
 	public void eliminar_reporte(int aIdUsuario);
 
