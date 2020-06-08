@@ -53,6 +53,7 @@ public class Visualizar_tema_y_mensajes_Moderador_Ventana extends AbsoluteLayout
 	protected Button eliminarTema;
 	protected Label descripcionTema;
 	protected Label numeroMeGusta;
+	protected Button botonOcultarTema;
 	protected Button botonMeGusta;
 	protected Button reportarUsuario;
 	protected Image fotoPerfil;

@@ -9,7 +9,10 @@
   <vaadin-horizontal-layout>
    <vaadin-label width="80px" plain-text _id="citado"></vaadin-label>
    <vaadin-vertical-layout style-name="cajaMensaje" responsive width="900px" margin="false">
-    <vaadin-button icon="fonticon://Vaadin-Icons/e80b" primary-style-name="v-botton" style-name="eliminar" width="30px" height="30px" plain-text _id="botonEliminar" :right></vaadin-button>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e709" primary-style-name="v-botton" style-name="eliminar" width="30px" height="30px" plain-text _id="botonOcultar"></vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e80b" primary-style-name="v-botton" style-name="eliminar" width="30px" height="30px" plain-text _id="botonEliminar" :right></vaadin-button>
+    </vaadin-horizontal-layout>
     <vaadin-image source="https://cdn.dribbble.com/users/1016246/screenshots/2439534/dribbble-03.png" style-name="fotoPerfil" width="40px" height="40px" _id="fotoPerfil" :center></vaadin-image>
     <vaadin-button style-name="link" plain-text _id="nickUsuario" :center>
       Danielor 

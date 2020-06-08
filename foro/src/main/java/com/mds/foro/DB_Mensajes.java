@@ -175,9 +175,10 @@ public class DB_Mensajes {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		
 		try {
-			Usuario_registradoDB reporte = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuario);
-			reporte.reporta.add(reporte);
-			Usuario_registradoDBDAO.save(reporte);
+			Usuario_registradoDB usuarioReportado = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuario);
+			Usuario_registradoDB reporte = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idMensaje);
+			usuarioReportado.reportado_por.add(reporte);
+			Usuario_registradoDBDAO.save(usuarioReportado);
 			t.commit();
 		}catch(Exception e) {
 			t.rollback();

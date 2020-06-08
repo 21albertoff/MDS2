@@ -35,6 +35,11 @@ public class Parametros {
 	private static int idBaneado;
 	private static int likesMensaje;
 	private static int idNotificado;
+	private static String nombreCompleto;
+	private static String fotoPerfil;
+	private static String descripcionUsuario;
+	private static boolean activar_desactivar_notificacion;
+	private static boolean perfilOculto;
 	
 
 	public static int getTipoUsuario() {
@@ -228,5 +233,35 @@ public class Parametros {
 	}
 	public static void setIdNotificado(int idNotificado) {
 		Parametros.idNotificado = idNotificado;		
+	}
+	public static String getNombreCompleto() {
+		return nombreCompleto;
+	}
+	public static void setNombreCompleto(String nombreCompleto) {
+		Parametros.nombreCompleto = nombreCompleto;		
+	}
+	public static String getFotoPerfil() {
+		return fotoPerfil;
+	}
+	public static void setFotoPerfil(String fotoPerfil) {
+		Parametros.fotoPerfil = fotoPerfil;		
+	}
+	public static String getDescripcionUsuario() {
+		return descripcionUsuario;
+	}
+	public static void setDescripcionUsuario(String descripcion) {
+		Parametros.descripcionUsuario = descripcion;		
+	}
+	public static boolean getPerfilOculto() {
+		return perfilOculto;
+	}
+	public static void setPerfilOculto(boolean perfilOculto) {
+		Parametros.perfilOculto = perfilOculto;		
+	}
+	public static boolean getActivar_Desactivar_Notificacion() {
+		return activar_desactivar_notificacion;
+	}
+	public static void setActivar_Desactivar_Notificacion(boolean notificacion) {
+		Parametros.activar_desactivar_notificacion = notificacion;		
 	}
 }

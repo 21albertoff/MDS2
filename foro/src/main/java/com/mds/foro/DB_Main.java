@@ -186,7 +186,13 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	
 	/**Usuario registrado**/
 	
-	
+	public void reportar_mensaje(int idUsuario, int idMensaje) {
+		try {
+			mensajes.reportar_mensaje(idUsuario, idMensaje);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	/**Moderador**/
 	
@@ -204,6 +210,22 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	public void notificar(int idUsuario, String motivo) {
 		try {
 			registrados.notificar(idUsuario, motivo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void ocultar_mensaje(int idMensaje) {
+		try {
+			mensajes.ocultar_mensaje(idMensaje);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void ocultar_tema(int idTema) {
+		try {
+			temas.ocultar_tema(idTema);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -466,17 +488,11 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public void ocultar_tema(int aIdTema) {
-		throw new UnsupportedOperationException();
-	}
+	
 
-	public void ocultar_mensaje(int aIdMensaje) {
-		throw new UnsupportedOperationException();
-	}
+	
 
-	public void reportar_mensaje(int aIdUsuario, int aIdMensaje) {
-		throw new UnsupportedOperationException();
-	}
+	
 
 	public void mostrar_mensaje(int aIdMensaje) {
 		throw new UnsupportedOperationException();

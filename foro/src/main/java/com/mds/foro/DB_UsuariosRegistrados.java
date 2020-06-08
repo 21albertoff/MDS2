@@ -80,6 +80,12 @@ public class DB_UsuariosRegistrados {
 				if(usuario.getNombreUsuario().equals(cargarUsuarios.getNombreUsuario())) {
 						Parametros.setIdUsuario(usuario.getIdUsuario());
 						Parametros.setTipoUsuario(usuario.getPermiso());
+						Parametros.setNombreUsuario(usuario.getNombreUsuario());
+						Parametros.setNombreCompleto(usuario.getNombreCompleto());
+						Parametros.setFotoPerfil(usuario.getFoto());
+						Parametros.setDescripcionUsuario(usuario.getDescripcion());
+						Parametros.setActivar_Desactivar_Notificacion(usuario.getRecibir_notificacion());
+						Parametros.setPerfilOculto(usuario.getPerfil_oculto());
 						int idUsuario = usuario.getIdUsuario();
 						Usuario_registradoDB ur = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuario);
 						Parametros.setBaneado(ur.getBaneado());

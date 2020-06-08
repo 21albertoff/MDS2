@@ -51,7 +51,6 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 		numeroMensajes.setValue(cantidadMensajes);
 		String cantidadLikes = ("" + Parametros.getLikeTema());
 		numeroMeGusta.setValue(cantidadLikes);
-		reportarUsuario.setVisible(false);
 
 		int propietario = Parametros.getIdUsuario();
 		int tema = Parametros.getUsuarioTema();
@@ -60,10 +59,10 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 			reportarUsuario.setVisible(false);
 		} else {
 			if (Parametros.getPermiso() != 3)
-				reportarUsuario.setVisible(true);
+				reportarUsuario.setVisible(false);
 			eliminarTema.setVisible(false);
 		}
-		
+		reportarUsuario.setVisible(false);
 		menuCerrarSesionUsuario.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				addComponent(new Cerrar_sesion());
@@ -138,10 +137,12 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 					Parametros.setNumMensajes(numMensajes);
 					Mensaje_propietario mensaje = new Mensaje_propietario();
 					
+					mensaje.reportar.setDisableOnClick(true);
 					//Ocultar elementos
 					mensaje.botonBanear.setVisible(false);
 					mensaje.botonNotificar.setVisible(false);
 					mensaje.botonEliminar.setVisible(false);
+					mensaje.botonOcultar.setVisible(false);
 					
 					//Citar mensaje
 					if (!(M.get(idM).getEsta_en() == null)) {
@@ -219,9 +220,8 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 					});
 					mensaje.reportar.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
-							int idMensaje = Parametros.getIdMensaje();
+							int idMensaje = Parametros.getIdUsuario();
 							usuarioR.reportar_mensaje(M.get(id).getCreado_por().getIdUsuario(), idMensaje);
-							addComponent(new Visualizar_tema_y_mensajes__Usuario_identificado_());
 						}
 					});
 					mensaje.botonMeGusta.addClickListener(new Button.ClickListener() {

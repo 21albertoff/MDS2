@@ -53,6 +53,7 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 		String cantidadLikes = ("" + Parametros.getLikeTema());
 		numeroMeGusta.setValue(cantidadLikes);
 		reportarUsuario.setVisible(false);
+		botonOcultarTema.setVisible(true);
 
 		int propietario = Parametros.getIdUsuario();
 		int tema = Parametros.getUsuarioTema();
@@ -128,6 +129,21 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 				addComponent(new Notificar_usuario());
 			}
 		});
+		
+		botonOcultarTema.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				Parametros.setIdTema(idTema);
+				ocultarTema();
+			}
+		});
+	}
+	
+	//Ocultar tema
+	private void ocultarTema() {
+		int idTema = Parametros.getIdTema();
+		moderador.ocultar_tema(idTema);
+		addComponent(new Visualizar_seccion__Usuario_identificado_());
+		
 	}
 	
 	//Valorar tema
@@ -137,6 +153,13 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 		usuarioI.valorar_tema(idUsuario, idTema);
 		String likes = (""+Parametros.getLikesTema());
 		numeroMeGusta.setValue(likes);
+	}
+	
+	//Ocultar mensaje
+	private void ocultarMensaje() {
+		int idMensaje = Parametros.getIdMensaje();
+		moderador.ocultar_mensaje(idMensaje);
+		addComponent(new Visualizar_tema_y_mensajes__Moderador_());
 	}
 
 	//Consultar Mensajes usuario identificado
@@ -243,6 +266,12 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 							valorarMensaje();
 							String likes = (""+Parametros.getLikesMensaje());
 							mensaje.cantidadMeGusta.setValue(likes);
+						}
+					});
+					
+					mensaje.botonOcultar.addClickListener(new Button.ClickListener() {
+						public void buttonClick(ClickEvent event) {
+							ocultarMensaje();
 						}
 					});
 					

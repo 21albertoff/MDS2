@@ -152,6 +152,7 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 					mensaje.reportar.setVisible(false);
 					mensaje.botonEliminar.setVisible(true);
 					mensaje.botonNotificar.setVisible(false);
+					mensaje.botonOcultar.setVisible(false);
 					
 					//Citar mensaje
 					if (!(M.get(idM).getEsta_en() == null)) {

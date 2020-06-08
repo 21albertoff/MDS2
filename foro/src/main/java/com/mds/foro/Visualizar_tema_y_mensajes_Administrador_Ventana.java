@@ -56,7 +56,6 @@ public class Visualizar_tema_y_mensajes_Administrador_Ventana extends AbsoluteLa
 	protected Button botonMeGusta;
 	protected Button reportarUsuario;
 	protected Image fotoPerfil;
-	protected Button ocultarTema;
 	protected Button escribirMensaje;
 	protected VerticalLayout verticalSeccionesDestacadas;
 

@@ -22,6 +22,7 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Mensaje_propietario_Ventana extends HorizontalLayout {
 	protected Label citado;
+	protected Button botonOcultar;
 	protected Button botonEliminar;
 	protected Image fotoPerfil;
 	protected Button nickUsuario;

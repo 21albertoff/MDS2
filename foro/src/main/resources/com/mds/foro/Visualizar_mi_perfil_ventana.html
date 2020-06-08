@@ -6,10 +6,10 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-absolute-layout icon="primary" style-name="pantallaAmigo" responsive>
+  <vaadin-absolute-layout icon="primary" style-name="fondogris" responsive>
    <vaadin-absolute-layout style-name="datosPerfil" width="30%" _id="datosPerfil">
-    <vaadin-image primary-style-name="v-hl" source="https://avatars2.githubusercontent.com/u/8536167?s=460&amp;u=8af2caf797d0665323732770a4df0c689c1e6885&amp;v=4" style-name="round" responsive size-full _id="imagenPerfil" :top="14%" :right="20%" :bottom="60%" :left="20%"></vaadin-image>
-    <vaadin-button icon="fonticon://Vaadin-Icons/e7bb" style-name="round-Imagen" size-full plain-text _id="cargarImagen" :top="14%" :right="20%" :bottom="60%" :left="20%"></vaadin-button>
+    <vaadin-image primary-style-name="v-hl" source="https://avatars2.githubusercontent.com/u/8536167?s=460&amp;u=8af2caf797d0665323732770a4df0c689c1e6885&amp;v=4" style-name="round" responsive size-full _id="imagenPerfil" :top="12%" :right="20%" :bottom="62%" :left="20%"></vaadin-image>
+    <vaadin-button icon="fonticon://Vaadin-Icons/e7bb" style-name="round-Imagen" size-full plain-text _id="cargarImagen" :top="12%" :right="20%" :bottom="62%" :left="20%"></vaadin-button>
     <vaadin-label caption-as-html responsive id="nickUsuario" size-full plain-text _id="nickUsuario" :top="40%" :right="10%" :bottom="55%" :left="5%">
       @nickUsuario 
     </vaadin-label>
@@ -22,85 +22,22 @@
     <vaadin-button icon="fonticon://Vaadin-Icons/e747" size-full tabindex="10" plain-text _id="listaAmigos" :top="89%" :right="10%" :bottom="5%" :left="10%">
       Lista Amigos 
     </vaadin-button>
+    <vaadin-text-field style-name="cajaMensaje" placeholder="Insertar URL de la imagen" width-full _id="cambiarImagen" :top="36%" :right="17%" :bottom="60%" :left="17%"></vaadin-text-field>
    </vaadin-absolute-layout>
-   <vaadin-label style-name="tituloAzul" size-full ;="" plain-text _id="tituloMensajesdeUsuario" :top="8%" :right="10%" :bottom="75%" :left="40%">
+   <vaadin-label style-name="tituloAzul" size-full ;="" plain-text _id="textoUltimosMensajes" :top="8%" :right="10%" :bottom="75%" :left="40%">
      ÚLTIMOS MENSAJES 
    </vaadin-label>
-   <vaadin-vertical-layout margin="false" :top="20%" :right="5%" :bottom="30%" :left="35%">
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje">
-     <vaadin-image source="https://cdn.pixabay.com/photo/2014/03/24/17/15/bike-295235_960_720.png" width="50px" height="50px" _id="imagenTema" :center></vaadin-image>
-     <vaadin-label plain-text _id="mensaje" :middle>
-       Mensaje 
-     </vaadin-label>
-     <vaadin-label plain-text _id="temaMensaje" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarMensaje14" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje1">
-     <vaadin-image source="https://images-na.ssl-images-amazon.com/images/I/51a4c1eOl2L.png" width="50px" height="50px" _id="imagenTema1" :center></vaadin-image>
-     <vaadin-label plain-text _id="mensaje1" :middle>
-       Mensaje 
-     </vaadin-label>
-     <vaadin-label plain-text _id="temaMensaje1" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario1" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarMensaje13" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje11">
-     <vaadin-image source="https://image.flaticon.com/icons/png/512/53/53283.png" width="40px" height="40px" _id="imagenTema11" :center></vaadin-image>
-     <vaadin-label plain-text _id="mensaje11" :middle>
-       Mensaje 
-     </vaadin-label>
-     <vaadin-label plain-text _id="temaMensaje11" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario11" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarMensaje12" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje12">
-     <vaadin-image source="https://pngimage.net/wp-content/uploads/2018/06/icono-juegos-png-3.png" width="50px" height="50px" _id="imagenTema12" :center></vaadin-image>
-     <vaadin-label plain-text _id="mensaje12" :middle>
-       Mensaje 
-     </vaadin-label>
-     <vaadin-label plain-text _id="temaMensaje12" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario12" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarMensaje11" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje13">
-     <vaadin-image source="https://image.flaticon.com/icons/png/512/45/45705.png" width="50px" height="50px" _id="imagenTema13" :center></vaadin-image>
-     <vaadin-label plain-text _id="mensaje13" :middle>
-       Mensaje 
-     </vaadin-label>
-     <vaadin-label plain-text _id="temaMensaje13" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario13" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarMensaje1" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-   </vaadin-vertical-layout>
-   <vaadin-button visible="false" icon="fonticon://Vaadin-Icons/e80b" style-name="danger" size-full tabindex="10" plain-text _id="eliminarCuenta" :top="80%" :right="5%" :bottom="15%" :left="80%">
+   <vaadin-vertical-layout margin="false" _id="verticalUltimosMensajes" :top="20%" :right="5%" :bottom="30%" :left="35%"></vaadin-vertical-layout>
+   <vaadin-button icon="fonticon://Vaadin-Icons/e80b" style-name="danger" size-full tabindex="10" plain-text _id="eliminarCuenta" :top="90%" :right="5%" :bottom="5%" :left="76%">
      ELIMINAR CUENTA 
    </vaadin-button>
    <vaadin-label style-name="tituloAzul" size-full ;="" plain-text _id="tituloDatosPersonales" :top="70%" :right="10%" :bottom="75%" :left="45%">
      DATOS PERSONALES 
    </vaadin-label>
-   <vaadin-text-field visible="false" caption="NOMBRE COMPLETO" style-name="nombreCompletoUsuario" width="50%" maxlength="40" value="Nombre Apellido1 Apellido2" _id="nombreUsuarioCompleto" :top="80%" :right="10%" :bottom="75%" :left="35%"></vaadin-text-field>
-   <vaadin-link caption="CAMBIAR CONTRASEÑA" id="cambiarPassword" _id="cambiarPassword" :top="80%" :right="5%" :bottom="75%" :left="80%"></vaadin-link>
+   <vaadin-text-field caption="NOMBRE COMPLETO" style-name="cajaMensaje" placeholder="Escribe tu nombre completo" width="50%" maxlength="40" _id="nombreUsuarioCompleto" :top="90%" :right="10%" :bottom="75%" :left="35%"></vaadin-text-field>
+   <vaadin-button style-name="link" id="cambiarPassword" _id="cambiarPassword" :top="79%" :right="5%" :bottom="75%" :left="75%">
+     CAMBIAR CONTRASEÑA 
+   </vaadin-button>
    <vaadin-check-box icon="fonticon://Vaadin-Icons/e7b4" caption="ACTIVAR NOTIFICACIONES" _id="activiarNotificaciones" :top="80%" :right="5%" :bottom="75%" :left="35%"></vaadin-check-box>
    <vaadin-check-box icon="fonticon://Vaadin-Icons/e709" caption="PERFIL OCULTO" _id="perfilOculto" :top="80%" :right="5%" :bottom="75%" :left="60%"></vaadin-check-box>
    <vaadin-absolute-layout icon="menuSuperior" style-name="menuSuperior" height="9%" _id="menuSuperior">
@@ -132,6 +69,12 @@
      <vaadin-link icon="fonticon://Vaadin-Icons/e700" caption="Panel de control" primary-style-name="enlacesMenu" size-full _id="menuPanelControlAdministrador" :top="30%" :right="28%" :bottom="30%" :left="32%"></vaadin-link>
     </vaadin-absolute-layout>
    </vaadin-absolute-layout>
+   <vaadin-label visible="false" style-name="tituloAzul" size-full ;="" plain-text _id="textoMisAmigos" :top="8%" :right="10%" :bottom="75%" :left="40%">
+     MIS AMIGOS 
+   </vaadin-label>
+   <vaadin-panel size-auto :top="20%" :right="5%" :bottom="30%" :left="35%">
+    <vaadin-vertical-layout visible="false" margin="false" _id="verticalMisAmigos"></vaadin-vertical-layout>
+   </vaadin-panel>
   </vaadin-absolute-layout>
  </body>
 </html>

@@ -5,12 +5,12 @@ import com.vaadin.annotations.DesignRoot;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CheckBox;
-import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Link;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.TextField;
+import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.declarative.Design;
 
 /** 
@@ -32,41 +32,13 @@ public class Visualizar_mi_perfil_ventana extends AbsoluteLayout {
 	protected TextArea descripcionUsuario;
 	protected Button guardarCambios;
 	protected Button listaAmigos;
-	protected Label tituloMensajesdeUsuario;
-	protected HorizontalLayout cajaMensaje;
-	protected Image imagenTema;
-	protected Label mensaje;
-	protected Label temaMensaje;
-	protected Label fechaMensajeUsuario;
-	protected Link eliminarMensaje14;
-	protected HorizontalLayout cajaMensaje1;
-	protected Image imagenTema1;
-	protected Label mensaje1;
-	protected Label temaMensaje1;
-	protected Label fechaMensajeUsuario1;
-	protected Link eliminarMensaje13;
-	protected HorizontalLayout cajaMensaje11;
-	protected Image imagenTema11;
-	protected Label mensaje11;
-	protected Label temaMensaje11;
-	protected Label fechaMensajeUsuario11;
-	protected Link eliminarMensaje12;
-	protected HorizontalLayout cajaMensaje12;
-	protected Image imagenTema12;
-	protected Label mensaje12;
-	protected Label temaMensaje12;
-	protected Label fechaMensajeUsuario12;
-	protected Link eliminarMensaje11;
-	protected HorizontalLayout cajaMensaje13;
-	protected Image imagenTema13;
-	protected Label mensaje13;
-	protected Label temaMensaje13;
-	protected Label fechaMensajeUsuario13;
-	protected Link eliminarMensaje1;
+	protected TextField cambiarImagen;
+	protected Label textoUltimosMensajes;
+	protected VerticalLayout verticalUltimosMensajes;
 	protected Button eliminarCuenta;
 	protected Label tituloDatosPersonales;
 	protected TextField nombreUsuarioCompleto;
-	protected Link cambiarPassword;
+	protected Button cambiarPassword;
 	protected CheckBox activiarNotificaciones;
 	protected CheckBox perfilOculto;
 	protected AbsoluteLayout menuSuperior;
@@ -91,6 +63,8 @@ public class Visualizar_mi_perfil_ventana extends AbsoluteLayout {
 	protected Link menuNotificacionesAdministrador;
 	protected Image menuimagenPerfilAdministador;
 	protected Link menuPanelControlAdministrador;
+	protected Label textoMisAmigos;
+	protected VerticalLayout verticalMisAmigos;
 
 	public Visualizar_mi_perfil_ventana() {
 		Design.read(this);
