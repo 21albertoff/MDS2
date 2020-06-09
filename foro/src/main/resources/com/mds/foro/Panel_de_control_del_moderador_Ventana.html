@@ -6,73 +6,34 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-absolute-layout icon="primary" style-name="pantallaAmigo" responsive>
-   <vaadin-absolute-layout icon="menuSuperior" style-name="menuSuperior" height="9%" _id="menuSuperior">
-    <vaadin-label style-name="nombreForo" size-full plain-text _id="nombreForo" :top="30%" :left="5%">
-      foroMDS2 
-    </vaadin-label>
-    <vaadin-absolute-layout visible="false" _id="menuUsuarioModerador">
-     <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilModerador" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionModerador" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e7b4" caption="Notificaciones" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesModerador" :top="30%" :right="28%" :bottom="30%" :left="50%"></vaadin-link>
-     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="menuimagenPerfilModerador" :top="27%" :right="31%" :bottom="30%" :left="66%"></vaadin-image>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e700" caption="Panel de control" primary-style-name="enlacesMenu" size-full _id="menuPanelControlModerador" :top="30%" :right="28%" :bottom="30%" :left="32%"></vaadin-link>
+  <vaadin-absolute-layout style-name="fondogris">
+   <vaadin-absolute-layout style-name="menuSuperior" height="9%">
+    <vaadin-absolute-layout _id="menuUsuarioModerador">
+     <vaadin-button icon="fonticon://Vaadin-Icons/e80d" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilModerador" :top="30%" :right="23%" :bottom="30%" :left="68%">
+       Mi Perfil 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e798" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionModerador" :top="30%" :right="5%" :bottom="30%" :left="82%">
+       Cerrar Sesion 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e7b4" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesModerador" :top="30%" :right="38%" :bottom="30%" :left="50%">
+       Notificaciones 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e700" primary-style-name="enlacesMenu" size-full _id="menuPanelControlModerador" :top="30%" :right="53%" :bottom="30%" :left="32%">
+       Panel de control 
+     </vaadin-button>
     </vaadin-absolute-layout>
+    <vaadin-button primary-style-name="enlacesMenu" style-name="nombreForo" size-full plain-text _id="nombreForo" :top="30%" :right="85%" :bottom="30%" :left="5%">
+      foroMDS2 
+    </vaadin-button>
    </vaadin-absolute-layout>
-   <vaadin-label style-name="tituloAzulGrande" size-full ;="" plain-text _id="tituloMensajesdeUsuario" :top="10%" :right="30%" :bottom="75%" :left="30%">
+   <vaadin-label style-name="tituloAzulGrande nombreUsuarioEscribirMensaje" size-full ;="" plain-text _id="tituloMensajesdeUsuario" :top="10%" :right="20%" :bottom="75%" :left="32%">
      PANEL DE CONTROL 
    </vaadin-label>
-   <vaadin-label style-name="tituloAzulSinNegrita azul" size-full ;="" plain-text _id="tituloReporteMensajes" :top="20%" :right="20%" :bottom="70%" :left="20%">
+   <vaadin-label style-name="tituloAzulSinNegrita azul nombreUsuarioEscribirMensaje" size-full ;="" plain-text _id="tituloReporte" :top="18%" :right="20%" :bottom="75%" :left="34%">
      REPORTE DE MENSAJES 
    </vaadin-label>
-   <vaadin-panel size-full _id="panelReportes" :top="28%" :right="20%" :bottom="5%" :left="20%">
-    <vaadin-vertical-layout _id="controlMensajesReportados">
-     <vaadin-vertical-layout style-name="cajaMensaje" spacing="false" size-full margin="false" _id="mensajeReportado">
-      <vaadin-horizontal-layout spacing="false" size-full _id="cajaNotificado">
-       <vaadin-image source="https://avatars1.githubusercontent.com/u/61786916?s=460&amp;v=4" style-name="round" width="50px" height="50px" _id="imagenUsuario" :bottom :center></vaadin-image>
-       <vaadin-label plain-text _id="nombreUsuario2" :middle>
-         NombreUsuario 
-       </vaadin-label>
-       <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarReporte" :middle :right></vaadin-link>
-       <vaadin-link caption="NOTIFICAR" _id="notificarUsuario" :middle :center></vaadin-link>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout spacing="false" size-full margin _id="cajaNotificado3">
-       <vaadin-label enabled="false" width-full plain-text _id="motivo3">
-         Mensaje que ha sido reportado del usuario, en este caso aparecera un breve resumen del mensaje donde se veran pues por ejemplo, las 500 primeras palabras 
-       </vaadin-label>
-      </vaadin-horizontal-layout>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout style-name="cajaMensaje" spacing="false" size-full margin="false" _id="mensajeReportado1">
-      <vaadin-horizontal-layout spacing="false" size-full _id="cajaNotificado1">
-       <vaadin-image source="https://avatars1.githubusercontent.com/u/61786916?s=460&amp;v=4" style-name="round" width="50px" height="50px" _id="imagenUsuario1" :bottom :center></vaadin-image>
-       <vaadin-label plain-text _id="nombreUsuario21" :middle>
-         NombreUsuario 
-       </vaadin-label>
-       <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarReporte1" :middle :right></vaadin-link>
-       <vaadin-link caption="NOTIFICAR" _id="notificarUsuario1" :middle :center></vaadin-link>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout spacing="false" size-full margin _id="cajaNotificado31">
-       <vaadin-label enabled="false" width-full plain-text _id="motivo31">
-         Mensaje que ha sido reportado del usuario, en este caso aparecera un breve resumen del mensaje donde se veran pues por ejemplo, las 500 primeras palabras 
-       </vaadin-label>
-      </vaadin-horizontal-layout>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout style-name="cajaMensaje" spacing="false" size-full margin="false" _id="mensajeReportado2">
-      <vaadin-horizontal-layout spacing="false" size-full _id="cajaNotificado2">
-       <vaadin-image source="https://avatars1.githubusercontent.com/u/61786916?s=460&amp;v=4" style-name="round" width="50px" height="50px" _id="imagenUsuario2" :bottom :center></vaadin-image>
-       <vaadin-label plain-text _id="nombreUsuario22" :middle>
-         NombreUsuario 
-       </vaadin-label>
-       <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarReporte2" :middle :right></vaadin-link>
-       <vaadin-link caption="NOTIFICAR" _id="notificarUsuario2" :middle :center></vaadin-link>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout spacing="false" size-full margin _id="cajaNotificado32">
-       <vaadin-label enabled="false" width-full plain-text _id="motivo32">
-         Mensaje que ha sido reportado del usuario, en este caso aparecera un breve resumen del mensaje donde se veran pues por ejemplo, las 500 primeras palabras 
-       </vaadin-label>
-      </vaadin-horizontal-layout>
-     </vaadin-vertical-layout>
-    </vaadin-vertical-layout>
+   <vaadin-panel style-name="borderless" height="90%" _id="panelMensajes" :top="29%" :right="15%" :left="15%">
+    <vaadin-vertical-layout _id="verticalMensajesReportados"></vaadin-vertical-layout>
    </vaadin-panel>
   </vaadin-absolute-layout>
  </body>

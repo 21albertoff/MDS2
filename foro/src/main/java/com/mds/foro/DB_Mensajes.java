@@ -116,7 +116,7 @@ public class DB_Mensajes {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<MensajeDB> mensajes = null;
 		try {			
-			mensajes = TemaDBDAO.queryTemaDB("MensajeDB.oculto='1'", null);
+			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.oculto='1'", null);
 			t.commit();
 			
 		} catch (PersistentException e1) {
@@ -171,13 +171,15 @@ public class DB_Mensajes {
 		}
 	}
 
-	public void reportar_mensaje(int idUsuario, int idMensaje) throws PersistentException {
+	public void reportar_mensaje(int idUsuario, int idUsuarior, int idMensaje) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		
 		try {
 			Usuario_registradoDB usuarioReportado = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuario);
-			Usuario_registradoDB reporte = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idMensaje);
+			Usuario_registradoDB reporte = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuarior);
 			usuarioReportado.reportado_por.add(reporte);
+			String mensaje = ""+ idMensaje;
+			usuarioReportado.setMotivo(mensaje);
 			Usuario_registradoDBDAO.save(usuarioReportado);
 			t.commit();
 		}catch(Exception e) {

@@ -220,8 +220,9 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 					});
 					mensaje.reportar.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
-							int idMensaje = Parametros.getIdUsuario();
-							usuarioR.reportar_mensaje(M.get(id).getCreado_por().getIdUsuario(), idMensaje);
+							int idUsuarior = Parametros.getIdUsuario();
+							int idMensaje = M.get(id).getORMID();
+							usuarioR.reportar_mensaje(M.get(id).getCreado_por().getIdUsuario(), idUsuarior, idMensaje);
 						}
 					});
 					mensaje.botonMeGusta.addClickListener(new Button.ClickListener() {

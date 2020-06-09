@@ -4,7 +4,8 @@ import java.util.List;
 
 public interface iUsuario_registrado extends iUsuario_identificado {
 
-	public void reportar_mensaje(int aIdUsuario, int aIdMensaje);
+	//Reportar mensaje usuario
+	public void reportar_mensaje(int idUsuario, int idUsuarior, int idMensaje);
 
 	public boolean eliminar_perfil(int aIdUsuario);
 

@@ -289,9 +289,9 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	/** Usuario registrado **/
 
 	// Reportar mensaje
-	public void reportar_mensaje(int idUsuario, int idMensaje) {
+	public void reportar_mensaje(int idUsuario, int idUsuarior, int idMensaje) {
 		try {
-			mensajes.reportar_mensaje(idUsuario, idMensaje);
+			mensajes.reportar_mensaje(idUsuario,idUsuarior, idMensaje);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

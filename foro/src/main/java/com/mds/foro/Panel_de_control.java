@@ -25,7 +25,7 @@ public class Panel_de_control extends Panel_de_control_ventana {
 		inicializar();
 		consultarListaModeradores();
 		consultarTemasOcultos();
-		//consultarMensajesOcultos();
+		consultarMensajesOcultos();
 		consultarUsuariosNotificados();
 
 		//Menu superior 
