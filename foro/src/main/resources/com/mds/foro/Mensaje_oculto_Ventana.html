@@ -6,11 +6,14 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-<vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaAmigos">
-     <vaadin-image source="https://avatars2.githubusercontent.com/u/8536167?s=460&amp;u=8af2caf797d0665323732770a4df0c689c1e6885&amp;v=4" style-name="round" width="50px" _id="imagenAmigo" :middle></vaadin-image>
-     <vaadin-label width="105%" plain-text _id="nombreAmigo" :middle>
-       Nombre Usuario 
-     </vaadin-label>
-     <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarAmigo" :middle :right></vaadin-link>
-    </vaadin-horizontal-layout> </body>
+  <vaadin-horizontal-layout style-name="cajaMensaje" width-full>
+   <vaadin-image source="https://avatars2.githubusercontent.com/u/8536167?s=460&amp;u=8af2caf797d0665323732770a4df0c689c1e6885&amp;v=4" style-name="round" width="50px" _id="imagenUsuario" :middle></vaadin-image>
+   <vaadin-label width="105%" plain-text _id="mensajeUsuario" :middle>
+     Nombre Usuario 
+   </vaadin-label>
+   <vaadin-button icon="fonticon://Vaadin-Icons/e7df" style-name="green link" _id="mostrarMensaje" :middle :right>
+     MOSTRAR 
+   </vaadin-button>
+  </vaadin-horizontal-layout>
+ </body>
 </html>

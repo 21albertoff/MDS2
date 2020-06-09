@@ -2,9 +2,10 @@ package com.mds.foro;
 
 import java.util.List;
 
-public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fijos, iUsuario, iUsuario_identificado, iModerador, iUsuario_registrado, iAdministrador {
-	
-	//Declaraciones
+public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fijos, iUsuario, iUsuario_identificado,
+		iModerador, iUsuario_registrado, iAdministrador {
+
+	// Declaraciones
 	public DB_Temas temas = new DB_Temas();
 	public DB_Administradores administradores = new DB_Administradores();
 	public DB_Secciones secciones = new DB_Secciones();
@@ -12,41 +13,43 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	public DB_Mensajes mensajes = new DB_Mensajes();
 	public DB_UsuariosRegistrados registrados = new DB_UsuariosRegistrados();
 
-	/**Usuario no identificado**/
-	
-	//Registrarse
-	public boolean registrarse(String nombreUsuario, String nombreCompleto, String correoUsuario, String passwordUsuario, String descripcionUsuario, String fotoUsuario) {
+	/** Usuario no identificado **/
+
+	// Registrarse
+	public boolean registrarse(String nombreUsuario, String nombreCompleto, String correoUsuario,
+			String passwordUsuario, String descripcionUsuario, String fotoUsuario) {
 		try {
-			return  registrados.registrarse(nombreUsuario, nombreCompleto, correoUsuario, passwordUsuario, descripcionUsuario, fotoUsuario);
+			return registrados.registrarse(nombreUsuario, nombreCompleto, correoUsuario, passwordUsuario,
+					descripcionUsuario, fotoUsuario);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
-	
-	//Iniciar Sesion
+
+	// Iniciar Sesion
 	public boolean iniciar_sesion(String nombreUsuario, String passwordUsuario) {
 		try {
-			return  registrados.iniciar_sesion(nombreUsuario, passwordUsuario);
+			return registrados.iniciar_sesion(nombreUsuario, passwordUsuario);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
 
-	//Recuperar contrasenia
+	// Recuperar contrasenia
 	public boolean recuperarContrasenia(String nombreUsuario, String correoElectronico) {
 		try {
-			return  registrados.recuperarContrasenia(nombreUsuario, correoElectronico);
+			return registrados.recuperarContrasenia(nombreUsuario, correoElectronico);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
 
-	/**Usuario**/
-	
-	//Consultar secciones fijas
+	/** Usuario **/
+
+	// Consultar secciones fijas
 	public List<SeccionDB> consultar_SF() {
 		try {
 			return secciones.consultar_SF();
@@ -56,7 +59,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return null;
 	}
 
-	//Consultar ultimas secciones
+	// Consultar ultimas secciones
 	public List<SeccionDB> consultar_US() {
 		try {
 			return secciones.consultar_US();
@@ -65,8 +68,8 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return null;
 	}
-	
-	//Consultar temas
+
+	// Consultar temas
 	public List<TemaDB> consultar_T(int idSeccion) {
 		try {
 			return temas.consultar_T(idSeccion);
@@ -76,7 +79,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return null;
 	}
 
-	//Consultar mensajes
+	// Consultar mensajes
 	public List<MensajeDB> consultar_M(int idTema) {
 		try {
 			return mensajes.consultar_M(idTema);
@@ -85,10 +88,10 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return null;
 	}
-	
-	/**Elementos fijos**/
-	
-	//Consultar secciones destacadas
+
+	/** Elementos fijos **/
+
+	// Consultar secciones destacadas
 	public List<SeccionDB> consultar_SD() {
 		try {
 			return secciones.consultar_SD();
@@ -97,16 +100,16 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return null;
 	}
-	
-	/**Correo**/
-	
+
+	/** Correo **/
+
 	public void enviar_Mensaje(int aIdUsuario, String aPassword) {
 		throw new UnsupportedOperationException();
 	}
-	
-	/**Usuario identificado**/
-	
-	//Crear tema
+
+	/** Usuario identificado **/
+
+	// Crear tema
 	public boolean guardar_tema(int idSeccion, int idUsuario, String tituloTema, String subtituloTema) {
 		try {
 			return temas.guardar_tema(idSeccion, idUsuario, tituloTema, subtituloTema);
@@ -115,8 +118,8 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return false;
 	}
-	
-	//Consultar tema usuario identificado
+
+	// Consultar tema usuario identificado
 	public List<TemaDB> consultar_T_UI(int idSeccion) {
 		try {
 			return temas.consultar_T_UI(idSeccion);
@@ -125,19 +128,20 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return null;
 	}
-	
-	//Eliminar propio tema
+
+	// Eliminar propio tema
 	public boolean eliminar_propio_tema(int idTema) {
 		try {
-			return  temas.eliminar_propio_tema(idTema);
+			return temas.eliminar_propio_tema(idTema);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
 
-	//Crear mensaje
-	public boolean crear_mensaje(int idTema, int idUsuario, String mensaje, String foto1, String foto2, String foto3, String video) {
+	// Crear mensaje
+	public boolean crear_mensaje(int idTema, int idUsuario, String mensaje, String foto1, String foto2, String foto3,
+			String video) {
 		try {
 			return mensajes.crear_mensaje(idTema, idUsuario, mensaje, foto1, foto2, foto3, video);
 		} catch (Exception e) {
@@ -145,7 +149,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return false;
 	}
-	
+
 	// Valorar tema
 	public void valorar_tema(int idUsuario, int idTema) {
 		try {
@@ -156,7 +160,8 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	}
 
 	// Citar mensaje
-	public boolean citar_mensaje(int idTema, int idUsuario, int idCitado, String mensaje, String foto1, String foto2, String foto3, String video) {
+	public boolean citar_mensaje(int idTema, int idUsuario, int idCitado, String mensaje, String foto1, String foto2,
+			String foto3, String video) {
 		try {
 			return mensajes.citar_mensaje(idTema, idUsuario, idCitado, mensaje, foto1, foto2, foto3, video);
 		} catch (Exception e) {
@@ -164,7 +169,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return false;
 	}
-	
+
 	// Eliminar propio mensaje
 	public boolean eliminar_mi_mensaje(int idMensaje) {
 		try {
@@ -174,17 +179,17 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return false;
 	}
-	
-	//Valorar mensaje
+
+	// Valorar mensaje
 	public void valorar_mensaje(int idUsuario, int idMensaje) {
 		try {
-			 mensajes.valorar_mensaje(idUsuario, idMensaje);
+			mensajes.valorar_mensaje(idUsuario, idMensaje);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	//Consultar mis mensajes
+
+	// Consultar mis mensajes
 	public List<MensajeDB> consultar_MisM(int idUsuario) {
 		try {
 			return mensajes.consultar_MisM(idUsuario);
@@ -193,7 +198,8 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return null;
 	}
-	
+
+	// Consultar amigos
 	public List<Usuario_DB> consultar_A(int idUsuario) {
 		try {
 			return registrados.consultar_A(idUsuario);
@@ -202,7 +208,8 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return null;
 	}
-	
+
+	// Eliminar amigo perfil
 	public boolean eliminar_amigoP(int idUsuario, int idAmigo) {
 		try {
 			return registrados.eliminar_amigoP(idUsuario, idAmigo);
@@ -212,6 +219,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return false;
 	}
 
+	// Eliminar amigo
 	public boolean eliminar_amigo(int idUsuario, int idAmigo) {
 		try {
 			return registrados.eliminar_amigo(idUsuario, idAmigo);
@@ -220,7 +228,8 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return false;
 	}
-	
+
+	// Modificar foto
 	public boolean modificar_foto(int idUsuario, String foto) {
 		try {
 			return registrados.modificar_foto(idUsuario, foto);
@@ -230,6 +239,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return false;
 	}
 
+	// Modificar descripcion
 	public boolean modificar_descripcion(int idUsuario, String descripcion) {
 		try {
 			return registrados.modificar_descripcion(idUsuario, descripcion);
@@ -239,6 +249,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return false;
 	}
 
+	// Activar o desactivar notificaciones
 	public void Activar_Desactivar_notificaciones(int idUsuario) {
 		try {
 			registrados.Activar_Desactivar_notificaciones(idUsuario);
@@ -247,22 +258,37 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 	}
 
+	// Activar o desactivar notificaciones por correo
 	public void Activar_Desactivar_por_correo(int idUsuario) {
 		try {
 			registrados.Activar_Desactivar_por_correo(idUsuario);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}	}
+		}
+	}
 
+	// Perfil oculto
 	public void perfil_oculto(int idUsuario) {
 		try {
 			registrados.perfil_oculto(idUsuario);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}	}
-	
-	/**Usuario registrado**/
-	
+		}
+	}
+
+	// Consultar mensajes usuario identificado
+	public List<MensajeDB> consultar_M_UI(int idTema) {
+		try {
+			return mensajes.consultar_M_UI(idTema);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/** Usuario registrado **/
+
+	// Reportar mensaje
 	public void reportar_mensaje(int idUsuario, int idMensaje) {
 		try {
 			mensajes.reportar_mensaje(idUsuario, idMensaje);
@@ -270,10 +296,10 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 			e.printStackTrace();
 		}
 	}
-	
-	/**Moderador**/
-	
-	//Consultar mensajes moderador
+
+	/** Moderador **/
+
+	// Consultar mensajes moderador
 	public List<MensajeDB> consultar_M_Mo(int idTema) {
 		try {
 			return mensajes.consultar_M_Mo(idTema);
@@ -282,8 +308,8 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return null;
 	}
-	
-	//Notificar usuario
+
+	// Notificar usuario
 	public void notificar(int idUsuario, String motivo) {
 		try {
 			registrados.notificar(idUsuario, motivo);
@@ -291,7 +317,8 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 			e.printStackTrace();
 		}
 	}
-	
+
+	// Ocultar mensaje
 	public void ocultar_mensaje(int idMensaje) {
 		try {
 			mensajes.ocultar_mensaje(idMensaje);
@@ -299,7 +326,8 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 			e.printStackTrace();
 		}
 	}
-	
+
+	// Ocultar tema
 	public void ocultar_tema(int idTema) {
 		try {
 			temas.ocultar_tema(idTema);
@@ -307,10 +335,10 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 			e.printStackTrace();
 		}
 	}
-	
-	/**Administrador**/
-	
-	//Consultar secciones fijas administrador
+
+	/** Administrador **/
+
+	// Consultar secciones fijas administrador
 	public List<SeccionDB> consultar_SF_A() {
 		try {
 			return secciones.consultar_SF_A();
@@ -320,7 +348,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return null;
 	}
 
-	//Consultar ultimas secciones administrador
+	// Consultar ultimas secciones administrador
 	public List<SeccionDB> consultar_US_A() {
 		try {
 			return secciones.consultar_US_A();
@@ -329,8 +357,8 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return null;
 	}
-	
-	//Quitar seccion fija
+
+	// Quitar seccion fija
 	public void quitar_seccion_fija(int idSeccion) {
 		try {
 			secciones.quitar_seccion_fija(idSeccion);
@@ -339,27 +367,27 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 	}
 
-	//Crear seccion
+	// Crear seccion
 	public boolean crear_seccion(String tituloSeccion, String icono, boolean fijarSeccion) {
 		try {
-			return  secciones.crear_seccion(tituloSeccion, icono, fijarSeccion);
+			return secciones.crear_seccion(tituloSeccion, icono, fijarSeccion);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
-	
-	//Eliminar seccion
+
+	// Eliminar seccion
 	public boolean eliminar_seccion(int idSeccion) {
 		try {
-			return  secciones.eliminar_seccion(idSeccion);
+			return secciones.eliminar_seccion(idSeccion);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
-	
-	//Consultar temas administrador
+
+	// Consultar temas administrador
 	public List<TemaDB> consultar_T_A(int idSeccion) {
 		try {
 			return temas.consultar_T_A(idSeccion);
@@ -368,28 +396,28 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return null;
 	}
-	
-	//Eliminar tema administrador
+
+	// Eliminar tema administrador
 	public boolean eliminar_tema(int idTema) {
 		try {
-			return  temas.eliminar_tema(idTema);
+			return temas.eliminar_tema(idTema);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
-	
-	//Eliminar mensaje administrador
+
+	// Eliminar mensaje administrador
 	public boolean eliminar_mensaje(int idMensaje) {
 		try {
-			return  mensajes.eliminar_mensaje(idMensaje);
+			return mensajes.eliminar_mensaje(idMensaje);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
-	
-	//Consultar mensajes administrador
+
+	// Consultar mensajes administrador
 	public List<MensajeDB> consultar_M_A(int idTema) {
 		try {
 			return mensajes.consultar_M_A(idTema);
@@ -398,8 +426,8 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return null;
 	}
-	
-	//Banear usuario
+
+	// Banear usuario
 	public void banear_usuario(int idUsuario) {
 		try {
 			registrados.banear_usuario(idUsuario);
@@ -407,8 +435,8 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 			e.printStackTrace();
 		}
 	}
-	
-	//Consultar mensajes administrador
+
+	// Consultar mensajes administrador
 	public List<MensajeDB> consultar_MA(int idAmigo) {
 		try {
 			return mensajes.consultar_MA(idAmigo);
@@ -417,9 +445,76 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return null;
 	}
-	
-	/**Otros metodos**/
-	
+
+	// Consultar moderadores
+	public List<Usuario_DB> consultar_Mo() {
+		try {
+			return registrados.consultar_Moderador();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	// Quitar moderador
+	public void quitar_moderador(int idUsuario) {
+		try {
+			registrados.quitar_moderador(idUsuario);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// Consultar temas ocultos
+	public List<TemaDB> consultar_TO() {
+		try {
+			return temas.consultar_TO();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	// Mostrar tema oculto
+	public void mostrar_tema(int idTema) {
+		try {
+			temas.mostrar_tema(idTema);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// Consultar mensajes ocultos
+	public List<MensajeDB> consultar_MO() {
+		try {
+			return mensajes.consultar_MO();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	// Mostrar mensaje oculto
+	public void mostrar_mensaje(int idMensaje) {
+		try {
+			mensajes.mostrar_mensaje(idMensaje);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// Consultar usuarios notificados
+	public List<Usuario_registradoDB> consultar_UN() {
+		try {
+			return registrados.consultar_UN();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/** Otros metodos **/
+
 	public Usuario_registradoDB get_Correo() {
 		throw new UnsupportedOperationException();
 	}
@@ -440,22 +535,9 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public List<MensajeDB> consultar_M_UI(int idTema) {
-		try {
-			return mensajes.consultar_M_UI(idTema);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
 	public List<Usuario_DB> consultar_N(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
-
-	
-
-	
 
 	public List<MensajeDB> consulta_M_UR(int aIdTema) {
 		throw new UnsupportedOperationException();
@@ -469,25 +551,9 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public List consultar_TO() {
-		throw new UnsupportedOperationException();
-	}
-
-	public List<MensajeDB> consultar_MO() {
-		throw new UnsupportedOperationException();
-	}
-
-	public List consultar_UN() {
-		throw new UnsupportedOperationException();
-	}
-
 	public boolean agregar_amigo(int aIdUsuario, int aIdAmigo) {
 		throw new UnsupportedOperationException();
 	}
-
-	
-
-	
 
 	public boolean eliminar_notificacion(int aIdUsuario, int aIdNotificacion) {
 		throw new UnsupportedOperationException();
@@ -505,26 +571,13 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-
-
 	public void cambiar_estado_tema(int aIdTema) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void quitar_moderador(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void mostrar_tema(int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
 
 	public boolean citar_tema(String aMensaje, String aFotos, String aVideo, int aIdTema) {
 		throw new UnsupportedOperationException();
 	}
-
-
-	
 
 	public boolean eliminar_perfil(int aIdUsuario) {
 		throw new UnsupportedOperationException();
@@ -538,17 +591,4 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	
-
-	
-
-	
-
-	public void mostrar_mensaje(int aIdMensaje) {
-		throw new UnsupportedOperationException();
-	}
-
-	public List consultar_Mo() {
-		throw new UnsupportedOperationException();
-	}
 }

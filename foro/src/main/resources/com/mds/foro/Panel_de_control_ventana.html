@@ -6,116 +6,52 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-absolute-layout icon="primary" style-name="pantallaAmigo" responsive>
-   <vaadin-absolute-layout icon="menuSuperior" style-name="menuSuperior" height="9%" _id="menuSuperior">
-    <vaadin-label style-name="nombreForo" size-full plain-text _id="nombreForo" :top="30%" :left="5%">
-      foroMDS2 
-    </vaadin-label>
+  <vaadin-absolute-layout style-name="fondogris">
+   <vaadin-absolute-layout style-name="menuSuperior" height="9%">
     <vaadin-absolute-layout _id="menuUsuarioAdministrador">
-     <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilAdministrador" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionAdministrador" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e7b4" caption="Notificaciones" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesAdministrador" :top="30%" :right="28%" :bottom="30%" :left="50%"></vaadin-link>
-     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="menuimagenPerfilAdministador" :top="27%" :right="31%" :bottom="30%" :left="66%"></vaadin-image>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e700" caption="Panel de control" primary-style-name="enlacesMenu" size-full _id="menuPanelControlAdministrador" :top="30%" :right="28%" :bottom="30%" :left="32%"></vaadin-link>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e80d" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilAdministrador" :top="30%" :right="23%" :bottom="30%" :left="68%">
+       Mi Perfil 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e798" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionAdministrador" :top="30%" :right="5%" :bottom="30%" :left="82%">
+       Cerrar Sesion 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e7b4" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesAdministrador" :top="30%" :right="38%" :bottom="30%" :left="50%">
+       Notificaciones 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e700" primary-style-name="enlacesMenu" size-full _id="menuPanelControlAdministrador" :top="30%" :right="53%" :bottom="30%" :left="32%">
+       Panel de control 
+     </vaadin-button>
     </vaadin-absolute-layout>
+    <vaadin-button primary-style-name="enlacesMenu" style-name="nombreForo" size-full plain-text _id="nombreForo" :top="30%" :right="85%" :bottom="30%" :left="5%">
+      foroMDS2 
+    </vaadin-button>
    </vaadin-absolute-layout>
-   <vaadin-label style-name="tituloAzulGrande" size-full ;="" plain-text _id="tituloMensajesdeUsuario" :top="10%" :right="32%" :bottom="75%" :left="35%">
+   <vaadin-label style-name="tituloAzulGrande" size-full ;="" plain-text _id="tituloMensajesdeUsuario" :top="10%" :right="22%" :bottom="75%" :left="35%">
      PANEL DE CONTROL 
    </vaadin-label>
-   <vaadin-vertical-layout visible="false" _id="controlMensajes" :top="25%" :right="5%" :bottom="30%" :left="35%">
-    <vaadin-horizontal-layout visible="false" style-name="cajaMensaje" width-full _id="cajaMensaje">
-     <vaadin-image source="https://cdn.pixabay.com/photo/2014/03/24/17/15/bike-295235_960_720.png" width="50px" height="50px" _id="imagenTema" :center></vaadin-image>
-     <vaadin-label plain-text _id="mensaje" :middle>
-       Mensaje 
-     </vaadin-label>
-     <vaadin-label plain-text _id="temaMensaje" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="MOSTRAR" style-name="green" _id="eliminarMensaje14" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje1">
-     <vaadin-image source="https://images-na.ssl-images-amazon.com/images/I/51a4c1eOl2L.png" width="50px" height="50px" _id="imagenTema1" :center></vaadin-image>
-     <vaadin-label plain-text _id="mensaje1" :middle>
-       Mensaje 
-     </vaadin-label>
-     <vaadin-label plain-text _id="temaMensaje1" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario1" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="MOSTRAR" style-name="green" _id="eliminarMensaje13" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje11">
-     <vaadin-image source="https://image.flaticon.com/icons/png/512/53/53283.png" width="40px" height="40px" _id="imagenTema11" :center></vaadin-image>
-     <vaadin-label plain-text _id="mensaje11" :middle>
-       Mensaje 
-     </vaadin-label>
-     <vaadin-label plain-text _id="temaMensaje11" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario11" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="MOSTRAR" style-name="green" _id="eliminarMensaje12" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje12">
-     <vaadin-image source="https://pngimage.net/wp-content/uploads/2018/06/icono-juegos-png-3.png" width="50px" height="50px" _id="imagenTema12" :center></vaadin-image>
-     <vaadin-label plain-text _id="mensaje12" :middle>
-       Mensaje 
-     </vaadin-label>
-     <vaadin-label plain-text _id="temaMensaje12" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario12" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="MOSTRAR" style-name="green" _id="eliminarMensaje11" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje13">
-     <vaadin-image source="https://image.flaticon.com/icons/png/512/45/45705.png" width="50px" height="50px" _id="imagenTema13" :center></vaadin-image>
-     <vaadin-label plain-text _id="mensaje13" :middle>
-       Mensaje 
-     </vaadin-label>
-     <vaadin-label plain-text _id="temaMensaje13" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario13" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="MOSTRAR" style-name="green" _id="eliminarMensaje1" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje15">
-     <vaadin-image source="https://image.flaticon.com/icons/png/512/5/5067.png" width="50px" height="50px" _id="imagenTema15" :center></vaadin-image>
-     <vaadin-label plain-text _id="mensaje15" :middle>
-       Mensaje 
-     </vaadin-label>
-     <vaadin-label plain-text _id="temaMensaje15" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario15" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="MOSTRAR" style-name="green" _id="eliminarMensaje" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-   </vaadin-vertical-layout>
-   <vaadin-label visible="false" style-name="tituloAzulSinNegrita azul" size-full ;="" plain-text _id="tituloModeradores" :top="15%" :right="40%" :bottom="75%" :left="35%">
+   <vaadin-label style-name="tituloAzulSinNegrita azul" size-full ;="" plain-text _id="tituloModeradores" :top="18%" :right="20%" :bottom="75%" :left="35%">
      MODERADORES 
    </vaadin-label>
-   <vaadin-vertical-layout spacing size-full _id="paneldeControl" :top="15%" :right="70%" :bottom="15%" :left="5%">
-    <vaadin-button style-name="bold huge azulBoton" size-full plain-text _id="moderadores">
+   <vaadin-label style-name="tituloAzulSinNegrita azul" size-full ;="" plain-text _id="tituloTemas" :top="18%" :right="20%" :bottom="75%" :left="35%">
+     TEMAS OCULTOS 
+   </vaadin-label>
+   <vaadin-label style-name="tituloAzulSinNegrita azul" size-full ;="" plain-text _id="tituloMensajes" :top="18%" :right="20%" :bottom="75%" :left="35%">
+     MENSAJES OCULTOS 
+   </vaadin-label>
+   <vaadin-label style-name="tituloAzulSinNegrita azul" size-full ;="" plain-text _id="tituloNotificados" :top="18%" :right="20%" :bottom="75%" :left="35%">
+     USUARIOS NOTIFICADOS 
+   </vaadin-label>
+   <vaadin-vertical-layout size-full margin="false" _id="paneldeControl" :top="15%" :right="70%" :bottom="15%" :left="5%">
+    <vaadin-button style-name="azulBoton" size-full plain-text _id="moderadores">
       MODERADORES 
     </vaadin-button>
-    <vaadin-button style-name="bold huge azulBoton" size-full plain-text _id="temaOculto">
+    <vaadin-button style-name="azulBoton" size-full plain-text _id="temaOculto">
       TEMAS OCULTOS 
     </vaadin-button>
-    <vaadin-button style-name="huge azulBoton" size-full plain-text _id="mensajeOculto">
+    <vaadin-button style-name="azulBoton" size-full plain-text _id="mensajeOculto">
       MENSAJES OCULTOS 
     </vaadin-button>
-    <vaadin-button style-name="bold huge primary" size-full plain-text _id="usuarioNotificado">
+    <vaadin-button style-name="azulBoton" size-full plain-text _id="usuarioNotificado">
       USUARIOS NOTIFICADOS 
     </vaadin-button>
     <vaadin-button enabled="false" style-name="bold huge azulBoton" size-full plain-text _id="tickets">
@@ -125,125 +61,18 @@
       GESTIONAR PUBLICIDAD 
     </vaadin-button>
    </vaadin-vertical-layout>
-   <vaadin-label visible="false" style-name="tituloAzulSinNegrita" size-full ;="" plain-text _id="tituloTemas" :top="15%" :right="40%" :bottom="75%" :left="35%">
-     TEMAS OCULTOS 
-   </vaadin-label>
-   <vaadin-label visible="false" style-name="tituloAzulSinNegrita" size-full ;="" plain-text _id="tituloMensajes" :top="15%" :right="40%" :bottom="75%" :left="35%">
-     MENSAJES OCULTOS 
-   </vaadin-label>
-   <vaadin-label visible="false" style-name="tituloAzulSinNegrita" size-full ;="" plain-text _id="tituloUsuariosNotificados" :top="15%" :right="35%" :bottom="75%" :left="35%">
-     USUARIOS NOTIFICADOS 
-   </vaadin-label>
-   <vaadin-vertical-layout visible="false" _id="controlModeradores" :top="25%" :right="5%" :bottom="30%" :left="35%">
-    <vaadin-horizontal-layout style-name="cajaMensaje" width="60%" height-full _id="cajaModerador" :center>
-     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" width="50px" height="50px" _id="imagenTema2" :middle :center></vaadin-image>
-     <vaadin-label plain-text _id="nombreUsuario" :middle>
-       NombreModerador 
-     </vaadin-label>
-     <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarMensaje141" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width="60%" height-full _id="cajaModerador1" :center>
-     <vaadin-image source="https://avatars1.githubusercontent.com/u/61786916?s=460&amp;v=4" style-name="round" width="50px" height="50px" _id="imagenTema21" :middle :center></vaadin-image>
-     <vaadin-label plain-text _id="nombreUsuario1" :middle>
-       NombreModerador 
-     </vaadin-label>
-     <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarMensaje1411" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-   </vaadin-vertical-layout>
-   <vaadin-vertical-layout visible="false" _id="controlTemasOcultos" :top="25%" :right="5%" :bottom="30%" :left="35%">
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje3">
-     <vaadin-image source="https://cdn.pixabay.com/photo/2014/03/24/17/15/bike-295235_960_720.png" width="50px" height="50px" _id="imagenTema3" :center></vaadin-image>
-     <vaadin-label plain-text _id="temaMensaje3" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario3" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="MOSTRAR" style-name="green" _id="eliminarMensaje142" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje16">
-     <vaadin-image source="https://images-na.ssl-images-amazon.com/images/I/51a4c1eOl2L.png" width="50px" height="50px" _id="imagenTema16" :center></vaadin-image>
-     <vaadin-label plain-text _id="temaMensaje16" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario16" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="MOSTRAR" style-name="green" _id="eliminarMensaje132" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje112">
-     <vaadin-image source="https://image.flaticon.com/icons/png/512/53/53283.png" width="40px" height="40px" _id="imagenTema112" :center></vaadin-image>
-     <vaadin-label plain-text _id="temaMensaje112" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario112" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="MOSTRAR" style-name="green" _id="eliminarMensaje122" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje122">
-     <vaadin-image source="https://pngimage.net/wp-content/uploads/2018/06/icono-juegos-png-3.png" width="50px" height="50px" _id="imagenTema122" :center></vaadin-image>
-     <vaadin-label plain-text _id="temaMensaje122" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario122" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="MOSTRAR" style-name="green" _id="eliminarMensaje112" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje132">
-     <vaadin-image source="https://image.flaticon.com/icons/png/512/45/45705.png" width="50px" height="50px" _id="imagenTema132" :center></vaadin-image>
-     <vaadin-label plain-text _id="temaMensaje132" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario132" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="MOSTRAR" style-name="green" _id="eliminarMensaje16" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje152">
-     <vaadin-image source="https://image.flaticon.com/icons/png/512/5/5067.png" width="50px" height="50px" _id="imagenTema152" :center></vaadin-image>
-     <vaadin-label plain-text _id="temaMensaje152" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario152" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="MOSTRAR" style-name="green" _id="eliminarMensaje3" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout>
-   </vaadin-vertical-layout>
-   <vaadin-vertical-layout _id="controlNotificados" :top="25%" :right="5%" :bottom="30%" :left="35%">
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaNotificado">
-     <vaadin-image source="https://avatars1.githubusercontent.com/u/61786916?s=460&amp;v=4" style-name="round" width="50px" height="50px" _id="imagenUsuario" :center></vaadin-image>
-     <vaadin-label plain-text _id="nombreUsuario2" :middle>
-       NombreUsuario 
-     </vaadin-label>
-     <vaadin-label enabled="false" plain-text _id="motivo" :middle>
-       Motivo 
-     </vaadin-label>
-     <vaadin-link caption="BANEAR" style-name="red" _id="banearUsuario" :middle :right></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaNotificado1">
-     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" width="50px" height="50px" _id="imagenUsuario1" :center></vaadin-image>
-     <vaadin-label plain-text _id="nombreUsuario21" :middle>
-       NombreUsuario 
-     </vaadin-label>
-     <vaadin-label enabled="false" plain-text _id="motivo1" :middle>
-       Motivo 
-     </vaadin-label>
-     <vaadin-link caption="BANEAR" style-name="red" _id="banearUsuario1" :middle :right></vaadin-link>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaNotificado2">
-     <vaadin-image source="https://avatars1.githubusercontent.com/u/61786916?s=460&amp;v=4" style-name="round" width="50px" height="50px" _id="imagenUsuario2" :center></vaadin-image>
-     <vaadin-label plain-text _id="nombreUsuario22" :middle>
-       NombreUsuario 
-     </vaadin-label>
-     <vaadin-label enabled="false" plain-text _id="motivo2" :middle>
-       Motivo 
-     </vaadin-label>
-     <vaadin-link caption="BANEAR" style-name="red" _id="banearUsuario2" :middle :right></vaadin-link>
-    </vaadin-horizontal-layout>
-   </vaadin-vertical-layout>
+   <vaadin-panel style-name="fondogris" height="90%" _id="panelModeradores" :top="29%" :right="5%" :left="35%">
+    <vaadin-vertical-layout _id="verticalModeradores"></vaadin-vertical-layout>
+   </vaadin-panel>
+   <vaadin-panel style-name="fondogris" height="90%" _id="panelTemasOcultos" :top="29%" :right="5%" :left="35%">
+    <vaadin-vertical-layout _id="verticalTemasOcultos"></vaadin-vertical-layout>
+   </vaadin-panel>
+   <vaadin-panel visible="false" style-name="fondogris" height="90%" _id="panelMensajesOcultos" :top="29%" :right="5%" :left="35%">
+    <vaadin-vertical-layout _id="verticalMensajesOcultos"></vaadin-vertical-layout>
+   </vaadin-panel>
+   <vaadin-panel visible="false" style-name="fondogris" height="90%" _id="panelUsuariosNotificados" :top="29%" :right="5%" :left="35%">
+    <vaadin-vertical-layout _id="verticalUsuariosNotificados"></vaadin-vertical-layout>
+   </vaadin-panel>
   </vaadin-absolute-layout>
  </body>
 </html>

@@ -6,14 +6,17 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-<vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaNotificado">
-     <vaadin-image source="https://avatars1.githubusercontent.com/u/61786916?s=460&amp;v=4" style-name="round" width="50px" height="50px" _id="imagenUsuario" :center></vaadin-image>
-     <vaadin-label plain-text _id="nombreUsuario2" :middle>
-       NombreUsuario 
-     </vaadin-label>
-     <vaadin-label enabled="false" plain-text _id="motivo" :middle>
-       Motivo 
-     </vaadin-label>
-     <vaadin-link caption="BANEAR" style-name="red" _id="banearUsuario" :middle :right></vaadin-link>
-    </vaadin-horizontal-layout> </body>
+  <vaadin-horizontal-layout style-name="cajaMensaje" width-full>
+   <vaadin-image source="https://avatars1.githubusercontent.com/u/61786916?s=460&amp;v=4" style-name="round" width="50px" height="50px" _id="imagenUsuario" :center></vaadin-image>
+   <vaadin-label plain-text _id="nombreUsuario" :middle>
+     NombreUsuario 
+   </vaadin-label>
+   <vaadin-label enabled="false" plain-text _id="motivoBaneo" :middle>
+     Motivo 
+   </vaadin-label>
+   <vaadin-button icon="fonticon://Vaadin-Icons/e6f7" style-name="red link" _id="banearUsuario" :middle :right>
+     BANEAR 
+   </vaadin-button>
+  </vaadin-horizontal-layout>
+ </body>
 </html>

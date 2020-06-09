@@ -60,20 +60,15 @@ public class DB_Temas {
 	}
 	
 	//Consultar temas ocultos
-	@SuppressWarnings("null")
+	@SuppressWarnings("unchecked")
 	public List<TemaDB> consultar_TO() throws PersistentException {
-		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();;
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<TemaDB> temas = null;
-		try {
-			for(Object tm: TemaDBDAO.queryTemaDB(null, null)) {
-				TemaDB tema = (TemaDB) tm;
-				
-				if(tema.getOculto()) {
-					temas.add(tema);
-				} 
-			}
+		try {			
+			temas = TemaDBDAO.queryTemaDB("TemaDB.oculto='1'", null);
 			t.commit();
-		}catch(Exception e) {
+			
+		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return temas;

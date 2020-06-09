@@ -30,13 +30,27 @@ public interface iAdministrador extends iUsuario_identificado {
 	//Crear seccion
 	public boolean crear_seccion(String tituloSeccion, String icono, boolean fijarSeccion);
 
-	public List consultar_Mo();
+	/**PANEL DE CONTROL**/
+	//Consultar moderadores
+	public List<Usuario_DB> consultar_Mo();
+	
+	//Quitar moderador
+	public void quitar_moderador(int idUsuario);
 
-	public List consultar_TO();
+	//Consultar temas ocultos
+	public List<TemaDB> consultar_TO();
+	
+	//Mostrar tema
+	public void mostrar_tema(int idTema);
 
-	public List consultar_MO();
+	//Consultar mensajes ocultos
+	public List<MensajeDB> consultar_MO();
+	
+	//Mostrar mensajes ocultos
+	public void mostrar_mensaje(int idMensaje);
 
-	public List consultar_UN();
+	//Consultar usuarios notificados
+	public List<Usuario_registradoDB> consultar_UN();
 
 	public void Asignar_Desasignar_moderador(int aIdUsuario);
 
@@ -52,10 +66,4 @@ public interface iAdministrador extends iUsuario_identificado {
 
 	//Banear usuario
 	public void banear_usuario(int idUsuario);
-
-	public void quitar_moderador(int aIdUsuario);
-
-	public void mostrar_tema(int aIdTema);
-
-	public void mostrar_mensaje(int aIdMensaje);
 }

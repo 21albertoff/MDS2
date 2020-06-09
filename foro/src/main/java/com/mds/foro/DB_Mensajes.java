@@ -116,7 +116,7 @@ public class DB_Mensajes {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<MensajeDB> mensajes = null;
 		try {			
-			mensajes = MensajeDBDAO.queryMensajeDB(null, null);
+			mensajes = TemaDBDAO.queryTemaDB("MensajeDB.oculto='1'", null);
 			t.commit();
 			
 		} catch (PersistentException e1) {
@@ -276,7 +276,6 @@ PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession()
 		
 		try {	
 			MensajeDB nuevoMensaje = MensajeDBDAO.createMensajeDB();
-			
 			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
 			MensajeDB citado = MensajeDBDAO.loadMensajeDBByORMID(idCita);
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);

@@ -4,16 +4,17 @@
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;temaforo&quot;}">
   <meta name="vaadin-version" content="8.1.5">
+  <meta name="package-mapping" content="com_vaadin:com.vaadin">
  </head>
  <body>
-<vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaMensaje3">
-     <vaadin-image source="https://cdn.pixabay.com/photo/2014/03/24/17/15/bike-295235_960_720.png" width="50px" height="50px" _id="imagenTema3" :center></vaadin-image>
-     <vaadin-label plain-text _id="temaMensaje3" :middle>
-       Tema 
-     </vaadin-label>
-     <vaadin-label plain-text _id="fechaMensajeUsuario3" :middle>
-       14/03/2020 
-     </vaadin-label>
-     <vaadin-link caption="MOSTRAR" style-name="green" _id="eliminarMensaje142" :middle :center></vaadin-link>
-    </vaadin-horizontal-layout> </body>
+  <vaadin-horizontal-layout style-name="cajaMensaje" width-full>
+   <vaadin-image source="https://cdn.pixabay.com/photo/2014/03/24/17/15/bike-295235_960_720.png" width="50px" height="50px" _id="fotoUsuario" :center></vaadin-image>
+   <vaadin-label plain-text _id="nombreTema" :middle>
+     Tema 
+   </vaadin-label>
+   <vaadin-button icon="fonticon://Vaadin-Icons/e7df" style-name="green link" _id="mostrarTema" :middle :center>
+     MOSTRAR 
+   </vaadin-button>
+  </vaadin-horizontal-layout>
+ </body>
 </html>
