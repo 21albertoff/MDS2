@@ -237,6 +237,8 @@ public class Panel_de_control extends Panel_de_control_ventana {
 		List<Usuario_registradoDB> u = admin.consultar_UN();
 		int idU = 0;
 		while (idU< u.size()) {
+			String motivo = u.get(idU).getMotivo();
+			if(!(motivo.contains("-"))) {
 			Usuario_notificado usuario = new Usuario_notificado();
 			
 			usuario.imagenUsuario.setSource(new ExternalResource(u.get(idU).getFoto()));			
@@ -255,6 +257,9 @@ public class Panel_de_control extends Panel_de_control_ventana {
 				}
 			});
 			idU++;
+			}
 		}
 	}
+	
+
 }

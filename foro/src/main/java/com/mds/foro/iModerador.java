@@ -4,7 +4,8 @@ import java.util.List;
 
 public interface iModerador extends iUsuario_identificado {
 
-	public List consultar_UR();
+	//Consultar usuarios reportados
+	public List<Usuario_registradoDB> consultar_UR();
 
 	//Consultar mensajes usuario moderador
 	public List<MensajeDB> consultar_M_Mo(int idTema);
@@ -18,7 +19,8 @@ public interface iModerador extends iUsuario_identificado {
 	//Notificar usuarios
 	public void notificar(int idUsuario, String motivo);
 
-	public void eliminar_reporte(int aIdUsuario);
+	//Eliminar reporte
+	public void eliminar_reporte(int idUsuario);
 
 	public void ocultar_tema(int aIdTema);
 

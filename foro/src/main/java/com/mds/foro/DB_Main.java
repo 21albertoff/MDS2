@@ -335,6 +335,25 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 			e.printStackTrace();
 		}
 	}
+	
+	//Consultar usuarios reportados
+	public List<Usuario_registradoDB> consultar_UR() {
+		try {
+			return registrados.consultar_UR();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	//Eliminar reporte
+	public void eliminar_reporte(int idUsuario) {
+		try {
+			registrados.eliminar_reporte(idUsuario);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	/** Administrador **/
 
@@ -543,10 +562,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public List consultar_UR() {
-		throw new UnsupportedOperationException();
-	}
-
 	public List<MensajeDB> consultar_MU(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
@@ -584,10 +599,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	}
 
 	public boolean modificar_nombre(int aIdUsuario, String aNewNombreUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void eliminar_reporte(int aIdUsuario) {
 		throw new UnsupportedOperationException();
 	}
 

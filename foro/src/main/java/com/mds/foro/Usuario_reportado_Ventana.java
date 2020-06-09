@@ -26,7 +26,7 @@ public class Usuario_reportado_Ventana extends VerticalLayout {
 	protected Label nombreUsuario;
 	protected Button eliminarReporte;
 	protected Button notificarUsuario;
-	protected HorizontalLayout cajaNotificado3;
+	protected HorizontalLayout verticalMensajesReportados;
 	protected Label mensajeUsuario;
 
 	public Usuario_reportado_Ventana() {

@@ -177,9 +177,10 @@ public class DB_Mensajes {
 		try {
 			Usuario_registradoDB usuarioReportado = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuario);
 			Usuario_registradoDB reporte = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuarior);
+			MensajeDB mensaje = MensajeDBDAO.loadMensajeDBByORMID(idMensaje);
 			usuarioReportado.reportado_por.add(reporte);
-			String mensaje = ""+ idMensaje;
-			usuarioReportado.setMotivo(mensaje);
+			String mensajetexto = "-"+ mensaje.getMensaje();
+			usuarioReportado.setMotivo(mensajetexto);
 			Usuario_registradoDBDAO.save(usuarioReportado);
 			t.commit();
 		}catch(Exception e) {
