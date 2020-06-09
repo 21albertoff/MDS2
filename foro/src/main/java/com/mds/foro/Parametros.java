@@ -13,6 +13,7 @@ public class Parametros {
 	private static boolean perfilOculto;
 	private static boolean baneado=false;
 
+	private static int webVolverBaneo=0;
 
 	private static int idSeccion=1;
 	private static String tituloSeccion="";
@@ -50,6 +51,13 @@ public class Parametros {
 	}
 	public static void setTipoUsuario(int privilegioUsuario) {
 		Parametros.privilegioUsuario = privilegioUsuario;
+	}
+	
+	public static int getVolverBaneo() {
+		return webVolverBaneo;
+	}
+	public static void setVolverBaneo(int webVolverBaneo) {
+		Parametros.webVolverBaneo = webVolverBaneo;
 	}
 	
 	public static boolean getBaneado() {

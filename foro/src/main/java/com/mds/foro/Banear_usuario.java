@@ -1,11 +1,10 @@
 package com.mds.foro;
 
 import com.vaadin.ui.Button;
-import com.vaadin.ui.ComboBox;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Button.ClickEvent;
 
+@SuppressWarnings("serial")
 public class Banear_usuario extends Banear_usuario_Ventana {
 
 	// Declaraciones
@@ -22,7 +21,11 @@ public class Banear_usuario extends Banear_usuario_Ventana {
 
 			botonCancelarBaneo.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
+					if (Parametros.getVolverBaneo() == 1) {
 						addComponent(new Visualizar_tema_y_mensajes__Administrador_());
+					} 
+					if (Parametros.getVolverBaneo() == 2)
+						addComponent(new Panel_de_control());
 					
 				}
 			});
@@ -37,7 +40,11 @@ public class Banear_usuario extends Banear_usuario_Ventana {
 	// Banear usuario
 	private void banearUsuario() {
 			admin.banear_usuario(Parametros.getIdBaneado()); 
-			addComponent(new Visualizar_tema_y_mensajes__Administrador_());
+			if (Parametros.getVolverBaneo() == 1) {
+				addComponent(new Visualizar_tema_y_mensajes__Administrador_());
+			} 
+			if (Parametros.getVolverBaneo() == 2)
+				addComponent(new Panel_de_control());
 			Notification.show("El usuario ha sido baneado", "", Notification.Type.WARNING_MESSAGE);
 		
 	}

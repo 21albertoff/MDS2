@@ -249,6 +249,7 @@ public class Panel_de_control extends Panel_de_control_ventana {
 			final int id = idU;
 			usuario.banearUsuario.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
+					Parametros.setVolverBaneo(2);
 					Parametros.setIdBaneado(u.get(id).getIdUsuario());
 					addComponent(new Banear_usuario());
 				}

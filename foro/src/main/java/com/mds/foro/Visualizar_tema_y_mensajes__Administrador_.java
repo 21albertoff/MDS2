@@ -119,6 +119,7 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 		
 		reportarUsuario.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
+				Parametros.setVolverBaneo(1);
 				Parametros.setIdBaneado(Parametros.getUsuarioTema());
 				addComponent(new Banear_usuario());
 			}
@@ -224,6 +225,7 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 					});
 					mensaje.botonBanear.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
+							Parametros.setVolverBaneo(1);
 							Parametros.setIdBaneado(M.get(id).getCreado_por().getORMID());
 							addComponent(new Banear_usuario());
 						}
