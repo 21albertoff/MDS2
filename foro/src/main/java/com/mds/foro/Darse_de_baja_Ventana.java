@@ -21,10 +21,10 @@ import com.vaadin.ui.declarative.Design;
 public class Darse_de_baja_Ventana extends AbsoluteLayout {
 	protected AbsoluteLayout fondoNegro;
 	protected AbsoluteLayout cajaBanearUsuario;
-	protected Label tituloMensajeCerrarSesion;
-	protected Button cancelarEliminarCuenta;
+	protected Label mensajePregunta;
+	protected Button cancelarEliminar;
 	protected Button eliminarCuenta;
-	protected Label tituloMensajeCerrarSesion1;
+	protected Label mensajeAdvertencia;
 
 	public Darse_de_baja_Ventana() {
 		Design.read(this);

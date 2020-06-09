@@ -6,6 +6,12 @@ public class Parametros {
 	private static String passwordUsuario="";
 	private static String correoUsuario="";
 	private static int perfilUsuario=1;
+	private static String nombreCompleto;
+	private static String fotoPerfil;
+	private static String descripcionUsuario;
+	private static boolean activar_desactivar_notificacion;
+	private static boolean perfilOculto;
+	private static boolean baneado=false;
 
 
 	private static int idSeccion=1;
@@ -18,28 +24,25 @@ public class Parametros {
 	private static String usuarioTema="";
 	private static String descripcionTema="";
 	private static int numMensajesTema=0;
+	private static int idUsuarioTema;
+	private static int likeTema;
+	private static int likesTemas;
 
 	private static int idMensaje=1;
-
-	private static boolean baneado=false;
+	private static int likesMensaje;
+	
 	
 	private static int privilegioUsuario=0;
 	
 	private static String ordenarPor="";
-	private static int idUsuarioTema;
-	private static int likeTema;
-	private static int likesTemas;
+	
 	private static boolean citado = false;
 	private static int idCitado;
 	private static int permisoTema;
 	private static int idBaneado;
-	private static int likesMensaje;
+	
 	private static int idNotificado;
-	private static String nombreCompleto;
-	private static String fotoPerfil;
-	private static String descripcionUsuario;
-	private static boolean activar_desactivar_notificacion;
-	private static boolean perfilOculto;
+	
 	
 
 	public static int getTipoUsuario() {
@@ -263,5 +266,10 @@ public class Parametros {
 	}
 	public static void setActivar_Desactivar_Notificacion(boolean notificacion) {
 		Parametros.activar_desactivar_notificacion = notificacion;		
+	}
+	
+	public static void borrarUsuario() {
+		setIdUsuario(0);
+		setPerfilUsuario(0);
 	}
 }

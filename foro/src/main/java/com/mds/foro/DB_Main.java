@@ -184,6 +184,83 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 	}
 	
+	//Consultar mis mensajes
+	public List<MensajeDB> consultar_MisM(int idUsuario) {
+		try {
+			return mensajes.consultar_MisM(idUsuario);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public List<Usuario_DB> consultar_A(int idUsuario) {
+		try {
+			return registrados.consultar_A(idUsuario);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public boolean eliminar_amigoP(int idUsuario, int idAmigo) {
+		try {
+			return registrados.eliminar_amigoP(idUsuario, idAmigo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public boolean eliminar_amigo(int idUsuario, int idAmigo) {
+		try {
+			return registrados.eliminar_amigo(idUsuario, idAmigo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean modificar_foto(int idUsuario, String foto) {
+		try {
+			return registrados.modificar_foto(idUsuario, foto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public boolean modificar_descripcion(int idUsuario, String descripcion) {
+		try {
+			return registrados.modificar_descripcion(idUsuario, descripcion);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public void Activar_Desactivar_notificaciones(int idUsuario) {
+		try {
+			registrados.Activar_Desactivar_notificaciones(idUsuario);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void Activar_Desactivar_por_correo(int idUsuario) {
+		try {
+			registrados.Activar_Desactivar_por_correo(idUsuario);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	}
+
+	public void perfil_oculto(int idUsuario) {
+		try {
+			registrados.perfil_oculto(idUsuario);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	}
+	
 	/**Usuario registrado**/
 	
 	public void reportar_mensaje(int idUsuario, int idMensaje) {
@@ -376,13 +453,9 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public List consultar_A(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}
+	
 
-	public List<MensajeDB> consultar_MisM(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}
+	
 
 	public List<MensajeDB> consulta_M_UR(int aIdTema) {
 		throw new UnsupportedOperationException();
@@ -412,21 +485,9 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean eliminar_amigoP(int aIdUsuario, int aIdAmigo) {
-		throw new UnsupportedOperationException();
-	}
+	
 
-	public boolean eliminar_amigo(int aIdUsuario, int aIdAmigo) {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean modificar_foto(int aIdUsuario, String aFoto) {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean modificar_descripcion(int aIdUsuario, String aDescripcion) {
-		throw new UnsupportedOperationException();
-	}
+	
 
 	public boolean eliminar_notificacion(int aIdUsuario, int aIdNotificacion) {
 		throw new UnsupportedOperationException();
@@ -463,18 +524,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 	}
 
 
-
-	public void Activar_Desactivar_notificaciones(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void Activar_Desactivar_por_correo(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void perfil_oculto(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}
+	
 
 	public boolean eliminar_perfil(int aIdUsuario) {
 		throw new UnsupportedOperationException();

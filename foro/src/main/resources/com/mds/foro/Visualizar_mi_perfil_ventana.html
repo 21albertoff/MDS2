@@ -6,11 +6,63 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-absolute-layout icon="primary" style-name="fondogris" responsive>
-   <vaadin-absolute-layout style-name="datosPerfil" width="30%" _id="datosPerfil">
-    <vaadin-image primary-style-name="v-hl" source="https://avatars2.githubusercontent.com/u/8536167?s=460&amp;u=8af2caf797d0665323732770a4df0c689c1e6885&amp;v=4" style-name="round" responsive size-full _id="imagenPerfil" :top="12%" :right="20%" :bottom="62%" :left="20%"></vaadin-image>
-    <vaadin-button icon="fonticon://Vaadin-Icons/e7bb" style-name="round-Imagen" size-full plain-text _id="cargarImagen" :top="12%" :right="20%" :bottom="62%" :left="20%"></vaadin-button>
-    <vaadin-label caption-as-html responsive id="nickUsuario" size-full plain-text _id="nickUsuario" :top="40%" :right="10%" :bottom="55%" :left="5%">
+  <vaadin-absolute-layout style-name="fondogris">
+   <vaadin-absolute-layout style-name="menuSuperior" height="9%" _id="menuSuperior">
+    <vaadin-absolute-layout visible="false" _id="menuUsuarioNoIdentifado">
+     <vaadin-button primary-style-name="enlacesMenu" size-full _id="menuRegistrarse" :top="30%" :right="22%" :bottom="30%" :left="70%">
+       Registrarse 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e80d" primary-style-name="enlacesMenu" size-full _id="menuIniciarSesion" :top="30%" :right="5%" :bottom="30%" :left="82%">
+       Iniciar Sesion 
+     </vaadin-button>
+    </vaadin-absolute-layout>
+    <vaadin-absolute-layout visible="false" _id="menuUsuarioIdentificado">
+     <vaadin-button icon="fonticon://Vaadin-Icons/e80d" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilUsuario" :top="30%" :right="23%" :bottom="30%" :left="68%">
+       Mi Perfil 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e798" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionUsuario" :top="30%" :right="5%" :bottom="30%" :left="82%">
+       Cerrar Sesion 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e7b4" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesUsuario" :top="30%" :right="38%" :bottom="30%" :left="50%">
+       Notificaciones 
+     </vaadin-button>
+    </vaadin-absolute-layout>
+    <vaadin-absolute-layout visible="false" _id="menuUsuarioModerador">
+     <vaadin-button icon="fonticon://Vaadin-Icons/e80d" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilModerador" :top="30%" :right="22%" :bottom="30%" :left="68%">
+       Mi Perfil 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e798" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionModerador" :top="30%" :right="5%" :bottom="30%" :left="82%">
+       Cerrar Sesion 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e7b4" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesModerador" :top="30%" :right="38%" :bottom="30%" :left="50%">
+       Notificaciones 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e700" primary-style-name="enlacesMenu" size-full _id="menuPanelControlModerador" :top="30%" :right="53%" :bottom="30%" :left="32%">
+       Panel de control 
+     </vaadin-button>
+    </vaadin-absolute-layout>
+    <vaadin-absolute-layout _id="menuUsuarioAdministrador">
+     <vaadin-button icon="fonticon://Vaadin-Icons/e80d" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilAdministrador" :top="30%" :right="23%" :bottom="30%" :left="68%">
+       Mi Perfil 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e798" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionAdministrador" :top="30%" :right="5%" :bottom="30%" :left="82%">
+       Cerrar Sesion 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e7b4" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesAdministrador" :top="30%" :right="38%" :bottom="30%" :left="50%">
+       Notificaciones 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e700" primary-style-name="enlacesMenu" size-full _id="menuPanelControlAdministrador" :top="30%" :right="53%" :bottom="30%" :left="32%">
+       Panel de control 
+     </vaadin-button>
+    </vaadin-absolute-layout>
+    <vaadin-button primary-style-name="enlacesMenu" style-name="nombreForo" size-full plain-text _id="nombreForo" :top="30%" :right="85%" :bottom="30%" :left="5%">
+      foroMDS2 
+    </vaadin-button>
+   </vaadin-absolute-layout>
+   <vaadin-absolute-layout style-name="datosPerfil" width="30%" _id="datosPerfil" :top="10%">
+    <vaadin-image primary-style-name="v-hl" source="https://avatars2.githubusercontent.com/u/8536167?s=460&amp;u=8af2caf797d0665323732770a4df0c689c1e6885&amp;v=4" style-name="round" responsive size-full _id="imagenPerfil" :top="7%" :right="23%" :bottom="64%" :left="23%"></vaadin-image>
+    <vaadin-button icon="fonticon://Vaadin-Icons/e7bb" style-name="round-Imagen" size-full plain-text _id="cargarImagen" :top="7%" :right="23%" :bottom="64%" :left="23%"></vaadin-button>
+    <vaadin-label caption-as-html responsive id="nickUsuario" size-full plain-text _id="nickUsuario" :top="37%" :right="10%" :bottom="57%" :left="5%">
       @nickUsuario 
     </vaadin-label>
     <vaadin-text-area responsive size-full plain-text="" _id="descripcionUsuario" :top="48%" :right="10%" :bottom="20%" :left="10%">
@@ -22,7 +74,10 @@
     <vaadin-button icon="fonticon://Vaadin-Icons/e747" size-full tabindex="10" plain-text _id="listaAmigos" :top="89%" :right="10%" :bottom="5%" :left="10%">
       Lista Amigos 
     </vaadin-button>
-    <vaadin-text-field style-name="cajaMensaje" placeholder="Insertar URL de la imagen" width-full _id="cambiarImagen" :top="36%" :right="17%" :bottom="60%" :left="17%"></vaadin-text-field>
+    <vaadin-text-field placeholder="Insertar URL de la imagen" width-full _id="cambiarImagen" :top="32%" :right="17%" :bottom="60%" :left="17%"></vaadin-text-field>
+    <vaadin-button visible="false" icon="fonticon://Vaadin-Icons/e923" size-full tabindex="10" plain-text _id="listaMensajes" :top="89%" :right="10%" :bottom="5%" :left="10%">
+      Lista Mensajes 
+    </vaadin-button>
    </vaadin-absolute-layout>
    <vaadin-label style-name="tituloAzul" size-full ;="" plain-text _id="textoUltimosMensajes" :top="8%" :right="10%" :bottom="75%" :left="40%">
      ÚLTIMOS MENSAJES 
@@ -34,46 +89,17 @@
    <vaadin-label style-name="tituloAzul" size-full ;="" plain-text _id="tituloDatosPersonales" :top="70%" :right="10%" :bottom="75%" :left="45%">
      DATOS PERSONALES 
    </vaadin-label>
-   <vaadin-text-field caption="NOMBRE COMPLETO" style-name="cajaMensaje" placeholder="Escribe tu nombre completo" width="50%" maxlength="40" _id="nombreUsuarioCompleto" :top="90%" :right="10%" :bottom="75%" :left="35%"></vaadin-text-field>
+   <vaadin-text-field caption="NOMBRE COMPLETO" placeholder="Escribe tu nombre completo" width="50%" maxlength="40" _id="nombreUsuarioCompleto" :top="90%" :right="10%" :bottom="75%" :left="35%"></vaadin-text-field>
    <vaadin-button style-name="link" id="cambiarPassword" _id="cambiarPassword" :top="79%" :right="5%" :bottom="75%" :left="75%">
      CAMBIAR CONTRASEÑA 
    </vaadin-button>
    <vaadin-check-box icon="fonticon://Vaadin-Icons/e7b4" caption="ACTIVAR NOTIFICACIONES" _id="activiarNotificaciones" :top="80%" :right="5%" :bottom="75%" :left="35%"></vaadin-check-box>
    <vaadin-check-box icon="fonticon://Vaadin-Icons/e709" caption="PERFIL OCULTO" _id="perfilOculto" :top="80%" :right="5%" :bottom="75%" :left="60%"></vaadin-check-box>
-   <vaadin-absolute-layout icon="menuSuperior" style-name="menuSuperior" height="9%" _id="menuSuperior">
-    <vaadin-label style-name="nombreForo" size-full plain-text _id="nombreForo" :top="30%" :left="5%">
-      foroMDS2 
-    </vaadin-label>
-    <vaadin-absolute-layout visible="false" _id="menuUsuarioNoIdentifado">
-     <vaadin-link caption="Registrarse" primary-style-name="enlacesMenu" size-full _id="menuRegistrarse" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e80d" caption="Iniciar Sesion" primary-style-name="enlacesMenu" size-full _id="menuIniciarSesion" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
-    </vaadin-absolute-layout>
-    <vaadin-absolute-layout visible="false" _id="menuUsuarioIdentificado">
-     <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilUsuario" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionUsuario" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e7b4" caption="Notificaciones" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesUsuario" :top="30%" :right="28%" :bottom="30%" :left="50%"></vaadin-link>
-     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="menuimagenPerfilUsuario" :top="27%" :right="31%" :bottom="30%" :left="66%"></vaadin-image>
-    </vaadin-absolute-layout>
-    <vaadin-absolute-layout visible="false" _id="menuUsuarioModerador">
-     <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilModerador" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionModerador" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e7b4" caption="Notificaciones" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesModerador" :top="30%" :right="28%" :bottom="30%" :left="50%"></vaadin-link>
-     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="menuimagenPerfilModerador" :top="27%" :right="31%" :bottom="30%" :left="66%"></vaadin-image>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e700" caption="Panel de control" primary-style-name="enlacesMenu" size-full _id="menuPanelControlModerador" :top="30%" :right="28%" :bottom="30%" :left="32%"></vaadin-link>
-    </vaadin-absolute-layout>
-    <vaadin-absolute-layout _id="menuUsuarioAdministrador">
-     <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilAdministrador" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionAdministrador" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e7b4" caption="Notificaciones" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesAdministrador" :top="30%" :right="28%" :bottom="30%" :left="50%"></vaadin-link>
-     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="menuimagenPerfilAdministador" :top="27%" :right="31%" :bottom="30%" :left="66%"></vaadin-image>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e700" caption="Panel de control" primary-style-name="enlacesMenu" size-full _id="menuPanelControlAdministrador" :top="30%" :right="28%" :bottom="30%" :left="32%"></vaadin-link>
-    </vaadin-absolute-layout>
-   </vaadin-absolute-layout>
    <vaadin-label visible="false" style-name="tituloAzul" size-full ;="" plain-text _id="textoMisAmigos" :top="8%" :right="10%" :bottom="75%" :left="40%">
      MIS AMIGOS 
    </vaadin-label>
-   <vaadin-panel size-auto :top="20%" :right="5%" :bottom="30%" :left="35%">
-    <vaadin-vertical-layout visible="false" margin="false" _id="verticalMisAmigos"></vaadin-vertical-layout>
+   <vaadin-panel style-name="fondogris" size-full _id="panelAmigos" :top="20%" :right="5%" :bottom="30%" :left="35%">
+    <vaadin-vertical-layout visible="false" style-name="fondogris" margin="false" _id="verticalMisAmigos"></vaadin-vertical-layout>
    </vaadin-panel>
   </vaadin-absolute-layout>
  </body>

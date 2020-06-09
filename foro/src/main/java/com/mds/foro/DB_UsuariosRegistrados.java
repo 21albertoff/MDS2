@@ -127,8 +127,9 @@ public class DB_UsuariosRegistrados {
 	public List<Usuario_DB> consultar_A(int idUsuario) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<Usuario_DB> amigos = null;
-		try {			
-			amigos = Usuario_DBDAO.queryUsuario_DB("Usuario_DB.amigo_de='"+idUsuario+"'", null);
+		try {
+			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);	
+			amigos = Arrays.asList(usuario.amigo_de.toArray());
 			t.commit();
 		} catch (PersistentException e1) {
 			t.rollback();
@@ -161,7 +162,11 @@ public class DB_UsuariosRegistrados {
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
 			Usuario_DB amigo = Usuario_DBDAO.loadUsuario_DBByORMID(idAmigo);
 			usuario.amigo.remove(amigo);
+			amigo.amigo.remove(usuario);
 			amigo.amigo_de.remove(usuario);
+			usuario.amigo_de.remove(amigo);
+			Usuario_DBDAO.save(usuario);
+			Usuario_DBDAO.save(amigo);
 			t.commit();
 			eliminado=true;
 		}catch(Exception e) {
@@ -177,6 +182,7 @@ public class DB_UsuariosRegistrados {
 		try {
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
 			usuario.setFoto(foto);
+			Usuario_DBDAO.save(usuario);
 			t.commit();
 			modificado=true;
 		}catch(Exception e) {
@@ -192,6 +198,7 @@ public class DB_UsuariosRegistrados {
 		try {
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
 			usuario.setDescripcion(descripcion);
+			Usuario_DBDAO.save(usuario);
 			t.commit();
 			modificado=true;
 		}catch(Exception e) {
@@ -208,7 +215,11 @@ public class DB_UsuariosRegistrados {
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
 			Usuario_DB amigo = Usuario_DBDAO.loadUsuario_DBByORMID(idAmigo);
 			usuario.amigo.add(amigo);
+			amigo.amigo.add(usuario);
 			amigo.amigo_de.add(usuario);
+			usuario.amigo_de.add(amigo);
+			Usuario_DBDAO.save(usuario);
+			Usuario_DBDAO.save(amigo);
 			t.commit();
 			amiguitos=true;
 		}catch(Exception e) {
@@ -224,6 +235,7 @@ public class DB_UsuariosRegistrados {
 		try {
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
 			usuario.setPassword(contrasenia);
+			Usuario_DBDAO.save(usuario);
 			t.commit();
 			modificado=true;
 		}catch(Exception e) {
@@ -239,6 +251,7 @@ public class DB_UsuariosRegistrados {
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
 			if(usuario.getPermiso() == 2) usuario.setPermiso(1);
 			if(usuario.getPermiso() == 1) usuario.setPermiso(2);
+			Usuario_DBDAO.save(usuario);
 			t.commit();
 		}catch(Exception e) {
 			t.rollback();
@@ -255,6 +268,7 @@ public class DB_UsuariosRegistrados {
 		try {
 			Usuario_registradoDB usuario = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuario);
 			usuario.setBaneado(true);
+			Usuario_registradoDBDAO.save(usuario);
 			t.commit();
 		}catch(Exception e) {
 			t.rollback();
@@ -267,6 +281,7 @@ public class DB_UsuariosRegistrados {
 		try {
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
 			if(usuario.getPermiso() == 2) usuario.setPermiso(1);
+			Usuario_DBDAO.save(usuario);
 			t.commit();
 		}catch(Exception e) {
 			t.rollback();
@@ -296,6 +311,7 @@ public class DB_UsuariosRegistrados {
 		try {
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
 			usuario.setNombreUsuario(newNombreUsuario);
+			Usuario_DBDAO.save(usuario);
 			t.commit();
 			modificado=true;
 		}catch(Exception e) {
@@ -324,6 +340,7 @@ public class DB_UsuariosRegistrados {
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
 			if(usuario.getRecibir_notificacion()) usuario.setRecibir_notificacion(false);
 			if(!usuario.getRecibir_notificacion()) usuario.setRecibir_notificacion(true);
+			Usuario_DBDAO.save(usuario);
 			t.commit();
 		}catch(Exception e) {
 			t.rollback();
@@ -337,6 +354,7 @@ public class DB_UsuariosRegistrados {
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
 			if(usuario.getRecibir_por_correo()) usuario.setRecibir_por_correo(false);
 			if(!usuario.getRecibir_por_correo()) usuario.setRecibir_por_correo(true);
+			Usuario_DBDAO.save(usuario);
 			t.commit();
 		}catch(Exception e) {
 			t.rollback();
@@ -350,6 +368,7 @@ public class DB_UsuariosRegistrados {
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
 			if(usuario.getPerfil_oculto()) usuario.setPerfil_oculto(false);
 			if(!usuario.getPerfil_oculto()) usuario.setPerfil_oculto(true);
+			Usuario_DBDAO.save(usuario);
 			t.commit();
 		}catch(Exception e) {
 			t.rollback();

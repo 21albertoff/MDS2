@@ -5,7 +5,6 @@ import com.vaadin.annotations.DesignRoot;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
-import com.vaadin.ui.Link;
 import com.vaadin.ui.declarative.Design;
 
 /** 
@@ -23,7 +22,6 @@ public class Mi_mensaje_Ventana extends HorizontalLayout {
 	protected Image imagenTema;
 	protected Label mensaje;
 	protected Label temaMensaje;
-	protected Link eliminarMensaje14;
 
 	public Mi_mensaje_Ventana() {
 		Design.read(this);

@@ -7,19 +7,19 @@
  </head>
  <body>
   <vaadin-absolute-layout>
-   <vaadin-absolute-layout style-name="ventanaEmergente" _id="fondoNegro"></vaadin-absolute-layout>
-   <vaadin-absolute-layout style-name="cajaMensajeAdvertencia" _id="cajaBanearUsuario" :top="40%" :right="30%" :bottom="35%" :left="30%">
-    <vaadin-label style-name="mensajesCentrados" size-full plain-text _id="tituloMensajeCerrarSesion" :top="5%" :right="10%" :bottom="80%" :left="13%">
+   <vaadin-absolute-layout style-name="ventanaEmergente" id="ventanaEmergente" _id="fondoNegro"></vaadin-absolute-layout>
+   <vaadin-absolute-layout style-name="cajaMensaje" _id="cajaBanearUsuario" :top="40%" :right="33%" :bottom="40%" :left="33%">
+    <vaadin-label size-full plain-text _id="mensajePregunta" :top="5%" :right="5%" :bottom="80%" :left="8%">
       ¿Seguro que quieres eliminar tu cuenta? 
     </vaadin-label>
-    <vaadin-button style-name="primary" size-full plain-text _id="cancelarEliminarCuenta" :top="55%" :right="55%" :bottom="5%" :left="5%">
+    <vaadin-button style-name="primary" size-full plain-text _id="cancelarEliminar" :top="60%" :right="55%" :bottom="5%" :left="2%">
       Cancelar 
     </vaadin-button>
-    <vaadin-button style-name="danger" size-full plain-text _id="eliminarCuenta" :top="55%" :right="5%" :bottom="5%" :left="55%">
-      EliminarCuenta 
+    <vaadin-button style-name="danger" size-full plain-text _id="eliminarCuenta" :top="60%" :right="2%" :bottom="5%" :left="55%">
+      Eliminar cuenta 
     </vaadin-button>
-    <vaadin-label style-name="nombreUsuarioEscribirMensaje" size-full plain-text _id="tituloMensajeCerrarSesion1" :top="20%" :right="1%" :bottom="70%" :left="1%">
-      ¡Se perderan todos tus mensajes y temas creados! 
+    <vaadin-label style-name="red" plain-text _id="mensajeAdvertencia" :top="26%" :right="5%" :bottom="80%" :left="10%">
+      ¡Perderas todos tus mensajes y temas! 
     </vaadin-label>
    </vaadin-absolute-layout>
   </vaadin-absolute-layout>
