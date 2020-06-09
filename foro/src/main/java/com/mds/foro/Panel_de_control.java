@@ -256,8 +256,9 @@ public class Panel_de_control extends Panel_de_control_ventana {
 					addComponent(new Banear_usuario());
 				}
 			});
-			idU++;
 			}
+			idU++;
+			
 		}
 	}
 	

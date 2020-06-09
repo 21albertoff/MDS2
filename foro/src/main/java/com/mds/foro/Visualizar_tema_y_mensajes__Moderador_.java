@@ -126,6 +126,7 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 		reportarUsuario.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				Parametros.setIdNotificado(tema);
+				Parametros.setVolverBaneo(1);
 				addComponent(new Notificar_usuario());
 			}
 		});
@@ -258,6 +259,7 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 					mensaje.botonNotificar.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
 							Parametros.setIdNotificado(M.get(id).getCreado_por().getORMID());
+							Parametros.setVolverBaneo(1);
 							addComponent(new Notificar_usuario());
 						}
 					});

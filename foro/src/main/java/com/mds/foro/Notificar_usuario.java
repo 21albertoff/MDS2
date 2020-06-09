@@ -21,7 +21,11 @@ public class Notificar_usuario extends Notificar_usuario_Ventana {
 
 				botonCancelarNotificacion.addClickListener(new Button.ClickListener() {
 					public void buttonClick(ClickEvent event) {
+						if (Parametros.getVolverBaneo() == 1) {
 							addComponent(new Visualizar_tema_y_mensajes__Moderador_());
+						} 
+						if (Parametros.getVolverBaneo() == 2)
+							addComponent(new Panel_de_control_del_moderador());
 						
 					}
 				});
@@ -36,7 +40,12 @@ public class Notificar_usuario extends Notificar_usuario_Ventana {
 		// Banear usuario
 		private void notificarUsuario() {
 				moderador.notificar(Parametros.getIdNotificado(), motivoNotificacion.getValue()); 
-				addComponent(new Visualizar_tema_y_mensajes__Moderador_());
+				if (Parametros.getVolverBaneo() == 1) {
+					addComponent(new Visualizar_tema_y_mensajes__Moderador_());
+				} 
+				if (Parametros.getVolverBaneo() == 2)
+					addComponent(new Panel_de_control_del_moderador());
+				
 				Notification.show("El usuario ha sido notificado", "", Notification.Type.WARNING_MESSAGE);
 			
 		}

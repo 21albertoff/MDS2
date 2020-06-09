@@ -10,6 +10,7 @@ import com.vaadin.ui.Button.ClickEvent;
 public class Panel_de_control_del_moderador extends Panel_de_control_del_moderador_Ventana {
 	// Declaraciones
 	iModerador moderador;
+	private int idReporte;
 
 	// Inicializacion
 	public void inicializar() {
@@ -77,16 +78,25 @@ public class Panel_de_control_del_moderador extends Panel_de_control_del_moderad
 			final int id = idR;
 			usuario.eliminarReporte.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
+					idReporte = rep.get(id).getORMID();
+					eliminarReporte();
 				}
 			});
 			
 			usuario.notificarUsuario.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
+					Parametros.setIdNotificado(rep.get(id).getORMID());
+					Parametros.setVolverBaneo(2);
+					addComponent(new Notificar_usuario());
 				}
 			});
-			idR++;
 			}
+			idR++;
+			
 		}
 	}
 	
+	private void eliminarReporte() {
+		moderador.eliminar_reporte(idReporte);
+	}
 }

@@ -152,7 +152,7 @@ public class DB_UsuariosRegistrados {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<Usuario_registradoDB> reportados = null;
 		try {
-			reportados = Usuario_registradoDBDAO.queryUsuario_registradoDB("Usuario_DB.reporta!=''", null);
+			reportados = Usuario_registradoDBDAO.queryUsuario_registradoDB("Usuario_registradoDB.motivo!=''", null);
 			t.commit();
 		} catch (PersistentException e1) {
 			t.rollback();
@@ -352,7 +352,7 @@ public class DB_UsuariosRegistrados {
 
 		try {
 			Usuario_registradoDB reporte = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuario);
-			reporte.reporta.remove(reporte);
+			reporte.reporta.clear();
 			reporte.setMotivo("");
 			Usuario_registradoDBDAO.save(reporte);
 			t.commit();
