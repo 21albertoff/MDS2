@@ -21,6 +21,7 @@ public class Parametros {
 	private static int idBaneado;
 	private static int idNotificado;
 	private static int idAmigo;
+	private static boolean recibir_por_correo;
 
 	//Tema
 	private static int idTema=1;
@@ -48,6 +49,7 @@ public class Parametros {
 	
 	//Otros
 	private static int webVolverBaneo=0;
+	
 	
 	/**GETTER Y SETTER**/
 
@@ -292,5 +294,12 @@ public class Parametros {
 	
 	public static void setIdMiAmigo(int idAmigo) {
 		Parametros.idAmigo = idAmigo;		
+	}
+	
+	public static boolean getActivar_Desactivar_Notificacion_por_correo() {
+		return recibir_por_correo;
+	}
+	public static void setActivar_Desactivar_Notificacion_por_correo(boolean recibir_por_correo) {
+		Parametros.recibir_por_correo = recibir_por_correo;		
 	}
 }

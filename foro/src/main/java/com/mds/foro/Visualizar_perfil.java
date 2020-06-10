@@ -36,9 +36,16 @@ public class Visualizar_perfil extends Visualizar_perfil_ventana {
 		// Comprobamos si ya son amigos
 		amigo = consultar_Amigo(idUsuarioAmigo);
 		yo = consultar_Amigo(idUsuario);
-		if (yo.amigo_de.contains(amigo)) {
+		if (yo.amigo_de.contains(amigo) || yo.getPermiso() == 2 || yo.getPermiso() == 3) {
 			addComponent(new Visualizar_perfil_amigo());
 		}
+		
+		if(amigo.getPerfil_oculto()) {
+			addAmigo.setVisible(false);
+		} else {
+			addAmigo.setVisible(true);
+		}
+		
 		nickUsuario.setValue(amigo.getNombreUsuario());
 		descripcionUsuario.setValue(amigo.getDescripcion());
 		imagenPerfil.setSource(new ExternalResource(amigo.getFoto()));

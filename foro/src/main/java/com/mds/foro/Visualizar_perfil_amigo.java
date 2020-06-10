@@ -44,7 +44,11 @@ public class Visualizar_perfil_amigo extends Visualizar_perfil_amigo_Ventana {
 
 		if (!amigos.contains(amigo)) {
 			eliminarAmigo.setVisible(false);
-			agregarAmigo.setVisible(true);
+			if(amigo.getPerfil_oculto()) {
+				agregarAmigo.setVisible(false);
+			} else {
+				agregarAmigo.setVisible(true);
+			}
 		}
 
 		if (Parametros.getTipoUsuario() == 1) {

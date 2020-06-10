@@ -60,9 +60,12 @@ public class Recuperar_password extends Recuperar_password_Ventana {
 				|| labelNombreUsuario.getValue() == "") {
 			Notification.show("El nombre o el correo no pueden estar vacios", "", Notification.Type.ERROR_MESSAGE);
 		} else if (usuarioNoIdentificado.recuperarContrasenia(labelNombreUsuario.getValue(), labelEmail.getValue())) {
-			enviarPassword();
+		} else if (Parametros.getActivar_Desactivar_Notificacion_por_correo()) {
+				enviarPassword();
+		} else if (!Parametros.getActivar_Desactivar_Notificacion_por_correo()) {
+			Notification.show("Tienes desactivadas las notificaciones por correo.", "", Notification.Type.ERROR_MESSAGE);
 		} else {
-			Notification.show("El nombre de usuario o el correo es incorrecto", "", Notification.Type.ERROR_MESSAGE);
+			Notification.show("El nombre de usuario o el correo es incorrecto.", "", Notification.Type.ERROR_MESSAGE);
 		}
 	}
 

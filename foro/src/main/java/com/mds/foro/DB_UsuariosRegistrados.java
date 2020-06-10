@@ -92,6 +92,7 @@ public class DB_UsuariosRegistrados {
 					Parametros.setDescripcionUsuario(usuario.getDescripcion());
 					Parametros.setActivar_Desactivar_Notificacion(usuario.getRecibir_notificacion());
 					Parametros.setPerfilOculto(usuario.getPerfil_oculto());
+					Parametros.setActivar_Desactivar_Notificacion_por_correo(usuario.getRecibir_por_correo());
 					int idUsuario = usuario.getIdUsuario();
 					Usuario_registradoDB ur = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuario);
 					Parametros.setBaneado(ur.getBaneado());
