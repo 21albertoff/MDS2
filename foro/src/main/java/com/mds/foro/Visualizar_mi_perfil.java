@@ -150,6 +150,7 @@ public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
 				if (activiarNotificaciones.getValue() != notificaciones) {
 					notificaciones = activiarNotificaciones.getValue();
 					Parametros.setActivar_Desactivar_Notificacion(notificaciones);
+					Parametros.setActivar_Desactivar_Notificacion_por_correo(notificaciones);
 					Activar_Desactivar_notificaciones();
 					Activar_Desactivar_notificaciones_por_correo();
 				}

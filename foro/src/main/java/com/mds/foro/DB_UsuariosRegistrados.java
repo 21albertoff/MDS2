@@ -362,10 +362,7 @@ public class DB_UsuariosRegistrados {
 
 		try {
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
-			if (usuario.getRecibir_notificacion())
-				usuario.setRecibir_notificacion(false);
-			if (!usuario.getRecibir_notificacion())
-				usuario.setRecibir_notificacion(true);
+			usuario.setRecibir_notificacion(Parametros.getActivar_Desactivar_Notificacion());
 			Usuario_DBDAO.save(usuario);
 			t.commit();
 		} catch (Exception e) {
@@ -378,11 +375,8 @@ public class DB_UsuariosRegistrados {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 
 		try {
-			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
-			if (usuario.getRecibir_por_correo())
-				usuario.setRecibir_por_correo(false);
-			if (!usuario.getRecibir_por_correo())
-				usuario.setRecibir_por_correo(true);
+			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);	
+			usuario.setRecibir_por_correo(Parametros.getActivar_Desactivar_Notificacion_por_correo());
 			Usuario_DBDAO.save(usuario);
 			t.commit();
 		} catch (Exception e) {
@@ -396,10 +390,7 @@ public class DB_UsuariosRegistrados {
 
 		try {
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
-			if (usuario.getPerfil_oculto())
-				usuario.setPerfil_oculto(false);
-			if (!usuario.getPerfil_oculto())
-				usuario.setPerfil_oculto(true);
+			usuario.setPerfil_oculto(Parametros.getPerfilOculto());
 			Usuario_DBDAO.save(usuario);
 			t.commit();
 		} catch (Exception e) {

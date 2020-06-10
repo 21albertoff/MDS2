@@ -85,7 +85,8 @@ public class Panel_de_control_del_moderador extends Panel_de_control_del_moderad
 					public void buttonClick(ClickEvent event) {
 						idReporte = rep.get(id).getORMID();
 						eliminarReporte();
-						Notification.show("El reporte ha sido eliminado", "", Notification.Type.WARNING_MESSAGE);
+						addComponent(new Panel_de_control_del_moderador());
+						Notification.show("El reporte ha sido eliminado.", "", Notification.Type.WARNING_MESSAGE);
 					}
 				});
 
@@ -94,6 +95,7 @@ public class Panel_de_control_del_moderador extends Panel_de_control_del_moderad
 						Parametros.setIdNotificado(rep.get(id).getORMID());
 						Parametros.setVolverBaneo(2);
 						addComponent(new Notificar_usuario());
+						Notification.show("El usuario ha sido notificado.", "", Notification.Type.WARNING_MESSAGE);
 					}
 				});
 			}
