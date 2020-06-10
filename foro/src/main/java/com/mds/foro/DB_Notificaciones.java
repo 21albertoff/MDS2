@@ -54,9 +54,10 @@ public class DB_Notificaciones {
 		try {
 			NotificacionDB notificacion = NotificacionDBDAO.createNotificacionDB();
 			Usuario_DB user = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuarioAmigo);
-			notificacion.setEnviada_por(user);
-			user.recibe.add(notificacion);
+			Usuario_DB user2 = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
+			notificacion.setEnviada_por(user2);
 			NotificacionDBDAO.save(notificacion);
+			user.recibe.add(notificacion);
 			Usuario_DBDAO.save(user);
 			t.commit();
 		} catch (Exception e) {
