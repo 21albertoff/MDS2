@@ -1,5 +1,6 @@
 package com.mds.foro;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
@@ -12,12 +13,12 @@ public class DB_Notificaciones {
 	public DB_Main _bd_main_notificaciones;
 	public Vector<NotificacionDB> _contiene_notificacion = new Vector<NotificacionDB>();
 
-	@SuppressWarnings("unchecked")
 	public List<NotificacionDB> consultar_N(int idUsuario) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<NotificacionDB> notificacion = null;
-		try {			
-			notificacion = NotificacionDBDAO.queryNotificacionDB(null, null);
+		try {
+			Usuario_DB user = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
+			notificacion = Arrays.asList(user.recibe.toArray());
 			t.commit();
 		} catch (PersistentException e1) {
 			t.rollback();
@@ -31,8 +32,11 @@ public class DB_Notificaciones {
 		
 		try {
 			NotificacionDB notificacion = NotificacionDBDAO.loadNotificacionDBByORMID(idNotificacion);
-			NotificacionDBDAO.deleteAndDissociate(notificacion);
+			Usuario_DB user = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
+			user.recibe.remove(notificacion);
+			NotificacionDBDAO.delete(notificacion);
 			NotificacionDBDAO.save(notificacion);
+			Usuario_DBDAO.save(user);
 			t.commit();
 			eliminado=true;
 		}catch(Exception e) {
@@ -47,8 +51,11 @@ public class DB_Notificaciones {
 		try {
 			NotificacionDB notificacion = NotificacionDBDAO.createNotificacionDB();
 			Usuario_DB user = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
+			Usuario_DB user2 = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuarioAmigo);
 			notificacion.setEnviada_por(user);
+			user2.recibe.add(notificacion);
 			NotificacionDBDAO.save(notificacion);
+			Usuario_DBDAO.save(user2);
 			t.commit();
 		}catch(Exception e) {
 			t.rollback();

@@ -277,11 +277,6 @@ public class DB_UsuariosRegistrados {
 		}
 	}
 
-	// Cambiar numero de mensajes
-	public void cambiar_num_mensajes(int idUsuario, int cantidad) {
-		throw new UnsupportedOperationException();
-	}
-
 	// Banear usuario
 	public void banear_usuario(int idUsuario) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();

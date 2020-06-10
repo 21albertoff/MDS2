@@ -182,12 +182,14 @@ public class Notificaciones extends Notificaciones_Ventana {
 					idUsuarioAmigo = notif.get(id).getEnviada_por().getIdUsuario();
 					agregar_amigo();
 					eliminar_notificacion();
+					addComponent(new Notificaciones());
 				}
 			});
 			
 			notificacion.eliminarSolicitud.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
 					eliminar_notificacion();
+					addComponent(new Notificaciones());
 				}
 			});
 			
