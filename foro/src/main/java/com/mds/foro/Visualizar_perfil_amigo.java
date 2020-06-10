@@ -87,6 +87,7 @@ public class Visualizar_perfil_amigo extends Visualizar_perfil_amigo_Ventana {
 		eliminarAmigo.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				eliminar_amigo();
+				Parametros.setPerfilUsuario(idUsuarioAmigo);
 				if (Parametros.getTipoUsuario() == 1) {
 					addComponent(new Visualizar_perfil());
 				}
