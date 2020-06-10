@@ -164,27 +164,33 @@ public class Notificaciones extends Notificaciones_Ventana {
 	}
 
 	// Consultar notificaciones
+	@SuppressWarnings("null")
 	private void consultar_notificaciones() {
 		List<NotificacionDB> notif = usuarioidentificado.consultar_N(idUsuario);
 		int idM = notif.size() - 1;
 		while (idM >= 0) {
-
+			String id = notif.get(idM).getMensajeNotif();
+			int idN = Integer.parseInt(id);
+			Usuario_DB user = consultar_amigo(idN);
+			if(user != null || user.getIdUsuario() != Parametros.getIdUsuario()) {
 			// Creacion del componente
 			Notificacion notificacion = new Notificacion();
 
+			
+			
 			// Elementos del componente
-			notificacion.fotoPerfil.setSource(new ExternalResource(notif.get(idM).getEnviada_por().getFoto()));
-			notificacion.nombreUsuario.setValue(notif.get(idM).getEnviada_por().getNombreUsuario());
+			notificacion.fotoPerfil.setSource(new ExternalResource(user.getFoto()));
+			notificacion.nombreUsuario.setValue(user.getNombreUsuario());
 
 			// Añadir el compoenente
 			verticalNotificaciones.addComponent(notificacion);
 
 			// Botones del componente
 			notificacionUsuario = notif.get(idM).getORMID();
-			final int id = idM;
+			final int ID = idM;
 			notificacion.aceptarSolicitud.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
-					idUsuarioAmigo = notif.get(id).getEnviada_por().getIdUsuario();
+					idUsuarioAmigo = user.getIdUsuario();
 					agregar_amigo();
 					eliminar_notificacion();
 					addComponent(new Notificaciones());
@@ -202,8 +208,14 @@ public class Notificaciones extends Notificaciones_Ventana {
 				}
 			});
 
+			
+			}
 			idM--;
 		}
+	}
+
+	private Usuario_DB consultar_amigo(int id) {
+		return usuarioidentificado.consultar_Amigo(id);
 	}
 
 	// Metodo eliminar notificacion

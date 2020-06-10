@@ -35,8 +35,8 @@ public class DB_Notificaciones {
 		try {
 			NotificacionDB notificacion = NotificacionDBDAO.loadNotificacionDBByORMID(idNotificacion);
 			Usuario_DB user = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
-			user.recibe.remove(notificacion);
-			NotificacionDBDAO.delete(notificacion);
+			user.recibe.clear();
+			NotificacionDBDAO.deleteAndDissociate(notificacion);
 			NotificacionDBDAO.save(notificacion);
 			Usuario_DBDAO.save(user);
 			t.commit();
@@ -55,7 +55,8 @@ public class DB_Notificaciones {
 			NotificacionDB notificacion = NotificacionDBDAO.createNotificacionDB();
 			Usuario_DB user = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuarioAmigo);
 			Usuario_DB user2 = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
-			notificacion.setEnviada_por(user2);
+			String m = ""+user2.getIdUsuario();
+			notificacion.setMensajeNotif(m);
 			NotificacionDBDAO.save(notificacion);
 			user.recibe.add(notificacion);
 			Usuario_DBDAO.save(user);
