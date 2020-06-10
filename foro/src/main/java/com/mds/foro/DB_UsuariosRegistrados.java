@@ -346,8 +346,9 @@ public class DB_UsuariosRegistrados {
 
 		try {
 			Usuario_registradoDB reporte = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuario);
-			reporte.reporta.clear();
 			reporte.setMotivo("");
+			reporte.reportado_por.clear();
+			reporte.reporta.clear();
 			Usuario_registradoDBDAO.save(reporte);
 			t.commit();
 		} catch (Exception e) {

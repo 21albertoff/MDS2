@@ -58,6 +58,13 @@ public class Visualizar_seccion__Administrador_ extends Visualizar_seccion_Venta
 
 			}
 		});
+		
+		menuPanelControlAdministrador.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				addComponent(new Panel_de_control());
+
+			}
+		});
 
 		nombreForo.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {

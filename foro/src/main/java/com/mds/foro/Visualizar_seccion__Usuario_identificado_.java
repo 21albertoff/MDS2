@@ -70,6 +70,35 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 			}
 		});
 
+		//Menu Moderador
+		menuCerrarSesionModerador.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				addComponent(new Cerrar_sesion());
+
+			}
+		});
+ 
+		menuMiPerfilModerador.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				addComponent(new Visualizar_mi_perfil());
+
+			}
+		});
+
+		menuNotificacionesModerador.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				addComponent(new Notificaciones());
+
+			}
+		});
+
+		menuPanelControlModerador.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				addComponent(new Panel_de_control_del_moderador());
+
+			}
+		});
+
 		nombreForo.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				if (Parametros.getTipoUsuario() == 1)

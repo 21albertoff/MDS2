@@ -71,7 +71,7 @@ public class Panel_de_control extends Panel_de_control_ventana {
 
 		nombreForo.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				addComponent(new Visualizar_seccion__Administrador_());
+				addComponent(new Administrador());
 			}
 		});
 

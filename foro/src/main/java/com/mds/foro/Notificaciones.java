@@ -39,7 +39,12 @@ public class Notificaciones extends Notificaciones_Ventana {
 	// Constructor
 	public Notificaciones() {
 		inicializar();
-		consultar_notificaciones();
+		if (Parametros.getActivar_Desactivar_Notificacion()) {
+			consultar_notificaciones();
+		} else {
+			Notification.show("Tienes desactivado recibir notificaciones.", "", Notification.Type.ERROR_MESSAGE);
+		}
+		
 
 		// Botones del constructor
 		cerrarNotificaciones.addClickListener(new Button.ClickListener() {
