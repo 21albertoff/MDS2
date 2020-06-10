@@ -43,7 +43,6 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 		cargarSeccionesDestacadas();
 		consultarMensajes();
 		fotoPerfil.setSource(new ExternalResource(iconoTema));
-		tituloTema.setValue(tituloT);
 		tituloTema2.setValue(tituloT);
 		nombreUsuario.setValue(nombreUsuarioTema);
 		descripcionTema.setValue(descripcionT);
@@ -333,7 +332,7 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 						Parametros.setTituloSeccion(SD.get(id).getSeccion());
 						Parametros.setIconoSeccion(SD.get(id).getIcono());
 
-						addComponent(new Visualizar_seccion());
+						addComponent(new Visualizar_seccion__Usuario_identificado_());
 
 					}
 				});

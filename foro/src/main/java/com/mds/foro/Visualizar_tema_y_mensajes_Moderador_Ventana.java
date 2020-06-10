@@ -41,7 +41,6 @@ public class Visualizar_tema_y_mensajes_Moderador_Ventana extends AbsoluteLayout
 	protected Button menuNotificacionesAdministrador;
 	protected Button menuPanelControlAdministrador;
 	protected Button nombreForo;
-	protected Label tituloTema;
 	protected Panel panelMensajes;
 	protected VerticalLayout verticalMensajes;
 	protected Label seccionesDestacadas;

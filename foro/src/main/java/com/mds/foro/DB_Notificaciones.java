@@ -53,8 +53,8 @@ public class DB_Notificaciones {
 
 		try {
 			NotificacionDB notificacion = NotificacionDBDAO.createNotificacionDB();
-			Usuario_DB user = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
-			Usuario_DB user2 = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuarioAmigo);
+			Usuario_DB user = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuarioAmigo);
+			Usuario_DB user2 = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
 			notificacion.setEnviada_por(user);
 			user2.recibe.add(notificacion);
 			NotificacionDBDAO.save(notificacion);

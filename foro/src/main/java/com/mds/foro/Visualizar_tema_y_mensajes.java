@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.Button.ClickEvent;
 
 @SuppressWarnings("serial")
@@ -41,7 +42,6 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 		cargarSeccionesDestacadas();
 		consultarMensajes();
 		imagenPerfil.setSource(new ExternalResource(iconoTema));
-		tituloTema.setValue(tituloT);
 		tituloTemaMensaje.setValue(tituloT);
 		nombreUsuario.setValue(nombreUsuarioTema);
 		descripcionTema.setValue(descripcionT);
@@ -141,11 +141,9 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 					// Añadir mensaje
 					verticalMensajes.addComponent(mensaje);
 
-					final int id = idM;
 					mensaje.nickUsuario.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
-							Parametros.setPerfilUsuario(M.get(id).getCreado_por().getORMID());
-							addComponent(new Visualizar_perfil());
+							Notification.show("Lo siento, debes registrarte para poder ver el perfil del usuario.", Notification.Type.ERROR_MESSAGE);
 						}
 					});
 				}

@@ -41,7 +41,6 @@ public class Visualizar_tema_y_mensajes_Usuario_identificado_Ventana extends Abs
 	protected Button menuNotificacionesAdministrador;
 	protected Button menuPanelControlAdministrador;
 	protected Button nombreForo;
-	protected Label tituloTema;
 	protected Panel panelMensajes;
 	protected VerticalLayout verticalMensajes;
 	protected Label seccionesDestacadas;

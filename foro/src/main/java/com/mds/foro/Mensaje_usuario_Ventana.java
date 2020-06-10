@@ -23,7 +23,6 @@ public class Mensaje_usuario_Ventana extends HorizontalLayout {
 	protected Image imagenTema;
 	protected Label mensaje;
 	protected Label temaMensaje;
-	protected Label fechaMensajeUsuario;
 	protected Link eliminarMensaje6;
 
 	public Mensaje_usuario_Ventana() {
