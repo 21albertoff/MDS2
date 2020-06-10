@@ -38,7 +38,8 @@ public class Visualizar_seccion extends Visualizar_seccion_Ventana {
 		cargarSeccionesDestacadas();
 		ordenarPor.setItems("Titulo", "Me gustas", "Fecha");
 		consultarTemas();
-		
+
+		// Menu para usuario no identificado
 		if (!(Parametros.getTipoUsuario() == 1 || Parametros.getTipoUsuario() == 2
 				|| Parametros.getTipoUsuario() == 3)) {
 
@@ -59,73 +60,74 @@ public class Visualizar_seccion extends Visualizar_seccion_Ventana {
 					addComponent(new Usuario_no_identificado());
 				}
 			});
-			
+
 			ordenarPor.addValueChangeListener(event -> {
-			    if (event.getValue() == "Titulo" ) {
-			        Parametros.setOrdenarPor("Titulo");
-			        addComponent(new Visualizar_seccion());
-			        
-			    }else if (event.getValue() == "Me gustas") {
-			        Parametros.setOrdenarPor("Me gustas");
-			        addComponent(new Visualizar_seccion());
-			    }else {
-			    	Parametros.setOrdenarPor("");
-			        addComponent(new Visualizar_seccion());
-			    }
+				if (event.getValue() == "Titulo") {
+					Parametros.setOrdenarPor("Titulo");
+					addComponent(new Visualizar_seccion());
+
+				} else if (event.getValue() == "Me gustas") {
+					Parametros.setOrdenarPor("Me gustas");
+					addComponent(new Visualizar_seccion());
+				} else {
+					Parametros.setOrdenarPor("");
+					addComponent(new Visualizar_seccion());
+				}
 			});
 		}
 	}
 
-	// consultarTemas
+	// Consultar temas de la seccion
 	private void consultarTemas() {
 		List<TemaDB> T = usuario.consultar_T(idSeccion);
-		if (Parametros.getOrdenarPor()=="Titulo") {
+		if (Parametros.getOrdenarPor() == "Titulo") {
 			Comparador com;
 			com = new Comparador("Titulo");
-			 T.sort(com);
+			T.sort(com);
 		}
-		if (Parametros.getOrdenarPor()=="Me gustas") {
+		if (Parametros.getOrdenarPor() == "Me gustas") {
 			Comparador com;
 			com = new Comparador("Me gustas");
 			T.sort(com);
 		}
-   
+
 		int idT = T.size() - 1;
 		while (idT >= 0) {
 			if (T.get(idT).getEliminado() == false) {
-				if(T.get(idT).getOculto() == false) {
-				Tema tema = new Tema();
-				tema.imagenTema.setSource(new ExternalResource(Parametros.getIconoSeccion()));
-				tema.nombreTema.setCaption(T.get(idT).getTema());
-				Usuario_DB Usuario = (T.get(idT).getCreado_por());
-				tema.imagenUsuario.setSource(new ExternalResource(Usuario.getFoto()));
-				tema.nombreUsuario.setValue(Usuario.getNombreUsuario());
-				int cantidadLike = T.get(idT).getCantidadLike();
-				String cantidadLikeTexto = "" + cantidadLike;
-				tema.cantidadMeGustas.setValue(cantidadLikeTexto);
-				tema.botonEliminarTema.setVisible(false);
-				tema.botonEliminarOculto.setVisible(false);
+				if (T.get(idT).getOculto() == false) {
+					Tema tema = new Tema();
+					tema.imagenTema.setSource(new ExternalResource(Parametros.getIconoSeccion()));
+					tema.nombreTema.setCaption(T.get(idT).getTema());
+					Usuario_DB Usuario = (T.get(idT).getCreado_por());
+					tema.imagenUsuario.setSource(new ExternalResource(Usuario.getFoto()));
+					tema.nombreUsuario.setValue(Usuario.getNombreUsuario());
+					int cantidadLike = T.get(idT).getCantidadLike();
+					String cantidadLikeTexto = "" + cantidadLike;
+					tema.cantidadMeGustas.setValue(cantidadLikeTexto);
+					tema.botonEliminarTema.setVisible(false);
+					tema.botonEliminarOculto.setVisible(false);
 
-				verticalTemas.addComponent(tema);
+					verticalTemas.addComponent(tema);
 
-				final int id = idT;
-				tema.nombreTema.addClickListener(new Button.ClickListener() {
-					public void buttonClick(ClickEvent event) {
-						Parametros.setIdTema(T.get(id).getORMID());
-						Parametros.setTituloTema(T.get(id).getTema());
-						Parametros.setIconoTema(Usuario.getFoto());
-						Parametros.setNombreUsuarioTema(Usuario.getNombreUsuario());
-						Parametros.setDescripcionTema(T.get(id).getDescripcion());
-						addComponent(new Visualizar_tema_y_mensajes());
-					}
-				});
-			}
+					// Boton visualizar tema y mensajes
+					final int id = idT;
+					tema.nombreTema.addClickListener(new Button.ClickListener() {
+						public void buttonClick(ClickEvent event) {
+							Parametros.setIdTema(T.get(id).getORMID());
+							Parametros.setTituloTema(T.get(id).getTema());
+							Parametros.setIconoTema(Usuario.getFoto());
+							Parametros.setNombreUsuarioTema(Usuario.getNombreUsuario());
+							Parametros.setDescripcionTema(T.get(id).getDescripcion());
+							addComponent(new Visualizar_tema_y_mensajes());
+						}
+					});
+				}
 			}
 			idT--;
 		}
 	}
 
-	// cargarSeccionesDestacadas
+	// Cargar secciones destacadas
 	private void cargarSeccionesDestacadas() {
 		List<SeccionDB> SD = Elementos_fijos.consultar_SD();
 		int idSD = SD.size() - 1;
@@ -147,9 +149,9 @@ public class Visualizar_seccion extends Visualizar_seccion_Ventana {
 						Parametros.setIdSeccion(SD.get(id).getORMID());
 						Parametros.setTituloSeccion(SD.get(id).getSeccion());
 						Parametros.setIconoSeccion(SD.get(id).getIcono());
-						
+
 						addComponent(new Visualizar_seccion());
-						
+
 					}
 				});
 
@@ -159,5 +161,5 @@ public class Visualizar_seccion extends Visualizar_seccion_Ventana {
 			idSD--;
 		}
 	}
-	
+
 }

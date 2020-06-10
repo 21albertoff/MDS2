@@ -2,26 +2,21 @@ package com.mds.foro;
 
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.Button.ClickEvent;
 
 @SuppressWarnings("serial")
-public class Visualizar_perfil extends Visualizar_perfil_ventana{
-	
-	/**Declaracion de variables
-	private Button _addAmigo;
-	private Image _imagenUsuario;
-	private Label _nombreUsuarioL;
-	private Label _descripcionPrivadaL;
-	public Mensaje_no_propietario _unnamed_Mensaje_no_propietario_;**/
-	
+public class Visualizar_perfil extends Visualizar_perfil_ventana {
+
+	// Declaracion de variables
 	iUsuario_identificado usuarioidentificado;
 	iUsuario_registrado registrado;
 	private int idUsuario;
 	private int idUsuarioAmigo;
 	Usuario_DB amigo;
 	Usuario_DB yo;
-	
-	//Inicializacion
+
+	// Inicializador
 	public void inicializar() {
 		usuarioidentificado = new DB_Main();
 		registrado = new DB_Main();
@@ -34,27 +29,31 @@ public class Visualizar_perfil extends Visualizar_perfil_ventana{
 		menuUsuarioAdministrador.setVisible(false);
 		menuUsuarioModerador.setVisible(false);
 	}
-	
+
 	public Visualizar_perfil() {
 		inicializar();
-		
+
+		// Comprobamos si ya son amigos
 		amigo = consultar_Amigo(idUsuarioAmigo);
 		yo = consultar_Amigo(idUsuario);
-		if(yo.amigo_de.contains(amigo)) {
+		if (yo.amigo_de.contains(amigo)) {
 			addComponent(new Visualizar_perfil_amigo());
 		}
 		nickUsuario.setValue(amigo.getNombreUsuario());
 		descripcionUsuario.setValue(amigo.getDescripcion());
 		imagenPerfil.setSource(new ExternalResource(amigo.getFoto()));
-		
+
+		// Enviar solicitud de amistad
 		addAmigo.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				addAmigo();
 				Parametros.setIdMiAmigo(idUsuarioAmigo);
 				addComponent(new Visualizar_perfil());
+				Notification.show("Se ha enviado una solicitud al usuario "+amigo.getNombreUsuario()+".","", Notification.Type.WARNING_MESSAGE);
 			}
 		});
-		
+
+		// Menu usuario identificado
 		menuCerrarSesionUsuario.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				addComponent(new Cerrar_sesion());
@@ -74,8 +73,8 @@ public class Visualizar_perfil extends Visualizar_perfil_ventana{
 				addComponent(new Notificaciones());
 
 			}
-		});		
-	
+		});
+
 		nombreForo.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				addComponent(new Usuario_registrado());
@@ -83,10 +82,12 @@ public class Visualizar_perfil extends Visualizar_perfil_ventana{
 		});
 	}
 
+	// Consultar el usuario del perfil
 	private Usuario_DB consultar_Amigo(int idUsuarioAmigo2) {
 		return usuarioidentificado.consultar_Amigo(idUsuarioAmigo2);
 	}
-		
+
+	// Enviar solicitud de amistad
 	public void addAmigo() {
 		usuarioidentificado.enviar_solicitud(idUsuario, idUsuarioAmigo);
 	}

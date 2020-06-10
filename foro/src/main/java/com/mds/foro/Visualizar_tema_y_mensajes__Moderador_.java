@@ -2,14 +2,13 @@ package com.mds.foro;
 
 import java.util.List;
 
-
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 
 @SuppressWarnings("serial")
 public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_mensajes_Moderador_Ventana {
-	
+
 	// Declaracion de variables
 	iElementos_fijos Elementos_fijos;
 	iModerador moderador;
@@ -22,7 +21,7 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 	private int numMensajes;
 	private String cantidadMensajes;
 
-	// Inicializacion
+	// Inicializador
 	public void inicializar() {
 		Elementos_fijos = new DB_Main();
 		moderador = new DB_Main();
@@ -38,6 +37,7 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 		menuUsuarioModerador.setVisible(true);
 	}
 
+	// Visualizar tema y mensajes
 	public Visualizar_tema_y_mensajes__Moderador_() {
 		inicializar();
 		cargarSeccionesDestacadas();
@@ -65,7 +65,8 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 				reportarUsuario.setVisible(true);
 			eliminarTema.setVisible(false);
 		}
-		
+
+		// Botones Moderador
 		menuCerrarSesionModerador.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				addComponent(new Cerrar_sesion());
@@ -86,7 +87,7 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 
 			}
 		});
-		
+
 		menuPanelControlModerador.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				addComponent(new Panel_de_control_del_moderador());
@@ -99,21 +100,21 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 				addComponent(new Visualizar_seccion__Usuario_identificado_());
 			}
 		});
-		
+
 		eliminarTema.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				Parametros.setIdTema(idTema);
 				addComponent(new Eliminar_tema());
 			}
 		});
-		
+
 		botonMeGusta.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				Parametros.setIdTema(idTema);
 				valorarTema();
 			}
 		});
-		
+
 		escribirMensaje.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				Parametros.setIdTema(idTema);
@@ -122,7 +123,7 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 				addComponent(new Escribir_mensaje());
 			}
 		});
-		
+
 		reportarUsuario.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				Parametros.setIdNotificado(tema);
@@ -130,7 +131,7 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 				addComponent(new Notificar_usuario());
 			}
 		});
-		
+
 		botonOcultarTema.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				Parametros.setIdTema(idTema);
@@ -138,32 +139,32 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 			}
 		});
 	}
-	
-	//Ocultar tema
+
+	// Ocultar tema
 	private void ocultarTema() {
 		int idTema = Parametros.getIdTema();
 		moderador.ocultar_tema(idTema);
 		addComponent(new Visualizar_seccion__Usuario_identificado_());
-		
+
 	}
-	
-	//Valorar tema
+
+	// Valorar tema
 	private void valorarTema() {
 		int idUsuario = Parametros.getIdUsuario();
 		int idTema = Parametros.getIdTema();
 		usuarioI.valorar_tema(idUsuario, idTema);
-		String likes = (""+Parametros.getLikesTema());
+		String likes = ("" + Parametros.getLikesTema());
 		numeroMeGusta.setValue(likes);
 	}
-	
-	//Ocultar mensaje
+
+	// Ocultar mensaje
 	private void ocultarMensaje() {
 		int idMensaje = Parametros.getIdMensaje();
 		moderador.ocultar_mensaje(idMensaje);
 		addComponent(new Visualizar_tema_y_mensajes__Moderador_());
 	}
 
-	//Consultar Mensajes usuario identificado
+	// Consultar Mensajes Moderador
 	private void consultarMensajes() {
 		List<MensajeDB> M = moderador.consultar_M_Mo(idTema);
 		int numMensajes = 0;
@@ -171,18 +172,18 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 		while (idM < M.size()) {
 			if (M.get(idM).getEliminado() == false) {
 				if (M.get(idM).getOculto() == false) {
-					
+
 					Parametros.setIdMensaje(M.get(idM).getORMID());
 					numMensajes++;
 					Parametros.setNumMensajes(numMensajes);
 					Mensaje_propietario mensaje = new Mensaje_propietario();
-					
-					//Ocultar elementos
+
+					// Ocultar elementos
 					mensaje.botonBanear.setVisible(false);
 					mensaje.reportar.setVisible(false);
 					mensaje.botonEliminar.setVisible(false);
-					
-					//Citar mensaje
+
+					// Citar mensaje
 					if (!(M.get(idM).getEsta_en() == null)) {
 						MensajeDB cita = M.get(idM).getEsta_en();
 						mensaje.citarMen.setValue(cita.getMensaje());
@@ -191,28 +192,28 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 						mensaje.citado.setVisible(false);
 					}
 
-					//Mensaje propietario
+					// Mensaje propietario
 					int propietario = Parametros.getIdUsuario();
 					Usuario_DB user = M.get(idM).getCreado_por();
 					if (user.getIdUsuario() == propietario) {
 						mensaje.botonEliminar.setVisible(true);
 						mensaje.botonNotificar.setVisible(false);
 						Parametros.setIdMensaje(M.get(idM).getIdMensaje());
-					} 
-					
-					//Mensaje de un admin
+					}
+
+					// Mensaje de un admin
 					if (user.getPermiso() == 3) {
 						mensaje.botonNotificar.setVisible(false);
 					}
-					
-					//Datos mensaje
+
+					// Datos mensaje
 					mensaje.fotoPerfil.setSource(new ExternalResource(user.getFoto()));
 					mensaje.nickUsuario.setCaption(user.getNombreUsuario());
 					mensaje.mensaje.setValue(M.get(idM).getMensaje());
 					String gusta = ("" + M.get(idM).getCantidadLike());
 					mensaje.cantidadMeGusta.setValue(gusta);
-					
-					//Videos e imagenes
+
+					// Videos e imagenes
 					String video = M.get(idM).getVideo();
 					String foto1 = M.get(idM).getFoto1();
 					String foto2 = M.get(idM).getFoto2();
@@ -222,13 +223,19 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 						mensaje.linkVideo.setVisible(false);
 						mensaje.videos.setVisible(false);
 
-						if (foto1 == null) { mensaje.imagen1.setVisible(false); 
+						if (foto1 == null) {
+							mensaje.imagen1.setVisible(false);
 							mensaje.imagen.setVisible(false);
-						} else { mensaje.imagen1.setSource(new ExternalResource(foto1));
-							if (foto2 == null) { mensaje.imagen2.setVisible(false);
-							} else { mensaje.imagen2.setSource(new ExternalResource(foto2));
-								if (foto3 == null) { mensaje.imagen3.setVisible(false);
-								} else { mensaje.imagen3.setSource(new ExternalResource(foto3));
+						} else {
+							mensaje.imagen1.setSource(new ExternalResource(foto1));
+							if (foto2 == null) {
+								mensaje.imagen2.setVisible(false);
+							} else {
+								mensaje.imagen2.setSource(new ExternalResource(foto2));
+								if (foto3 == null) {
+									mensaje.imagen3.setVisible(false);
+								} else {
+									mensaje.imagen3.setSource(new ExternalResource(foto3));
 								}
 							}
 						}
@@ -240,15 +247,15 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 						mensaje.imagen.setVisible(false);
 					}
 
-					//Añadir mensaje
+					// Añadir mensaje
 					verticalMensajes.addComponent(mensaje);
 
-					//Metodos de cada boton
+					// Metodos de cada boton
 					final int id = idM;
 					mensaje.nickUsuario.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
 							Parametros.setPerfilUsuario(M.get(id).getCreado_por().getORMID());
-							if(Parametros.getPerfilUsuario() == Parametros.getIdUsuario()) {
+							if (Parametros.getPerfilUsuario() == Parametros.getIdUsuario()) {
 								addComponent(new Visualizar_mi_perfil());
 							}
 							addComponent(new Visualizar_perfil());
@@ -269,17 +276,17 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 					mensaje.botonMeGusta.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
 							valorarMensaje();
-							String likes = (""+Parametros.getLikesMensaje());
+							String likes = ("" + Parametros.getLikesMensaje());
 							mensaje.cantidadMeGusta.setValue(likes);
 						}
 					});
-					
+
 					mensaje.botonOcultar.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
 							ocultarMensaje();
 						}
 					});
-					
+
 					mensaje.responderMensaje.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
 							Parametros.setIdTema(idTema);
@@ -289,22 +296,21 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 							addComponent(new Escribir_mensaje());
 						}
 					});
-					
-					
+
 				}
 			}
 			idM++;
 		}
 	}
-	
-	//Valorar mensaje
+
+	// Valorar mensaje
 	private void valorarMensaje() {
 		int idUsuario = Parametros.getIdUsuario();
 		int idMensaje = Parametros.getIdMensaje();
 		usuarioI.valorar_mensaje(idUsuario, idMensaje);
 	}
 
-	// cargarSeccionesDestacadas
+	// Cargar secciones destacadas
 	private void cargarSeccionesDestacadas() {
 		List<SeccionDB> SD = Elementos_fijos.consultar_SD();
 		int idSD = SD.size() - 1;

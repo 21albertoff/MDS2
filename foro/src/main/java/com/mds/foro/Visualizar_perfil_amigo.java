@@ -3,20 +3,13 @@ package com.mds.foro;
 import java.util.List;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.Button.ClickEvent;
 
 @SuppressWarnings("serial")
 public class Visualizar_perfil_amigo extends Visualizar_perfil_amigo_Ventana {
-	
-	/**Declaracion de variables
-	private Button _eliminarAmigo;
-	private Image _fotoPerfil;
-	private Label _nombreUsuarioL;
-	private Label _descripcionL;
-	public Mensaje_no_propietario _unnamed_Mensaje_no_propietario_;
-	public Amigo _unnamed_Amigo_;
-	public Mensajes_amigo _verMensajesAmigo;**/
 
+	// Declaracion de variables
 	iUsuario_identificado usuarioidentificado;
 	iUsuario_registrado registrado;
 	iModerador moderador;
@@ -25,17 +18,17 @@ public class Visualizar_perfil_amigo extends Visualizar_perfil_amigo_Ventana {
 	private int idUsuarioAmigo;
 	private int permiso;
 	Usuario_DB amigo;
-	
-	//Inicializacion
+
+	// Inicializador
 	public void inicializar() {
 		usuarioidentificado = new DB_Main();
 		registrado = new DB_Main();
 		Admin = new DB_Main();
 		moderador = new DB_Main();
-		
+
 		idUsuario = Parametros.getIdUsuario();
 		idUsuarioAmigo = Parametros.getIdMiAmigo();
-		
+
 		menuUsuarioIdentificado.setVisible(false);
 		menuUsuarioNoIdentifado.setVisible(false);
 		menuUsuarioAdministrador.setVisible(false);
@@ -44,22 +37,22 @@ public class Visualizar_perfil_amigo extends Visualizar_perfil_amigo_Ventana {
 		ponerModerador.setVisible(false);
 		guardarCambios.setVisible(false);
 		notificarUsuario.setVisible(false);
-		
+
 		List<Usuario_DB> amigos = consultar_si_es_amigo();
-		
+
 		amigo = consultar_Amigo();
-		
-		if(!amigos.contains(amigo)) {
+
+		if (!amigos.contains(amigo)) {
 			eliminarAmigo.setVisible(false);
 			agregarAmigo.setVisible(true);
 		}
-		
+
 		if (Parametros.getTipoUsuario() == 1) {
 			menuUsuarioIdentificado.setVisible(true);
 		} else if (Parametros.getTipoUsuario() == 2) {
 			menuUsuarioModerador.setVisible(true);
 			notificarUsuario.setVisible(true);
-			
+
 		} else if (Parametros.getTipoUsuario() == 3) {
 			banearUsuario.setVisible(true);
 			ponerModerador.setVisible(true);
@@ -67,25 +60,26 @@ public class Visualizar_perfil_amigo extends Visualizar_perfil_amigo_Ventana {
 			menuUsuarioAdministrador.setVisible(true);
 		}
 	}
+
 	@SuppressWarnings("unchecked")
 	private List<Usuario_DB> consultar_si_es_amigo() {
 		List<Usuario_DB> amigos = usuarioidentificado.consultar_A(idUsuario);
 		return amigos;
 	}
 
-	//Constructor
+	// Constructor
 	public Visualizar_perfil_amigo() {
 		inicializar();
-		
-		
+
 		consultar_MA();
-		
+
 		imagenPerfil.setSource(new ExternalResource(amigo.getFoto()));
 		nickUsuario.setValue(amigo.getNombreUsuario());
 		descripcionUsuario.setValue(amigo.getDescripcion());
-		ponerModerador.setValue(amigo.getPermiso()==2);
-		tituloMensajesUsuario.setValue("ULTIMOS MENSAJE DE "+amigo.getNombreUsuario());
-		
+		ponerModerador.setValue(amigo.getPermiso() == 2);
+		tituloMensajesUsuario.setValue("ULTIMOS MENSAJE DE " + amigo.getNombreUsuario());
+
+		// Eliminar amigo
 		eliminarAmigo.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				eliminar_amigo();
@@ -100,20 +94,18 @@ public class Visualizar_perfil_amigo extends Visualizar_perfil_amigo_Ventana {
 				}
 			}
 		});
-		
+
+		// Enviar solicitud de amistad
 		agregarAmigo.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				agregar_amigo();
-				if (Parametros.getTipoUsuario() == 2) {
-					addComponent(new Visualizar_perfil_amigo());
-				}
-				if (Parametros.getTipoUsuario() == 3) {
-					addComponent(new Visualizar_perfil_amigo());
-				}
+				agregarAmigo.setEnabled(false);
+				Notification.show("Se ha enviado una solicitud al usuario " + amigo.getNombreUsuario() + ".", "",
+						Notification.Type.WARNING_MESSAGE);
 			}
 		});
 
-		//Usuario registrado
+		// Menu Usuario registrado
 		if (Parametros.getTipoUsuario() == 1) {
 			menuCerrarSesionUsuario.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
@@ -134,17 +126,16 @@ public class Visualizar_perfil_amigo extends Visualizar_perfil_amigo_Ventana {
 					addComponent(new Notificaciones());
 
 				}
-			});		
-		
+			});
+
 			nombreForo.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
 					addComponent(new Usuario_registrado());
 				}
 			});
 		}
-		
-		
-		//Administrador
+
+		// Menu Administrador
 		if (Parametros.getTipoUsuario() == 3) {
 			banearUsuario.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
@@ -156,12 +147,12 @@ public class Visualizar_perfil_amigo extends Visualizar_perfil_amigo_Ventana {
 			});
 			guardarCambios.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
-					if(ponerModerador.getValue()) {
+					if (ponerModerador.getValue()) {
 						permiso = 2;
 					} else {
 						permiso = 1;
 					}
-					if(permiso != amigo.getPermiso()) {
+					if (permiso != amigo.getPermiso()) {
 						cambiar_moderador();
 					}
 					addComponent(new Visualizar_perfil_amigo());
@@ -188,22 +179,22 @@ public class Visualizar_perfil_amigo extends Visualizar_perfil_amigo_Ventana {
 
 				}
 			});
-			
+
 			menuPanelControlAdministrador.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
 					addComponent(new Panel_de_control());
 
 				}
-			});		
-		
+			});
+
 			nombreForo.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
 					addComponent(new Administrador());
 				}
 			});
 		}
-		
-		//Moderador
+
+		// Menu Moderador
 		if (Parametros.getTipoUsuario() == 2) {
 			notificarUsuario.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
@@ -232,41 +223,45 @@ public class Visualizar_perfil_amigo extends Visualizar_perfil_amigo_Ventana {
 
 				}
 			});
-			
+
 			menuPanelControlModerador.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
 					addComponent(new Panel_de_control_del_moderador());
 
 				}
 			});
-		
+
 			nombreForo.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
 					addComponent(new Moderador());
 				}
 			});
 		}
-		
+
 	}
-	
+
+	// Consultar usuario del perfil
 	private Usuario_DB consultar_Amigo() {
 		return usuarioidentificado.consultar_Amigo(idUsuarioAmigo);
 	}
-	
+
+	// Cambiar privilegios del usuario
 	private void cambiar_moderador() {
-		Admin.Asignar_Desasignar_moderador(idUsuarioAmigo);		
+		Admin.Asignar_Desasignar_moderador(idUsuarioAmigo);
 	}
 
-	//Eliminar amiguito
+	// Eliminar amiguito
 	private void eliminar_amigo() {
 		usuarioidentificado.eliminar_amigoP(idUsuario, idUsuarioAmigo);
 		addComponent(new Visualizar_mi_perfil());
 	}
-	
+
+	// Enviar solicitud de amistad
 	private void agregar_amigo() {
-		usuarioidentificado.agregar_amigo(idUsuario, idUsuarioAmigo);		
+		usuarioidentificado.enviar_solicitud(idUsuario, idUsuarioAmigo);
 	}
 
+	// Consultar los mensaje de mi amiguito
 	@SuppressWarnings("unchecked")
 	private void consultar_MA() {
 		List<MensajeDB> MisM = usuarioidentificado.consultar_MisM(idUsuarioAmigo);

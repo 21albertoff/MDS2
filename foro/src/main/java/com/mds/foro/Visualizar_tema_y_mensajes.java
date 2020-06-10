@@ -20,7 +20,7 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 	private int numMensajes;
 	private String cantidadMensajes;
 
-	// Inicializacion
+	// Inicializador
 	public void inicializar() {
 		Elementos_fijos = new DB_Main();
 		usuario = new DB_Main();
@@ -35,7 +35,7 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 		menuUsuarioModerador.setVisible(false);
 	}
 
-	//Constructor
+	// Constructor
 	public Visualizar_tema_y_mensajes() {
 		inicializar();
 		cargarSeccionesDestacadas();
@@ -49,6 +49,7 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 		cantidadMensajes = ("" + numMensajes);
 		numeroMensajes.setValue(cantidadMensajes);
 
+		// Usuario no identificado
 		if (!(Parametros.getTipoUsuario() == 1 || Parametros.getTipoUsuario() == 2
 				|| Parametros.getTipoUsuario() == 3)) {
 
@@ -73,7 +74,7 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 
 	}
 
-	// Consultar Mensajes usuario identificado
+	// Consultar Mensajes usuario no identificado
 	private void consultarMensajes() {
 		List<MensajeDB> M = usuario.consultar_M(idTema);
 		int numMensajes = 0;
@@ -153,7 +154,7 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 		}
 	}
 
-	// cargarSeccionesDestacadas
+	// Cargar secciones destacadas
 	private void cargarSeccionesDestacadas() {
 		List<SeccionDB> SD = Elementos_fijos.consultar_SD();
 		int idSD = SD.size() - 1;
@@ -169,6 +170,7 @@ public class Visualizar_tema_y_mensajes extends Visualizar_tema_y_mensajes_Venta
 				seccion.iconoSeccion.setSource(new ExternalResource(SD.get(idSD).getIcono()));
 				verticalSeccionesDestacadas.addComponent(seccion);
 
+				// Visualizar seccion
 				final int id = idSD;
 				seccion.tituloSeccion.addClickListener(new Button.ClickListener() {
 					public void buttonClick(ClickEvent event) {

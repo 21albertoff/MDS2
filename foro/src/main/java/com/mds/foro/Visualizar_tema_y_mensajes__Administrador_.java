@@ -2,14 +2,13 @@ package com.mds.foro;
 
 import java.util.List;
 
-
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 
 @SuppressWarnings("serial")
 public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_y_mensajes_Administrador_Ventana {
-	
+
 	// Declaracion de variables
 	iElementos_fijos Elementos_fijos;
 	iAdministrador admin;
@@ -22,7 +21,7 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 	private int numMensajes;
 	private String cantidadMensajes;
 
-	// Inicializacion
+	// Inicializador
 	public void inicializar() {
 		Elementos_fijos = new DB_Main();
 		admin = new DB_Main();
@@ -38,6 +37,7 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 		menuUsuarioModerador.setVisible(false);
 	}
 
+	// Visualizar tema y mensajes del administrador
 	public Visualizar_tema_y_mensajes__Administrador_() {
 		inicializar();
 		cargarSeccionesDestacadas();
@@ -52,14 +52,16 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 		numeroMensajes.setValue(cantidadMensajes);
 		String cantidadLikes = ("" + Parametros.getLikeTema());
 		numeroMeGusta.setValue(cantidadLikes);
-		
+
+		// Eliminar tema propio
 		int propietario = Parametros.getIdUsuario();
 		int tema = Parametros.getUsuarioTema();
 		if (tema == propietario) {
 			eliminarTema.setVisible(true);
 			reportarUsuario.setVisible(false);
-		} 
-		
+		}
+
+		// Botones del administrador
 		menuCerrarSesionAdministrador.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				addComponent(new Cerrar_sesion());
@@ -80,7 +82,7 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 
 			}
 		});
-		
+
 		menuPanelControlAdministrador.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				addComponent(new Panel_de_control());
@@ -93,21 +95,21 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 				addComponent(new Visualizar_seccion__Administrador_());
 			}
 		});
-		
+
 		eliminarTema.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				Parametros.setIdTema(idTema);
 				addComponent(new Eliminar_tema());
 			}
 		});
-		
+
 		botonMeGusta.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				Parametros.setIdTema(idTema);
 				valorarTema();
 			}
 		});
-		
+
 		escribirMensaje.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				Parametros.setIdTema(idTema);
@@ -116,7 +118,7 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 				addComponent(new Escribir_mensaje());
 			}
 		});
-		
+
 		reportarUsuario.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				Parametros.setVolverBaneo(1);
@@ -125,17 +127,17 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 			}
 		});
 	}
-	
-	//Valorar tema
+
+	// Valorar tema
 	private void valorarTema() {
 		int idUsuario = Parametros.getIdUsuario();
 		int idTema = Parametros.getIdTema();
 		usuarioI.valorar_tema(idUsuario, idTema);
-		String likes = (""+Parametros.getLikesTema());
+		String likes = ("" + Parametros.getLikesTema());
 		numeroMeGusta.setValue(likes);
 	}
 
-	//Consultar Mensajes usuario identificado
+	// Consultar Mensajes del administrador
 	private void consultarMensajes() {
 		List<MensajeDB> M = admin.consultar_M_A(idTema);
 		int numMensajes = 0;
@@ -143,19 +145,19 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 		while (idM < M.size()) {
 			if (M.get(idM).getEliminado() == false) {
 				if (M.get(idM).getOculto() == false) {
-					
+
 					Parametros.setIdMensaje(M.get(idM).getORMID());
 					numMensajes++;
 					Parametros.setNumMensajes(numMensajes);
 					Mensaje_propietario mensaje = new Mensaje_propietario();
-					
-					//Ocultar elementos
+
+					// Ocultar elementos
 					mensaje.reportar.setVisible(false);
 					mensaje.botonEliminar.setVisible(true);
 					mensaje.botonNotificar.setVisible(false);
 					mensaje.botonOcultar.setVisible(false);
-					
-					//Citar mensaje
+
+					// Citar mensaje
 					if (!(M.get(idM).getEsta_en() == null)) {
 						MensajeDB cita = M.get(idM).getEsta_en();
 						mensaje.citarMen.setValue(cita.getMensaje());
@@ -164,22 +166,22 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 						mensaje.citado.setVisible(false);
 					}
 
-					//Mensaje propietario
+					// Mensaje propietario
 					int propietario = Parametros.getIdUsuario();
 					Usuario_DB user = M.get(idM).getCreado_por();
 					if (user.getIdUsuario() == propietario) {
 						mensaje.botonBanear.setVisible(false);
 						Parametros.setIdMensaje(M.get(idM).getIdMensaje());
-					} 
-					
-					//Datos mensaje
+					}
+
+					// Datos mensaje
 					mensaje.fotoPerfil.setSource(new ExternalResource(user.getFoto()));
 					mensaje.nickUsuario.setCaption(user.getNombreUsuario());
 					mensaje.mensaje.setValue(M.get(idM).getMensaje());
 					String gusta = ("" + M.get(idM).getCantidadLike());
 					mensaje.cantidadMeGusta.setValue(gusta);
-					
-					//Videos e imagenes
+
+					// Videos e imagenes
 					String video = M.get(idM).getVideo();
 					String foto1 = M.get(idM).getFoto1();
 					String foto2 = M.get(idM).getFoto2();
@@ -189,13 +191,19 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 						mensaje.linkVideo.setVisible(false);
 						mensaje.videos.setVisible(false);
 
-						if (foto1 == null) { mensaje.imagen1.setVisible(false); 
+						if (foto1 == null) {
+							mensaje.imagen1.setVisible(false);
 							mensaje.imagen.setVisible(false);
-						} else { mensaje.imagen1.setSource(new ExternalResource(foto1));
-							if (foto2 == null) { mensaje.imagen2.setVisible(false);
-							} else { mensaje.imagen2.setSource(new ExternalResource(foto2));
-								if (foto3 == null) { mensaje.imagen3.setVisible(false);
-								} else { mensaje.imagen3.setSource(new ExternalResource(foto3));
+						} else {
+							mensaje.imagen1.setSource(new ExternalResource(foto1));
+							if (foto2 == null) {
+								mensaje.imagen2.setVisible(false);
+							} else {
+								mensaje.imagen2.setSource(new ExternalResource(foto2));
+								if (foto3 == null) {
+									mensaje.imagen3.setVisible(false);
+								} else {
+									mensaje.imagen3.setSource(new ExternalResource(foto3));
 								}
 							}
 						}
@@ -207,15 +215,15 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 						mensaje.imagen.setVisible(false);
 					}
 
-					//Añadir mensaje
+					// Añadir mensaje
 					verticalMensajes.addComponent(mensaje);
 
-					//Metodos de cada boton
+					// Metodos de cada boton
 					final int id = idM;
 					mensaje.nickUsuario.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
 							Parametros.setPerfilUsuario(M.get(id).getCreado_por().getORMID());
-							if(Parametros.getPerfilUsuario() == Parametros.getIdUsuario()) {
+							if (Parametros.getPerfilUsuario() == Parametros.getIdUsuario()) {
 								addComponent(new Visualizar_mi_perfil());
 							}
 							addComponent(new Visualizar_perfil());
@@ -236,11 +244,11 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 					mensaje.botonMeGusta.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
 							valorarMensaje();
-							String likes = (""+Parametros.getLikesMensaje());
+							String likes = ("" + Parametros.getLikesMensaje());
 							mensaje.cantidadMeGusta.setValue(likes);
 						}
 					});
-					
+
 					mensaje.responderMensaje.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
 							Parametros.setIdTema(idTema);
@@ -250,22 +258,21 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 							addComponent(new Escribir_mensaje());
 						}
 					});
-					
-					
+
 				}
 			}
 			idM++;
 		}
 	}
 
-	//Valorar mensaje
+	// Valorar mensaje
 	private void valorarMensaje() {
 		int idUsuario = Parametros.getIdUsuario();
 		int idMensaje = Parametros.getIdMensaje();
 		usuarioI.valorar_mensaje(idUsuario, idMensaje);
 	}
-	
-	// cargarSeccionesDestacadas
+
+	// Cargar secciones destacadas
 	private void cargarSeccionesDestacadas() {
 		List<SeccionDB> SD = Elementos_fijos.consultar_SD();
 		int idSD = SD.size() - 1;
