@@ -21,56 +21,51 @@ public class Eliminar_tema extends Eliminar_tema_Ventana {
 	public Eliminar_tema() {
 		inicializar();
 
+		// Boton del constructor
 		botonCancelarTema.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				// Usuario registrado
-				if (Parametros.getTipoUsuario() == 1) {
+				if (Parametros.getTipoUsuario() == 1)
 					addComponent(new Visualizar_seccion__Usuario_identificado_());
-				}
 
 				// Moderador
-				if (Parametros.getTipoUsuario() == 2) {
+				if (Parametros.getTipoUsuario() == 2)
 					addComponent(new Visualizar_seccion__Usuario_identificado_());
-				}
 
 				// Administrador
-				if (Parametros.getTipoUsuario() == 3) {
+				if (Parametros.getTipoUsuario() == 3)
 					addComponent(new Visualizar_seccion__Administrador_());
-				}
 			}
 		});
 
 		botonEliminarTema.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				// Usuario registrado
-				if (Parametros.getTipoUsuario() == 1) {
-					eliminarTemaPropio(Parametros.getIdTema());
-				}
+				if (Parametros.getTipoUsuario() == 1)
+					eliminarTemaPropio();
 
 				// Moderador
-				if (Parametros.getTipoUsuario() == 2) {
-					eliminarTemaPropio(Parametros.getIdTema());
-				}
+				if (Parametros.getTipoUsuario() == 2)
+					eliminarTemaPropio();
 
 				// Administrador
-				if (Parametros.getTipoUsuario() == 3) {
-					eliminarTema(Parametros.getIdTema());
-				}
+				if (Parametros.getTipoUsuario() == 3)
+					eliminarTema();
 			}
 		});
 	}
 
-	// Eliminar tema
-	private void eliminarTemaPropio(int idTema) {
-		if (usuarioidentificado.eliminar_propio_tema(idTema)) {
+	// Eliminar tema propio
+	private void eliminarTemaPropio() {
+		if (usuarioidentificado.eliminar_propio_tema(Parametros.getIdTema())) {
 			addComponent(new Visualizar_seccion__Usuario_identificado_());
 			Notification.show("El tema ha sido eliminado con exito", "", Notification.Type.WARNING_MESSAGE);
 		}
 	}
 
 	// Eliminar tema
-	private void eliminarTema(int idTema) {
-		if (admin.eliminar_tema(idTema)) {
+	private void eliminarTema() {
+		if (admin.eliminar_tema(Parametros.getIdTema())) {
 			addComponent(new Visualizar_seccion__Administrador_());
 			Notification.show("El tema ha sido eliminado con exito", "", Notification.Type.WARNING_MESSAGE);
 		}

@@ -1,13 +1,15 @@
 package com.mds.foro;
 
-import java.util.List;
-
 public interface iUsuario_registrado extends iUsuario_identificado {
 
-	//Reportar mensaje usuario
+	/** TEMAS Y MENSAJES **/
+	// Reportar mensaje usuario
 	public void reportar_mensaje(int idUsuario, int idUsuarior, int idMensaje);
 
-	public boolean eliminar_perfil(int aIdUsuario);
+	/** PERFIL DE USUARIO **/
+	// Eliminar perfil
+	public boolean eliminar_perfil(int idUsuario);
 
-	public boolean modificar_nombre(int aIdUsuario, String aNewNombreUsuario);
+	// Modificar nombre
+	public boolean modificar_nombre(int idUsuario, String newNombreUsuario);
 }

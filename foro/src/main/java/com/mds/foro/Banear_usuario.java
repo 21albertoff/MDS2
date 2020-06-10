@@ -17,39 +17,37 @@ public class Banear_usuario extends Banear_usuario_Ventana {
 
 	// Constructor
 	public Banear_usuario() {
-			inicializar();
+		inicializar();
 
-			botonCancelarBaneo.addClickListener(new Button.ClickListener() {
-				public void buttonClick(ClickEvent event) {
-					if (Parametros.getVolverBaneo() == 1) {
-						addComponent(new Visualizar_tema_y_mensajes__Administrador_());
-					} 
-					if (Parametros.getVolverBaneo() == 2)
-						addComponent(new Panel_de_control());
-					if (Parametros.getVolverBaneo() == 3)
-						addComponent(new Visualizar_perfil_amigo());
-					
-				}
-			});
+		botonCancelarBaneo.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				if (Parametros.getVolverBaneo() == 1)
+					addComponent(new Visualizar_tema_y_mensajes__Administrador_());
+				if (Parametros.getVolverBaneo() == 2)
+					addComponent(new Panel_de_control());
+				if (Parametros.getVolverBaneo() == 3)
+					addComponent(new Visualizar_perfil_amigo());
 
-			botonBanear.addClickListener(new Button.ClickListener() {
-				public void buttonClick(ClickEvent event) {
-						banearUsuario();
-				}
-			});
-		}
+			}
+		});
+
+		botonBanear.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				banearUsuario();
+			}
+		});
+	}
 
 	// Banear usuario
 	private void banearUsuario() {
-			admin.banear_usuario(Parametros.getIdBaneado()); 
-			if (Parametros.getVolverBaneo() == 1) {
-				addComponent(new Visualizar_tema_y_mensajes__Administrador_());
-			} 
-			if (Parametros.getVolverBaneo() == 2)
-				addComponent(new Panel_de_control());
-			if (Parametros.getVolverBaneo() == 3)
-				addComponent(new Visualizar_perfil_amigo());
-			Notification.show("El usuario ha sido baneado", "", Notification.Type.WARNING_MESSAGE);
-		
+		admin.banear_usuario(Parametros.getIdBaneado());
+		if (Parametros.getVolverBaneo() == 1)
+			addComponent(new Visualizar_tema_y_mensajes__Administrador_());
+		if (Parametros.getVolverBaneo() == 2)
+			addComponent(new Panel_de_control());
+		if (Parametros.getVolverBaneo() == 3)
+			addComponent(new Visualizar_perfil_amigo());
+		Notification.show("El usuario ha sido baneado", "", Notification.Type.WARNING_MESSAGE);
+
 	}
 }

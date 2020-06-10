@@ -12,182 +12,193 @@ public class DB_Mensajes {
 	public DB_Main _bd_main_mensajes;
 	public Vector<MensajeDB> _contiene_mensaje = new Vector<MensajeDB>();
 
-	//Consultar mensajes usuario no identificado
+	// Consultar mensajes usuario no identificado
 	@SuppressWarnings("unchecked")
 	public List<MensajeDB> consultar_M(int idTema) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<MensajeDB> mensajes = null;
-		try {			
-			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.contieneM='"+idTema+"'", null);
+		try {
+			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.contieneM='" + idTema + "'", null);
 			t.commit();
-			
+
 		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return mensajes;
 	}
-	
+
+	// Consultar mensajes usuario identificado
 	@SuppressWarnings("unchecked")
 	public List<MensajeDB> consultar_M_UI(int idTema) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<MensajeDB> mensajes = null;
-		try {			
-			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.contieneM='"+idTema+"'", null);
+		try {
+			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.contieneM='" + idTema + "'", null);
 			t.commit();
-			
+
 		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return mensajes;
 	}
 
+	// Consultar mensajes administrador
 	@SuppressWarnings("unchecked")
 	public List<MensajeDB> consultar_MA(int idAmigo) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<MensajeDB> mensajes = null;
-		try {			
-			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.creado_por='"+idAmigo+"'", null);
+		try {
+			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.creado_por='" + idAmigo + "'", null);
 			t.commit();
-			
+
 		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return mensajes;
 	}
 
+	// Consultar mis mensajes
 	@SuppressWarnings("unchecked")
 	public List<MensajeDB> consultar_MisM(int idUsuario) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<MensajeDB> mensajes = null;
-		try {			
-			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.creado_por='"+idUsuario+"'", null);
+		try {
+			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.creado_por='" + idUsuario + "'", null);
 			t.commit();
-			
+
 		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return mensajes;
 	}
 
+	// Consultar mensajes moderador
 	@SuppressWarnings("unchecked")
 	public List<MensajeDB> consultar_M_Mo(int idTema) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<MensajeDB> mensajes = null;
-		try {			
-			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.contieneM='"+idTema+"'", null);
+		try {
+			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.contieneM='" + idTema + "'", null);
 			t.commit();
-			
+
 		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return mensajes;
 	}
 
+	// Consultar mensajes usuario
 	@SuppressWarnings("unchecked")
 	public List<MensajeDB> consultar_MU(int idUsuario) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<MensajeDB> mensajes = null;
-		try {			
-			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.creado_por='"+idUsuario+"'", null);
+		try {
+			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.creado_por='" + idUsuario + "'", null);
 			t.commit();
-			
+
 		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return mensajes;
 	}
 
+	// Consultar mensajes administrador
 	@SuppressWarnings("unchecked")
 	public List<MensajeDB> consultar_M_A(int idTema) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<MensajeDB> mensajes = null;
-		try {			
-			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.contieneM='"+idTema+"'", null);
+		try {
+			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.contieneM='" + idTema + "'", null);
 			t.commit();
-			
+
 		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return mensajes;
 	}
 
+	// Consultar mensajes ocultos
 	@SuppressWarnings("unchecked")
 	public List<MensajeDB> consultar_MO() throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<MensajeDB> mensajes = null;
-		try {			
+		try {
 			mensajes = MensajeDBDAO.queryMensajeDB("MensajeDB.oculto='1'", null);
 			t.commit();
-			
+
 		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return mensajes;
 	}
 
+	// Eliminar mi mensaje
 	public boolean eliminar_mi_mensaje(int idMensaje) throws PersistentException {
 		boolean eliminado = false;
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		
+
 		try {
 			MensajeDB mensaje = MensajeDBDAO.loadMensajeDBByORMID(idMensaje);
 			mensaje.setEliminado(true);
 			MensajeDBDAO.save(mensaje);
 			t.commit();
-			eliminado=true;
-		}catch(Exception e) {
+			eliminado = true;
+		} catch (Exception e) {
 			t.rollback();
 		}
 		return eliminado;
 	}
 
-	//Eliminar mensaje
+	// Eliminar mensaje
 	public boolean eliminar_mensaje(int idMensaje) throws PersistentException {
 		boolean eliminado = false;
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		
+
 		try {
 			MensajeDB mensaje = MensajeDBDAO.loadMensajeDBByORMID(idMensaje);
 			mensaje.setEliminado(true);
 			MensajeDBDAO.save(mensaje);
 			t.commit();
-			eliminado=true;
-		}catch(Exception e) {
+			eliminado = true;
+		} catch (Exception e) {
 			t.rollback();
 		}
 		return eliminado;
 	}
 
+	// Mostrar mensaje
 	public void mostrar_mensaje(int idMensaje) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		
+
 		try {
 			MensajeDB mensaje = MensajeDBDAO.loadMensajeDBByORMID(idMensaje);
 			mensaje.setOculto(false);
 			MensajeDBDAO.save(mensaje);
 			t.commit();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			t.rollback();
 		}
 	}
 
+	// Reportar mensaje
 	public void reportar_mensaje(int idUsuario, int idUsuarior, int idMensaje) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		
+
 		try {
 			Usuario_registradoDB usuarioReportado = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuario);
 			Usuario_registradoDB reporte = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuarior);
 			MensajeDB mensaje = MensajeDBDAO.loadMensajeDBByORMID(idMensaje);
 			usuarioReportado.reportado_por.add(reporte);
-			String mensajetexto = "-"+ mensaje.getMensaje();
+			String mensajetexto = "-" + mensaje.getMensaje();
 			usuarioReportado.setMotivo(mensajetexto);
 			Usuario_registradoDBDAO.save(usuarioReportado);
 			t.commit();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			t.rollback();
 		}
 	}
 
+	// Ocultar mensaje
 	public void ocultar_mensaje(int idMensaje) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		try {
@@ -195,15 +206,17 @@ public class DB_Mensajes {
 			mensaje.setOculto(true);
 			MensajeDBDAO.save(mensaje);
 			t.commit();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			t.rollback();
 		}
 	}
 
-	public boolean crear_mensaje(int idTema, int idUsuario, String mensaje, String foto1, String foto2, String foto3, String video) throws PersistentException {
+	// Crear mensaje
+	public boolean crear_mensaje(int idTema, int idUsuario, String mensaje, String foto1, String foto2, String foto3,
+			String video) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		
-		try {	
+
+		try {
 			MensajeDB nuevoMensaje = MensajeDBDAO.createMensajeDB();
 			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
@@ -213,7 +226,8 @@ public class DB_Mensajes {
 			nuevoMensaje.setORM_Creado_por(usuario);
 			nuevoMensaje.setORM_Esta_en(null);
 			nuevoMensaje.setContieneM(tema);
-			nuevoMensaje.setORM_ContieneM(tema);;
+			nuevoMensaje.setORM_ContieneM(tema);
+			;
 			nuevoMensaje.setCantidadLike(0);
 			nuevoMensaje.setEliminado(false);
 			nuevoMensaje.setOculto(false);
@@ -221,13 +235,19 @@ public class DB_Mensajes {
 			nuevoMensaje.setEsta_en(null);
 			if (video == "null") {
 				nuevoMensaje.setVideo(null);
-				
-				if (foto1 == "null") { nuevoMensaje.setFoto1(null);
-				} else { nuevoMensaje.setFoto1(foto1);
-					if (foto2 == "null") { nuevoMensaje.setFoto2(null);
-					} else { nuevoMensaje.setFoto2(foto2);
-						if (foto3 == "null") { nuevoMensaje.setFoto3(null);
-						} else { nuevoMensaje.setFoto3(foto3);
+
+				if (foto1 == "null") {
+					nuevoMensaje.setFoto1(null);
+				} else {
+					nuevoMensaje.setFoto1(foto1);
+					if (foto2 == "null") {
+						nuevoMensaje.setFoto2(null);
+					} else {
+						nuevoMensaje.setFoto2(foto2);
+						if (foto3 == "null") {
+							nuevoMensaje.setFoto3(null);
+						} else {
+							nuevoMensaje.setFoto3(foto3);
 						}
 					}
 				}
@@ -236,48 +256,51 @@ public class DB_Mensajes {
 			}
 			MensajeDBDAO.save(nuevoMensaje);
 			t.commit();
-			
-			return true;
-			
-			} catch (PersistentException e1) {
-				t.rollback();
 
-				return false;
-			}
+			return true;
+
+		} catch (PersistentException e1) {
+			t.rollback();
+
+			return false;
+		}
 	}
 
+	// Valorar mensaje
 	public void valorar_mensaje(int idUsuario, int idMensaje) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		
+
 		try {
 			MensajeDB mensaje = MensajeDBDAO.loadMensajeDBByORMID(idMensaje);
 			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
 
-			if(mensaje.gustado_por.contains(usuario)) {
+			if (mensaje.gustado_por.contains(usuario)) {
 				mensaje.gustado_por.remove(usuario);
 				int likes = mensaje.getCantidadLike();
-				likes = likes -1;
+				likes = likes - 1;
 				mensaje.setCantidadLike(likes);
 				Parametros.setLikesMensaje(likes);
 			} else {
 				mensaje.gustado_por.add(usuario);
 				int likes = mensaje.getCantidadLike();
-				likes = likes +1;
+				likes = likes + 1;
 				mensaje.setCantidadLike(likes);
 				Parametros.setLikesMensaje(likes);
 			}
 			Usuario_DBDAO.save(usuario);
 			MensajeDBDAO.save(mensaje);
 			t.commit();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			t.rollback();
 		}
 	}
 
-	public boolean citar_mensaje(int idTema, int idUsuario, int idCita, String mensaje, String foto1, String foto2, String foto3, String video) throws PersistentException {
-PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		
-		try {	
+	// Citar mensaje
+	public boolean citar_mensaje(int idTema, int idUsuario, int idCita, String mensaje, String foto1, String foto2,
+			String foto3, String video) throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+
+		try {
 			MensajeDB nuevoMensaje = MensajeDBDAO.createMensajeDB();
 			TemaDB tema = TemaDBDAO.loadTemaDBByORMID(idTema);
 			MensajeDB citado = MensajeDBDAO.loadMensajeDBByORMID(idCita);
@@ -288,7 +311,8 @@ PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession()
 			nuevoMensaje.setORM_Creado_por(usuario);
 			nuevoMensaje.setORM_Esta_en(null);
 			nuevoMensaje.setContieneM(tema);
-			nuevoMensaje.setORM_ContieneM(tema);;
+			nuevoMensaje.setORM_ContieneM(tema);
+			;
 			nuevoMensaje.setCantidadLike(0);
 			nuevoMensaje.setEliminado(false);
 			nuevoMensaje.setOculto(false);
@@ -300,13 +324,19 @@ PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession()
 			nuevoMensaje.setVideo(null);
 			if (video == "null") {
 				nuevoMensaje.setVideo(null);
-				
-				if (foto1 == "null") { nuevoMensaje.setFoto1(null);
-				} else { nuevoMensaje.setFoto1(foto1);
-					if (foto2 == "null") { nuevoMensaje.setFoto2(null);
-					} else { nuevoMensaje.setFoto2(foto2);
-						if (foto3 == "null") { nuevoMensaje.setFoto3(null);
-						} else { nuevoMensaje.setFoto3(foto3);
+
+				if (foto1 == "null") {
+					nuevoMensaje.setFoto1(null);
+				} else {
+					nuevoMensaje.setFoto1(foto1);
+					if (foto2 == "null") {
+						nuevoMensaje.setFoto2(null);
+					} else {
+						nuevoMensaje.setFoto2(foto2);
+						if (foto3 == "null") {
+							nuevoMensaje.setFoto3(null);
+						} else {
+							nuevoMensaje.setFoto3(foto3);
 						}
 					}
 				}
@@ -317,11 +347,11 @@ PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession()
 			t.commit();
 
 			return true;
-			
-			} catch (PersistentException e1) {
-				t.rollback();
 
-				return false;
-			}
+		} catch (PersistentException e1) {
+			t.rollback();
+
+			return false;
+		}
 	}
 }

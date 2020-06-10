@@ -13,6 +13,7 @@ public class DB_Notificaciones {
 	public DB_Main _bd_main_notificaciones;
 	public Vector<NotificacionDB> _contiene_notificacion = new Vector<NotificacionDB>();
 
+	// Consultar notificaciones
 	public List<NotificacionDB> consultar_N(int idUsuario) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<NotificacionDB> notificacion = null;
@@ -26,10 +27,11 @@ public class DB_Notificaciones {
 		return notificacion;
 	}
 
+	// Eliminar notificaicon
 	public boolean eliminar_notificacion(int idUsuario, int idNotificacion) throws PersistentException {
 		boolean eliminado = false;
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		
+
 		try {
 			NotificacionDB notificacion = NotificacionDBDAO.loadNotificacionDBByORMID(idNotificacion);
 			Usuario_DB user = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
@@ -38,16 +40,17 @@ public class DB_Notificaciones {
 			NotificacionDBDAO.save(notificacion);
 			Usuario_DBDAO.save(user);
 			t.commit();
-			eliminado=true;
-		}catch(Exception e) {
+			eliminado = true;
+		} catch (Exception e) {
 			t.rollback();
 		}
 		return eliminado;
 	}
 
+	// Crear notificacion
 	public void crear_notificacion(int idUsuario, int idUsuarioAmigo) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		
+
 		try {
 			NotificacionDB notificacion = NotificacionDBDAO.createNotificacionDB();
 			Usuario_DB user = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
@@ -57,9 +60,9 @@ public class DB_Notificaciones {
 			NotificacionDBDAO.save(notificacion);
 			Usuario_DBDAO.save(user2);
 			t.commit();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			t.rollback();
 		}
-		
+
 	}
 }

@@ -2,12 +2,16 @@ package com.mds.foro;
 
 public interface iUsuario_no_identificado extends iUsuario {
 
-	/**REGISTRARSE**/
-	public boolean registrarse(String nombreUsuario, String nombreCompleto, String correoUsuario, String passwordUsuario, String descripcionUsuario, String fotoUsuario);
+	/** REGISTRARSE **/
+	// Registrarse
+	public boolean registrarse(String nombreUsuario, String nombreCompleto, String correoUsuario,
+			String passwordUsuario, String descripcionUsuario, String fotoUsuario);
 
-	/**INICIAR SESION**/
+	/** INICIAR SESION **/
+	// Iniciar sesion
 	public boolean iniciar_sesion(String nombreUsuario, String passwordUsuario);
 
-	/**RECUPERAR CONTRASEÑA**/
+	/** RECUPERAR CONTRASEÑA **/
+	// Recuperar contraseña
 	public boolean recuperarContrasenia(String nombreUsuario, String correoElectronico);
 }

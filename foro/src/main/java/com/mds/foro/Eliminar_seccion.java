@@ -5,43 +5,39 @@ import com.vaadin.ui.Notification;
 import com.vaadin.ui.Button.ClickEvent;
 
 @SuppressWarnings("serial")
-public class Eliminar_seccion extends Eliminar_Seccion_Ventana{
+public class Eliminar_seccion extends Eliminar_Seccion_Ventana {
 
-	//Declaraciones
+	// Declaraciones
 	iAdministrador admin;
-	
-	//Inicializacion
+
+	// Inicializacion
 	public void inicializar() {
 		admin = new DB_Main();
 	}
-	//Constructor
+
+	// Constructor
 	public Eliminar_seccion() {
 		inicializar();
-		
-        botonCancelar.addClickListener(new Button.ClickListener() 
-			{
-        		public void buttonClick(ClickEvent event) 
-				{ 
-        			addComponent(new Administrador());
-				} 
+
+		// Botones del constructor
+		botonCancelar.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				addComponent(new Administrador());
 			}
-        );
-        
-        botonEliminarSeccion.addClickListener(new Button.ClickListener() 
-			{
-        		public void buttonClick(ClickEvent event) 
-				{ 
-        			eliminarSeccion(Parametros.getIdSeccion());
-				} 
+		});
+
+		botonEliminarSeccion.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				eliminarSeccion();
 			}
-        );
+		});
 	}
-	
-	//Metodo eliminar seccion
-	private void eliminarSeccion(int idSeccion) {
-		if(admin.eliminar_seccion(idSeccion)) {
+
+	// Eliminar seccion
+	private void eliminarSeccion() {
+		if (admin.eliminar_seccion(Parametros.getIdSeccion())) {
 			addComponent(new Administrador());
-			Notification.show("La seccion ha sido eliminado con exito","", Notification.Type.WARNING_MESSAGE);
-		}	
+			Notification.show("La seccion ha sido eliminado con exito", "", Notification.Type.WARNING_MESSAGE);
+		}
 	}
 }

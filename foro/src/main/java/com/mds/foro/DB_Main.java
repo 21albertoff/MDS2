@@ -2,8 +2,8 @@ package com.mds.foro;
 
 import java.util.List;
 
-public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fijos, iUsuario, iUsuario_identificado,
-		iModerador, iUsuario_registrado, iAdministrador {
+public class DB_Main implements iUsuario_no_identificado, iElementos_fijos, iUsuario, iUsuario_identificado, iModerador,
+		iUsuario_registrado, iAdministrador {
 
 	// Declaraciones
 	public DB_Temas temas = new DB_Temas();
@@ -99,12 +99,6 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 			e.printStackTrace();
 		}
 		return null;
-	}
-
-	/** Correo **/
-
-	public void enviar_Mensaje(int aIdUsuario, String aPassword) {
-		throw new UnsupportedOperationException();
 	}
 
 	/** Usuario identificado **/
@@ -286,77 +280,77 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return null;
 	}
 
-	//Cambiar la contrasenia
-		public boolean cambiar_contrasenia(int idUsuario, String contrasenia) {
-			try {
-				return registrados.cambiar_contrasenia(idUsuario, contrasenia);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return false;
+	// Cambiar la contrasenia
+	public boolean cambiar_contrasenia(int idUsuario, String contrasenia) {
+		try {
+			return registrados.cambiar_contrasenia(idUsuario, contrasenia);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-		//Consultar un amigo
-		public Usuario_DB consultar_Amigo(int idUsuarioAmigo) {
-			try {
-				return registrados.consultar_Amigo(idUsuarioAmigo);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return null;
+		return false;
+	}
+
+	// Consultar un amigo
+	public Usuario_DB consultar_Amigo(int idUsuarioAmigo) {
+		try {
+			return registrados.consultar_Amigo(idUsuarioAmigo);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-		//Consultar notificaciones
-		public List<NotificacionDB> consultar_N(int idUsuario) {
-			try {
-				return notificaciones.consultar_N(idUsuario);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return null;
+		return null;
+	}
+
+	// Consultar notificaciones
+	public List<NotificacionDB> consultar_N(int idUsuario) {
+		try {
+			return notificaciones.consultar_N(idUsuario);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-		//Eliminar Notificacion
-		public boolean eliminar_notificacion(int idUsuario, int idNotificacion) {
-			try {
-				return notificaciones.eliminar_notificacion(idUsuario, idNotificacion);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return false;
+		return null;
+	}
+
+	// Eliminar Notificacion
+	public boolean eliminar_notificacion(int idUsuario, int idNotificacion) {
+		try {
+			return notificaciones.eliminar_notificacion(idUsuario, idNotificacion);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-		//Agregar amigo
-		public boolean agregar_amigo(int idUsuario, int idAmigo) {
-			try {
-				return registrados.agregar_amigo(idUsuario, idAmigo);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return false;
+		return false;
+	}
+
+	// Agregar amigo
+	public boolean agregar_amigo(int idUsuario, int idAmigo) {
+		try {
+			return registrados.agregar_amigo(idUsuario, idAmigo);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-		@Override
-		public void enviar_solicitud(int idUsuario, int idUsuarioAmigo) {
-			try {
-				notificaciones.crear_notificacion(idUsuario, idUsuarioAmigo);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		return false;
+	}
+
+	@Override
+	public void enviar_solicitud(int idUsuario, int idUsuarioAmigo) {
+		try {
+			notificaciones.crear_notificacion(idUsuario, idUsuarioAmigo);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-	
+	}
+
 	/** Usuario registrado **/
 
 	// Reportar mensaje
 	public void reportar_mensaje(int idUsuario, int idUsuarior, int idMensaje) {
 		try {
-			mensajes.reportar_mensaje(idUsuario,idUsuarior, idMensaje);
+			mensajes.reportar_mensaje(idUsuario, idUsuarior, idMensaje);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
+	// Modificar nombre
 	public boolean modificar_nombre(int idUsuario, String newNombreUsuario) {
 		try {
 			return registrados.modificar_nombre(idUsuario, newNombreUsuario);
@@ -365,7 +359,8 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return false;
 	}
-	
+
+	// Eliminar perfil
 	public boolean eliminar_perfil(int idUsuario) {
 		try {
 			return registrados.eliminar_perfil(idUsuario);
@@ -413,8 +408,8 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 			e.printStackTrace();
 		}
 	}
-	
-	//Consultar usuarios reportados
+
+	// Consultar usuarios reportados
 	public List<Usuario_registradoDB> consultar_UR() {
 		try {
 			return registrados.consultar_UR();
@@ -423,8 +418,8 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return null;
 	}
-	
-	//Eliminar reporte
+
+	// Eliminar reporte
 	public void eliminar_reporte(int idUsuario) {
 		try {
 			registrados.eliminar_reporte(idUsuario);
@@ -609,45 +604,36 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return null;
 	}
-	
-	//Cambiar estado moderador
-		public void Asignar_Desasignar_moderador(int idUsuario) {
-			try {
-				registrados.Asignar_Desasignar_moderador(idUsuario);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+
+	// Cambiar estado moderador
+	public void Asignar_Desasignar_moderador(int idUsuario) {
+		try {
+			registrados.Asignar_Desasignar_moderador(idUsuario);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-
-	/** Otros metodos **/
-
-	public Usuario_registradoDB get_Correo() {
-		throw new UnsupportedOperationException();
 	}
 
-	public Usuario_registradoDB get_Usuario_identificado() {
-		throw new UnsupportedOperationException();
-	}
+	/** Otros metodos no utilizados **/
 
-	public Usuario_registradoDB get_Moderador() {
-		throw new UnsupportedOperationException();
-	}
+//	public Usuario_registradoDB get_Correo() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public Usuario_registradoDB get_Usuario_identificado() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public Usuario_registradoDB get_Moderador() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public Usuario_registradoDB get_Usuario_registrado() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public AdministradorDB get_Administrador() {
+//		throw new UnsupportedOperationException();
+//	}
 
-	public Usuario_registradoDB get_Usuario_registrado() {
-		throw new UnsupportedOperationException();
-	}
-
-	public AdministradorDB get_Administrador() {
-		throw new UnsupportedOperationException();
-	}
-
-	
-
-	public List<MensajeDB> consulta_M_UR(int aIdTema) {
-		throw new UnsupportedOperationException();
-	}
-
-	public List<MensajeDB> consultar_MU(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}	
 }

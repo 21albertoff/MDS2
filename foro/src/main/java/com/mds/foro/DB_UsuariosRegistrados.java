@@ -77,7 +77,6 @@ public class DB_UsuariosRegistrados {
 		boolean correcto = false;
 
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		;
 
 		try {
 			Usuario_DB cargarUsuarios = Usuario_DBDAO.loadUsuario_DBByQuery("Usuario_DB.nombreUsuario='" + nombreUsuario
@@ -111,7 +110,6 @@ public class DB_UsuariosRegistrados {
 		boolean correcto = false;
 
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		;
 
 		try {
 			Usuario_DB cargarUsuarios = Usuario_DBDAO.loadUsuario_DBByQuery("Usuario_DB.nombreUsuario='" + nombreUsuario
@@ -420,8 +418,8 @@ public class DB_UsuariosRegistrados {
 		}
 		return moderadores;
 	}
-	
-	//Consultar un amigo
+
+	// Consultar un amigo
 	public Usuario_DB consultar_Amigo(int idUsuarioAmigo) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		Usuario_DB amigo = null;

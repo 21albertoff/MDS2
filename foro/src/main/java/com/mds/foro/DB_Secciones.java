@@ -10,117 +10,117 @@ import com.mds.foro.SeccionDB;
 
 @SuppressWarnings("unchecked")
 public class DB_Secciones {
-	
-	//Declaraciones
+
+	// Declaraciones
 	public DB_Main Mainsecciones;
 	public Vector<SeccionDB> contieneSeccion = new Vector<SeccionDB>();
 
-	//Consultar secciones destacadas
+	// Consultar secciones destacadas
 	public List<SeccionDB> consultar_SD() throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<SeccionDB> seccion = null;
 		try {
 			seccion = SeccionDBDAO.querySeccionDB(null, null);
 			t.commit();
-			
+
 		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return seccion;
 	}
 
-	//Consultar secciones fijas
+	// Consultar secciones fijas
 	public List<SeccionDB> consultar_SF() throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<SeccionDB> seccion = null;
 		try {
 			seccion = SeccionDBDAO.querySeccionDB(null, null);
 			t.commit();
-			
+
 		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return seccion;
 	}
 
-	//Consultar ultimas secciones
+	// Consultar ultimas secciones
 	public List<SeccionDB> consultar_US() throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<SeccionDB> seccion = null;
 		try {
 			seccion = SeccionDBDAO.querySeccionDB(null, null);
 			t.commit();
-			
+
 		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return seccion;
 	}
 
-	//Consultar secciones Fijas Administrador
+	// Consultar secciones Fijas Administrador
 	public List<SeccionDB> consultar_SF_A() throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<SeccionDB> seccion = null;
 		try {
 			seccion = SeccionDBDAO.querySeccionDB(null, null);
 			t.commit();
-			
+
 		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return seccion;
 	}
 
-	//Consultar ultimas secciones Administrador
+	// Consultar ultimas secciones Administrador
 	public List<SeccionDB> consultar_US_A() throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 		List<SeccionDB> seccion = null;
 		try {
 			seccion = SeccionDBDAO.querySeccionDB(null, null);
 			t.commit();
-			
+
 		} catch (PersistentException e1) {
 			t.rollback();
 		}
 		return seccion;
 	}
 
-	//Eliminar seccion
+	// Eliminar seccion
 	public boolean eliminar_seccion(int idSeccion) throws PersistentException {
 		boolean eliminado = false;
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		
+
 		try {
 			SeccionDB seccion = SeccionDBDAO.loadSeccionDBByORMID(idSeccion);
 			seccion.setEliminado(true);
 			SeccionDBDAO.save(seccion);
 			t.commit();
-			eliminado=true;
-		}catch(Exception e) {
+			eliminado = true;
+		} catch (Exception e) {
 			t.rollback();
 		}
 		return eliminado;
 	}
 
-	//QuitarSeccionFija
-	public void quitar_seccion_fija(int idSeccion) throws PersistentException  {
+	// QuitarSeccionFija
+	public void quitar_seccion_fija(int idSeccion) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		
+
 		try {
 			SeccionDB seccion = SeccionDBDAO.loadSeccionDBByORMID(idSeccion);
 			seccion.setSeccionFija(false);
 			SeccionDBDAO.save(seccion);
 			t.commit();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			t.rollback();
 		}
 	}
 
-	//Crear seccion
+	// Crear seccion
 	public boolean crear_seccion(String tituloSeccion, String icono, boolean fijarSeccion) throws PersistentException {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
-		
-		try {	
+
+		try {
 			SeccionDB nuevaSeccion = SeccionDBDAO.createSeccionDB();
 			nuevaSeccion.setSeccion(tituloSeccion);
 			nuevaSeccion.setIcono(icono);
@@ -130,11 +130,11 @@ public class DB_Secciones {
 			SeccionDBDAO.save(nuevaSeccion);
 			t.commit();
 			return true;
-			
-	} catch (PersistentException e1) {
-		t.rollback();
-	}
 
-	return false;
+		} catch (PersistentException e1) {
+			t.rollback();
+		}
+
+		return false;
 	}
 }
