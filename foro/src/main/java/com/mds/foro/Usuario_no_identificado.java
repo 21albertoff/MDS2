@@ -5,29 +5,29 @@ import com.vaadin.ui.Button.ClickEvent;
 
 @SuppressWarnings("serial")
 public class Usuario_no_identificado extends Usuario {
-	
 
-	//Inicializar
-	public void inicializarUNI() {	
+	// Inicializador
+	public void inicializarUNI() {
 		menuUsuarioNoIdentifado.setVisible(true);
 	}
 
-	//Constructor
+	// Constructor
 	public Usuario_no_identificado() {
 		inicializarUNI();
-			
-		menuIniciarSesion.addClickListener(new Button.ClickListener(){
-			public void buttonClick(ClickEvent event) { 
+
+		// Menu usuario no identificado
+		menuIniciarSesion.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
 				addComponent(new Iniciar_sesion());
-			} 
+			}
 		});
-			
-		menuRegistrarse.addClickListener(new Button.ClickListener(){
-			public void buttonClick(ClickEvent event) { 
+
+		menuRegistrarse.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
 				addComponent(new Registrarse());
-			} 
+			}
 		});
-			
+
 	}
-		
+
 }

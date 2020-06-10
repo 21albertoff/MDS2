@@ -3,39 +3,40 @@ package com.mds.foro;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 
-@SuppressWarnings("serial") 
+@SuppressWarnings("serial")
 public class Usuario_registrado extends Usuario_identificado {
-	
-	//Inicializacion
+
+	// Inicializador
 	public void inicializarUR() {
-	    menuUsuarioIdentificado.setVisible(true);
+		menuUsuarioIdentificado.setVisible(true);
 	}
 
-	//Constructor
+	// Constructor
 	public Usuario_registrado() {
 		inicializarUR();
 
-		menuCerrarSesionUsuario.addClickListener(new Button.ClickListener(){
-			public void buttonClick(ClickEvent event) { 
+		// Menu usuario identificado
+		menuCerrarSesionUsuario.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
 				addComponent(new Cerrar_sesion());
 
-			} 
+			}
 		});
-		
-		menuMiPerfilUsuario.addClickListener(new Button.ClickListener(){
-			public void buttonClick(ClickEvent event) { 
+
+		menuMiPerfilUsuario.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
 				addComponent(new Visualizar_mi_perfil());
 
-			} 
+			}
 		});
-		
-		menuNotificacionesUsuario.addClickListener(new Button.ClickListener(){
-			public void buttonClick(ClickEvent event) { 
+
+		menuNotificacionesUsuario.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
 				addComponent(new Notificaciones());
 
-			} 
+			}
 		});
-		
+
 	}
-	
+
 }

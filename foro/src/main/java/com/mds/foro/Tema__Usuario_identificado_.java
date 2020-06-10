@@ -1,6 +1,6 @@
 package com.mds.foro;
 
+@SuppressWarnings("serial")
 public class Tema__Usuario_identificado_ extends Tema_Ventana{
-	public Temas__Usuario_identificado_ _unnamed_Temas__Usuario_identificado__;
-	public Visualizar_tema_y_mensajes__Usuario_identificado_ _visualizaTema;
+
 }
