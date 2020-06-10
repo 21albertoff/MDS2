@@ -8,51 +8,68 @@
  </head>
  <body>
   <vaadin-absolute-layout>
-   <vaadin-absolute-layout icon="menuSuperior" style-name="menuSuperior" height="9%" _id="menuSuperior">
-    <vaadin-label style-name="nombreForo" size-full plain-text _id="nombreForo" :top="30%" :left="5%">
-      foroMDS2 
-    </vaadin-label>
-    <vaadin-absolute-layout _id="menuUsuarioAdministrador">
-     <vaadin-link caption="Mi Perfil" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilAdministrador" :top="30%" :right="20%" :bottom="30%" :left="70%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e798" caption="Cerrar Sesion" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionAdministrador" :top="30%" :right="5%" :bottom="30%" :left="82%"></vaadin-link>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e7b4" caption="Notificaciones" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesAdministrador" :top="30%" :right="28%" :bottom="30%" :left="50%"></vaadin-link>
-     <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" size-full _id="menuimagenPerfilAdministador" :top="27%" :right="31%" :bottom="30%" :left="66%"></vaadin-image>
-     <vaadin-link icon="fonticon://Vaadin-Icons/e700" caption="Panel de control" primary-style-name="enlacesMenu" size-full _id="menuPanelControlAdministrador" :top="30%" :right="28%" :bottom="30%" :left="32%"></vaadin-link>
+   <vaadin-absolute-layout style-name="ventanaEmergente">
+    <vaadin-absolute-layout style-name="menuSuperior" height="9%" _id="menuSuperior">
+     <vaadin-absolute-layout visible="false" _id="menuUsuarioNoIdentifado">
+      <vaadin-button primary-style-name="enlacesMenu" size-full _id="menuRegistrarse" :top="30%" :right="22%" :bottom="30%" :left="70%">
+        Registrarse 
+      </vaadin-button>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e80d" primary-style-name="enlacesMenu" size-full _id="menuIniciarSesion" :top="30%" :right="5%" :bottom="30%" :left="82%">
+        Iniciar Sesion 
+      </vaadin-button>
+     </vaadin-absolute-layout>
+     <vaadin-absolute-layout visible="false" _id="menuUsuarioIdentificado">
+      <vaadin-button icon="fonticon://Vaadin-Icons/e80d" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilUsuario" :top="30%" :right="23%" :bottom="30%" :left="68%">
+        Mi Perfil 
+      </vaadin-button>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e798" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionUsuario" :top="30%" :right="5%" :bottom="30%" :left="82%">
+        Cerrar Sesion 
+      </vaadin-button>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e7b4" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesUsuario" :top="30%" :right="38%" :bottom="30%" :left="50%">
+        Notificaciones 
+      </vaadin-button>
+     </vaadin-absolute-layout>
+     <vaadin-absolute-layout visible="false" _id="menuUsuarioModerador">
+      <vaadin-button icon="fonticon://Vaadin-Icons/e80d" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilModerador" :top="30%" :right="22%" :bottom="30%" :left="68%">
+        Mi Perfil 
+      </vaadin-button>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e798" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionModerador" :top="30%" :right="5%" :bottom="30%" :left="82%">
+        Cerrar Sesion 
+      </vaadin-button>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e7b4" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesModerador" :top="30%" :right="38%" :bottom="30%" :left="50%">
+        Notificaciones 
+      </vaadin-button>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e700" primary-style-name="enlacesMenu" size-full _id="menuPanelControlModerador" :top="30%" :right="53%" :bottom="30%" :left="32%">
+        Panel de control 
+      </vaadin-button>
+     </vaadin-absolute-layout>
+     <vaadin-absolute-layout _id="menuUsuarioAdministrador">
+      <vaadin-button icon="fonticon://Vaadin-Icons/e80d" primary-style-name="enlacesMenu" size-full _id="menuMiPerfilAdministrador" :top="30%" :right="23%" :bottom="30%" :left="68%">
+        Mi Perfil 
+      </vaadin-button>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e798" primary-style-name="enlacesMenu" size-full _id="menuCerrarSesionAdministrador" :top="30%" :right="5%" :bottom="30%" :left="82%">
+        Cerrar Sesion 
+      </vaadin-button>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e7b4" primary-style-name="enlacesMenu" size-full _id="menuNotificacionesAdministrador" :top="30%" :right="38%" :bottom="30%" :left="50%">
+        Notificaciones 
+      </vaadin-button>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e700" primary-style-name="enlacesMenu" size-full _id="menuPanelControlAdministrador" :top="30%" :right="53%" :bottom="30%" :left="32%">
+        Panel de control 
+      </vaadin-button>
+     </vaadin-absolute-layout>
+     <vaadin-button primary-style-name="enlacesMenu" style-name="nombreForo" size-full plain-text _id="nombreForo" :top="30%" :right="85%" :bottom="30%" :left="5%">
+       foroMDS2 
+     </vaadin-button>
     </vaadin-absolute-layout>
-   </vaadin-absolute-layout>
-   <vaadin-absolute-layout style-name="ventanaEmergente" _id="fondoNegro"></vaadin-absolute-layout>
-   <vaadin-image source="https://pngimage.net/wp-content/uploads/2018/06/triangulo-png-blanco-3.png" width="90%" height="90%" :top="45px" :right="45%" :bottom="85%" :left="675px"></vaadin-image>
-   <vaadin-absolute-layout style-name="cajaMensaje" _id="cajaNotificacion" :top="10%" :right="10%" :bottom="50%" :left="45%">
-    <vaadin-button style-name="danger" size-full plain-text _id="cerrarNotificaciones" :top="80%" :right="5%" :bottom="5%" :left="75%">
-      Cerrar 
-    </vaadin-button>
-    <vaadin-panel id="fondogris" size-full _id="panelNotificaciones" :top="10%" :right="5%" :bottom="88px" :left="5%">
-     <vaadin-vertical-layout>
-      <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaAmigos1">
-       <vaadin-image source="https://www.soyfutbol.com/__export/1557611939289/sites/debate/img/2019/05/11/leonel_messi.jpg_943222218.jpg" style-name="round" width="50px" height="50px" _id="imagenUsuario31" :middle :center></vaadin-image>
-       <vaadin-label width-full plain-text _id="nombreUsuario1" :middle :expand>
-         Solitud de amistad @NickUsuario 
-       </vaadin-label>
-       <vaadin-link caption="ACEPTAR" style-name="green" _id="aceptarSolicitud" :middle :right></vaadin-link>
-       <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarSolicitud" :middle :right></vaadin-link>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaAmigos11">
-       <vaadin-image source="https://www.soyfutbol.com/__export/1557611939289/sites/debate/img/2019/05/11/leonel_messi.jpg_943222218.jpg" style-name="round" width="50px" height="50px" _id="imagenUsuario311" :middle :center></vaadin-image>
-       <vaadin-label width-full plain-text _id="nombreUsuario11" :middle :expand>
-         Respondio a tu mensaje 
-       </vaadin-label>
-       <vaadin-link icon="fonticon://Vaadin-Icons/e7df" caption="VER RESPUESTA" _id="eliminarSolicitud1" :middle :right></vaadin-link>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout style-name="cajaMensaje" width-full _id="cajaAmigos12">
-       <vaadin-image source="https://avatars1.githubusercontent.com/u/8536167?s=460&amp;v=4" style-name="round" width="50px" height="50px" _id="imagenUsuario312" :middle :center></vaadin-image>
-       <vaadin-label width="98.48%" height="68px" plain-text _id="nombreUsuario12" :middle :expand>
-         Solitud de amistad @NickUsuario 
-       </vaadin-label>
-       <vaadin-link caption="ACEPTAR" style-name="green" _id="aceptarSolicitud2" :middle :right></vaadin-link>
-       <vaadin-link caption="ELIMINAR" style-name="red" _id="eliminarSolicitud2" :middle :right></vaadin-link>
-      </vaadin-horizontal-layout>
-     </vaadin-vertical-layout>
-    </vaadin-panel>
+    <vaadin-image source="https://pngimage.net/wp-content/uploads/2018/06/triangulo-png-blanco-3.png" width="90%" height="90%" :top="45px" :right="45%" :bottom="85%" :left="675px"></vaadin-image>
+    <vaadin-absolute-layout style-name="cajaMensaje" _id="cajaNotificacion" :top="10%" :right="10%" :bottom="50%" :left="45%">
+     <vaadin-button style-name="danger" size-full plain-text _id="cerrarNotificaciones" :top="80%" :right="5%" :bottom="5%" :left="75%">
+       Cerrar 
+     </vaadin-button>
+     <vaadin-panel id="fondogris" size-full _id="panelNotificaciones" :top="10%" :right="5%" :bottom="89px" :left="5%">
+      <vaadin-vertical-layout _id="verticalNotificaciones"></vaadin-vertical-layout>
+     </vaadin-panel>
+    </vaadin-absolute-layout>
    </vaadin-absolute-layout>
   </vaadin-absolute-layout>
  </body>

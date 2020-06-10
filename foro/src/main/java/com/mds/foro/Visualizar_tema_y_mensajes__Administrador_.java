@@ -215,6 +215,9 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 					mensaje.nickUsuario.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
 							Parametros.setPerfilUsuario(M.get(id).getCreado_por().getORMID());
+							if(Parametros.getPerfilUsuario() == Parametros.getIdUsuario()) {
+								addComponent(new Visualizar_mi_perfil());
+							}
 							addComponent(new Visualizar_perfil());
 						}
 					});

@@ -26,6 +26,8 @@ public class Banear_usuario extends Banear_usuario_Ventana {
 					} 
 					if (Parametros.getVolverBaneo() == 2)
 						addComponent(new Panel_de_control());
+					if (Parametros.getVolverBaneo() == 3)
+						addComponent(new Visualizar_perfil_amigo());
 					
 				}
 			});
@@ -45,6 +47,8 @@ public class Banear_usuario extends Banear_usuario_Ventana {
 			} 
 			if (Parametros.getVolverBaneo() == 2)
 				addComponent(new Panel_de_control());
+			if (Parametros.getVolverBaneo() == 3)
+				addComponent(new Visualizar_perfil_amigo());
 			Notification.show("El usuario ha sido baneado", "", Notification.Type.WARNING_MESSAGE);
 		
 	}

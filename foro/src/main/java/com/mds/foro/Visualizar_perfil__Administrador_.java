@@ -4,7 +4,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.Label;
 
-public class Visualizar_perfil__Administrador_ extends Visualizar_perfil_amigo_ventana {
+public class Visualizar_perfil__Administrador_ extends Visualizar_perfil_amigo_Ventana {
 	
 	//declaraciond de variables
 	private CheckBox _asignar_Desasignar_moderador;

@@ -5,7 +5,6 @@ import com.vaadin.annotations.DesignRoot;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Image;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.declarative.Design;
 
 /** 
@@ -21,7 +20,7 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Amigo_Ventana extends HorizontalLayout {
 	protected Image imagenAmigo;
-	protected Label nombreAmigo;
+	protected Button nombreAmigo;
 	protected Button eliminarAmigo;
 
 	public Amigo_Ventana() {

@@ -210,6 +210,9 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_ extends Visualiza
 					mensaje.nickUsuario.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
 							Parametros.setPerfilUsuario(M.get(id).getCreado_por().getORMID());
+							if(Parametros.getPerfilUsuario() == Parametros.getIdUsuario()) {
+								addComponent(new Visualizar_mi_perfil());
+							}
 							addComponent(new Visualizar_perfil());
 						}
 					});

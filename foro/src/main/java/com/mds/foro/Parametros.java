@@ -43,7 +43,7 @@ public class Parametros {
 	private static int idBaneado;
 	
 	private static int idNotificado;
-	
+	private static int idAmigo;
 	
 
 	public static int getTipoUsuario() {
@@ -279,5 +279,12 @@ public class Parametros {
 	public static void borrarUsuario() {
 		setIdUsuario(0);
 		setPerfilUsuario(0);
+	}
+	
+	public static int getIdMiAmigo() {
+		return idAmigo;
+	}
+	public static void setIdMiAmigo(int idAmigo) {
+		Parametros.idAmigo = idAmigo;		
 	}
 }

@@ -286,6 +286,66 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		return null;
 	}
 
+	//Cambiar la contrasenia
+		public boolean cambiar_contrasenia(int idUsuario, String contrasenia) {
+			try {
+				return registrados.cambiar_contrasenia(idUsuario, contrasenia);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
+		
+		//Consultar un amigo
+		public Usuario_DB consultar_Amigo(int idUsuarioAmigo) {
+			try {
+				return registrados.consultar_Amigo(idUsuarioAmigo);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return null;
+		}
+		
+		//Consultar notificaciones
+		public List<NotificacionDB> consultar_N(int idUsuario) {
+			try {
+				return notificaciones.consultar_N(idUsuario);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return null;
+		}
+		
+		//Eliminar Notificacion
+		public boolean eliminar_notificacion(int idUsuario, int idNotificacion) {
+			try {
+				return notificaciones.eliminar_notificacion(idUsuario, idNotificacion);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
+		
+		//Agregar amigo
+		public boolean agregar_amigo(int idUsuario, int idAmigo) {
+			try {
+				return registrados.agregar_amigo(idUsuario, idAmigo);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
+		
+		@Override
+		public void enviar_solicitud(int idUsuario, int idUsuarioAmigo) {
+			try {
+				notificaciones.crear_notificacion(idUsuario, idUsuarioAmigo);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	
 	/** Usuario registrado **/
 
 	// Reportar mensaje
@@ -295,6 +355,24 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public boolean modificar_nombre(int idUsuario, String newNombreUsuario) {
+		try {
+			return registrados.modificar_nombre(idUsuario, newNombreUsuario);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean eliminar_perfil(int idUsuario) {
+		try {
+			return registrados.eliminar_perfil(idUsuario);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 	/** Moderador **/
@@ -531,6 +609,15 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		}
 		return null;
 	}
+	
+	//Cambiar estado moderador
+		public void Asignar_Desasignar_moderador(int idUsuario) {
+			try {
+				registrados.Asignar_Desasignar_moderador(idUsuario);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
 	/** Otros metodos **/
 
@@ -554,9 +641,7 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 		throw new UnsupportedOperationException();
 	}
 
-	public List<Usuario_DB> consultar_N(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}
+	
 
 	public List<MensajeDB> consulta_M_UR(int aIdTema) {
 		throw new UnsupportedOperationException();
@@ -564,42 +649,5 @@ public class DB_Main implements iUsuario_no_identificado, iCorreo, iElementos_fi
 
 	public List<MensajeDB> consultar_MU(int aIdUsuario) {
 		throw new UnsupportedOperationException();
-	}
-
-	public boolean agregar_amigo(int aIdUsuario, int aIdAmigo) {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean eliminar_notificacion(int aIdUsuario, int aIdNotificacion) {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean cambiar_contrasenia(int aIdUsuario, String aContrasenia) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void Asignar_Desasignar_moderador(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void cambiar_num_mensajes(int aIdUsuario, int aCantidad) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void cambiar_estado_tema(int aIdTema) {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean citar_tema(String aMensaje, String aFotos, String aVideo, int aIdTema) {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean eliminar_perfil(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean modificar_nombre(int aIdUsuario, String aNewNombreUsuario) {
-		throw new UnsupportedOperationException();
-	}
-
+	}	
 }

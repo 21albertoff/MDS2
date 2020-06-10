@@ -3,7 +3,7 @@ package com.mds.foro;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
 
-public class Visualizar_perfil__Moderador_ extends Visualizar_perfil_amigo_ventana {
+public class Visualizar_perfil__Moderador_ extends Visualizar_perfil_amigo_Ventana {
 	
 	//Declaracion de variables
 	private Label _notificarL;

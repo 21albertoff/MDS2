@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface iAdministrador extends iUsuario_identificado {
 
-	public List consultar_MU(int aIdUsuario);
+	public List<MensajeDB> consultar_MU(int aIdUsuario);
 
 	/**MENSAJES**/
 	//Consultar mensajes administrador
@@ -54,12 +54,8 @@ public interface iAdministrador extends iUsuario_identificado {
 
 	public void Asignar_Desasignar_moderador(int aIdUsuario);
 
-	public void cambiar_num_mensajes(int aIdUsuario, int aCantidad);
-
 	//Eliminar mensaje
 	public boolean eliminar_mensaje(int idMensaje);
-
-	public void cambiar_estado_tema(int aIdTema);
 
 	//Eliminar tema
 	public boolean eliminar_tema(int idTema);

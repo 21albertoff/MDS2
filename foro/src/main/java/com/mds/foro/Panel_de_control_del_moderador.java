@@ -33,7 +33,7 @@ public class Panel_de_control_del_moderador extends Panel_de_control_del_moderad
 
 		menuMiPerfilModerador.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				addComponent(new Visualizar_mi_perfil__Moderador_());
+				addComponent(new Visualizar_mi_perfil());
 
 			}
 		});
@@ -47,14 +47,14 @@ public class Panel_de_control_del_moderador extends Panel_de_control_del_moderad
 		
 		menuPanelControlModerador.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				addComponent(new Panel_de_control());
+				addComponent(new Panel_de_control_del_moderador());
 
 			}
 		});
-
+	
 		nombreForo.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				addComponent(new Visualizar_seccion__Administrador_());
+				addComponent(new Moderador());
 			}
 		});
 	}

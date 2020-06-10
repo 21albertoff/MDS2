@@ -26,6 +26,8 @@ public class Notificar_usuario extends Notificar_usuario_Ventana {
 						} 
 						if (Parametros.getVolverBaneo() == 2)
 							addComponent(new Panel_de_control_del_moderador());
+						if (Parametros.getVolverBaneo() == 3)
+							addComponent(new Visualizar_perfil_amigo());
 						
 					}
 				});
@@ -45,7 +47,8 @@ public class Notificar_usuario extends Notificar_usuario_Ventana {
 				} 
 				if (Parametros.getVolverBaneo() == 2)
 					addComponent(new Panel_de_control_del_moderador());
-				
+				if (Parametros.getVolverBaneo() == 3)
+					addComponent(new Visualizar_perfil_amigo());
 				Notification.show("El usuario ha sido notificado", "", Notification.Type.WARNING_MESSAGE);
 			
 		}

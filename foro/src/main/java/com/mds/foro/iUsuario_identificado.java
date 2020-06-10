@@ -11,7 +11,7 @@ public interface iUsuario_identificado extends iUsuario {
 
 	public List consultar_MA(int aIdAmigo);
 
-	public List consultar_N(int aIdUsuario);
+	public List<NotificacionDB> consultar_N(int aIdUsuario);
 
 	public List consultar_A(int aIdUsuario);
 
@@ -57,4 +57,8 @@ public interface iUsuario_identificado extends iUsuario {
 	public void Activar_Desactivar_por_correo(int aIdUsuario);
 
 	public void perfil_oculto(int aIdUsuario);
+
+	public Usuario_DB consultar_Amigo(int idUsuarioAmigo);
+
+	public void enviar_solicitud(int idUsuario, int idUsuarioAmigo);
 }

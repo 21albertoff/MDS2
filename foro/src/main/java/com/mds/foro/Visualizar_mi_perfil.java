@@ -4,12 +4,7 @@ import java.util.List;
 
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.CheckBox;
-import com.vaadin.ui.Image;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.Link;
 import com.vaadin.ui.Notification;
-import com.vaadin.ui.TextArea;
 import com.vaadin.ui.Button.ClickEvent;
 
 @SuppressWarnings("serial")
@@ -29,6 +24,7 @@ public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
 	private Link _cambiarPasswordL;**/
 	
 	iUsuario_identificado usuarioidentificado;
+	iUsuario_registrado registrado;
 	private int idUsuario;
 	private String nombreUsuario;
 	private String nombreCompleto;
@@ -40,6 +36,7 @@ public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
 	//Inicializacion
 	public void inicializar() {
 		usuarioidentificado = new DB_Main();
+		registrado = new DB_Main();
 		
 		idUsuario = Parametros.getIdUsuario();
 		nombreUsuario = Parametros.getNombreUsuario();
@@ -161,6 +158,11 @@ public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
 					Activar_Desactivar_notificaciones();
 					Activar_Desactivar_notificaciones_por_correo();
 				}
+				if(nombreUsuarioCompleto.getValue() != nombreCompleto && Parametros.getTipoUsuario() != 3) {
+					nombreCompleto = nombreUsuarioCompleto.getValue();
+					Parametros.setNombreCompleto(nombreCompleto);
+					modificarNombre();
+				}
 				cambiarImagen.setVisible(false);
 				addComponent(new Visualizar_mi_perfil());
 			}
@@ -281,13 +283,20 @@ public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
 			while (idM < amigos.size()) {
 				Amigo amigo = new Amigo();
 				amigo.imagenAmigo.setSource(new ExternalResource(amigos.get(idM).getFoto()));
-				amigo.nombreAmigo.setValue(amigos.get(idM).getNombreUsuario());
+				amigo.nombreAmigo.setCaption(amigos.get(idM).getNombreUsuario());
 				verticalMisAmigos.addComponent(amigo);
 
 				final int idAmigo = idM;
 				amigo.eliminarAmigo.addClickListener(new Button.ClickListener() {
 					public void buttonClick(ClickEvent event) {
 						eliminar_amigo(amigos.get(idAmigo).getIdUsuario());
+					}
+				});
+				
+				amigo.nombreAmigo.addClickListener(new Button.ClickListener() {
+					public void buttonClick(ClickEvent event) {
+						Parametros.setIdMiAmigo(amigos.get(idAmigo).getIdUsuario());
+						addComponent(new Visualizar_perfil_amigo());
 					}
 				});
 				idM++;
@@ -352,5 +361,9 @@ public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
 
 	public void perfil_oculto() {
 		usuarioidentificado.perfil_oculto(idUsuario);
+	}
+	
+	public void modificarNombre() {
+		registrado.modificar_nombre(idUsuario, nombreUsuario);
 	}
 }

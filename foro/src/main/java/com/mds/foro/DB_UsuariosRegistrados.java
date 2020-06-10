@@ -425,4 +425,17 @@ public class DB_UsuariosRegistrados {
 		}
 		return moderadores;
 	}
+	
+	//Consultar un amigo
+	public Usuario_DB consultar_Amigo(int idUsuarioAmigo) throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		Usuario_DB amigo = null;
+		try {
+			amigo = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuarioAmigo);
+			t.commit();
+		} catch (PersistentException e1) {
+			t.rollback();
+		}
+		return amigo;
+	}
 }

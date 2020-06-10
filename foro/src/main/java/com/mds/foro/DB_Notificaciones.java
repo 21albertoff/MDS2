@@ -31,7 +31,7 @@ public class DB_Notificaciones {
 		
 		try {
 			NotificacionDB notificacion = NotificacionDBDAO.loadNotificacionDBByORMID(idNotificacion);
-			NotificacionDBDAO.delete(notificacion);
+			NotificacionDBDAO.deleteAndDissociate(notificacion);
 			NotificacionDBDAO.save(notificacion);
 			t.commit();
 			eliminado=true;
@@ -39,5 +39,20 @@ public class DB_Notificaciones {
 			t.rollback();
 		}
 		return eliminado;
+	}
+
+	public void crear_notificacion(int idUsuario, int idUsuarioAmigo) throws PersistentException {
+		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			NotificacionDB notificacion = NotificacionDBDAO.createNotificacionDB();
+			Usuario_DB user = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
+			notificacion.setEnviada_por(user);
+			NotificacionDBDAO.save(notificacion);
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
+		
 	}
 }
