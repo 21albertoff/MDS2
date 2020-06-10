@@ -105,6 +105,7 @@ public class Visualizar_perfil_amigo extends Visualizar_perfil_amigo_Ventana {
 			public void buttonClick(ClickEvent event) {
 				agregar_amigo();
 				agregarAmigo.setEnabled(false);
+				Parametros.setPerfilUsuario(amigo.getIdUsuario());
 				Notification.show("Se ha enviado una solicitud al usuario " + amigo.getNombreUsuario() + ".", "",
 						Notification.Type.WARNING_MESSAGE);
 			}
