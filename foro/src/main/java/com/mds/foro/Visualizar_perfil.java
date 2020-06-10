@@ -37,6 +37,7 @@ public class Visualizar_perfil extends Visualizar_perfil_ventana {
 		amigo = consultar_Amigo(idUsuarioAmigo);
 		yo = consultar_Amigo(idUsuario);
 		if (yo.amigo_de.contains(amigo) || yo.getPermiso() == 2 || yo.getPermiso() == 3) {
+			Parametros.setIdMiAmigo(amigo.getIdUsuario());
 			addComponent(new Visualizar_perfil_amigo());
 		}
 		
