@@ -61,7 +61,7 @@ public class Visualizar_perfil_amigo extends Visualizar_perfil_amigo_Ventana {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
+	//Consultar si es amigo
 	private List<Usuario_DB> consultar_si_es_amigo() {
 		List<Usuario_DB> amigos = usuarioidentificado.consultar_A(idUsuario);
 		return amigos;
@@ -262,7 +262,6 @@ public class Visualizar_perfil_amigo extends Visualizar_perfil_amigo_Ventana {
 	}
 
 	// Consultar los mensaje de mi amiguito
-	@SuppressWarnings("unchecked")
 	private void consultar_MA() {
 		List<MensajeDB> MisM = usuarioidentificado.consultar_MisM(idUsuarioAmigo);
 		int idM = MisM.size() - 1;

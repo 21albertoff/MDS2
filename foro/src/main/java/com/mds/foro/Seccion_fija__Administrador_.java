@@ -1,7 +1,6 @@
 package com.mds.foro;
 
-import com.vaadin.ui.Button;
-
+@SuppressWarnings("serial")
 public class Seccion_fija__Administrador_ extends Seccion_fija_Ventana {
 
 	public Seccion_fija__Administrador_() {

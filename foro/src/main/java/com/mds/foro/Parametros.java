@@ -1,7 +1,13 @@
 package com.mds.foro;
 
 public class Parametros {
+	
+	/**DECLARACIONES**/
+	//Vista actual
+	private static int privilegioUsuario=0;
 	private static int idUsuario=1;
+
+	//Usuario
 	private static String nombreUsuario="";
 	private static String passwordUsuario="";
 	private static String correoUsuario="";
@@ -12,13 +18,11 @@ public class Parametros {
 	private static boolean activar_desactivar_notificacion;
 	private static boolean perfilOculto;
 	private static boolean baneado=false;
+	private static int idBaneado;
+	private static int idNotificado;
+	private static int idAmigo;
 
-	private static int webVolverBaneo=0;
-
-	private static int idSeccion=1;
-	private static String tituloSeccion="";
-	private static String iconoSeccion="";
-	
+	//Tema
 	private static int idTema=1;
 	private static String tituloTema="";
 	private static String iconoTema="";
@@ -28,23 +32,24 @@ public class Parametros {
 	private static int idUsuarioTema;
 	private static int likeTema;
 	private static int likesTemas;
-
+	private static String ordenarPor="";
+	private static int permisoTema;
+	
+	//Mensaje
 	private static int idMensaje=1;
 	private static int likesMensaje;
-	
-	
-	private static int privilegioUsuario=0;
-	
-	private static String ordenarPor="";
-	
 	private static boolean citado = false;
 	private static int idCitado;
-	private static int permisoTema;
-	private static int idBaneado;
 	
-	private static int idNotificado;
-	private static int idAmigo;
+	//Seccion
+	private static int idSeccion=1;
+	private static String tituloSeccion="";
+	private static String iconoSeccion="";
 	
+	//Otros
+	private static int webVolverBaneo=0;
+	
+	/**GETTER Y SETTER**/
 
 	public static int getTipoUsuario() {
 		return privilegioUsuario;
@@ -284,6 +289,7 @@ public class Parametros {
 	public static int getIdMiAmigo() {
 		return idAmigo;
 	}
+	
 	public static void setIdMiAmigo(int idAmigo) {
 		Parametros.idAmigo = idAmigo;		
 	}

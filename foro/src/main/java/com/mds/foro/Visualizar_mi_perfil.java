@@ -271,7 +271,6 @@ public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
 	}
 
 	// Consultar la lista de mis amigos
-	@SuppressWarnings("unchecked")
 	private void consultar_amigos() {
 		List<Usuario_DB> amigos = usuarioidentificado.consultar_A(idUsuario);
 		int idM = 0;
@@ -314,7 +313,6 @@ public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
 	}
 
 	// Consultar la lista de mis mensajes
-	@SuppressWarnings("unchecked")
 	private void consultar_MisM() {
 		List<MensajeDB> MisM = usuarioidentificado.consultar_MisM(idUsuario);
 		int idM = MisM.size() - 1;
