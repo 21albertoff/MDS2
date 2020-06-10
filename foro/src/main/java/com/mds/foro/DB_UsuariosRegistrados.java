@@ -311,8 +311,9 @@ public class DB_UsuariosRegistrados {
 		PersistentTransaction t = ProyectoFinalPersistentManager.instance().getSession().beginTransaction();
 
 		try {
-			Usuario_DB usuario = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
-			Usuario_DBDAO.delete(usuario);
+			Usuario_registradoDB usuario = Usuario_registradoDBDAO.loadUsuario_registradoDBByORMID(idUsuario);
+			usuario.setBaneado(true);
+			Usuario_DBDAO.deleteAndDissociate(usuario);
 			Usuario_DBDAO.save(usuario);
 			t.commit();
 			return true;
