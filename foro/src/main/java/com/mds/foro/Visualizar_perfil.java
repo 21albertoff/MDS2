@@ -100,6 +100,6 @@ public class Visualizar_perfil extends Visualizar_perfil_ventana {
 
 	// Enviar solicitud de amistad
 	public void addAmigo() {
-		usuarioidentificado.enviar_solicitud(Parametros.getIdUsuario(), amigo.getIdUsuario());
+		usuarioidentificado.enviar_solicitud(Parametros.getIdUsuario(), Parametros.getPerfilUsuario());
 	}
 }

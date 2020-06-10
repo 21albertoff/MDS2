@@ -263,7 +263,7 @@ public class Visualizar_perfil_amigo extends Visualizar_perfil_amigo_Ventana {
 
 	// Enviar solicitud de amistad
 	private void agregar_amigo() {
-		usuarioidentificado.enviar_solicitud(idUsuario, idUsuarioAmigo);
+		usuarioidentificado.enviar_solicitud(Parametros.getIdUsuario(), Parametros.getPerfilUsuario());
 	}
 
 	// Consultar los mensaje de mi amiguito
