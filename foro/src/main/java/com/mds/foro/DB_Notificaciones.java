@@ -35,7 +35,7 @@ public class DB_Notificaciones {
 		try {
 			NotificacionDB notificacion = NotificacionDBDAO.loadNotificacionDBByORMID(idNotificacion);
 			Usuario_DB user = Usuario_DBDAO.loadUsuario_DBByORMID(idUsuario);
-			user.recibe.clear();
+			user.recibe.remove(notificacion);
 			NotificacionDBDAO.deleteAndDissociate(notificacion);
 			NotificacionDBDAO.save(notificacion);
 			Usuario_DBDAO.save(user);

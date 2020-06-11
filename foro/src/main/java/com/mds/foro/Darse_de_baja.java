@@ -24,7 +24,12 @@ public class Darse_de_baja extends Darse_de_baja_Ventana {
 		// Botones constructor
 		cancelarEliminar.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				addComponent(new Visualizar_mi_perfil());
+				if(Parametros.getPermiso() == 1) {
+					addComponent(new Visualizar_mi_perfil__Usuario_registrado_());
+				}
+				if(Parametros.getPermiso() == 2) {
+					addComponent(new Visualizar_mi_perfil__Moderador_());
+				}
 			}
 		});
 

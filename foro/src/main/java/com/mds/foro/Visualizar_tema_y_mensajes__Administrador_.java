@@ -225,7 +225,7 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 							if (Parametros.getPerfilUsuario() == Parametros.getIdUsuario()) {
 								addComponent(new Visualizar_mi_perfil());
 							}
-							addComponent(new Visualizar_perfil());
+							addComponent(new Visualizar_perfil__Administrador_());
 						}
 					});
 					mensaje.botonEliminar.addClickListener(new Button.ClickListener() {

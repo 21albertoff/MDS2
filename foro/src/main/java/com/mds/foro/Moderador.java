@@ -31,7 +31,7 @@ public class Moderador extends Usuario_identificado {
 
 		menuMiPerfilModerador.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				addComponent(new Visualizar_mi_perfil());
+				addComponent(new Visualizar_mi_perfil__Moderador_());
 
 			}
 		});

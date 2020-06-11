@@ -57,7 +57,7 @@ public class Cambiar_password extends Cambiar_password_Ventana {
 
 			menuMiPerfilUsuario.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
-					addComponent(new Visualizar_mi_perfil());
+					addComponent(new Visualizar_mi_perfil__Usuario_registrado_());
 
 				}
 			});
@@ -124,7 +124,7 @@ public class Cambiar_password extends Cambiar_password_Ventana {
 
 			menuMiPerfilModerador.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
-					addComponent(new Visualizar_mi_perfil());
+					addComponent(new Visualizar_mi_perfil__Moderador_());
 
 				}
 			});
@@ -160,7 +160,16 @@ public class Cambiar_password extends Cambiar_password_Ventana {
 					if (validar_password()) {
 						confirmar_cambio_password();
 						Parametros.setPasswordUsuario(passwordNueva);
-						addComponent(new Visualizar_mi_perfil());
+						if (Parametros.getTipoUsuario() == 1) {
+							addComponent(new Visualizar_mi_perfil__Usuario_registrado_());
+						}
+						if (Parametros.getTipoUsuario() == 2) {
+							addComponent(new Visualizar_mi_perfil__Moderador_());
+						}
+						if (Parametros.getTipoUsuario() == 3) {
+							addComponent(new Visualizar_mi_perfil());
+						}
+						
 						Notification.show("La contraseña ha sido cambiada con exito.",
 								Notification.Type.WARNING_MESSAGE);
 					}
@@ -174,7 +183,15 @@ public class Cambiar_password extends Cambiar_password_Ventana {
 
 		cancelarCambio.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				addComponent(new Visualizar_mi_perfil());
+				if (Parametros.getTipoUsuario() == 1) {
+					addComponent(new Visualizar_mi_perfil__Usuario_registrado_());
+				}
+				if (Parametros.getTipoUsuario() == 2) {
+					addComponent(new Visualizar_mi_perfil__Moderador_());
+				}
+				if (Parametros.getTipoUsuario() == 3) {
+					addComponent(new Visualizar_mi_perfil());
+				}
 			}
 		});
 	}

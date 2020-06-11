@@ -69,7 +69,7 @@ public class Notificaciones extends Notificaciones_Ventana {
 
 			menuMiPerfilUsuario.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
-					addComponent(new Visualizar_mi_perfil());
+					addComponent(new Visualizar_mi_perfil__Usuario_registrado_());
 
 				}
 			});
@@ -136,7 +136,7 @@ public class Notificaciones extends Notificaciones_Ventana {
 
 			menuMiPerfilModerador.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
-					addComponent(new Visualizar_mi_perfil());
+					addComponent(new Visualizar_mi_perfil__Moderador_());
 
 				}
 			});
@@ -187,7 +187,6 @@ public class Notificaciones extends Notificaciones_Ventana {
 
 			// Botones del componente
 			notificacionUsuario = notif.get(idM).getORMID();
-			final int ID = idM;
 			notificacion.aceptarSolicitud.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
 					idUsuarioAmigo = user.getIdUsuario();

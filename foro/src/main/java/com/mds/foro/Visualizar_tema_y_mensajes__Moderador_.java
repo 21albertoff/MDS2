@@ -75,7 +75,7 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 
 		menuMiPerfilModerador.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				addComponent(new Visualizar_mi_perfil());
+				addComponent(new Visualizar_mi_perfil__Moderador_());
 
 			}
 		});
@@ -255,9 +255,9 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 						public void buttonClick(ClickEvent event) {
 							Parametros.setPerfilUsuario(M.get(id).getCreado_por().getORMID());
 							if (Parametros.getPerfilUsuario() == Parametros.getIdUsuario()) {
-								addComponent(new Visualizar_mi_perfil());
+								addComponent(new Visualizar_mi_perfil__Moderador_());
 							}
-							addComponent(new Visualizar_perfil());
+							addComponent(new Visualizar_perfil__Moderador_());
 						}
 					});
 					mensaje.botonEliminar.addClickListener(new Button.ClickListener() {

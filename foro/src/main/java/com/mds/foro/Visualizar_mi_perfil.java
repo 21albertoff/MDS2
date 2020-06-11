@@ -40,23 +40,7 @@ public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
 		panelAmigos.setVisible(false);
 		cambiarImagen.setVisible(false);
 
-		if (Parametros.getTipoUsuario() == 1) {
-			menuUsuarioIdentificado.setVisible(true);
-			menuUsuarioNoIdentifado.setVisible(false);
-			menuUsuarioAdministrador.setVisible(false);
-			menuUsuarioModerador.setVisible(false);
-			eliminarCuenta.setVisible(true);
-			nombreUsuarioCompleto.setVisible(true);
-
-		} else if (Parametros.getTipoUsuario() == 2) {
-			menuUsuarioModerador.setVisible(true);
-			menuUsuarioNoIdentifado.setVisible(false);
-			menuUsuarioIdentificado.setVisible(false);
-			menuUsuarioAdministrador.setVisible(false);
-			eliminarCuenta.setVisible(true);
-			nombreUsuarioCompleto.setVisible(true);
-
-		} else if (Parametros.getTipoUsuario() == 3) {
+		if (Parametros.getTipoUsuario() == 3) {
 			menuUsuarioModerador.setVisible(false);
 			menuUsuarioNoIdentifado.setVisible(false);
 			menuUsuarioIdentificado.setVisible(false);
@@ -93,13 +77,6 @@ public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
 		cambiarPassword.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				addComponent(new Cambiar_password());
-			}
-		});
-
-		// Darse de baja
-		eliminarCuenta.addClickListener(new Button.ClickListener() {
-			public void buttonClick(ClickEvent event) {
-				addComponent(new Darse_de_baja());
 			}
 		});
 
@@ -154,46 +131,11 @@ public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
 					Activar_Desactivar_notificaciones();
 					Activar_Desactivar_notificaciones_por_correo();
 				}
-				if (nombreUsuarioCompleto.getValue() != nombreCompleto && Parametros.getTipoUsuario() != 3) {
-					nombreCompleto = nombreUsuarioCompleto.getValue();
-					Parametros.setNombreCompleto(nombreCompleto);
-					modificarNombre();
-				}
 				cambiarImagen.setVisible(false);
 				addComponent(new Visualizar_mi_perfil());
 				Notification.show("Se ha cambiado todo con exito.", "", Notification.Type.WARNING_MESSAGE);
 			}
 		});
-
-		// Menu Usuario registrado
-		if (Parametros.getTipoUsuario() == 1) {
-			menuCerrarSesionUsuario.addClickListener(new Button.ClickListener() {
-				public void buttonClick(ClickEvent event) {
-					addComponent(new Cerrar_sesion());
-
-				}
-			});
-
-			menuMiPerfilUsuario.addClickListener(new Button.ClickListener() {
-				public void buttonClick(ClickEvent event) {
-					addComponent(new Visualizar_mi_perfil());
-
-				}
-			});
-
-			menuNotificacionesUsuario.addClickListener(new Button.ClickListener() {
-				public void buttonClick(ClickEvent event) {
-					addComponent(new Notificaciones());
-
-				}
-			});
-
-			nombreForo.addClickListener(new Button.ClickListener() {
-				public void buttonClick(ClickEvent event) {
-					addComponent(new Usuario_registrado());
-				}
-			});
-		}
 
 		// Menu Administrador
 		if (Parametros.getTipoUsuario() == 3) {
@@ -231,51 +173,13 @@ public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
 				}
 			});
 		}
-
-		// Menu Moderador
-		if (Parametros.getTipoUsuario() == 2) {
-			menuCerrarSesionModerador.addClickListener(new Button.ClickListener() {
-				public void buttonClick(ClickEvent event) {
-					addComponent(new Cerrar_sesion());
-
-				}
-			});
-
-			menuMiPerfilModerador.addClickListener(new Button.ClickListener() {
-				public void buttonClick(ClickEvent event) {
-					addComponent(new Visualizar_mi_perfil());
-
-				}
-			});
-
-			menuNotificacionesModerador.addClickListener(new Button.ClickListener() {
-				public void buttonClick(ClickEvent event) {
-					addComponent(new Notificaciones());
-
-				}
-			});
-
-			menuPanelControlModerador.addClickListener(new Button.ClickListener() {
-				public void buttonClick(ClickEvent event) {
-					addComponent(new Panel_de_control_del_moderador());
-
-				}
-			});
-
-			nombreForo.addClickListener(new Button.ClickListener() {
-				public void buttonClick(ClickEvent event) {
-					addComponent(new Moderador());
-				}
-			});
-		}
-
 	}
 
 	// Consultar la lista de mis amigos
 	private void consultar_amigos() {
 		List<Usuario_DB> amigos = usuarioidentificado.consultar_A(idUsuario);
 		int idM = 0;
-		if (!(amigos == null)) {
+		if (!(amigos == null || amigos.size() == 0)) {
 			while (idM < amigos.size()) {
 				Amigo amigo = new Amigo();
 				amigo.imagenAmigo.setSource(new ExternalResource(amigos.get(idM).getFoto()));
@@ -292,7 +196,7 @@ public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
 				amigo.nombreAmigo.addClickListener(new Button.ClickListener() {
 					public void buttonClick(ClickEvent event) {
 						Parametros.setIdMiAmigo(amigos.get(idAmigo).getIdUsuario());
-						addComponent(new Visualizar_perfil_amigo());
+						addComponent(new Visualizar_perfil__Administrador_());
 					}
 				});
 				idM++;
@@ -362,10 +266,5 @@ public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
 	// Cambiar si quiero o no mi perfil oculto
 	public void perfil_oculto() {
 		usuarioidentificado.perfil_oculto(idUsuario);
-	}
-
-	// Modificar mi nombre completo
-	public void modificarNombre() {
-		registrado.modificar_nombre(idUsuario, nombreUsuario);
 	}
 }

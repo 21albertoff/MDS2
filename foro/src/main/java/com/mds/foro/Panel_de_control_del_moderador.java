@@ -34,7 +34,7 @@ public class Panel_de_control_del_moderador extends Panel_de_control_del_moderad
 
 		menuMiPerfilModerador.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				addComponent(new Visualizar_mi_perfil());
+				addComponent(new Visualizar_mi_perfil__Moderador_());
 
 			}
 		});

@@ -76,7 +76,7 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_
 
 		menuMiPerfilUsuario.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				addComponent(new Visualizar_mi_perfil());
+				addComponent(new Visualizar_mi_perfil__Usuario_registrado_());
 
 			}
 		});
@@ -224,7 +224,7 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_
 						public void buttonClick(ClickEvent event) {
 							Parametros.setPerfilUsuario(M.get(id).getCreado_por().getORMID());
 							if (Parametros.getPerfilUsuario() == Parametros.getIdUsuario()) {
-								addComponent(new Visualizar_mi_perfil());
+								addComponent(new Visualizar_mi_perfil__Usuario_registrado_());
 							}
 							addComponent(new Visualizar_perfil());
 						}

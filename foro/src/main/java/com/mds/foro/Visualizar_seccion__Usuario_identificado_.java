@@ -58,7 +58,7 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
 
 		menuMiPerfilUsuario.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				addComponent(new Visualizar_mi_perfil());
+				addComponent(new Visualizar_mi_perfil__Usuario_registrado_());
 
 			}
 		});
@@ -80,7 +80,7 @@ public class Visualizar_seccion__Usuario_identificado_ extends Visualizar_seccio
  
 		menuMiPerfilModerador.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				addComponent(new Visualizar_mi_perfil());
+				addComponent(new Visualizar_mi_perfil__Moderador_());
 
 			}
 		});

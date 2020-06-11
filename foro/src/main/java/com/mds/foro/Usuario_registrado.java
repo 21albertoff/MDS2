@@ -25,7 +25,7 @@ public class Usuario_registrado extends Usuario_identificado {
 
 		menuMiPerfilUsuario.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				addComponent(new Visualizar_mi_perfil());
+				addComponent(new Visualizar_mi_perfil__Usuario_registrado_());
 
 			}
 		});
