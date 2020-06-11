@@ -1,4 +1,10 @@
 package com.mds.foro;
-public class Mensajes__Moderador_ {
+
+@SuppressWarnings("serial")
+public class Mensajes__Moderador_ extends Mensajes_Ventana{
+	
+	public Mensajes__Moderador_() {
+		verticalMensajes.setVisible(true);
+	}
 	
 }
