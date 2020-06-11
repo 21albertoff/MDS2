@@ -20,8 +20,8 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Mi_mensaje_Ventana extends HorizontalLayout {
 	protected Image imagenTema;
-	protected Label mensaje;
 	protected Label temaMensaje;
+	protected Label mensaje;
 
 	public Mi_mensaje_Ventana() {
 		Design.read(this);

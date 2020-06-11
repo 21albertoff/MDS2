@@ -7,13 +7,16 @@
  </head>
  <body>
   <vaadin-horizontal-layout style-name="cajaMensaje" width-full>
-   <vaadin-image source="https://cdn.pixabay.com/photo/2014/03/24/17/15/bike-295235_960_720.png" style-name="round" width="50px" height="50px" _id="imagenTema" :center></vaadin-image>
-   <vaadin-label style-name="negrita" plain-text _id="mensaje" :middle>
-     Mensaje 
-   </vaadin-label>
-   <vaadin-label plain-text _id="temaMensaje" :middle>
+   <vaadin-image source="https://cdn.pixabay.com/photo/2014/03/24/17/15/bike-295235_960_720.png" style-name="round" width="50px" height="50px" _id="imagenTema" :middle :center></vaadin-image>
+   <vaadin-label style-name="negrita" width="300px" plain-text _id="temaMensaje" :middle>
      Tema 
    </vaadin-label>
+   <vaadin-label plain-text></vaadin-label>
+   <vaadin-label width="400px" plain-text _id="mensaje" :middle :right>
+     Mensaje 
+   </vaadin-label>
+   <vaadin-label plain-text :middle :right></vaadin-label>
+   <vaadin-label plain-text :middle :right></vaadin-label>
   </vaadin-horizontal-layout>
  </body>
 </html>
