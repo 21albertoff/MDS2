@@ -55,7 +55,6 @@ public class Visualizar_mi_perfil__Moderador_ extends Visualizar_mi_perfil__Usua
 			inicializar();
 
 			consultar_MisM();
-			consultar_amigos();
 
 			imagenPerfil.setSource(new ExternalResource(fotoPerfil));
 			cambiarImagen.setValue(fotoPerfil);
@@ -97,6 +96,8 @@ public class Visualizar_mi_perfil__Moderador_ extends Visualizar_mi_perfil__Usua
 					panelAmigos.setVisible(true);
 					verticalMisAmigos.setVisible(true);
 					listaMensajes.setVisible(true);
+					consultar_amigos();
+
 				}
 			});
 

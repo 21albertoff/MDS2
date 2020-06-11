@@ -54,7 +54,6 @@ public class Visualizar_mi_perfil__Usuario_registrado_ extends Visualizar_mi_per
 			inicializar();
 
 			consultar_MisM();
-			consultar_amigos();
 
 			imagenPerfil.setSource(new ExternalResource(fotoPerfil));
 			cambiarImagen.setValue(fotoPerfil);
@@ -96,6 +95,8 @@ public class Visualizar_mi_perfil__Usuario_registrado_ extends Visualizar_mi_per
 					panelAmigos.setVisible(true);
 					verticalMisAmigos.setVisible(true);
 					listaMensajes.setVisible(true);
+					consultar_amigos();
+
 				}
 			});
 
@@ -183,8 +184,8 @@ public class Visualizar_mi_perfil__Usuario_registrado_ extends Visualizar_mi_per
 		private void consultar_amigos() {
 			List<Usuario_DB> amigos = usuarioidentificado.consultar_A(idUsuario);
 			int idM = 0;
-			if (!(amigos == null)) {
-				while (idM < amigos.size() || amigos.size() == 0) {
+			if (!(amigos == null || amigos.size() == 0)) {
+				while (idM < amigos.size()) {
 					Amigo amigo = new Amigo();
 					amigo.imagenAmigo.setSource(new ExternalResource(amigos.get(idM).getFoto()));
 					amigo.nombreAmigo.setCaption(amigos.get(idM).getNombreUsuario());

@@ -55,7 +55,6 @@ public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
 		inicializar();
 
 		consultar_MisM();
-		consultar_amigos();
 
 		imagenPerfil.setSource(new ExternalResource(fotoPerfil));
 		cambiarImagen.setValue(fotoPerfil);
@@ -90,6 +89,8 @@ public class Visualizar_mi_perfil extends Visualizar_mi_perfil_ventana {
 				panelAmigos.setVisible(true);
 				verticalMisAmigos.setVisible(true);
 				listaMensajes.setVisible(true);
+				consultar_amigos();
+
 			}
 		});
 
