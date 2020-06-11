@@ -4,7 +4,7 @@ package com.mds.foro;
 public class Mensaje_propietario extends Mensaje_propietario_Ventana{
 	
 	public Mensaje_propietario() {
-		citado.setVisible(false);
+		citado.setVisible(true);
 		botonOcultar.setVisible(false);
 		botonEliminar.setVisible(true);
 		fotoPerfil.setVisible(true);
@@ -14,14 +14,14 @@ public class Mensaje_propietario extends Mensaje_propietario_Ventana{
 		botonNotificar.setVisible(false);
 		citarMen.setVisible(true);
 		mensaje.setVisible(true);
-		videos.setVisible(false);
-		linkVideo.setVisible(false);
+		videos.setVisible(true);
+		linkVideo.setVisible(true);
 		imagen.setVisible(true);
 		imagen1.setVisible(true);
 		imagen2.setVisible(true);
 		imagen3.setVisible(true);
 		cantidadMeGusta.setVisible(true);
-		botonMeGusta.setVisible(false);
+		botonMeGusta.setVisible(true);
 		responderMensaje.setVisible(true);
 	}
 }

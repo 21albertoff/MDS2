@@ -10,7 +10,7 @@ public class Tema extends Tema_Ventana{
 		comentarios.setVisible(true);
 		imagenUsuario.setVisible(true);
 		nombreUsuario.setVisible(true);
-		cantidadMeGustas.setVisible(false);
+		cantidadMeGustas.setVisible(true);
 		botonEliminarTema.setVisible(false);
 		botonEliminarOculto.setVisible(false);
 	}

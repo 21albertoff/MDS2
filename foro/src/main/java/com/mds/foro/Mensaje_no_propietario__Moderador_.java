@@ -4,8 +4,8 @@ package com.mds.foro;
 public class Mensaje_no_propietario__Moderador_ extends Mensaje_propietario{
 
 	public Mensaje_no_propietario__Moderador_() {
-		citado.setVisible(false);
-		botonOcultar.setVisible(false);
+		citado.setVisible(true);
+		botonOcultar.setVisible(true);
 		botonEliminar.setVisible(false);
 		fotoPerfil.setVisible(true);
 		nickUsuario.setVisible(true);

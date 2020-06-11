@@ -175,8 +175,6 @@ public class Notificaciones extends Notificaciones_Ventana {
 			if(user != null || user.getIdUsuario() != Parametros.getIdUsuario()) {
 			// Creacion del componente
 			Notificacion notificacion = new Notificacion();
-
-			
 			
 			// Elementos del componente
 			notificacion.fotoPerfil.setSource(new ExternalResource(user.getFoto()));
