@@ -231,6 +231,7 @@ public class Visualizar_tema_y_mensajes__Usuario_identificado_
 					});
 					mensaje.botonEliminar.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
+							Parametros.setIdMensaje(M.get(id).getIdMensaje());
 							addComponent(new Eliminar_mensaje());
 						}
 					});

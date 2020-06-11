@@ -117,14 +117,6 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 				addComponent(new Escribir_mensaje());
 			}
 		});
-
-		reportarUsuario.addClickListener(new Button.ClickListener() {
-			public void buttonClick(ClickEvent event) {
-				Parametros.setVolverBaneo(1);
-				Parametros.setIdBaneado(Parametros.getUsuarioTema());
-				addComponent(new Banear_usuario());
-			}
-		});
 	}
 
 	// Valorar tema
@@ -233,6 +225,7 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 					});
 					mensaje.botonEliminar.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
+							Parametros.setIdMensaje(M.get(id).getIdMensaje());
 							addComponent(new Eliminar_mensaje());
 						}
 					});

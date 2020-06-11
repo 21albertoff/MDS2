@@ -264,6 +264,7 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 					});
 					mensaje.botonEliminar.addClickListener(new Button.ClickListener() {
 						public void buttonClick(ClickEvent event) {
+							Parametros.setIdMensaje(M.get(id).getIdMensaje());
 							addComponent(new Eliminar_mensaje());
 						}
 					});
