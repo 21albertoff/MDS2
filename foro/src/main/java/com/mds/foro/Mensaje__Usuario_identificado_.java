@@ -4,14 +4,14 @@ package com.mds.foro;
 public class Mensaje__Usuario_identificado_ extends Mensaje_propietario{
 	
 	public Mensaje__Usuario_identificado_() {
-		citado.setVisible(false);
-		botonOcultar.setVisible(false);
-		botonEliminar.setVisible(false);
+		citado.setVisible(true);
+		botonOcultar.setVisible(true);
+		botonEliminar.setVisible(true);
 		fotoPerfil.setVisible(true);
 		nickUsuario.setVisible(true);
 		reportar.setVisible(true);
-		botonBanear.setVisible(false);
-		botonNotificar.setVisible(false);
+		botonBanear.setVisible(true);
+		botonNotificar.setVisible(true);
 		citarMen.setVisible(true);
 		mensaje.setVisible(true);
 		videos.setVisible(true);

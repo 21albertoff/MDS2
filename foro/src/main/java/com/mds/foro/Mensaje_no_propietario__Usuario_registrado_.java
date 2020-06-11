@@ -5,13 +5,13 @@ public class Mensaje_no_propietario__Usuario_registrado_ extends Mensaje_propiet
 
 	public Mensaje_no_propietario__Usuario_registrado_() {
 		citado.setVisible(true);
-		botonOcultar.setVisible(false);
-		botonEliminar.setVisible(false);
+		botonOcultar.setVisible(true);
+		botonEliminar.setVisible(true);
 		fotoPerfil.setVisible(true);
 		nickUsuario.setVisible(true);
 		reportar.setVisible(true);
-		botonBanear.setVisible(false);
-		botonNotificar.setVisible(false);
+		botonBanear.setVisible(true);
+		botonNotificar.setVisible(true);
 		citarMen.setVisible(true);
 		mensaje.setVisible(true);
 		videos.setVisible(true);

@@ -6,11 +6,11 @@ public class Mensaje_no_propietario__Moderador_ extends Mensaje_propietario{
 	public Mensaje_no_propietario__Moderador_() {
 		citado.setVisible(true);
 		botonOcultar.setVisible(true);
-		botonEliminar.setVisible(false);
+		botonEliminar.setVisible(true);
 		fotoPerfil.setVisible(true);
 		nickUsuario.setVisible(true);
-		reportar.setVisible(false);
-		botonBanear.setVisible(false);
+		reportar.setVisible(true);
+		botonBanear.setVisible(true);
 		botonNotificar.setVisible(true);
 		citarMen.setVisible(true);
 		mensaje.setVisible(true);

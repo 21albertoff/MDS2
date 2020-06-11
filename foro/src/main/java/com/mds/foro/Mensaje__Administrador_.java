@@ -4,14 +4,14 @@ package com.mds.foro;
 public class Mensaje__Administrador_ extends Mensaje_propietario{
 	
 	public Mensaje__Administrador_() {
-		citado.setVisible(false);
-		botonOcultar.setVisible(false);
+		citado.setVisible(true);
+		botonOcultar.setVisible(true);
 		botonEliminar.setVisible(true);
 		fotoPerfil.setVisible(true);
 		nickUsuario.setVisible(true);
-		reportar.setVisible(false);
+		reportar.setVisible(true);
 		botonBanear.setVisible(true);
-		botonNotificar.setVisible(false);
+		botonNotificar.setVisible(true);
 		citarMen.setVisible(true);
 		mensaje.setVisible(true);
 		videos.setVisible(true);
