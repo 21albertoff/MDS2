@@ -102,7 +102,7 @@ public class Visualizar_perfil_amigo extends Visualizar_perfil_amigo_Ventana {
 
 			menuMiPerfilUsuario.addClickListener(new Button.ClickListener() {
 				public void buttonClick(ClickEvent event) {
-					addComponent(new Visualizar_mi_perfil());
+					addComponent(new Visualizar_mi_perfil__Usuario_registrado_());
 
 				}
 			});
