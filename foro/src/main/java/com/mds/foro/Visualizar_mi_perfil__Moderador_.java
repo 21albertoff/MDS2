@@ -193,8 +193,8 @@ public class Visualizar_mi_perfil__Moderador_ extends Visualizar_mi_perfil__Usua
 		private void consultar_amigos() {
 			List<Usuario_DB> amigos = usuarioidentificado.consultar_A(idUsuario);
 			int idM = 0;
-			if (!(amigos == null)) {
-				while (idM < amigos.size() || amigos.size() == 0) {
+			if (!(amigos == null || amigos.size() == 0)) {
+				while (idM < amigos.size()) {
 					Amigo amigo = new Amigo();
 					amigo.imagenAmigo.setSource(new ExternalResource(amigos.get(idM).getFoto()));
 					amigo.nombreAmigo.setCaption(amigos.get(idM).getNombreUsuario());
