@@ -256,8 +256,10 @@ public class Visualizar_tema_y_mensajes__Moderador_ extends Visualizar_tema_y_me
 							Parametros.setPerfilUsuario(M.get(id).getCreado_por().getORMID());
 							if (Parametros.getPerfilUsuario() == Parametros.getIdUsuario()) {
 								addComponent(new Visualizar_mi_perfil__Moderador_());
+							} else {
+								Parametros.setIdMiAmigo(M.get(id).getCreado_por().getORMID());
+								addComponent(new Visualizar_perfil__Moderador_());
 							}
-							addComponent(new Visualizar_perfil__Moderador_());
 						}
 					});
 					mensaje.botonEliminar.addClickListener(new Button.ClickListener() {

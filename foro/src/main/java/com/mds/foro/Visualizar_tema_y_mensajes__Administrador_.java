@@ -224,8 +224,11 @@ public class Visualizar_tema_y_mensajes__Administrador_ extends Visualizar_tema_
 							Parametros.setPerfilUsuario(M.get(id).getCreado_por().getORMID());
 							if (Parametros.getPerfilUsuario() == Parametros.getIdUsuario()) {
 								addComponent(new Visualizar_mi_perfil());
+							}else {
+								Parametros.setIdMiAmigo(M.get(id).getCreado_por().getORMID());
+								addComponent(new Visualizar_perfil__Administrador_());
 							}
-							addComponent(new Visualizar_perfil__Administrador_());
+							
 						}
 					});
 					mensaje.botonEliminar.addClickListener(new Button.ClickListener() {
