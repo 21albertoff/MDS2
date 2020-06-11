@@ -165,6 +165,8 @@ public class Panel_de_control extends Panel_de_control_ventana {
 				public void buttonClick(ClickEvent event) {
 					idModerador = mod.get(id).getIdUsuario();
 					eliminarModerador();
+					addComponent(new Panel_de_control());
+					Notification.show("El usuario ya no es moderador", "", Notification.Type.WARNING_MESSAGE);
 				}
 			});
 			idMod++;
@@ -174,9 +176,6 @@ public class Panel_de_control extends Panel_de_control_ventana {
 	// Eliminar moderador
 	private void eliminarModerador() {
 		admin.quitar_moderador(idModerador);
-		addComponent(new Panel_de_control());
-		Notification.show("El usuario ya no es moderador", "", Notification.Type.WARNING_MESSAGE);
-
 	}
 
 	// Consultar temas ocultos
@@ -201,6 +200,8 @@ public class Panel_de_control extends Panel_de_control_ventana {
 				public void buttonClick(ClickEvent event) {
 					idTemaOculto = t.get(id).getORMID();
 					mostrarTemaOculto();
+					addComponent(new Panel_de_control());
+					Notification.show("El tema ha dejado de ser oculto", "", Notification.Type.WARNING_MESSAGE);
 				}
 			});
 			idT++;
@@ -210,9 +211,6 @@ public class Panel_de_control extends Panel_de_control_ventana {
 	// Mostrar temas ocultos
 	private void mostrarTemaOculto() {
 		admin.mostrar_tema(idTemaOculto);
-		addComponent(new Panel_de_control());
-		Notification.show("El tema ha dejado de ser oculto", "", Notification.Type.WARNING_MESSAGE);
-
 	}
 
 	// Consultar mensajes ocultos
@@ -237,6 +235,8 @@ public class Panel_de_control extends Panel_de_control_ventana {
 				public void buttonClick(ClickEvent event) {
 					idMensajeOculto = m.get(id).getORMID();
 					mostrarMensajeOculto();
+					addComponent(new Panel_de_control());
+					Notification.show("El mensaje ha dejado de ser oculto", "", Notification.Type.WARNING_MESSAGE);
 				}
 			});
 			idM++;
@@ -246,9 +246,6 @@ public class Panel_de_control extends Panel_de_control_ventana {
 	// Mostrar mensajes ocultos
 	private void mostrarMensajeOculto() {
 		admin.mostrar_mensaje(idMensajeOculto);
-		addComponent(new Panel_de_control());
-		Notification.show("El mensaje ha dejado de ser oculto", "", Notification.Type.WARNING_MESSAGE);
-
 	}
 
 	// Consultar usuarios notificados
