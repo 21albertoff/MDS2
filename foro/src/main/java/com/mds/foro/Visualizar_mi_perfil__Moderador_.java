@@ -8,7 +8,7 @@ import com.vaadin.ui.Notification;
 import com.vaadin.ui.Button.ClickEvent;
 
 @SuppressWarnings("serial")
-public class Visualizar_mi_perfil__Moderador_ extends Visualizar_mi_perfil__Usuario_registrado_ {
+public class Visualizar_mi_perfil__Moderador_ extends Visualizar_mi_perfil_ventana {
 
 	// Declaracion de variables
 		iUsuario_identificado usuarioidentificado;
