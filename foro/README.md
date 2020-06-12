@@ -2,27 +2,13 @@
 
 _Proyecto del foro de la asignatura de Modelado y Diseño del Sotfware II_
 
-
-## Autores ✒️
-
-* **Alberto Fuentes** - [21albertoff](https://github.com/21albertoff)
-* **Daniel Ortega** - [dor494](https://github.com/dor494)
-
 ## Comenzando 🚀
 
 _En este repositorio te encontraras con el proyecto de creación de un foro que ha sido modelado previamente mediante diagramas y prototipados, cuyo resultado sera la implementación en codigo Java con la ayuda de la herramienta Vaadin_
 
 ```
-El foro todavia no esta adaptado de forma responsiva, **SE RECOMIENDA** visualizar las interfaces del proyecto en modo **Desktop(1440x900).
+SE RECOMIENDA visualizar las interfaces del proyecto en modo Desktop(1280x720).
 ```
-
-### Pre-requisitos 📋
-
-_Es necesario tener instalado las herramientas de Vaadin 8 y Eclipse para su correcto funcionamiento._
-
-## Ejecutando las pruebas ⚙️
-
-_Estamos trabajando en documentar esta sección_
 
 ## Construido con 🛠️
 
@@ -35,15 +21,11 @@ _Herramientas utilizadas para la creación del proyecto_
 
 Actualmente el proyecto esta desplegado de forma educativa para [UAL.es](https://www.ual.es/) por tanto, el proceso de pull requests se encuentra inactivo.
 
+## Autores ✒️
 
-## Versionado 📌
+* **Alberto Fuentes** - [21albertoff](https://github.com/21albertoff)
+* **Daniel Ortega** - [dor494](https://github.com/dor494)
 
-Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/21albertoff/MDS2/tags).
-
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/21albertoff/MDS2/contributors) quíenes han participado en este proyecto. 
-
----
-Escrito con ❤️ por [Alberto Fuentes](https://github.com/21albertoff) 😊
 
 foro
 ==============
@@ -97,3 +79,6 @@ Using Vaadin pre-releases
 
 If Vaadin pre-releases are not enabled by default, use the Maven parameter
 "-P vaadin-prerelease" or change the activation default value of the profile in pom.xml .
+
+---
+Escrito con ❤️ por [Alberto Fuentes](https://github.com/21albertoff) 😊
